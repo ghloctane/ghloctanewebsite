@@ -1,0 +1,134 @@
+[data-glow] {
+    border-radius: calc(var(--radius, 14) * 1px);
+    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.glow-card {
+    padding: 0;
+}
+
+.glow-card:not(.card-chooseus) {
+    padding: 1rem;
+}
+
+[data-glow]::before,
+[data-glow]::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: calc(var(--border-size) * -1);
+    border: var(--border-size) solid transparent;
+    border-radius: calc(var(--radius) * 1px);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    -webkit-mask-clip: padding-box, border-box;
+    -webkit-mask-composite: source-over, source-over;
+}
+
+[data-glow]::before {
+    background-image: radial-gradient(
+        calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsl(var(--hue, 210) 100% 50% / 1), transparent 100%
+    );
+    filter: brightness(2);
+}
+
+[data-glow]::after {
+    background-image: radial-gradient(
+        calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsla(0, 100%, 100%, 1), transparent 100%
+    );
+}
+
+[data-glow] [data-glow] {
+    position: absolute;
+    inset: 0;
+    will-change: filter;
+    opacity: var(--outer, 1);
+    border-radius: calc(var(--radius) * 1px);
+    border-width: calc(var(--border-size) * 20);
+    filter: blur(calc(var(--border-size) * 10));
+    background: none;
+    pointer-events: none;
+    border: none;
+}
+
+[data-glow] > [data-glow]::before {
+    inset: -10px;
+    border-width: 10px;
+}
+
+.glow-card {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 1rem;
+}
+
+.glow-card-sm {
+    width: 12rem;
+    height: 16rem;
+}
+
+.glow-card-md {
+    width: 16rem;
+    height: 20rem;
+}
+
+.glow-card-lg {
+    width: 20rem;
+    height: 24rem;
+}
+
+.glow-card-inner {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Integration with existing card-chooseus */
+.card-chooseus[data-glow] {
+    position: relative;
+    overflow: visible;
+    background-color: transparent;
+    background-image: radial-gradient(at bottom right, var(--accent-color-3) 0%, var(--accent-color-4) 50%);
+    display: flex;
+    flex-direction: row;
+    min-height: 150px;
+    width: 100%;
+    border: none;
+    padding: 0;
+    --border: 2;
+    --radius: 25;
+}
+
+.card-chooseus[data-glow]::before,
+.card-chooseus[data-glow]::after {
+    border-radius: var(--global-border-radius);
+    z-index: 0;
+}
+
+.card-chooseus[data-glow] .glow-card-inner {
+    border-radius: var(--global-border-radius);
+    z-index: 0;
+}
+
+/* Ensure content is above glow effects */
+.card-chooseus[data-glow] .chooseus-icon-wrapper,
+.card-chooseus[data-glow] .chooseus-content {
+    position: relative;
+    z-index: 2;
+}
+
+

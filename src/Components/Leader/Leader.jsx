@@ -1,10 +1,12 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
+import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 const LeaderSection = () => {
     return (
         <>
-            <div className="section">
+            <div className="section section-leader">
+                <BackgroundPaths />
                 <div className="hero-container">
                     <div className="d-flex flex-column justify-content-center text-center gspace-5">
                         <div className="d-flex flex-column justify-content-center text-center gspace-2">
@@ -66,7 +68,7 @@ const LeaderSection = () => {
                 </div>
             </div>
 
-            <div className="section">
+            <div className="section section-vision">
                 <div className="hero-container">
                     <div className="d-flex flex-column flex-lg-row gspace-5">
                         <div className="chooseus-content-container">

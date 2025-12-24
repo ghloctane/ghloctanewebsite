@@ -1,6 +1,7 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import StatsCard from "../Card/StatsCard";
+import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 const StatsSection = () => {
   const stats = [
@@ -27,7 +28,8 @@ const StatsSection = () => {
   ];
 
   return (
-    <div className="section">
+    <div className="section section-stats">
+      <BackgroundPaths />
       <div className="hero-container">
         <div className="d-flex flex-column flex-lg-row gspace-5">
           <div className="expertise-title">
@@ -59,7 +61,7 @@ const StatsSection = () => {
             </div>
             <div className="mt-4">
               <AnimateOnScroll animation="fadeInUp" speed="normal">
-                <div className="card card-expertise" style={{width: '100%', maxWidth: '500px'}}>
+                <div className="card card-expertise card-stats">
                   <h4>REAL RESULTS. REAL IMPACT.</h4>
                   <p>Numbers that speak for themselves.</p>
                   <div className="d-flex align-items-center flex-row gspace-2 expertise-link">

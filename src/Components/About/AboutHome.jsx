@@ -1,10 +1,12 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
+import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 function AboutHomeSection(){
 
     return(
-        <div className="section">
+        <div className="section section-about">
+            <BackgroundPaths />
             <div className="hero-container">
                 <div className="d-flex flex-column flex-lg-row gspace-5">
                     <div className="about-img-layout">

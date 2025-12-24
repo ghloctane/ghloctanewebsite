@@ -6,7 +6,7 @@ function ExpertiseSection(){
 
     return(
         <>
-           <div className="section">
+           <div className="section-expertise">
                 <div className="hero-container">
                     <div className="d-flex flex-column flex-lg-row gspace-5">
                         <div className="expertise-img-layout">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
+import Squares from "../Squares/Squares";
 
 function NewsletterSection() {
 
@@ -43,6 +44,15 @@ function NewsletterSection() {
             <div className="hero-container">
                 <div className="newsletter-wrapper">
                     <div className="newsletter-layout">
+                        <div className="newsletter-squares-wrapper">
+                            <Squares
+                                direction="diagonal"
+                                speed={0.5}
+                                borderColor="#a8b8e0"
+                                squareSize={80}
+                                hoverFillColor="rgba(39, 66, 140, 0.3)"
+                            />
+                        </div>
                         <div className="spacer"></div>
                         <div className="d-flex flex-column gspace-5 position-relative z-2">
                             <AnimateOnScroll animation="fadeInLeft" speed="normal">

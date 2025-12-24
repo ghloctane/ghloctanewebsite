@@ -8,7 +8,8 @@ import ModalVideoSection from "../../Components/Video/video";
 import ServiceSection from "../../Components/Services/service";
 import FunnelPortfolioSection from "../../Components/FunnelPortfolio/FunnelPortfolio";
 import FeaturedProjectSection from "../../Components/FeaturedProject/FeaturedProject";
-import CaseStudiesSection from "../../Components/CaseStudies/CaseStudies";
+import CustomizedDashboardsSection from "../../Components/CustomizedDashboards/CustomizedDashboards";
+import WebsiteShowcase from "../../Components/WebsiteShowcase/WebsiteShowcase";
 import TestimonialSection from "../../Components/Testimonial/testimonial";
 import DigitalProcessSection from "../../Components/DigitalProcess/digitalstep";
 import PricingPlanSection from "../../Components/Pricing/Pricing";
@@ -18,7 +19,7 @@ import StatsSection from "../../Components/Stats/StatsSection";
 import AboutHomeSection from "../../Components/About/AboutHome";
 import LeaderSection from "../../Components/Leader/Leader";
 import NewsletterSection from "../../Components/Form/Newsletter";
-import BlogSection from "../../Components/Blog/blog";
+import CTASection from "../../Components/CTA/CTASection";
 
 function HomePage(){
     return(
@@ -37,12 +38,13 @@ function HomePage(){
             <IndustriesSection />
             <FunnelPortfolioSection />
             <FeaturedProjectSection />
-            <CaseStudiesSection noPadding={true} />
+            <CustomizedDashboardsSection />
             <TestimonialSection />
+            <WebsiteShowcase />
             <DigitalProcessSection />
             <PricingPlanSection />
             <NewsletterSection />
-            <BlogSection />
+            <CTASection />
         </>
     );
 }

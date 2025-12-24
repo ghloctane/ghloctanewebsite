@@ -41,16 +41,19 @@ const DigitalProcessSection = () => {
 
                             <div className="digital-process-steps-wrapper">
                                 <div className="digital-process-steps">
-                                    <div className="row row-cols-lg-4 row-cols-md-2 row-cols-1">
+                                    <div className="row" style={{ display: 'flex', flexWrap: 'nowrap' }}>
                                     {digitalSteps.map((item, index) => (
-                                        <DigitalStepCard
-                                            key={index}
-                                            icon={item.icon}
-                                            step={item.step}
-                                            title={item.title}
-                                            content={item.content}
-                                            isFirst={index === 0}
-                                        />
+                                        <div key={index} className="col" style={{ flex: '0 0 auto' }}>
+                                            <DigitalStepCard
+                                                icon={item.icon}
+                                                step={item.step}
+                                                title={item.title}
+                                                content={item.content}
+                                                isFirst={index === 0}
+                                                color={item.color}
+                                                index={index}
+                                            />
+                                        </div>
                                         ))}
                                     </div>
                                 </div>

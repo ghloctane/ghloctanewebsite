@@ -3,6 +3,9 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
 
 const ServiceCard = ({icon, title, content, link, speed = ""}) => {
+    // Check if icon is a FontAwesome class or image path
+    const isFontAwesome = icon && icon.startsWith('fa-');
+    
     return(
         <>
             <AnimateOnScroll animation="fadeInLeft" speed={speed}>
@@ -11,7 +14,11 @@ const ServiceCard = ({icon, title, content, link, speed = ""}) => {
                         <div>
                             <div className="service-icon-wrapper">
                                 <div className="service-icon">
-                                    <img src={icon} alt="Service Icon" className="img-fluid" />
+                                    {isFontAwesome ? (
+                                        <i className={icon}></i>
+                                    ) : (
+                                        <img src={icon} alt="Service Icon" className="img-fluid" />
+                                    )}
                                 </div>
                             </div>
                         </div>

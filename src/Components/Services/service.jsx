@@ -1,9 +1,14 @@
 import React from "react";
-import { services } from "../../Data/ServiceData";
+import { Link } from "react-router-dom";
+import { allServicesData } from "../../Data/AllServicesData";
 import ServiceCard from "../Card/ServiceCard";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
+import AnimatedButton from "../Button/AnimatedButton";
 
 function ServiceSection(){
+
+    // Show only first 6 services on home page
+    const homeServices = allServicesData.slice(0, 6);
 
     return(
         <>
@@ -26,19 +31,32 @@ function ServiceSection(){
                         </div>
                         <div className="card-service-wrapper">
                             <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 grid-spacer-2">
-                                {services.map((item) => (
+                                {homeServices.map((item, index) => (
                                     <div className="col" key={item.id}>
                                         <ServiceCard 
                                             icon={item.icon}
                                             title={item.title}
-                                            content={item.content}
-                                            speed={item.speed}
-                                            link={item.link}
+                                            content={item.cardDescription}
+                                            speed={index % 3 === 0 ? "slow" : index % 3 === 1 ? "normal" : "fast"}
+                                            link={`/service#service-${item.id}`}
                                         />
                                     </div>
                                 ))}
                             </div>
                         </div>
+
+                        {/* Our Services Button */}
+                        <AnimateOnScroll animation="fadeInUp" speed="normal">
+                            <div className="d-flex justify-content-center" style={{ marginTop: '20px' }}>
+                                <Link to="/service" className="view-all-services-btn">
+                                    <span className="btn-text">View All Services</span>
+                                    <span className="btn-icon">
+                                        <i className="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </Link>
+                            </div>
+                        </AnimateOnScroll>
+
                         <div className="service-link-footer">
                             <p>
                                 Need a custom solution? Let&apos;s create a strategy tailored for your business.

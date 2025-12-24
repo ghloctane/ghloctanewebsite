@@ -3,7 +3,7 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 
 const FeaturedProjectSection = () => {
     return (
-        <div className="section">
+        <div className="section section-featured">
             <div className="hero-container">
                 <div className="case-studies-layout">
                     <div className="card card-case-studies">

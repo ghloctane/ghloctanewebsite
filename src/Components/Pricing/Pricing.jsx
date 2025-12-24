@@ -1,6 +1,6 @@
 import React from "react";
-import AnimatedButton from "../Button/AnimatedButton";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
+import AnimatedButton from "../Button/AnimatedButton";
 
 function PricingPlanSection(){
     return(
@@ -65,14 +65,9 @@ function PricingPlanSection(){
                                         <h3>$399</h3>
                                         <p>/Month</p>
                                     </div>
-                                    <a href="#" className="btn btn-accent">
-                                        <div className="btn-title">
-                                            <span>View Details</span>
-                                        </div>
-                                        <div className="icon-circle">
-                                            <i className="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </a>
+                                    <AnimatedButton href="#">
+                                        View Details
+                                    </AnimatedButton>
 
                                     <div className="core-benefits">
                                         <div className="benefit">

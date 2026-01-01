@@ -4,7 +4,6 @@ import BannerInnerSection from "../../Components/Banner/Inner";
 import AboutSection from "../../Components/About/about";
 import PartnershipSection from "../../Components/Partnership/Partnership";
 import ChooseUsAboutSection from "../../Components/ChooseUs/chooseusabout";
-import TeamSection from "../../Components/Team/Team";
 import GuideBannerSection from "../../Components/Banner/guide";
 import ModalVideoSection from "../../Components/Video/video";
 import DigitalProcessSection from "../../Components/DigitalProcess/digitalstep";
@@ -13,14 +12,13 @@ import TestimonialSection from "../../Components/Testimonial/testimonial";
 function AboutPage(){
     return(
         <>
-            <HeadTitle title="About - Marko - Digital Marketing Agency"/>
-            <BannerInnerSection title="About Marko" currentPage="About Us" />
+            <HeadTitle title="About - GHL Octane - GoHighLevel Solutions"/>
+            <BannerInnerSection title="About GHL Octane" currentPage="About Us" />
             <AboutSection />
             <PartnershipSection />
             <ChooseUsAboutSection />
             <GuideBannerSection />
             <ModalVideoSection />
-            <TeamSection />
             <DigitalProcessSection />
             <TestimonialSection />
         </>

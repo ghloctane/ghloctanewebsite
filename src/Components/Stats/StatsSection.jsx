@@ -2,6 +2,7 @@ import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import StatsCard from "../Card/StatsCard";
 import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
+import Hyperspeed from "../Hyperspeed/Hyperspeed";
 
 const StatsSection = () => {
   const stats = [
@@ -62,6 +63,7 @@ const StatsSection = () => {
             <div className="mt-4">
               <AnimateOnScroll animation="fadeInUp" speed="normal">
                 <div className="card card-expertise card-stats">
+                  <Hyperspeed />
                   <h4>REAL RESULTS. REAL IMPACT.</h4>
                   <p>Numbers that speak for themselves.</p>
                   <div className="d-flex align-items-center flex-row gspace-2 expertise-link">

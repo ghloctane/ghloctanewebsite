@@ -12,7 +12,7 @@ const Footer = () => {
                             <div className="col col-lg-4">
                                 <div className="footer-logo-container">
                                     <div className="logo-container-footer">
-                                    <img src="/assets/images/GHL Octane Final.png" alt="Logo" className="site-logo img-fluid" />
+                                    <img src="/assets/images/GHL Octane Favicon.png" alt="Logo" className="site-logo img-fluid footer-logo-img" />
                                     </div>
                                     <h4><span className="brand-name">GHL Octane</span> — Driving Growth Through Smart GoHighLevel Systems.</h4>
                                     <p>
@@ -28,8 +28,8 @@ const Footer = () => {
                                         <li><a href="/">Home</a></li>
                                         <li><a href="/about">About Us</a></li>
                                         <li><a href="/service">Service</a></li>
-                                        <li><a href="/case_studies">Case Studies</a></li>
-                                        <li><a href="/blog">Blog</a></li>
+                                        {/* <li><a href="/case_studies">Case Studies</a></li> */}
+                                        <li><a href="/portfolio">Portfolio</a></li>
                                         <li><a href="/contact">Contact Us</a></li>
                                     </ul>
                                 </div>
@@ -39,12 +39,14 @@ const Footer = () => {
                                 <div className="footer-services-container">
                                     <h5>Services</h5>
                                     <ul className="footer-list">
-                                        <li><a href="/contact">Social Media Marketing</a></li>
-                                        <li><a href="/contact">SEO Optimization</a></li>
-                                        <li><a href="/contact">PPC Advertising</a></li>
-                                        <li><a href="/contact">Content Marketing</a></li>
-                                        <li><a href="/contact">Branding Strategy</a></li>
-                                        <li><a href="/contact">Email Marketing</a></li>
+                                        <li><a href="/service">Funnel & Landing Page Design</a></li>
+                                        <li><a href="/service">CRM & Pipeline Setup</a></li>
+                                        <li><a href="/service">Automation & Workflow</a></li>
+                                        <li><a href="/service">White-Label Agency Builds</a></li>
+                                        <li><a href="/service">Integrations & AI Enablement</a></li>
+                                        <li><a href="/service">Chatbots & Voice Agents</a></li>
+                                        <li><a href="/service">Lead Capture & Nurture</a></li>
+                                        <li><a href="/service">Support & Maintenance</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -53,9 +55,8 @@ const Footer = () => {
                                 <div className="footer-contact-container">
                                     <h5>Contact Info</h5>
                                     <ul className="contact-list">
-                                        <li>hello@markoagency.com</li>
+                                        <li>info@ghloctane.com</li>
                                         <li>+1 234 567 890</li>
-                                        <li>123 Digital Street, New York, USA</li>
                                     </ul>
                                     <div className="d-flex flex-column gspace-1">
                                         <h5>Social Media</h5>
@@ -64,6 +65,9 @@ const Footer = () => {
                                             <SocialButton href="https://youtube.com" icon="youtube" />
                                             <SocialButton href="https://instagram.com" icon="instagram" />
                                             <SocialButton href="https://linkedin.com" icon="linkedin" />
+                                        </div>
+                                        <div className="footer-certified-badge">
+                                            <img src="/assets/images/certified.png" alt="HighLevel Certified Admin" className="certified-badge-img" />
                                         </div>
                                     </div>
                                 </div>

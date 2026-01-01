@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { funnelPortfolio } from "../../Data/FunnelPortfolioData";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 
-function FunnelPortfolioSection() {
+function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
     const [hoveredCard, setHoveredCard] = useState(null);
     const imageRefs = useRef({});
     const [imageHeights, setImageHeights] = useState({});
@@ -59,23 +60,17 @@ function FunnelPortfolioSection() {
                                 FUNNEL PORTFOLIO
                             </h2>
                         </AnimateOnScroll>
-                        <AnimateOnScroll animation="fadeInDown" speed="normal">
-                            <p style={{ marginTop: '14px', opacity: 0.8, fontSize: '14px', lineHeight: '1.65' }}>
-                                Hover over any funnel to explore the complete design
-                            </p>
-                        </AnimateOnScroll>
                     </div>
                     <div className="card-funnel-portfolio-wrapper">
                         <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 grid-spacer-2">
-                            {funnelPortfolio.map((item, index) => (
+                            {(limit ? funnelPortfolio.slice(0, limit) : funnelPortfolio).map((item, index) => (
                                 <div className="col" key={item.id}>
-                                    <AnimateOnScroll animation="fadeInUp" speed="normal" delay={index * 0.1}>
-                                        <div 
-                                            className="card card-funnel-portfolio portfolio-card"
-                                            onMouseEnter={() => setHoveredCard(item.id)}
-                                            onMouseLeave={() => setHoveredCard(null)}
-                                            style={{ touchAction: 'pan-y', willChange: 'auto' }}
-                                        >
+                                    <div 
+                                        className="card card-funnel-portfolio portfolio-card"
+                                        onMouseEnter={() => setHoveredCard(item.id)}
+                                        onMouseLeave={() => setHoveredCard(null)}
+                                        style={{ touchAction: 'pan-y' }}
+                                    >
                                             <div 
                                                 className="portfolio-image-wrapper"
                                                 style={{
@@ -103,12 +98,15 @@ function FunnelPortfolioSection() {
                                                             top: 0,
                                                             left: 0,
                                                             transform: hoveredCard === item.id 
-                                                                ? `translateY(-${getScrollAmount(item.id)}px)` 
-                                                                : 'translateY(0)',
+                                                                ? `translate3d(0, -${getScrollAmount(item.id)}px, 0)` 
+                                                                : 'translate3d(0, 0, 0)',
                                                             transition: hoveredCard === item.id 
                                                                 ? 'transform 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' 
                                                                 : 'transform 0.5s ease-out',
-                                                            pointerEvents: 'none'
+                                                            pointerEvents: 'none',
+                                                            willChange: hoveredCard === item.id ? 'transform' : 'auto',
+                                                            backfaceVisibility: 'hidden',
+                                                            WebkitBackfaceVisibility: 'hidden'
                                                         }}
                                                     >
                                                         <img
@@ -133,11 +131,18 @@ function FunnelPortfolioSection() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </AnimateOnScroll>
+                                    </div>
                                 </div>
                             ))}
                         </div>
+                        {showViewMore && limit && (
+                            <div className="d-flex justify-content-center mt-4">
+                                <div className="link-wrapper">
+                                    <Link to="/portfolio">View More</Link>
+                                    <i className="fa-solid fa-circle-arrow-right"></i>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

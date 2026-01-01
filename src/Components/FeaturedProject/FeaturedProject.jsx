@@ -36,23 +36,6 @@ const FeaturedProjectSection = () => {
                             <div className="d-flex flex-column flex-lg-row gspace-2">
                                 <AnimateOnScroll animation="fadeInUp">
                                     <div className="card case-studies-content featured-project-card" style={{backgroundImage: 'url(/assets/images/octendr.png)', width: '100%'}}>
-                                        <div className="case-studies-component large align-self-end justify-content-end align-items-end">
-                                            <div className="cs-component">
-                                                <a href="./contact">GHL Setup</a>
-                                            </div>
-                                            <div className="cs-component">
-                                                <a href="./contact">Automation</a>
-                                            </div>
-                                            <div className="cs-component">
-                                                <a href="./contact">CRM</a>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex flex-column gspace-2">
-                                            <a href="https://octendr.com" target="_blank" rel="noopener noreferrer" className="case-studies-title">
-                                                <h4>Complete GoHighLevel Implementation</h4>
-                                            </a>
-                                            <p>Enterprise-level automation, CRM setup, and scalable business systems that drive real results.</p>
-                                        </div>
                                     </div>
                                 </AnimateOnScroll>
                             </div>

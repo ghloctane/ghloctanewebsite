@@ -6,6 +6,7 @@ import AnimateOnScroll from "../../Components/Hooks/AnimateOnScroll";
 import GuideBannerSection from "../../Components/Banner/guide";
 import ModalVideoSection from "../../Components/Video/video";
 import PricingPlanSection from "../../Components/Pricing/Pricing";
+import FaqSection from "../../Components/FAQs/faq";
 import HeadTitle from "../../Components/Head/HeadTitle";
 
 function ServicePage(){
@@ -68,6 +69,7 @@ function ServicePage(){
             <GuideBannerSection />
             <ModalVideoSection />
             <PricingPlanSection />
+            <FaqSection />
         </>
     );
 }

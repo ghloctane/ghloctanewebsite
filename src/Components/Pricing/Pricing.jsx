@@ -1,6 +1,7 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
+import { allServicesData } from "../../Data/AllServicesData";
 
 function PricingPlanSection(){
     return(
@@ -36,20 +37,25 @@ function PricingPlanSection(){
 
                                 <AnimateOnScroll animation="fadeInUp" speed="normal">
                                     <div className="card card-pricing">
-                                        <h4>Starter — $99</h4>
-                                        <p>Basic GHL Setup</p>
+                                        <h4>Starter</h4>
+                                        <p>20 hours/week of a dedicated GHL expert</p>
                                         <div className="d-flex flex-row gspace-1 align-items-center h-100">
-                                            <h3>$99</h3>
+                                            <h3>$800</h3>
                                             <p>/Month</p>
                                         </div>
-                                        <AnimatedButton href="#">
-                                            View Details
+                                        <p style={{fontSize: '14px', marginBottom: '20px', opacity: '0.8'}}>Perfect for startups</p>
+                                        <AnimatedButton href="./contact">
+                                            Get Started
                                         </AnimatedButton>
                                         <ul className="check-list">
-                                            <li><a href="./contact">Basic GHL Setup</a></li>
-                                            <li><a href="./contact">Single Funnel</a></li>
-                                            <li><a href="./contact">Email/SMS Automation</a></li>
-                                            <li><a href="./contact">Support</a></li>
+                                            <li><a href="./contact">CRM Setup</a></li>
+                                            <li><a href="./contact">Automation</a></li>
+                                            <li><a href="./contact">Conversion AI Setup</a></li>
+                                            <li><a href="./contact">Voice AI Setup</a></li>
+                                            <li><a href="./contact">Funnels</a></li>
+                                            <li><a href="./contact">Landing Pages Design Optimization</a></li>
+                                            <li><a href="./contact">Tech Support</a></li>
+                                            <li><a href="./contact">Weekly Reporting</a></li>
                                         </ul>
                                     </div>
                                 </AnimateOnScroll>
@@ -59,36 +65,46 @@ function PricingPlanSection(){
                             <AnimateOnScroll animation="fadeInUp" speed="slow">
                                 <div className="card card-pricing pricing-highlight">
                                     <div className="spacer" />
-                                    <h4>Growth — $399</h4>
-                                    <p>Full CRM Setup</p>
+                                    <h4>Growth</h4>
+                                    <p>40 hours/week of a dedicated GHL expert</p>
                                     <div className="d-flex flex-row gspace-1 align-items-center">
-                                        <h3>$399</h3>
+                                        <h3>$1,800</h3>
                                         <p>/Month</p>
                                     </div>
-                                    <AnimatedButton href="#">
-                                        View Details
+                                    <AnimatedButton href="./contact">
+                                        Get Started
                                     </AnimatedButton>
 
                                     <div className="core-benefits">
                                         <div className="benefit">
                                             <i className="fa-solid fa-brain"></i>
-                                            <a href="#">Full CRM Setup</a>
+                                            <a href="./contact">All Starter Services</a>
                                         </div>
                                         <div className="benefit">
                                             <i className="fa-brands fa-accessible-icon"></i>
-                                            <a href="#">Pipelines & Automation</a>
+                                            <a href="./contact">Priority Support</a>
                                         </div>
                                         <div className="benefit">
                                             <i className="fa-solid fa-bug"></i>
-                                            <a href="#">Funnel + Website</a>
+                                            <a href="./contact">Advanced Troubleshooting</a>
                                         </div>
                                     </div>
 
                                     <ul className="check-list">
-                                        <li><a href="#">Full CRM Setup</a></li>
-                                        <li><a href="#">Pipelines & Automation</a></li>
-                                        <li><a href="#">Funnel + Website</a></li>
-                                        <li><a href="#">Tracking Setup</a></li>
+                                        <li><a href="./contact">CRM Setup</a></li>
+                                        <li><a href="./contact">Automation</a></li>
+                                        <li><a href="./contact">Conversion AI Setup</a></li>
+                                        <li><a href="./contact">Voice AI Setup</a></li>
+                                        <li><a href="./contact">Funnels</a></li>
+                                        <li><a href="./contact">Landing Pages Design Optimization</a></li>
+                                        <li><a href="./contact">Full Campaigns Buildouts</a></li>
+                                        <li><a href="./contact">Complete Sales & Onboarding Automation Setup</a></li>
+                                        <li><a href="./contact">Ongoing Optimization</a></li>
+                                        <li><a href="./contact">Monthly Strategy Calls</a></li>
+                                        <li><a href="./contact">Weekly Reporting</a></li>
+                                        <li><a href="./contact">Tech Support</a></li>
+                                        <li><a href="./contact">Advanced Integrations</a></li>
+                                        <li><a href="./contact">White-Label Setup</a></li>
                                     </ul>
                                 </div>
                             </AnimateOnScroll>
@@ -101,15 +117,15 @@ function PricingPlanSection(){
                                             <h5>Choose Your Plan</h5>
                                             <div className="d-flex flex-column gspace-2">
                                                 <div className="pricing-highlights">
-                                                    <a href="#">Agency Pro — $999</a>
+                                                    <a href="./contact">Enterprise Elite</a>
                                                     <i className="fa-solid fa-arrow-circle-right"></i>
                                                 </div>
                                                 <div className="pricing-highlights">
-                                                    <a href="#">SaaS Mode Setup</a>
+                                                    <a href="./contact">Custom Projects</a>
                                                     <i className="fa-solid fa-arrow-circle-right"></i>
                                                 </div>
                                                 <div className="pricing-highlights">
-                                                    <a href="#">White-Label System</a>
+                                                    <a href="./contact">API Integration</a>
                                                     <i className="fa-solid fa-arrow-circle-right"></i>
                                                 </div>
                                             </div>
@@ -120,20 +136,23 @@ function PricingPlanSection(){
 
                                 <AnimateOnScroll animation="fadeInUp" speed="normal">
                                     <div className="card card-pricing">
-                                        <h4>Agency Pro — $999</h4>
-                                        <p>SaaS Mode Setup</p>
-                                        <div className="d-flex flex-row gspace-1 align-items-center h-100">
-                                            <h3>$999</h3>
-                                            <p>/Month</p>
-                                        </div>
-                                        <AnimatedButton href="#">
-                                            View Details
+                                        <h4>Enterprise Elite</h4>
+                                        <p>Contact Sales Team for Agency and Enterprise Prices</p>
+                                        <p style={{fontSize: '14px', marginBottom: '20px', opacity: '0.8'}}>For businesses who need pro solutions and integrations</p>
+                                        <AnimatedButton href="./contact">
+                                            Contact Sales
                                         </AnimatedButton>
                                         <ul className="check-list">
-                                            <li><a href="./contact">SaaS Mode Setup</a></li>
-                                            <li><a href="./contact">Client Snapshots</a></li>
-                                            <li><a href="./contact">White-Label System</a></li>
-                                            <li><a href="./contact">Advanced Automation</a></li>
+                                            <li><a href="./contact">All Growth Services Included</a></li>
+                                            <li><a href="./contact">Custom Projects</a></li>
+                                            <li><a href="./contact">Tailored Hours & Services</a></li>
+                                            <li><a href="./contact">Multiple Experts</a></li>
+                                            <li><a href="./contact">API Integrations</a></li>
+                                            <li><a href="./contact">Custom Add-Ons</a></li>
+                                            <li><a href="./contact">Dedicated Project Manager</a></li>
+                                            <li><a href="./contact">White-Label Agency Builds</a></li>
+                                            <li><a href="./contact">Advanced AI & Automation</a></li>
+                                            <li><a href="./contact">Enterprise-Level Support</a></li>
                                         </ul>
                                     </div>
                                 </AnimateOnScroll>

@@ -1,10 +1,12 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
+import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 function AboutSection(){
 
     return(
-        <div className="section">
+        <div className="section section-about">
+            <BackgroundPaths />
             <div className="hero-container">
                 <div className="d-flex flex-column flex-lg-row gspace-5">
                     <div className="about-img-layout">
@@ -25,10 +27,10 @@ function AboutSection(){
                                                 className="card card-about"
                                                 >
                                                 <div className="d-flex flex-row align-items-center">
-                                                    <span className="counter" data-target="21"></span>
+                                                    <span className="counter" data-target="500"></span>
                                                     <span className="counter-detail">+</span>
                                                 </div>
-                                                <h6>Years of Experience on Digital Marketing Services</h6>
+                                                <h6>GHL Setups Completed Successfully</h6>
                                             </div>
                                         </AnimateOnScroll>
                                     </div>
@@ -54,29 +56,26 @@ function AboutSection(){
                             </AnimateOnScroll>
 
                             <p>
-                                At Marko, we specialize in crafting innovative digital marketing strategies
-                                that drive real business growth. Our about ensures your brand stays ahead
-                                in the competitive digital landscape.
+                                At GHL Octane, we are certified GoHighLevel experts dedicated to helping agencies and businesses unlock the full potential of their GHL platform. We specialize in setting up, optimizing, and scaling GoHighLevel systems that drive real results.
                             </p>
                             <p>
-                                Get to know the passionate team behind the strategies, the values that
-                                guide us, and the mission that fuels our growth.
+                                Our team combines deep technical expertise with strategic thinking to deliver automation solutions that save time, increase revenue, and improve client satisfaction. We believe in building systems that work for you, not against you.
                             </p>
 
                             <div className="d-flex flex-column flex-md-row gspace-1 gspace-md-5">
                                 <div className="about-list">
                                     <ul className="check-list">
-                                        <li><a href="./contact">PPC & Paid Ads</a></li>
-                                        <li><a href="./contact">Brand Strategy</a></li>
-                                        <li><a href="./contact">Conversion Optimization</a></li>
+                                        <li><a href="./contact">GHL CRM Setup</a></li>
+                                        <li><a href="./contact">Automation Workflows</a></li>
+                                        <li><a href="./contact">Funnel Design</a></li>
                                     </ul>
                                 </div>
 
                                 <div className="about-list">
                                     <ul className="check-list">
-                                        <li><a href="./contact">Performance Marketing</a></li>
-                                        <li><a href="./contact">Social Media Growth</a></li>
-                                        <li><a href="./contact">Content Marketing</a></li>
+                                        <li><a href="./contact">Agency White-Label</a></li>
+                                        <li><a href="./contact">Integration Setup</a></li>
+                                        <li><a href="./contact">System Optimization</a></li>
                                     </ul>
                                 </div>
                             </div>

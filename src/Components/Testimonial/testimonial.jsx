@@ -11,38 +11,60 @@ const TestimonialSection = () => {
     const videoTestimonials = [
         {
             id: 1,
-            videoId: "dQw4w9WgXcQ",
-            thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-            name: "John Smith",
-            designation: "CEO, Tech Solutions",
-            text: "GHL Octane transformed our entire sales system."
+            videoId: "/assets/testimonials/rathna.mp4",
+            thumbnail: "/assets/testimonials/rathna.png",
+            name: "Rathna Rama krishna",
+            designation: "RemodelerDigital CEO",
+            text: "Zeeshan Haider is an expert GoHighLevel specialist with exceptional skills in workflows, landing pages, graphic design, and integrations, making complex setups feel easy. His calm, friendly nature, availability across time zones, and genuine enthusiasm to help make him a reliable go-to tech partner and a true secret weapon.",
+            isMP4: true
         },
         {
             id: 2,
-            videoId: "jNQXAC9IVRw",
-            thumbnail: "https://img.youtube.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
-            name: "Sarah Johnson",
-            designation: "Marketing Director",
-            text: "Best GoHighLevel automation team we've worked with."
+            videoId: "/assets/testimonials/marwyn.mp4",
+            thumbnail: "/assets/testimonials/marwyn.png",
+            name: "Marwyn",
+            designation: "15xmybusiness CEO",
+            text: "Hello everyone, this is Marwyn, the CEO of 15x Business Solutions, the 15x Business Hacker King. Would like to give a shout out to Zeeshan. If I could give Zeeshan 100 star reviews, I'll give Zeeshan 100 star reviews",
+            isMP4: true
         },
         {
             id: 3,
-            videoId: "9bZkp7q19f0",
-            thumbnail: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
+            videoId: "/assets/testimonials/Michael Sean.mp4",
+            thumbnail: "/assets/testimonials/Michael Sean.png",
             name: "Michael Chen",
-            designation: "Founder, StartupXYZ",
-            text: "Increased our conversion rate by 49% in just 3 months."
+            designation: "CEO",
+            text: "Michael Sean highly recommends Zeeshan Haider for anything GoHighLevel, praising his lightning-fast communication and exceptional turnaround time. From automations to graphic design and tools, Zeeshan delivers top-level results and is a go-to expert.",
+            isMP4: true
         },
         {
             id: 4,
-            videoId: "kJQP7kiw5Fk",
-            thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
-            name: "Emily Davis",
-            designation: "Operations Manager",
-            text: "Their automation workflows saved us 20 hours per week."
+            videoId: "/assets/testimonials/Matt.mp4",
+            thumbnail: "/assets/testimonials/Matt.png",
+            name: "Matt",
+            designation: "CEO",
+            text: "Matt highly recommends Zeeshan and his team for GoHighLevel, praising their expertise in setting up accounts, workflows, and custom solutions. Zeeshan is always available, responsive, and a reliable partner for anything related to HighLevel.",
+            isMP4: true
         },
         {
             id: 5,
+            videoId: "/assets/testimonials/client3.mp4",
+            thumbnail: "/assets/images/client-3.png",
+            name: "Michael Chen",
+            designation: "Founder, StartupXYZ",
+            text: "Increased our conversion rate by 49% in just 3 months.",
+            isMP4: true
+        },
+        {
+            id: 6,
+            videoId: "/assets/testimonials/client4.mp4",
+            thumbnail: "/assets/images/client-4.png",
+            name: "Emily Davis",
+            designation: "Operations Manager",
+            text: "Their automation workflows saved us 20 hours per week.",
+            isMP4: true
+        },
+        {
+            id: 7,
             videoId: "L_jWHffIx5E",
             thumbnail: "https://img.youtube.com/vi/L_jWHffIx5E/maxresdefault.jpg",
             name: "David Wilson",
@@ -50,7 +72,7 @@ const TestimonialSection = () => {
             text: "Professional service and exceptional results."
         },
         {
-            id: 6,
+            id: 8,
             videoId: "9bZkp7q19f0",
             thumbnail: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
             name: "Lisa Anderson",
@@ -58,7 +80,7 @@ const TestimonialSection = () => {
             text: "Outstanding automation solutions that saved us time and money."
         },
         {
-            id: 7,
+            id: 9,
             videoId: "kJQP7kiw5Fk",
             thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
             name: "Robert Martinez",
@@ -66,7 +88,7 @@ const TestimonialSection = () => {
             text: "Game-changing automation that transformed our workflow completely."
         },
         {
-            id: 8,
+            id: 10,
             videoId: "dQw4w9WgXcQ",
             thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
             name: "Jennifer Lee",
@@ -118,7 +140,6 @@ const TestimonialSection = () => {
                                                             <div className="testimonial-video-info">
                                                                 <h6 className="testimonial-video-name">{video.name}</h6>
                                                                 <span className="testimonial-video-designation">{video.designation}</span>
-                                                                <p className="testimonial-video-text">{video.text}</p>
                                                             </div>
                                                         </div>
                                                     ))}
@@ -189,6 +210,20 @@ const TestimonialSection = () => {
                                                         <i className="fa-solid fa-play"></i>
                                                     </div>
                                                 </div>
+                                            ) : selectedVideo.isMP4 ? (
+                                                <video
+                                                    width="100%"
+                                                    height="100%"
+                                                    src={selectedVideo.videoId}
+                                                    controls
+                                                    autoPlay
+                                                    playsInline
+                                                    preload="auto"
+                                                    type="video/mp4"
+                                                    className="testimonial-iframe"
+                                                >
+                                                    Your browser does not support the video tag.
+                                                </video>
                                             ) : (
                                                 <iframe
                                                     width="100%"

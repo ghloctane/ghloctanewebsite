@@ -56,13 +56,10 @@ return (
                             <a
                             className={`nav-link dropdown-toggle ${
                                 isDropdownActive([
-                                "/case_studies",
                                 "/team",
-                                "/partnership",
+                                "/affiliate",
                                 "/pricing",
                                 "/testimonial",
-                                "/faq",
-                                "/404_page",
                                 ])
                                 ? "active"
                                 : ""
@@ -72,22 +69,22 @@ return (
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                             >
-                            Pages <i className="fa-solid fa-angle-down accent-color"></i>
+                            Resources <i className="fa-solid fa-angle-down accent-color"></i>
                             </a>
                             <ul className="dropdown-menu">
-                            <li>
+                            {/* <li>
                                 <NavLink to="/case_studies" className="dropdown-item">
                                     Case Studies
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink to="/team" className="dropdown-item">
                                     Our Team
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/partnership" className="dropdown-item">
-                                    Partnership
+                                <NavLink to="/affiliate" className="dropdown-item">
+                                    Affiliate
                                 </NavLink>
                             </li>
                             <li>
@@ -100,16 +97,6 @@ return (
                                     Testimonial
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/faq" className="dropdown-item">
-                                    FAQs
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/404_page" className="dropdown-item">
-                                    Error 404
-                                    </NavLink>
-                                </li>
                             </ul>
                         </li>
 

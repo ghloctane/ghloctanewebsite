@@ -3,6 +3,7 @@ import AppRouter from "./Routers";
 import Navbar from "./Components/Header/header";
 import Footer from "./Components/Footer/footer";
 import Sidebar from "./Components/Sidebar/Sidebar";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import { ModalVideoProvider } from "./Components/Video/ModalVideoContext";
 import { NavProvider } from "./Components/Context/NavContext";
 
@@ -15,6 +16,7 @@ function App(){
                     <Sidebar />
                     <AppRouter />
                     <Footer />
+                    <ScrollToTop />
                 </ModalVideoProvider>
             </NavProvider>
         </Router>

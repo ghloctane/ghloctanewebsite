@@ -4,7 +4,7 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 const WebsiteShowcase = () => {
     // Website template images
     const websites = [
-        { id: 1, title: "E-commerce", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80" },
+        { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.png" },
         { id: 2, title: "Landing Page", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" },
         { id: 3, title: "Portfolio", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop&q=80" },
         { id: 4, title: "Business", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&q=80" },
@@ -24,7 +24,7 @@ const WebsiteShowcase = () => {
                         <div className="row row-cols-lg-2 row-cols-1 align-items-center px-5 position-relative z-2">
                             <div className="col">
                                 <div className="d-flex flex-column justify-content-start pe-lg-3 pe-0">
-                                    <h3 className="title-heading">FAST WEBSITES</h3>
+                                    <h3 className="title-heading">TURBO-CHARGED WEBSITES</h3>
                                 </div>
                             </div>
                             <div className="col">
@@ -42,8 +42,18 @@ const WebsiteShowcase = () => {
                             <div className="website-showcase-row">
                                 <div className="website-showcase-track website-showcase-right">
                                     {[...websites, ...websites].map((site, index) => (
-                                        <div key={`right-${index}`} className="website-showcase-slide">
+                                        <div 
+                                            key={`right-${site.id}-${index}`} 
+                                            className={`website-showcase-slide ${site.id === 1 ? 'website-showcase-demo' : ''}`}
+                                            onClick={site.id === 1 ? () => window.open('https://proservice.ghloctane.com/', '_blank') : undefined}
+                                            style={site.id === 1 ? { cursor: 'pointer' } : {}}
+                                        >
                                             <img src={site.image} alt={site.title} />
+                                            {site.id === 1 && (
+                                                <div className="website-showcase-overlay">
+                                                    <span className="website-showcase-demo-text">Live Demo</span>
+                                                </div>
+                                            )}
                                         </div>
                                     ))}
                                 </div>

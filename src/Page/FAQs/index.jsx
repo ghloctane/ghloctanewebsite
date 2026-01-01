@@ -9,7 +9,7 @@ import TestimonialSection from "../../Components/Testimonial/testimonial";
 function FaqPage(){
     return(
         <>  
-            <HeadTitle title="FAQs - Marko - Digital Marketing Agency" />
+            <HeadTitle title="FAQs - GHL Octane - GoHighLevel Solutions" />
             <BannerInnerSection title="Simple, Direct, and Friendly" currentPage="FAQ" />
             <FaqSection />
             <GuideBannerSection />

@@ -9,7 +9,7 @@ import TestimonialSection from "../../Components/Testimonial/testimonial";
 function PartnershipPage(){
     return(
         <>
-            <HeadTitle title="Partnership - Marko - Digital Marketing Agency" />
+            <HeadTitle title="Partnership - GHL Octane - GoHighLevel Solutions" />
             <BannerInnerSection title="Partnership" currentPage="Partnership"/>
             <PartnershipListSection />
             <GuideBannerSection />

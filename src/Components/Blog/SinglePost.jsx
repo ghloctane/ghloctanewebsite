@@ -36,7 +36,7 @@ const BlogPostSection = () => {
                         </div>
                         <div className="cta-service-banner">
                             <div className="spacer"></div>
-                            <h3 className="title-heading">Transform Your Business with Marko!</h3>
+                            <h3 className="title-heading">Transform Your Business with GHL Octane!</h3>
                             <p>
                                 Take your digital marketing to the next level with data-driven strategies and innovative solutions. Let's create something amazing together!
                             </p>

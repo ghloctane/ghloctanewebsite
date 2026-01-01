@@ -1,12 +1,14 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
+import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 function ExpertiseSection(){
 
     return(
         <>
            <div className="section-expertise">
+                <BackgroundPaths />
                 <div className="hero-container">
                     <div className="d-flex flex-column flex-lg-row gspace-5">
                         <div className="expertise-img-layout">

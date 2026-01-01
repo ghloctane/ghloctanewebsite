@@ -19,6 +19,7 @@ import StatsSection from "../../Components/Stats/StatsSection";
 import AboutHomeSection from "../../Components/About/AboutHome";
 import LeaderSection from "../../Components/Leader/Leader";
 import NewsletterSection from "../../Components/Form/Newsletter";
+import IntegrationsSection from "../../Components/Integrations/IntegrationsSection";
 import CTASection from "../../Components/CTA/CTASection";
 
 function HomePage(){
@@ -36,7 +37,7 @@ function HomePage(){
             <ModalVideoSection />
             <ServiceSection />
             <IndustriesSection />
-            <FunnelPortfolioSection />
+            <FunnelPortfolioSection limit={3} showViewMore={true} />
             <FeaturedProjectSection />
             <CustomizedDashboardsSection />
             <TestimonialSection />
@@ -44,6 +45,7 @@ function HomePage(){
             <DigitalProcessSection />
             <PricingPlanSection />
             <NewsletterSection />
+            <IntegrationsSection />
             <CTASection />
         </>
     );

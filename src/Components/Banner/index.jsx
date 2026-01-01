@@ -109,7 +109,7 @@ function BannerHomeSection() {
                         <div className="d-flex flex-column gspace-2">
                             <AnimateOnScroll animation="fadeInLeft" speed="normal">
                                 <h1 className="title-heading-banner">
-                                    Amplify Your Growth with GHL Octane
+                                    Your Business Growth Starts Here with GHL Octane
                                 </h1>
                             </AnimateOnScroll>
                             <div className="banner-heading">

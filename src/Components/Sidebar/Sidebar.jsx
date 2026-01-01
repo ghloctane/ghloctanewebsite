@@ -90,19 +90,17 @@ function Sidebar() {
                 </li>
                 <li className="sidebar-dropdown">
                     <div className="dropdown-header">
-                        <a href="#">Pages</a>
+                        <a href="#">Resources</a>
                     <button className="sidebar-dropdown-btn">
                         <i className="fa-solid fa-angle-down"></i>
                     </button>
                     </div>
                     <ul className="sidebar-dropdown-menu">
-                        <li><a href="case_studies">Case Studies</a></li>
+                        {/* <li><a href="case_studies">Case Studies</a></li> */}
                         <li><a href="team">Our Team</a></li>
-                        <li><a href="partnership">Partnership</a></li>
+                        <li><a href="affiliate">Affiliate</a></li>
                         <li><a href="pricing">Pricing Plan</a></li>
                         <li><a href="testimonial">Testimonial</a></li>
-                        <li><a href="faq">FAQs</a></li>
-                        <li><a href="404_page">Error 404</a></li>
                     </ul>
                 </li>
                 <li className="below-dropdown"><a href="contact">Contact Us</a></li>

@@ -1,33 +1,33 @@
 export const faqData = [
     {
 		id: 1,
-		question: "What services does Marko offer?",
-		answer: "We specialize in digital marketing, including branding, social media management, content strategy, paid ads, and analytics-driven campaigns.",
+		question: "What GoHighLevel services does GHL Octane offer?",
+		answer: "We offer complete GHL solutions including CRM setup, automation workflows, funnel & landing page design, chatbots, white-label agency builds, API integrations, compliance & A2P registration, and ongoing support.",
     },
     {
 		id: 2,
-		question: "How long does it take to see results?",
-		answer: "While some channels like paid ads offer quicker results, most strategies (like content and SEO) show steady growth within 3-6 months.",
+		question: "How long does GoHighLevel setup take?",
+		answer: "Basic GHL setup typically takes 1-2 weeks. Full CRM and automation implementation usually takes 3-4 weeks depending on complexity and custom requirements.",
     },
     {
 		id: 3,
-		question: "Do you work with businesses of all sizes?",
-		answer: "Yes! We collaborate with startups, SMEs, and enterprise-level companies across various industries.",
+		question: "Do you work with agencies and individual businesses?",
+		answer: "Yes! We work with both. Our Starter and Growth plans are perfect for individual businesses, while our Enterprise Elite plan is designed for agencies needing white-label solutions and multiple client setups.",
     },
     {
 		id: 4,
-		question: "Can I request a custom digital marketing package?",
-		answer: "Absolutely. We tailor our services to fit your business goals, budget, and timeline",
+		question: "Can I get custom GHL integrations and add-ons?",
+		answer: "Absolutely. Our Enterprise Elite plan includes custom API integrations, bespoke add-ons, and tailored solutions to match your specific business needs.",
     },
     {
 		id: 5,
-		question: "How do I know which service is right for me?",
-		answer: "During our initial consultation, we'll assess your current strategy and recommend the best path forward based on data and goals.",
+		question: "What's included in the Starter plan?",
+		answer: "Starter plan includes 20 hours/week of a dedicated GHL expert, CRM setup, automation, Conversion AI, Voice AI, funnels, landing pages, tech support, and weekly reporting - perfect for startups.",
     },
     {
 		id: 6,
-		question: "Do you provide monthly performance reports?",
-		answer: "Yes. Every month, you'll receive a clear and comprehensive report outlining progress, key metrics, and next steps.",
+		question: "Do you provide ongoing support and maintenance?",
+		answer: "Yes. All plans include ongoing support, maintenance, training, and regular reporting. Enterprise plans include priority support and a dedicated project manager.",
     },
 ];
   

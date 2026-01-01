@@ -4,7 +4,7 @@ import AboutPage from "./Page/About";
 import ServicePage from "./Page/Service";
 import CaseStudiesPage from "./Page/CaseStudies";
 import TeamPage from "./Page/Team";
-import PartnershipPage from "./Page/Partnership";
+import AffiliatePage from "./Page/Affiliate";
 import PricingPage from "./Page/Pricing";
 import TestimonialPage from "./Page/Testimonial";
 import NotFoundPage from "./Page/NotFound";
@@ -13,6 +13,7 @@ import BlogPage from "./Page/Blog";
 import ContactPage from "./Page/Contact";
 import ServiceDetailPage from "./Page/ServiceDetail";
 import SinglePostPage from "./Page/SinglePost";
+import PortfolioPage from "./Page/Portfolio";
 
 function AppRouter(){
     return (
@@ -23,13 +24,14 @@ function AppRouter(){
             <Route path="service/:id" element={<ServiceDetailPage />}/>
             <Route path="case_studies" element={<CaseStudiesPage />}/>
             <Route path="team" element={<TeamPage />}/>
-            <Route path="partnership" element={<PartnershipPage />}/>      
+            <Route path="affiliate" element={<AffiliatePage />}/>      
             <Route path="pricing" element={<PricingPage />}/>
             <Route path="Testimonial" element={<TestimonialPage />}/>
             <Route path="faq" element={<FaqPage />}/>
             <Route path="blog" element={<BlogPage />}/>
             <Route path="single_post" element={<SinglePostPage />}/>
             <Route path="contact" element={<ContactPage />}/>
+            <Route path="portfolio" element={<PortfolioPage />}/>
             <Route path="404_page" element={<NotFoundPage />}/>
             <Route path="*" element={<NotFoundPage />}/>
         </Routes>

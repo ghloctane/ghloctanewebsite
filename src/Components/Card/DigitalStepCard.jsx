@@ -1,55 +1,49 @@
-import React, { useState, useEffect } from "react";
-import AnimateOnScroll from "../Hooks/AnimateOnScroll";
+import React from "react";
 
-const DigitalStepCard = ({ icon, step, title, content, isFirst, color, index }) => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, index * 200); // Stagger animation: 200ms delay per card
-
-        return () => clearTimeout(timer);
-    }, [index]);
-
+const DigitalStepCard = ({ icon, step, title, content, color, index, isOdd }) => {
     return (
-        <>
-            <div className="digital-process-card" style={{ animationDelay: `${index * 0.2}s` }}>
-                {!isFirst && (
-                    <div 
-                        className="step-arrow-container" 
-                        style={{ 
-                            '--arrow-delay': index * 0.2,
-                            '--step-color': color
-                        }}
-                    >
-                        <div className="step-arrow-line" style={{ '--step-color': color }}></div>
-                        <div className="step-arrow-icon" style={{ '--step-color': color }}>
-                            <i className="fa-solid fa-arrow-right"></i>
-                        </div>
+        <div className={`phase-container ${isOdd ? 'phase-above' : 'phase-below'}`} style={{ '--phase-color': color }}>
+            {/* Text Box - positioned above or below based on index */}
+            {isOdd && (
+                <div className="phase-text-box">
+                    <div className="phase-icon-container">
+                        <img src={icon} alt={title} className="phase-icon" />
                     </div>
-                )}
-                <div 
-                    className={`digital-process-step ${isVisible ? 'step-visible' : ''}`}
-                    style={{ 
-                        '--step-color': color,
-                        animationDelay: `${index * 0.2}s`
-                    }}
-                >
-                    <div className="d-flex justify-content-between align-items-start">
-                        <div className="process-icon-wrapper">
-                            <img src={icon} alt="Digital Process Icon" className="process-icon" />
-                        </div>
-                        <span className="step-number">{step}</span>
-                    </div>
-                    <div className="d-flex flex-column gspace-2">
-                        <h5>{title}</h5>
-                        <p>{content}</p>
-                    </div>
+                    <h3 className="phase-title" style={{ color: color }}>
+                        <i className="fa-solid fa-diagram-project"></i> {title.toUpperCase()}
+                    </h3>
+                    <p className="phase-description">{content}</p>
                 </div>
+            )}
+            
+            {/* Connecting line (vertical) */}
+            <div className="phase-connector-line"></div>
+            
+            {/* Numbered Circle */}
+            <div className="phase-circle">
+                <span className="phase-number">{step}</span>
             </div>
-        </>
+            
+            {/* Connecting line to next circle (diagonal) */}
+            {index < 4 && <div className="phase-diagonal-line"></div>}
+            
+            {/* Text Box below for even indices */}
+            {!isOdd && (
+                <>
+                    <div className="phase-connector-line"></div>
+                    <div className="phase-text-box">
+                        <div className="phase-icon-container">
+                            <img src={icon} alt={title} className="phase-icon" />
+                        </div>
+                        <h3 className="phase-title" style={{ color: color }}>
+                            <i className="fa-solid fa-diagram-project"></i> {title.toUpperCase()}
+                        </h3>
+                        <p className="phase-description">{content}</p>
+                    </div>
+                </>
+            )}
+        </div>
     );
-  };
+};
 
 export default DigitalStepCard;

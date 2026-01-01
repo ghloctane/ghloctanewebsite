@@ -6,6 +6,12 @@ function ModalVideoSection() {
 
   if (!isOpen) return null;
 
+  // Check if it's an MP4 video file (not YouTube)
+  const isMP4 = videoUrl && (
+    videoUrl.toLowerCase().endsWith('.mp4') || 
+    (videoUrl.toLowerCase().includes('.mp4') && !videoUrl.toLowerCase().includes('youtube') && !videoUrl.toLowerCase().includes('youtu.be'))
+  );
+
   return (
     <div
       id="modal-overlay"
@@ -19,12 +25,26 @@ function ModalVideoSection() {
             <i className="fa-solid fa-xmark"></i>
         </span>
         <div className="my-modal">
-            <iframe
-            id="my-video-frame"
-            src={videoUrl}
-            allowFullScreen
-            title="Video"
-            ></iframe>
+            {isMP4 ? (
+                <video
+                    id="my-video-frame"
+                    src={videoUrl}
+                    controls
+                    autoPlay
+                    playsInline
+                    preload="auto"
+                    type="video/mp4"
+                >
+                    Your browser does not support the video tag.
+                </video>
+            ) : (
+                <iframe
+                    id="my-video-frame"
+                    src={videoUrl}
+                    allowFullScreen
+                    title="Video"
+                ></iframe>
+            )}
         </div>
     </div>
   );

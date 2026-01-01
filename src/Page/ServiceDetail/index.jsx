@@ -17,6 +17,27 @@ function ServiceDetailPage(){
     // If service not found, show first service as default
     const currentService = service || allServicesData[0];
 
+    // Map services to their images
+    const getServiceImage = (serviceSlug) => {
+        const imageMap = {
+            "funnel-landing-page-design": "/assets/images/services/funnel.png",
+            "crm-pipeline-setup": "/assets/images/services/crm pipeline.png",
+            "automation-workflow": "/assets/images/services/automation.png",
+            "white-label-agency": "/assets/images/services/whitelabel.png",
+            "integrations-ai": "/assets/images/services/ai.png",
+            "chatbots-voice-agents": "/assets/images/services/chatbot.png",
+            "lead-capture-nurture": "/assets/images/services/leadcapture.png",
+            "support-maintenance-training": "/assets/images/services/support.png",
+            "api-integration": "/assets/images/services/Backend API Coding.png",
+            "compliance-a2p-registration": "/assets/images/services/compliance.png",
+            "social-media-marketing": "/assets/images/services/social.png",
+            "development": "/assets/images/services/development.png",
+        };
+        return imageMap[serviceSlug] || "/assets/images/services/automation.png";
+    };
+
+    const serviceImage = getServiceImage(currentService.slug);
+
     return(
         <>
             <HeadTitle title={`${currentService.title} - GHL Octane`} />
@@ -25,37 +46,31 @@ function ServiceDetailPage(){
             {/* Service Detail Section */}
             <div className="section">
                 <div className="hero-container">
-                    <div className="row row-cols-lg-2 row-cols-1 grid-spacer-5 align-items-center">
-                        {/* Icon Column */}
+                    <div className="row row-cols-lg-2 row-cols-1 grid-spacer-5 align-items-center justify-content-center">
+                        {/* Content Column - Left Side */}
                         <div className="col">
-                            <AnimateOnScroll animation="fadeInLeft" speed="normal">
-                                <div className="service-detail-icon-wrapper">
-                                    <div className="service-detail-number">
-                                        {String(currentService.id).padStart(2, '0')}
+                            <div className="d-flex flex-column gspace-3 text-start">
+                                <AnimateOnScroll animation="fadeInLeft" speed="normal">
+                                    <div className="service-detail-number-wrapper">
+                                        <span className="service-detail-number">
+                                            {String(currentService.id).padStart(2, '0')}
+                                        </span>
                                     </div>
-                                    <div className="service-detail-icon-box">
-                                        <i className={currentService.icon}></i>
-                                    </div>
-                                </div>
-                            </AnimateOnScroll>
-                        </div>
+                                </AnimateOnScroll>
 
-                        {/* Content Column */}
-                        <div className="col">
-                            <div className="d-flex flex-column gspace-3">
-                                <AnimateOnScroll animation="fadeInRight" speed="normal">
+                                <AnimateOnScroll animation="fadeInLeft" speed="normal">
                                     <h2 className="service-detail-page-title">{currentService.title}</h2>
                                 </AnimateOnScroll>
 
-                                <AnimateOnScroll animation="fadeInRight" speed="slow">
+                                <AnimateOnScroll animation="fadeInLeft" speed="slow">
                                     <p className="service-detail-card-desc">{currentService.cardDescription}</p>
                                 </AnimateOnScroll>
 
-                                <AnimateOnScroll animation="fadeInRight" speed="slow">
+                                <AnimateOnScroll animation="fadeInLeft" speed="slow">
                                     <p className="service-detail-full-desc">{currentService.fullDescription}</p>
                                 </AnimateOnScroll>
 
-                                <AnimateOnScroll animation="fadeInRight" speed="slow">
+                                <AnimateOnScroll animation="fadeInLeft" speed="slow">
                                     <div className="service-detail-includes">
                                         <h3>What's Included:</h3>
                                         <ul className="service-detail-features-list">
@@ -69,7 +84,7 @@ function ServiceDetailPage(){
                                     </div>
                                 </AnimateOnScroll>
 
-                                <AnimateOnScroll animation="fadeInRight" speed="slow">
+                                <AnimateOnScroll animation="fadeInLeft" speed="slow">
                                     <div className="service-detail-cta">
                                         <AnimatedButton href="/contact">
                                             Get Started Today
@@ -77,6 +92,19 @@ function ServiceDetailPage(){
                                     </div>
                                 </AnimateOnScroll>
                             </div>
+                        </div>
+
+                        {/* Service Image Column - Right Side */}
+                        <div className="col">
+                            <AnimateOnScroll animation="fadeInRight" speed="normal">
+                                <div className="service-detail-image-container">
+                                    <img 
+                                        src={serviceImage} 
+                                        alt={currentService.title}
+                                        className="service-detail-image"
+                                    />
+                                </div>
+                            </AnimateOnScroll>
                         </div>
                     </div>
                 </div>

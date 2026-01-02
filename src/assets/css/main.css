@@ -293,31 +293,53 @@ ul{
 
 /* ================== Scrollbar Styles ================== */
 
-/* Firefox */
-* {
+/* Firefox - Only apply to html and body */
+html, body {
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) rgba(0, 0, 0, 0.1);
 }
 
-/* Chrome, Edge, Safari */
-*::-webkit-scrollbar {
+/* Chrome, Edge, Safari - Only apply to html and body */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
     width: 12px;
     height: 12px;
 }
 
-*::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
 }
 
-*::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
     background: var(--accent-color);
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-*::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
     background: #1f356e;
+}
+
+/* Prevent scrollbars on sections and containers */
+.section,
+.section *,
+.hero-container,
+.hero-container * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.section::-webkit-scrollbar,
+.section *::-webkit-scrollbar,
+.hero-container::-webkit-scrollbar,
+.hero-container *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 /* ================== 05. Global Layout Styles ================== */

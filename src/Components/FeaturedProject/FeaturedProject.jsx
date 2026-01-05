@@ -22,7 +22,7 @@ const FeaturedProjectSection = () => {
                             <div className="col">
                                 <AnimateOnScroll animation="fadeInRight" speed="normal">
                                     <div className="d-flex flex-column h-100 justify-content-end gspace-2">
-                                        <p>A complete GoHighLevel implementation showcasing our expertise in automation, CRM setup, and scalable business systems.</p>
+                                        <p>Octendr seamlessly connects WhatsApp with GoHighLevel, enabling agencies and businesses to streamline their messaging workflows with low cost global messaging and reduce messaging costs by up to 90%. With unlimited messages, 5-minute setup, powerful triggers, enterprise-grade security, and real-time synchronization between WhatsApp and GoHighLevel, Octendr transforms how businesses communicate and engage with their customers worldwide.</p>
                                         <div className="link-wrapper">
                                             <a href="https://octendr.com" target="_blank" rel="noopener noreferrer">Visit Project</a>
                                             <i className="fa-solid fa-circle-arrow-right"></i>

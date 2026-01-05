@@ -33,7 +33,7 @@ const VisionSection = () => {
                         <AnimateOnScroll animation="fadeInLeft" speed="normal">
                             <div className="image-container">
                                 <img 
-                                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=800&fit=crop&q=80" 
+                                    src="/assets/images/our vision.png" 
                                     alt="Our Vision" 
                                     className="chooseus-img" 
                                 />

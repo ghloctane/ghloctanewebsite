@@ -1,5 +1,6 @@
 import React from "react";
 import HeadTitle from "../../Components/Head/HeadTitle";
+import SEOHead from "../../Components/Head/SEOHead";
 import BannerHomeSection from "../../Components/Banner";
 import ExpertiseSection from "../../Components/Expertise/expertise";
 import ChooseUsSection from "../../Components/ChooseUs/choose";
@@ -25,6 +26,11 @@ import CTASection from "../../Components/CTA/CTASection";
 function HomePage(){
     return(
         <>
+            <SEOHead 
+                title="GHL Octane - Professional GoHighLevel Solutions for Agencies & Businesses"
+                description="Transform your business with expert GoHighLevel implementation. CRM setup, automation workflows, funnel design, white-label agency builds, and marketing automation solutions."
+                keywords="GoHighLevel, GHL, CRM setup, automation workflow, funnel design, marketing automation, white label agency, GHL integration, lead generation"
+            />
             <HeadTitle title="Home - GHL Octane - GoHighLevel Solutions" />
             <BannerHomeSection />
             <ExpertiseSection />

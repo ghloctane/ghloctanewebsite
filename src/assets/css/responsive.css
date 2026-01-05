@@ -1,5 +1,29 @@
 /* ================== Media Queries ================== */
 
+/* Book a Call Page Responsive */
+@media screen and (max-width: 767px) {
+    .section-book-call {
+        padding: 50px 15px;
+    }
+
+    .book-call-card {
+        padding: 30px 20px 20px 20px;
+    }
+
+    .book-call-header h2 {
+        font-size: 28px;
+    }
+
+    .book-call-iframe-wrapper {
+        min-height: 600px;
+        padding: 15px;
+    }
+
+    .book-call-iframe-wrapper iframe {
+        min-height: 600px;
+    }
+}
+
 /* 01 Tablet (max-width: 991px) */
 
 @media screen and (max-width: 991px) {
@@ -35,9 +59,6 @@
     }
     .navbar-action-container{
         justify-content: flex-start;
-    }
-    .title-heading-banner{
-        background-image: linear-gradient(340deg, var(--accent-transparent) 10%, var(--primary) 100%);
     }
     .about-img-layout{
         width: 100%;
@@ -106,6 +127,39 @@
     }
     .section-stats .expertise-title {
         margin-left: 0;
+        width: 100%;
+    }
+    
+    .section-stats .expertise-img-layout {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section-stats .expertise-img {
+        height: auto;
+        min-height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section-stats .d-flex.flex-column.gap-3 {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .section-stats .d-flex.flex-row.gap-3 {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem !important;
+        width: 100%;
     }
     .card-expertise{
         width: 320px;
@@ -276,9 +330,71 @@
     }
 }
 
+/* 01.5 Smaller Desktop (max-width: 1400px) - Prevent Stats Cards Cropping */
+@media screen and (max-width: 1400px) and (min-width: 1201px) {
+    .section-stats .expertise-img-layout {
+        padding-right: 50px;
+        box-sizing: border-box;
+    }
+    
+    .section-stats .expertise-img {
+        padding-right: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .section-stats .d-flex.flex-row.gap-3 {
+        max-width: 100%;
+        box-sizing: border-box;
+        gap: 1rem !important;
+    }
+}
+
+/* 01.6 Smaller Desktop (max-width: 1200px) - Prevent Stats Cards Cropping */
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .section-stats .expertise-img-layout {
+        padding-right: 50px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        margin-left: 30px;
+    }
+    
+    .section-stats .expertise-img {
+        padding-right: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .section-stats .d-flex.flex-row.gap-3 {
+        max-width: 100%;
+        box-sizing: border-box;
+        gap: 0.75rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .section-stats .d-flex.flex-column.gap-3 {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 /* 02 Mobile (max-width:: 767px) */
 
 @media screen and (max-width: 767px){
+    /* Force menu button to show on mobile - Override main CSS */
+    .nav-btn,
+    button.nav-btn,
+    .navbar-toggler.nav-btn,
+    button.navbar-toggler.nav-btn,
+    .navbar-container .nav-btn,
+    .navbar-container button.nav-btn {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
     h1{
         font-size: var(--font-size-10xl);
     }
@@ -307,14 +423,248 @@
         max-width: 50%;
     }
     .navbar-wrapper{
-        padding: 20px 20px 20px 20px;
-    }
-    .banner-video-content p{
-        font-size: var(--font-size-xs);
+        padding: 15px 15px 15px 15px;
+        width: 100%;
         max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
     }
+    
+    .navbar{
+        padding: 12px 15px 12px 15px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .navbar-container{
+        flex-wrap: wrap !important;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+        overflow: visible !important;
+        position: relative;
+    }
+    
+    .logo-container{
+        flex: 0 1 auto;
+        max-width: 70%;
+        flex-shrink: 0;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        order: 0;
+    }
+    
+    .logo-container img,
+    .site-logo{
+        width: 160px !important;
+        max-width: 160px;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar-brand{
+        gap: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Completely hide Book a Call button in header on mobile */
+    .navbar-action-container{
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    
+    /* Hide all Book a Call buttons in navbar on mobile */
+    .navbar .navbar-action-container,
+    .navbar-container .navbar-action-container,
+    .navbar-action-container .btn,
+    .navbar-action-container .btn-title,
+    .navbar-action-container a,
+    .navbar-action-container button {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .navbar-action-container-mobile-inline{
+        display: none !important;
+    }
+    
+    /* Force menu button to show - highest priority - Right side with margin */
+    .navbar-wrapper .navbar .navbar-container button.navbar-toggler.nav-btn,
+    .navbar-wrapper .navbar .navbar-container button.nav-btn,
+    .navbar .navbar-container > button.navbar-toggler,
+    .navbar .navbar-container > button.nav-btn,
+    .navbar-container button.navbar-toggler.nav-btn,
+    .navbar-container button.nav-btn,
+    .navbar button.navbar-toggler.nav-btn,
+    .navbar button.nav-btn,
+    button.navbar-toggler.nav-btn,
+    button.nav-btn {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px 14px !important;
+        font-size: 20px !important;
+        border-radius: 8px !important;
+        min-width: 44px !important;
+        width: 44px !important;
+        height: 44px !important;
+        flex-shrink: 0 !important;
+        order: 2 !important;
+        margin: 0 !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        position: relative !important;
+        border: none !important;
+        outline: none !important;
+        float: none !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        z-index: 999 !important;
+        background-color: var(--accent-color) !important;
+        color: var(--primary) !important;
+        cursor: pointer !important;
+    }
+    
+    button.nav-btn i,
+    button.navbar-toggler i,
+    .nav-btn i,
+    .navbar-container button i {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 20px !important;
+    }
+    
+    .navbar-action-container-mobile{
+        display: none !important;
+    }
+    
+    .navbar-collapse{
+        order: 4;
+        width: 100%;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(168, 184, 224, 0.2);
+    }
+    
+    .navbar-nav{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        width: 100%;
+    }
+    
+    .nav-item{
+        width: 100%;
+    }
+    
+    .nav-link{
+        width: 100%;
+        padding: 12px 16px !important;
+        font-size: var(--font-size-sm) !important;
+    }
+    
+    .dropdown-menu{
+        position: static !important;
+        float: none;
+        width: 100%;
+        margin-top: 5px;
+        box-shadow: none;
+        border: 1px solid rgba(168, 184, 224, 0.2);
+        border-radius: 8px;
+    }
+    
+    .dropdown-item{
+        padding: 10px 16px !important;
+        font-size: var(--font-size-sm) !important;
+    }
+    
+    .banner-video-container{
+        padding: 40px 15px 40px 15px !important;
+        margin: 0 15px !important;
+    }
+    
+    #banner-video-background {
+        width: 200vw !important;
+        height: 200vh !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(2.5) !important;
+        z-index: 0 !important;
+    }
+    
+    /* Zoom video iframe on mobile for full coverage */
+    #banner-video-background iframe {
+        width: 200vw !important;
+        height: 200vh !important;
+        transform: scale(2.5) !important;
+        pointer-events: none !important;
+    }
+    
+    .banner-video-content{
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    
+    .banner-video-content p{
+        font-size: var(--font-size-sm) !important;
+        max-width: 100% !important;
+        text-align: center;
+    }
+    
+    .banner-heading{
+        flex-direction: column;
+        gap: 30px !important;
+    }
+    
+    .banner-content{
+        width: 100%;
+        text-align: center;
+    }
+    
+    .banner-content p{
+        font-size: var(--font-size-sm) !important;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .title-heading-banner{
+        font-size: var(--font-size-8xl) !important;
+        line-height: 1.3;
+        text-align: center;
+    }
+    
     .section-banner{
-        padding: 0px 20px 0px 20px;
+        padding: 0px 15px 0px 15px;
     }
     .section-guide{
         padding: 0px 20px 0px 20px;
@@ -386,6 +736,75 @@
     }
     .testimonial-rating-container{
         width: 100%;
+    }
+    
+    /* Testimonial Video Section Mobile */
+    .testimonial-video-list-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .testimonial-video-list {
+        min-height: 200px;
+        max-height: 300px;
+        padding: 10px;
+    }
+    
+    .testimonial-video-item {
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .testimonial-video-thumbnail {
+        width: 80px;
+        height: 60px;
+        min-width: 80px;
+    }
+    
+    .testimonial-video-info {
+        flex: 1;
+    }
+    
+    .testimonial-video-name {
+        font-size: var(--font-size-sm);
+    }
+    
+    .testimonial-video-designation {
+        font-size: var(--font-size-xs);
+    }
+    
+    .testimonial-video-player {
+        margin-top: 20px;
+    }
+    
+    .testimonial-video-player-info {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    .testimonial-video-player-info h5 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .testimonial-video-player-info span {
+        font-size: var(--font-size-sm);
+    }
+    
+    .testimonial-video-player-info p {
+        font-size: var(--font-size-sm);
+    }
+    
+    .testimonial-header-wrapper-title {
+        padding: 20px;
+    }
+    
+    .card-testimonial-header-title {
+        margin-bottom: 20px;
+    }
+    
+    .testimonial-video-stats {
+        margin-top: 20px;
     }
     .pricing-highlight-box{
         width: 100%;

@@ -132,7 +132,7 @@ function BannerHomeSection() {
                                             We help you set up, optimize, and scale GHL the right way.
                                         </p>
                                         <div className="d-flex flex-md-row flex-column justify-content-center justify-content-lg-start align-self-center align-self-lg-start gspace-3">
-                                            <AnimatedButton href="./contact">
+                                            <AnimatedButton href="/book-a-call">
                                                 Get Started
                                             </AnimatedButton>
                                         </div>

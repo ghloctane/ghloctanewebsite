@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SocialButton from "../Social/SocialButton";
 
 const Footer = () => {
@@ -25,12 +26,12 @@ const Footer = () => {
                                 <div className="footer-quick-links">
                                     <h5>Quick Links</h5>
                                     <ul className="footer-list">
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="/about">About Us</a></li>
-                                        <li><a href="/service">Service</a></li>
-                                        {/* <li><a href="/case_studies">Case Studies</a></li> */}
-                                        <li><a href="/portfolio">Portfolio</a></li>
-                                        <li><a href="/contact">Contact Us</a></li>
+                                        <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Home</Link></li>
+                                        <li><Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>About Us</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Service</Link></li>
+                                        {/* <li><Link to="/case_studies">Case Studies</Link></li> */}
+                                        <li><Link to="/portfolio" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Portfolio</Link></li>
+                                        <li><Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Contact Us</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -39,14 +40,14 @@ const Footer = () => {
                                 <div className="footer-services-container">
                                     <h5>Services</h5>
                                     <ul className="footer-list">
-                                        <li><a href="/service">Funnel & Landing Page Design</a></li>
-                                        <li><a href="/service">CRM & Pipeline Setup</a></li>
-                                        <li><a href="/service">Automation & Workflow</a></li>
-                                        <li><a href="/service">White-Label Agency Builds</a></li>
-                                        <li><a href="/service">Integrations & AI Enablement</a></li>
-                                        <li><a href="/service">Chatbots & Voice Agents</a></li>
-                                        <li><a href="/service">Lead Capture & Nurture</a></li>
-                                        <li><a href="/service">Support & Maintenance</a></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Funnel & Landing Page Design</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>CRM & Pipeline Setup</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Automation & Workflow</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>White-Label Agency Builds</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Integrations & AI Enablement</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Chatbots & Voice Agents</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Lead Capture & Nurture</Link></li>
+                                        <li><Link to="/service" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Support & Maintenance</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -66,8 +67,13 @@ const Footer = () => {
                                             <SocialButton href="https://instagram.com" icon="instagram" />
                                             <SocialButton href="https://linkedin.com" icon="linkedin" />
                                         </div>
-                                        <div className="footer-certified-badge">
-                                            <img src="/assets/images/certified.png" alt="HighLevel Certified Admin" className="certified-badge-img" />
+                                        <div className="footer-certified-badges">
+                                            <img src="/assets/images/certified.png" alt="HighLevel Certified Admin" className="certified-badge-img certified-badge-main" />
+                                            <div className="footer-integration-badges">
+                                                <img src="https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/67abd58650fb000ed8851f30.png" alt="Zapier" className="certified-badge-img" />
+                                                <img src="/assets/images/ghl.webp" alt="GoHighLevel" className="certified-badge-img" />
+                                                <img src="/assets/images/shopify.webp" alt="Shopify" className="certified-badge-img" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

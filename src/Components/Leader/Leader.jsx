@@ -28,7 +28,7 @@ const LeaderSection = () => {
                             </AnimateOnScroll>
                         </div>
 
-                        <div className="row row-cols-lg-2 row-cols-1 grid-spacer-4 justify-content-center">
+                        <div className="row row-cols-lg-2 row-cols-1 grid-spacer-2 justify-content-center">
                             <AnimateOnScroll animation="fadeInUp" speed="normal">
                                 <div className="col">
                                     <div className="d-flex flex-column align-items-center">
@@ -98,7 +98,7 @@ const LeaderSection = () => {
                             <AnimateOnScroll animation="fadeInLeft" speed="normal">
                                 <div className="image-container">
                                     <img 
-                                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=2400&h=1600&fit=crop&q=80" 
+                                        src="/assets/images/our vision.png" 
                                         alt="Our Vision" 
                                         className="chooseus-img" 
                                     />

@@ -28,7 +28,7 @@ function PricingPlanSection(){
                                         <div className="content">
                                             <h3 className="title-heading">Choose Your Plan</h3>
                                             <div className="link-wrapper">
-                                            <a href="./contact">Book Your Free Strategy Call</a>
+                                            <a href="/book-a-call" onClick={(e) => { e.preventDefault(); window.location.href = '/book-a-call'; window.scrollTo({ top: 0, behavior: 'instant' }); }}>Book Your Free Strategy Call</a>
                                             <i className="fa-solid fa-arrow-circle-right"></i>
                                             </div>
                                         </div>
@@ -44,7 +44,7 @@ function PricingPlanSection(){
                                             <p>/Month</p>
                                         </div>
                                         <p style={{fontSize: '14px', marginBottom: '20px', opacity: '0.8'}}>Perfect for startups</p>
-                                        <AnimatedButton href="./contact">
+                                        <AnimatedButton href="/book-a-call">
                                             Get Started
                                         </AnimatedButton>
                                         <ul className="check-list">
@@ -68,7 +68,7 @@ function PricingPlanSection(){
                                     <h4>Growth</h4>
                                     <p>40 hours/week of a dedicated GHL expert</p>
                                     <div className="d-flex flex-row gspace-1 align-items-center">
-                                        <h3>$1,800</h3>
+                                        <h3>$1,500</h3>
                                         <p>/Month</p>
                                     </div>
                                     <AnimatedButton href="./contact">
@@ -139,7 +139,7 @@ function PricingPlanSection(){
                                         <h4>Enterprise Elite</h4>
                                         <p>Contact Sales Team for Agency and Enterprise Prices</p>
                                         <p style={{fontSize: '14px', marginBottom: '20px', opacity: '0.8'}}>For businesses who need pro solutions and integrations</p>
-                                        <AnimatedButton href="./contact">
+                                        <AnimatedButton href="/book-a-call">
                                             Contact Sales
                                         </AnimatedButton>
                                         <ul className="check-list">

@@ -13,7 +13,7 @@ function AboutHomeSection(){
                         <div className="image-container about-img">
                             <AnimateOnScroll animation="fadeInUp" speed="normal">
                             <img
-                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=2400&h=1600&fit=crop&q=80&auto=format"
+                                src="/assets/images/aboutus.png"
                                 alt="About GHL Octane"
                                 className="img-fluid"
                             />

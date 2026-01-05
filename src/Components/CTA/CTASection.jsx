@@ -37,12 +37,12 @@ const CTASection = () => {
                                     Book your free strategy call and see how we can help scale your business.
                                 </p>
                                 <div className="d-flex justify-content-center gap-3 flex-wrap">
-                                    <AnimatedButton href="./contact">
+                                    <AnimatedButton href="/book-a-call">
                                         Book Free Strategy Call
                                     </AnimatedButton>
-                                    <a href="./services" className="btn btn-outline">
-                                        <span className="btn-title">View Our Services</span>
-                                    </a>
+                                    <AnimatedButton href="/service">
+                                        View Our Services
+                                    </AnimatedButton>
                                 </div>
                             </div>
                         </AnimateOnScroll>

@@ -20,6 +20,8 @@ return (
                     </NavLink>
                 </div>
 
+                {/* Mobile Book a Call Button - Hidden, will be in sidebar */}
+
                 <button
                     className="navbar-toggler nav-btn"
                     type="button"
@@ -57,7 +59,6 @@ return (
                             className={`nav-link dropdown-toggle ${
                                 isDropdownActive([
                                 "/team",
-                                "/affiliate",
                                 "/pricing",
                                 "/testimonial",
                                 ])
@@ -83,11 +84,6 @@ return (
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/affiliate" className="dropdown-item">
-                                    Affiliate
-                                </NavLink>
-                            </li>
-                            <li>
                                 <NavLink to="/pricing" className="dropdown-item">
                                     Pricing Plan
                                 </NavLink>
@@ -106,11 +102,18 @@ return (
                             </NavLink>
                         </li>
                     </ul>
+                    
+                    {/* Mobile Book a Call Button */}
+                    <div className="navbar-action-container-mobile">
+                        <AnimatedButton href="/book-a-call">
+                            Book a Call
+                        </AnimatedButton>
+                    </div>
                 </div>
 
                 {/* Navbar Action */}
                 <div className="navbar-action-container">
-                    <AnimatedButton href="/contact">
+                    <AnimatedButton href="/book-a-call">
                         Book a Call
                     </AnimatedButton>
                 </div>

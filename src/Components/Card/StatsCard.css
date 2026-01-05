@@ -5,6 +5,45 @@
   padding: 1px;
   background: radial-gradient(circle 230px at 0% 0%, #ffffff, #27428c);
   position: relative;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1400px) and (min-width: 1201px) {
+  .stats-outer {
+    width: 250px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .stats-outer {
+    width: 200px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 991px) {
+  .stats-outer {
+    width: 240px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-outer {
+    width: calc(50% - 12px);
+    min-width: 140px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-outer {
+    width: 100%;
+    max-width: 280px;
+    height: 150px;
+    margin: 0 auto;
+  }
 }
 
 .stats-dot {
@@ -80,11 +119,47 @@
   color: transparent;
 }
 
+@media (max-width: 1200px) and (min-width: 992px) {
+  .stats-card .stats-text {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .stats-card .stats-text {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-card .stats-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-card .stats-text {
+    font-size: 2.2rem;
+  }
+}
+
 .stats-label {
   font-size: 1.2rem;
   font-weight: 600;
   color: #fff;
   margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .stats-label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-label {
+    font-size: 0.9rem;
+  }
 }
 
 .stats-line {

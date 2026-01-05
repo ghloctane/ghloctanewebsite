@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { testimonials } from "../../Data/TestimonialData";
 import TestimonialCard from "../Card/TestimonialCard";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const TestimonialSection = () => {
-    // Video testimonials data
+    // Original video testimonials only
     const videoTestimonials = [
         {
             id: 1,
@@ -44,62 +44,37 @@ const TestimonialSection = () => {
             designation: "CEO",
             text: "Matt highly recommends Zeeshan and his team for GoHighLevel, praising their expertise in setting up accounts, workflows, and custom solutions. Zeeshan is always available, responsive, and a reliable partner for anything related to HighLevel.",
             isMP4: true
-        },
-        {
-            id: 5,
-            videoId: "/assets/testimonials/client3.mp4",
-            thumbnail: "/assets/images/client-3.png",
-            name: "Michael Chen",
-            designation: "Founder, StartupXYZ",
-            text: "Increased our conversion rate by 49% in just 3 months.",
-            isMP4: true
-        },
-        {
-            id: 6,
-            videoId: "/assets/testimonials/client4.mp4",
-            thumbnail: "/assets/images/client-4.png",
-            name: "Emily Davis",
-            designation: "Operations Manager",
-            text: "Their automation workflows saved us 20 hours per week.",
-            isMP4: true
-        },
-        {
-            id: 7,
-            videoId: "L_jWHffIx5E",
-            thumbnail: "https://img.youtube.com/vi/L_jWHffIx5E/maxresdefault.jpg",
-            name: "David Wilson",
-            designation: "Agency Owner",
-            text: "Professional service and exceptional results."
-        },
-        {
-            id: 8,
-            videoId: "9bZkp7q19f0",
-            thumbnail: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
-            name: "Lisa Anderson",
-            designation: "Business Consultant",
-            text: "Outstanding automation solutions that saved us time and money."
-        },
-        {
-            id: 9,
-            videoId: "kJQP7kiw5Fk",
-            thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
-            name: "Robert Martinez",
-            designation: "Sales Director",
-            text: "Game-changing automation that transformed our workflow completely."
-        },
-        {
-            id: 10,
-            videoId: "dQw4w9WgXcQ",
-            thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-            name: "Jennifer Lee",
-            designation: "E-commerce Manager",
-            text: "Perfect implementation and excellent ongoing support."
         }
     ];
 
     const [selectedVideo, setSelectedVideo] = useState(videoTestimonials[0]);
     const [visibleVideos, setVisibleVideos] = useState(5); // Initially show 5 videos
     const [isVideoPlaying, setIsVideoPlaying] = useState(false); // Track if video is playing
+    const videoPlayerRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Check if mobile viewport
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 767);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Scroll to video player on mobile when video is selected
+    useEffect(() => {
+        if (isMobile && videoPlayerRef.current && selectedVideo) {
+            setTimeout(() => {
+                videoPlayerRef.current?.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start',
+                    inline: 'nearest'
+                });
+            }, 100);
+        }
+    }, [selectedVideo, isMobile]);
     return (
         <div className="section section-testimonial">
             <div className="hero-container">
@@ -198,7 +173,7 @@ const TestimonialSection = () => {
                                         <h2 className="title-heading">REAL RESULTS. REAL CLIENTS.</h2>
                                         <p>90% Improvement in Lead Response Time | 49% Increase in Conversion Rate</p>
                                     </div>
-                                    <div className="testimonial-video-player">
+                                    <div className="testimonial-video-player" ref={videoPlayerRef}>
                                         <div className="video-container">
                                             {!isVideoPlaying ? (
                                                 <div 
@@ -210,7 +185,7 @@ const TestimonialSection = () => {
                                                         <i className="fa-solid fa-play"></i>
                                                     </div>
                                                 </div>
-                                            ) : selectedVideo.isMP4 ? (
+                                            ) : (
                                                 <video
                                                     width="100%"
                                                     height="100%"
@@ -224,17 +199,6 @@ const TestimonialSection = () => {
                                                 >
                                                     Your browser does not support the video tag.
                                                 </video>
-                                            ) : (
-                                                <iframe
-                                                    width="100%"
-                                                    height="100%"
-                                                    src={`https://www.youtube.com/embed/${selectedVideo.videoId}?autoplay=1&rel=0`}
-                                                    title={selectedVideo.name}
-                                                    frameBorder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                    className="testimonial-iframe"
-                                                ></iframe>
                                             )}
                                         </div>
                                         <div className="testimonial-video-player-info">
@@ -248,6 +212,7 @@ const TestimonialSection = () => {
                         </div>
                     </div>
 
+                    {/* Text Testimonials Carousel - First 3 only */}
                     <AnimateOnScroll animation="fadeInUp" speed="normal">
                         <div className="d-flex flex-column">
                             <div className="overflow-hidden">
@@ -266,7 +231,7 @@ const TestimonialSection = () => {
                                     1024: { slidesPerView: 3 },
                                 }}
                                 className="swiperTestimonial">
-                                    {testimonials.map((item) => (
+                                    {testimonials.slice(0, 3).map((item) => (
                                     <SwiperSlide key={item.id}>
                                         <TestimonialCard {...item} />
                                     </SwiperSlide>

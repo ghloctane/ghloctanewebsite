@@ -4,14 +4,13 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 const WebsiteShowcase = () => {
     // Website template images
     const websites = [
-        { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.png" },
-        { id: 2, title: "Landing Page", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" },
-        { id: 3, title: "Portfolio", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop&q=80" },
-        { id: 4, title: "Business", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&q=80" },
-        { id: 5, title: "SaaS", image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop&q=80" },
-        { id: 6, title: "Agency", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" },
-        { id: 7, title: "Real Estate", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop&q=80" },
-        { id: 8, title: "Healthcare", image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&q=80" },
+        { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.png", demoUrl: "https://proservice.ghloctane.com/" },
+        { id: 3, title: "Portfolio", image: "/assets/images/websites/web3.png", demoUrl: "https://remodeling.ghloctane.com/" },
+        { id: 4, title: "Business", image: "/assets/images/websites/web4.png", demoUrl: "https://truvate.ghloctane.com/" },
+        { id: 5, title: "SaaS", image: "/assets/images/websites/web5.png", demoUrl: "https://infiniumtechltd.com/" },
+        { id: 6, title: "Agency", image: "/assets/images/websites/web6.png", demoUrl: "https://octendr.com" },
+        { id: 7, title: "Real Estate", image: "/assets/images/websites/web7.png", demoUrl: "https://syncnova.io" },
+        { id: 8, title: "Healthcare", image: "/assets/images/websites/web8.png", demoUrl: "https://fluxor.ghloctane.com/" },
     ];
 
     return (
@@ -44,12 +43,12 @@ const WebsiteShowcase = () => {
                                     {[...websites, ...websites].map((site, index) => (
                                         <div 
                                             key={`right-${site.id}-${index}`} 
-                                            className={`website-showcase-slide ${site.id === 1 ? 'website-showcase-demo' : ''}`}
-                                            onClick={site.id === 1 ? () => window.open('https://proservice.ghloctane.com/', '_blank') : undefined}
-                                            style={site.id === 1 ? { cursor: 'pointer' } : {}}
+                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo' : ''}`}
+                                            onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
+                                            style={site.demoUrl ? { cursor: 'pointer' } : {}}
                                         >
                                             <img src={site.image} alt={site.title} />
-                                            {site.id === 1 && (
+                                            {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>
                                                 </div>
@@ -63,8 +62,18 @@ const WebsiteShowcase = () => {
                             <div className="website-showcase-row">
                                 <div className="website-showcase-track website-showcase-left">
                                     {[...websites, ...websites].map((site, index) => (
-                                        <div key={`left-${index}`} className="website-showcase-slide">
+                                        <div 
+                                            key={`left-${index}`} 
+                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo' : ''}`}
+                                            onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
+                                            style={site.demoUrl ? { cursor: 'pointer' } : {}}
+                                        >
                                             <img src={site.image} alt={site.title} />
+                                            {site.demoUrl && (
+                                                <div className="website-showcase-overlay">
+                                                    <span className="website-showcase-demo-text">Live Demo</span>
+                                                </div>
+                                            )}
                                         </div>
                                     ))}
                                 </div>

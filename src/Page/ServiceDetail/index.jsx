@@ -7,6 +7,8 @@ import AnimatedButton from "../../Components/Button/AnimatedButton";
 import GuideBannerSection from "../../Components/Banner/guide";
 import PricingPlanSection from "../../Components/Pricing/Pricing";
 import HeadTitle from "../../Components/Head/HeadTitle";
+import FunnelServiceSlider from "../../Components/ServiceDetail/FunnelServiceSlider";
+import ServiceLottieAnimation from "../../Components/Services/ServiceLottieAnimation";
 
 function ServiceDetailPage(){
     const { id } = useParams();
@@ -29,7 +31,7 @@ function ServiceDetailPage(){
             "lead-capture-nurture": "/assets/images/services/leadcapture.png",
             "support-maintenance-training": "/assets/images/services/support.png",
             "api-integration": "/assets/images/services/Backend API Coding.png",
-            "compliance-a2p-registration": "/assets/images/services/compliance.png",
+            "compliance-a2p-registration": "/assets/images/services/a2p.png",
             "social-media-marketing": "/assets/images/services/social.png",
             "development": "/assets/images/services/development.png",
         };
@@ -37,6 +39,7 @@ function ServiceDetailPage(){
     };
 
     const serviceImage = getServiceImage(currentService.slug);
+    const isFunnelService = currentService.slug === "funnel-landing-page-design";
 
     return(
         <>
@@ -97,13 +100,21 @@ function ServiceDetailPage(){
                         {/* Service Image Column - Right Side */}
                         <div className="col">
                             <AnimateOnScroll animation="fadeInRight" speed="normal">
-                                <div className="service-detail-image-container">
-                                    <img 
-                                        src={serviceImage} 
-                                        alt={currentService.title}
-                                        className="service-detail-image"
-                                    />
-                                </div>
+                                {isFunnelService ? (
+                                    // Funnel Service - Special Slider with Auto-play and Hover Scroll
+                                    <FunnelServiceSlider serviceTitle={currentService.title} />
+                                ) : (
+                                    // Other Services - Lottie Animation or Image Display
+                                    <div className="service-detail-image-container">
+                                        <ServiceLottieAnimation />
+                                        <img 
+                                            src={serviceImage} 
+                                            alt={currentService.title}
+                                            className="service-detail-image"
+                                            style={{ display: 'none' }}
+                                        />
+                                    </div>
+                                )}
                             </AnimateOnScroll>
                         </div>
                     </div>

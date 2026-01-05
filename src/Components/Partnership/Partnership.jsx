@@ -38,7 +38,7 @@ const PartnershipSection = () => {
                                 <Swiper
                                     modules={[Autoplay]}
                                     slidesPerView={6}
-                                    spaceBetween={20}
+                                    spaceBetween={10}
                                     loop={true}
                                     speed={3000}
                                     autoplay={{

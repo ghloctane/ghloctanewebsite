@@ -35,7 +35,7 @@ function ChooseUsSection(){
                                     </div>
                                 </AnimateOnScroll>
                                 <div className="image-container">
-                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop&q=80" alt="Why Choose Us Image" className="chooseus-img" />
+                                    <img src="/assets/images/team.png" alt="Why Choose Us Image" className="chooseus-img" />
                                     <div className="card-chooseus-cta-layout">
                                         <div className="chooseus-cta-spacer"></div>
                                         <div className="d-flex flex-column align-items-end">

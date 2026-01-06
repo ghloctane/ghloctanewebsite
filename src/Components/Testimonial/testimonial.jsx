@@ -5,7 +5,7 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { FaPlay, FaCircleDot } from "react-icons/fa6";
+import { FaPlay, FaCircle } from "react-icons/fa";
 
 const TestimonialSection = () => {
     // Original video testimonials only - Using Vimeo embeds
@@ -170,7 +170,7 @@ const TestimonialSection = () => {
                                 <div className="testimonial-header-wrapper-title">
                                     <div className="card-testimonial-header-title">
                                         <div className="sub-heading">
-                                            <FaCircleDot />
+                                            <FaCircle />
                                             <span>What Our Client Says</span>
                                         </div>
                                         <h2 className="title-heading">REAL RESULTS. REAL CLIENTS.</h2>

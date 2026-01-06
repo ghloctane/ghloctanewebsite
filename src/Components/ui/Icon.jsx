@@ -1,14 +1,14 @@
 import React from 'react';
 import { 
-    FaBars, FaAngleDown, FaXmark, FaPlay, FaCircleDot, FaCircleArrowRight,
-    FaCheckCircle, FaStar, FaQuoteRight, FaArrowUp, FaCheck, FaXmark as FaX,
-    FaPhoneVolume, FaEnvelope, FaLocationDot, FaCalendar, FaFolder, FaUser,
-    FaArrowRight, FaArrowCircleRight, FaBrain, FaBug, FaDiagramProject,
-    FaFilter, FaGears, FaBuilding, FaPlug, FaRobot, FaMagnet, FaHeadset,
-    FaShieldHalved, FaCode, FaDollarSign, FaChartLine, FaTools, FaHome,
-    FaHeartPulse, FaDumbbell, FaShoppingCart, FaChalkboardUser, FaScaleBalanced,
+    FaBars, FaAngleDown, FaTimes as FaXmark, FaPlay, FaCircle, FaArrowCircleRight,
+    FaCheckCircle, FaStar, FaQuoteRight, FaArrowUp, FaCheck, FaTimes as FaX,
+    FaPhone, FaEnvelope, FaMapMarkerAlt as FaLocationDot, FaCalendar, FaFolder, FaUser,
+    FaArrowRight, FaArrowCircleRight, FaBrain, FaBug, FaProjectDiagram as FaDiagramProject,
+    FaFilter, FaCogs as FaGears, FaBuilding, FaPlug, FaRobot, FaMagnet, FaHeadset,
+    FaShieldAlt as FaShieldHalved, FaCode, FaDollarSign, FaChartLine, FaTools, FaHome,
+    FaHeartbeat as FaHeartPulse, FaDumbbell, FaShoppingCart, FaChalkboardTeacher as FaChalkboardUser, FaBalanceScale as FaScaleBalanced,
     FaCar, FaGraduationCap, FaBriefcase, FaCloud, FaUtensils
-} from 'react-icons/fa6';
+} from 'react-icons/fa';
 import { FaAccessibleIcon } from 'react-icons/fa';
 
 // Mapping FontAwesome classes to react-icons components
@@ -17,8 +17,8 @@ const iconMap = {
     'fa-angle-down': FaAngleDown,
     'fa-xmark': FaXmark,
     'fa-play': FaPlay,
-    'fa-circle-dot': FaCircleDot,
-    'fa-circle-arrow-right': FaCircleArrowRight,
+    'fa-circle-dot': FaCircle,
+    'fa-circle-arrow-right': FaArrowCircleRight,
     'fa-check-circle': FaCheckCircle,
     'fa-star': FaStar,
     'fa-quote-right': FaQuoteRight,

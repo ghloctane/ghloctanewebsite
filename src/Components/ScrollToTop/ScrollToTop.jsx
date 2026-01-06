@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './ScrollToTop.css';
-import { FaArrowUp } from 'react-icons/fa6';
+import { FaArrowUp } from 'react-icons/fa';
 
 function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);

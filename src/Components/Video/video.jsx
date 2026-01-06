@@ -1,6 +1,6 @@
 import React from "react";
 import { useModalVideo } from "./ModalVideoContext";
-import { FaXmark } from "react-icons/fa6";
+import { FaTimes as FaXmark } from "react-icons/fa";
 
 function ModalVideoSection() {
   const { isOpen, videoUrl, closeModal } = useModalVideo();

@@ -3,6 +3,7 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { FaCircle, FaArrowCircleRight } from "react-icons/fa";
 
 const CustomizedDashboardsSection = () => {
     // Dashboard images
@@ -27,7 +28,7 @@ const CustomizedDashboardsSection = () => {
                                 <AnimateOnScroll animation="fadeInLeft" speed="normal">
                                     <div className="d-flex flex-column gspace-2">
                                         <div className="sub-heading">
-                                            <FaCircleDot />
+                                            <FaCircle />
                                             <span>Customized Dashboards</span>
                                         </div>
                                         <h2 className="title-heading">CUSTOMIZED DASHBOARDS</h2>
@@ -40,7 +41,7 @@ const CustomizedDashboardsSection = () => {
                                         <p>Tailored dashboards designed to give you complete visibility and control over your business metrics and operations.</p>
                                         <div className="link-wrapper">
                                             <a href="./contact">View All Dashboards</a>
-                                            <FaCircleArrowRight />
+                                            <FaArrowCircleRight />
                                         </div>
                                     </div>
                                 </AnimateOnScroll>

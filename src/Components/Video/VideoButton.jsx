@@ -1,6 +1,6 @@
 import React from "react";
 import { useModalVideo } from "./ModalVideoContext";
-import { FaPlay } from "react-icons/fa6";
+import { FaPlay } from "react-icons/fa";
 
 function VideoButton({ videoUrl }) {
   const { openModal } = useModalVideo();

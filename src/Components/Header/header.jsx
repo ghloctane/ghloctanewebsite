@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useNav } from "../Context/NavContext";
 import AnimatedButton from "../Button/AnimatedButton";
-import { FaBars, FaAngleDown } from "react-icons/fa6";
+import { FaBars, FaAngleDown } from "react-icons/fa";
 
 function Navbar() {
 const { isDropdownActive } = useNav();

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa6';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function ThemeSwitcher() {
     const [lightMode, setLightMode] = useState(false);

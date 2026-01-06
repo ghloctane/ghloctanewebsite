@@ -1,12 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
-import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
+const BackgroundPaths = lazy(() => import("../BackgroundPaths/BackgroundPaths"));
 
 function AboutHomeSection(){
 
     return(
         <div className="section section-about">
-            <BackgroundPaths />
+            <Suspense fallback={null}>
+                <BackgroundPaths />
+            </Suspense>
             <div className="hero-container">
                 <div className="d-flex flex-column flex-lg-row gspace-5">
                     <div className="about-img-layout">

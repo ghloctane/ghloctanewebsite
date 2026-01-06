@@ -67,7 +67,7 @@
 /* ================== 01. Import Vendor ================== */
 
 @import url('/assets/css/vendor/font-family-plus-jakarta-sans.css');
-/* FontAwesome CSS loaded non-blocking via index.html to prevent render blocking */
+/* FontAwesome CSS loaded via index.html (fonts have font-display: swap) */
 /* @import url('/assets/css/vendor/fontawesome.css'); */
 /* @import url('/assets/css/vendor/brands.css'); */
 /* @import url('/assets/css/vendor/regular.css'); */
@@ -664,7 +664,11 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 20px;
 }
 
+/* Dashboard Swiper - CSS Containment */
 .swiperDashboards-container{
+    content-visibility: auto;
+    contain: layout paint;
+    aspect-ratio: 16/9;
     position: relative;
     z-index: 2;
     padding: 30px 0;
@@ -816,7 +820,12 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
 }
 
+/* Hero/Banner Slider - CSS Containment for Layout Stability */
 .section-banner{
+    content-visibility: auto;
+    contain: layout paint;
+    aspect-ratio: 16/9;
+    min-height: 600px;
     padding: 0px 0px 0px 0px;
     margin: 0;
 }
@@ -3613,7 +3622,11 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100px;
 }
 
+/* Partnership Swiper - CSS Containment */
 .swiperPartner-container{
+    content-visibility: auto;
+    contain: layout paint;
+    aspect-ratio: 16/9;
     margin: 0px -100px 0px -100px;
     overflow: hidden;
     position: relative;
@@ -5766,7 +5779,10 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100%;
 }
 
+/* Testimonial Swiper - CSS Containment */
 .swiperTestimonial .swiper-slide{
+    content-visibility: auto;
+    contain: layout paint;
     height: auto;
     min-height: 300px;
     display: flex;

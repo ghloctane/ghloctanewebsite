@@ -10,11 +10,24 @@ export default defineConfig({
     // Note: esbuild doesn't support drop_console, but we can use a plugin if needed
     rollupOptions: {
       output: {
-        // Code splitting for better performance
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'swiper-vendor': ['swiper'],
-          'animation-vendor': ['framer-motion', 'gsap'],
+        // Aggressive code splitting - animation libraries NOT in main bundle
+        manualChunks: (id) => {
+          // React core in separate chunk
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router-dom')) {
+            return 'react-vendor';
+          }
+          // Swiper in separate chunk
+          if (id.includes('node_modules/swiper')) {
+            return 'swiper-vendor';
+          }
+          // Animation libraries in separate chunk (lazy loaded)
+          if (id.includes('node_modules/framer-motion') || id.includes('node_modules/gsap')) {
+            return 'animation-vendor';
+          }
+          // Other large dependencies
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
         // Optimize chunk file names
         chunkFileNames: 'assets/js/[name]-[hash].js',

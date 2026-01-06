@@ -670,6 +670,8 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
     background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%);
     border-radius: var(--global-border-radius);
+    min-height: 400px;
+    height: 400px;
 }
 
 .swiperDashboards-container::before,
@@ -697,7 +699,8 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 340px;
+    min-height: 340px;
 }
 
 .swiperDashboards .swiper-wrapper{
@@ -1660,6 +1663,8 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    min-height: 600px;
+    aspect-ratio: 16/9;
 }
 
 .banner-video-container .hero-container{
@@ -3613,12 +3618,16 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     z-index: 10;
     pointer-events: auto;
+    min-height: 200px;
+    height: 200px;
 }
 .swiperPartner .swiper-slide{
     width: auto;
     display: flex;
     justify-content: center;
     pointer-events: auto;
+    height: 180px;
+    min-height: 180px;
 }
 
 .swiperPartner .swiper-wrapper{
@@ -5758,6 +5767,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .swiperTestimonial .swiper-slide{
     height: auto;
+    min-height: 300px;
     display: flex;
 }
 

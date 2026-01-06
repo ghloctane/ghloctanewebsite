@@ -51,6 +51,7 @@ function FunnelServiceSlider({ serviceTitle }) {
                 modules={[Autoplay]}
                 spaceBetween={0}
                 slidesPerView={1}
+                autoHeight={false}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,

@@ -41,6 +41,7 @@ const PartnershipSection = () => {
                                     spaceBetween={10}
                                     loop={true}
                                     speed={3000}
+                                    autoHeight={false}
                                     autoplay={{
                                         delay: 0,
                                         disableOnInteraction: false,

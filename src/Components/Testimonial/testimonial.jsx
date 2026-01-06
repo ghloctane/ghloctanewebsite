@@ -236,6 +236,7 @@ const TestimonialSection = () => {
                                 spaceBetween={50} 
                                 speed={1000} 
                                 loop={true}
+                                autoHeight={false}
                                 autoplay={{
                                     delay: 5000,
                                     disableOnInteraction: false

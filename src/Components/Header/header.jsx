@@ -16,6 +16,10 @@ return (
                         src="/assets/images/GHL Octane Final.webp"
                         className="site-logo img-fluid"
                         alt="Logo"
+                        loading="eager"
+                        fetchPriority="high"
+                        width="200"
+                        height="60"
                     />
                     </NavLink>
                 </div>

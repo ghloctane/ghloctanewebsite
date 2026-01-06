@@ -11,10 +11,10 @@ function FunnelServiceSlider({ serviceTitle }) {
 
     // Funnel images array
     const funnelImages = [
-        "/assets/images/funnel1.png",
-        "/assets/images/funnel2.png",
-        "/assets/images/funnel3.png",
-        "/assets/images/funnel4.png"
+        "/assets/images/funnel1.webp",
+        "/assets/images/funnel2.webp",
+        "/assets/images/funnel3.webp",
+        "/assets/images/funnel4.webp"
     ];
 
     const handleImageLoad = (img, slideIndex) => {

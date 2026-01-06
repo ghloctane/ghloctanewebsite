@@ -1762,7 +1762,7 @@ body::-webkit-scrollbar-thumb:hover {
 .banner-layout-wrapper::before{
     content: '';
     position: absolute;
-    background-image: url('/assets/images/regular-square-grids-4AL3FJ8.png');
+    background-image: url('/assets/images/regular-square-grids-4AL3FJ8.webp');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1775,7 +1775,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .banner-layout-wrapper::before {
-    background-image: url('/assets/images/regular-square-grids-4AL3FJ8-light.png');
+    background-image: url('/assets/images/regular-square-grids-4AL3FJ8-light.webp');
 }
 
 .banner-layout{
@@ -5076,7 +5076,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* ================== 35. Guide Components ================== */
 
 .guide-banner{
-    background-image: url('/assets/images/MARKETING AUTOMATION.jpg');
+    background-image: url('/assets/images/MARKETING AUTOMATION.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

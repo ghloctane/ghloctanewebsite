@@ -32,7 +32,7 @@ function ModalVideoSection() {
                     controls
                     autoPlay
                     playsInline
-                    preload="auto"
+                    preload="none"
                     type="video/mp4"
                 >
                     Your browser does not support the video tag.

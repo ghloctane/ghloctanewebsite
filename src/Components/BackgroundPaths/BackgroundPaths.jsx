@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./BackgroundPaths.css";
 
@@ -50,6 +50,20 @@ function FloatingPaths({ position }) {
 }
 
 export default function BackgroundPaths() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 767);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    if (isMobile) return null;
+
     return (
         <div className="background-paths-wrapper">
             <FloatingPaths position={1} />

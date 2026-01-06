@@ -420,10 +420,30 @@
         transform: translateZ(0);
     }
     
-    /* Disable heavy effects during scroll */
+    /* Disable heavy effects during scroll - Force hide on mobile */
     .background-paths-wrapper,
     .background-paths-container,
-    .cta-floating-lines-wrapper {
+    .cta-floating-lines-wrapper,
+    .floating-lines-container,
+    .background-paths-svg {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* Disable Three.js canvas elements */
+    canvas {
+        display: none !important;
+    }
+    
+    /* Disable GridScan and Hyperspeed components */
+    .grid-scan-container,
+    .hyperspeed-container {
         display: none !important;
     }
     
@@ -510,10 +530,30 @@
         transform: translateZ(0);
     }
     
-    /* Disable heavy effects during scroll */
+    /* Disable heavy effects during scroll - Force hide on mobile */
     .background-paths-wrapper,
     .background-paths-container,
-    .cta-floating-lines-wrapper {
+    .cta-floating-lines-wrapper,
+    .floating-lines-container,
+    .background-paths-svg {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* Disable Three.js canvas elements */
+    canvas {
+        display: none !important;
+    }
+    
+    /* Disable GridScan and Hyperspeed components */
+    .grid-scan-container,
+    .hyperspeed-container {
         display: none !important;
     }
     
@@ -743,6 +783,90 @@
         visibility: visible !important;
         opacity: 1 !important;
         font-size: 20px !important;
+    }
+    
+    /* Hide entire CTA section on mobile */
+    .section-cta,
+    .section.section-cta {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Hide Partnership and Industries sections on mobile (both use section-partner class) */
+    .section-partner,
+    .section.section-partner,
+    div.section-partner,
+    .section-partner[0],
+    .section-partner[1] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    
+    /* Hide Industries section on mobile (backup rule) */
+    .section-industries,
+    .section.section-industries {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Partnership section - Enable logos on mobile (if needed later) */
+    .swiperPartner {
+        touch-action: pan-y !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .swiperPartner .swiper-wrapper {
+        display: flex !important;
+        transition-timing-function: linear !important;
+    }
+    
+    .swiperPartner .swiper-slide {
+        flex-shrink: 0 !important;
+        width: auto !important;
+    }
+    
+    .swiperPartner .partner-slide {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px !important;
+        min-width: 100px !important;
+    }
+    
+    .swiperPartner .partner-logo {
+        max-width: 100px !important;
+        max-height: 60px !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+    
+    .swiperPartner-container {
+        overflow: visible !important;
+        width: 100% !important;
     }
     
     .navbar-action-container-mobile{

@@ -21,13 +21,13 @@ export default function ThemeSwitcher() {
                 localStorage.setItem('lightmode', 'active');
     
                 siteLogos.forEach((logo) => {
-                    logo.setAttribute('src', '/assets/images/GHL Octane Final.png');
+                    logo.setAttribute('src', '/assets/images/GHL Octane Final.webp');
                 });
     
                 partnerLogos.forEach((img) => {
                     const src = img.getAttribute('src');
                     if (!src.includes('-dark')) {
-                        img.setAttribute('src', src.replace('.png', '-dark.png'));
+                        img.setAttribute('src', src.replace('.webp', '-dark.webp').replace('.png', '-dark.png'));
                     }
                 });
             } else {
@@ -35,12 +35,12 @@ export default function ThemeSwitcher() {
                 localStorage.removeItem('lightmode');
     
                 siteLogos.forEach((logo) => {
-                    logo.setAttribute('src', '/assets/images/GHL Octane Final.png');
+                    logo.setAttribute('src', '/assets/images/GHL Octane Final.webp');
                 });
     
                 partnerLogos.forEach((img) => {
                     const src = img.getAttribute('src');
-                    img.setAttribute('src', src.replace('-dark.png', '.png'));
+                    img.setAttribute('src', src.replace('-dark.webp', '.webp').replace('-dark.png', '.png'));
                 });
             }
         };

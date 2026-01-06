@@ -12,7 +12,7 @@ const TestimonialSection = () => {
         {
             id: 1,
             videoId: "/assets/testimonials/rathna.mp4",
-            thumbnail: "/assets/testimonials/rathna.png",
+            thumbnail: "/assets/testimonials/rathna.webp",
             name: "Rathna Rama krishna",
             designation: "RemodelerDigital CEO",
             text: "Zeeshan Haider is an expert GoHighLevel specialist with exceptional skills in workflows, landing pages, graphic design, and integrations, making complex setups feel easy. His calm, friendly nature, availability across time zones, and genuine enthusiasm to help make him a reliable go-to tech partner and a true secret weapon.",
@@ -21,7 +21,7 @@ const TestimonialSection = () => {
         {
             id: 2,
             videoId: "/assets/testimonials/marwyn.mp4",
-            thumbnail: "/assets/testimonials/marwyn.png",
+            thumbnail: "/assets/testimonials/marwyn.webp",
             name: "Marwyn",
             designation: "15xmybusiness CEO",
             text: "Hello everyone, this is Marwyn, the CEO of 15x Business Solutions, the 15x Business Hacker King. Would like to give a shout out to Zeeshan. If I could give Zeeshan 100 star reviews, I'll give Zeeshan 100 star reviews",
@@ -30,7 +30,7 @@ const TestimonialSection = () => {
         {
             id: 3,
             videoId: "/assets/testimonials/Michael Sean.mp4",
-            thumbnail: "/assets/testimonials/Michael Sean.png",
+            thumbnail: "/assets/testimonials/Michael Sean.webp",
             name: "Michael Chen",
             designation: "CEO",
             text: "Michael Sean highly recommends Zeeshan Haider for anything GoHighLevel, praising his lightning-fast communication and exceptional turnaround time. From automations to graphic design and tools, Zeeshan delivers top-level results and is a go-to expert.",
@@ -39,7 +39,7 @@ const TestimonialSection = () => {
         {
             id: 4,
             videoId: "/assets/testimonials/Matt.mp4",
-            thumbnail: "/assets/testimonials/Matt.png",
+            thumbnail: "/assets/testimonials/Matt.webp",
             name: "Matt",
             designation: "CEO",
             text: "Matt highly recommends Zeeshan and his team for GoHighLevel, praising their expertise in setting up accounts, workflows, and custom solutions. Zeeshan is always available, responsive, and a reliable partner for anything related to HighLevel.",
@@ -195,7 +195,7 @@ const TestimonialSection = () => {
                                                     controls
                                                     autoPlay
                                                     playsInline
-                                                    preload="auto"
+                                                    preload="none"
                                                     type="video/mp4"
                                                     className="testimonial-iframe"
                                                 >

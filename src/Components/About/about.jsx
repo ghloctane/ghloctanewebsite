@@ -13,7 +13,7 @@ function AboutSection(){
                         <div className="image-container about-img">
                             <AnimateOnScroll animation="fadeInUp" speed="normal">
                             <img
-                                src="/assets/images/aboutus.png"
+                                src="/assets/images/aboutus.webp"
                                 alt="About Us Image"
                                 className="img-fluid"
                             />

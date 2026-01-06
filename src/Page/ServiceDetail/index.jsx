@@ -21,20 +21,20 @@ function ServiceDetailPage(){
     // Map services to their images
     const getServiceImage = (serviceSlug) => {
         const imageMap = {
-            "funnel-landing-page-design": "/assets/images/services/funnel.png",
-            "crm-pipeline-setup": "/assets/images/services/crm pipeline.png",
-            "automation-workflow": "/assets/images/services/automation.png",
-            "white-label-agency": "/assets/images/services/whitelabel.png",
-            "integrations-ai": "/assets/images/services/ai.png",
-            "chatbots-voice-agents": "/assets/images/services/chatbot.png",
-            "lead-capture-nurture": "/assets/images/services/leadcapture.png",
-            "support-maintenance-training": "/assets/images/services/support.png",
-            "api-integration": "/assets/images/services/Backend API Coding.png",
-            "compliance-a2p-registration": "/assets/images/services/a2p.png",
-            "social-media-marketing": "/assets/images/services/social.png",
-            "development": "/assets/images/services/Backend API Coding.png", // Use Backend API Coding image for development
+            "funnel-landing-page-design": "/assets/images/services/funnel.webp",
+            "crm-pipeline-setup": "/assets/images/services/crm pipeline.webp",
+            "automation-workflow": "/assets/images/services/automation.webp",
+            "white-label-agency": "/assets/images/services/whitelabel.webp",
+            "integrations-ai": "/assets/images/services/ai.webp",
+            "chatbots-voice-agents": "/assets/images/services/chatbot.webp",
+            "lead-capture-nurture": "/assets/images/services/leadcapture.webp",
+            "support-maintenance-training": "/assets/images/services/support.webp",
+            "api-integration": "/assets/images/services/Backend API Coding.webp",
+            "compliance-a2p-registration": "/assets/images/services/a2p.webp",
+            "social-media-marketing": "/assets/images/services/social.webp",
+            "development": "/assets/images/services/Backend API Coding.webp", // Use Backend API Coding image for development
         };
-        return imageMap[serviceSlug] || "/assets/images/services/automation.png";
+        return imageMap[serviceSlug] || "/assets/images/services/automation.webp";
     };
 
     const serviceImage = getServiceImage(currentService.slug);

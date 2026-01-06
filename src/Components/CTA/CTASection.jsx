@@ -1,29 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FloatingLines from "./FloatingLines";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
 
 const CTASection = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 767);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <div className="section section-cta">
             <div className="hero-container">
                 <div className="cta-container">
-                    <div className="cta-floating-lines-wrapper">
-                        <FloatingLines
-                            linesGradient={['#27428c', '#a8b8e0']}
-                            enabledWaves={['top', 'middle', 'bottom']}
-                            lineCount={[8, 6, 8]}
-                            lineDistance={[5, 5, 5]}
-                            animationSpeed={0.8}
-                            interactive={true}
-                            bendRadius={5.0}
-                            bendStrength={-0.5}
-                            mouseDamping={0.05}
-                            parallax={true}
-                            parallaxStrength={0.2}
-                            mixBlendMode="screen"
-                        />
-                    </div>
+                    {!isMobile && (
+                        <div className="cta-floating-lines-wrapper">
+                            <FloatingLines
+                                linesGradient={['#27428c', '#a8b8e0']}
+                                enabledWaves={['top', 'middle', 'bottom']}
+                                lineCount={[8, 6, 8]}
+                                lineDistance={[5, 5, 5]}
+                                animationSpeed={0.8}
+                                interactive={true}
+                                bendRadius={5.0}
+                                bendStrength={-0.5}
+                                mouseDamping={0.05}
+                                parallax={true}
+                                parallaxStrength={0.2}
+                                mixBlendMode="screen"
+                            />
+                        </div>
+                    )}
                     <div className="cta-content">
                         <AnimateOnScroll animation="fadeInUp" speed="normal">
                             <div className="d-flex flex-column gspace-3 text-center">

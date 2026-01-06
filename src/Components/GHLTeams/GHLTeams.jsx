@@ -56,7 +56,7 @@ const GHLTeamsSection = () => {
                                         >
                                             <div className="ghl-team-representation">
                                                 <img 
-                                                    src={team.representation || "/assets/images/services/automation.png"} 
+                                                    src={team.representation || "/assets/images/services/automation.webp"} 
                                                     alt={team.title}
                                                     className="ghl-team-image"
                                                 />

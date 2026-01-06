@@ -7,12 +7,12 @@ import "swiper/css";
 const CustomizedDashboardsSection = () => {
     // Dashboard images
     const dashboardImages = [
-        { id: 1, url: "/assets/images/dashboard1.PNG", title: "Dashboard 1" },
-        { id: 2, url: "/assets/images/dashboard2.PNG", title: "Dashboard 2" },
-        { id: 3, url: "/assets/images/dashboard3.PNG", title: "Dashboard 3" },
-        { id: 4, url: "/assets/images/dashboard1.PNG", title: "Dashboard 4" },
-        { id: 5, url: "/assets/images/dashboard2.PNG", title: "Dashboard 5" },
-        { id: 6, url: "/assets/images/dashboard3.PNG", title: "Dashboard 6" },
+        { id: 1, url: "/assets/images/dashboard1.webp", title: "Dashboard 1" },
+        { id: 2, url: "/assets/images/dashboard2.webp", title: "Dashboard 2" },
+        { id: 3, url: "/assets/images/dashboard3.webp", title: "Dashboard 3" },
+        { id: 4, url: "/assets/images/dashboard1.webp", title: "Dashboard 4" },
+        { id: 5, url: "/assets/images/dashboard2.webp", title: "Dashboard 5" },
+        { id: 6, url: "/assets/images/dashboard3.webp", title: "Dashboard 6" },
     ];
     
     const placeholderImages = dashboardImages;

@@ -4,13 +4,13 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 const WebsiteShowcase = () => {
     // Website template images
     const websites = [
-        { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.png", demoUrl: "https://proservice.ghloctane.com/" },
-        { id: 3, title: "Portfolio", image: "/assets/images/websites/web3.png", demoUrl: "https://remodeling.ghloctane.com/" },
-        { id: 4, title: "Business", image: "/assets/images/websites/web4.png", demoUrl: "https://truvate.ghloctane.com/" },
-        { id: 5, title: "SaaS", image: "/assets/images/websites/web5.png", demoUrl: "https://infiniumtechltd.com/" },
-        { id: 6, title: "Agency", image: "/assets/images/websites/web6.png", demoUrl: "https://octendr.com" },
-        { id: 7, title: "Real Estate", image: "/assets/images/websites/web7.png", demoUrl: "https://syncnova.io" },
-        { id: 8, title: "Healthcare", image: "/assets/images/websites/web8.png", demoUrl: "https://fluxor.ghloctane.com/" },
+        { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.webp", demoUrl: "https://proservice.ghloctane.com/" },
+        { id: 3, title: "Portfolio", image: "/assets/images/websites/web3.webp", demoUrl: "https://remodeling.ghloctane.com/" },
+        { id: 4, title: "Business", image: "/assets/images/websites/web4.webp", demoUrl: "https://truvate.ghloctane.com/" },
+        { id: 5, title: "SaaS", image: "/assets/images/websites/web5.webp", demoUrl: "https://infiniumtechltd.com/" },
+        { id: 6, title: "Agency", image: "/assets/images/websites/web6.webp", demoUrl: "https://octendr.com" },
+        { id: 7, title: "Real Estate", image: "/assets/images/websites/web7.webp", demoUrl: "https://syncnova.io" },
+        { id: 8, title: "Healthcare", image: "/assets/images/websites/web8.webp", demoUrl: "https://fluxor.ghloctane.com/" },
     ];
 
     return (

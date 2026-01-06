@@ -46,11 +46,24 @@ const PartnershipSection = () => {
                                         disableOnInteraction: false,
                                         pauseOnMouseEnter: true,
                                     }}
-                                    allowTouchMove={false}
+                                    allowTouchMove={true}
+                                    touchEventsTarget="container"
                                     breakpoints={{
-                                    230: { slidesPerView: 3 },
-                                    767: { slidesPerView: 4 },
-                                    1024: { slidesPerView: 6 },
+                                    230: { 
+                                        slidesPerView: 3,
+                                        spaceBetween: 10,
+                                        allowTouchMove: true,
+                                    },
+                                    767: { 
+                                        slidesPerView: 4,
+                                        spaceBetween: 10,
+                                        allowTouchMove: true,
+                                    },
+                                    1024: { 
+                                        slidesPerView: 6,
+                                        spaceBetween: 10,
+                                        allowTouchMove: false,
+                                    },
                                     }}
                                     className="swiperPartner"
                                 >

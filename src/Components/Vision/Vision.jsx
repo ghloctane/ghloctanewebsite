@@ -33,7 +33,7 @@ const VisionSection = () => {
                         <AnimateOnScroll animation="fadeInLeft" speed="normal">
                             <div className="image-container">
                                 <img 
-                                    src="/assets/images/our vision.png" 
+                                    src="/assets/images/our vision.webp" 
                                     alt="Our Vision" 
                                     className="chooseus-img" 
                                 />

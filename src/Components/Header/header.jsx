@@ -13,7 +13,7 @@ return (
                 <div className="logo-container">
                     <NavLink className="navbar-brand" to="/">
                     <img
-                        src="/assets/images/GHL Octane Final.png"
+                        src="/assets/images/GHL Octane Final.webp"
                         className="site-logo img-fluid"
                         alt="Logo"
                     />

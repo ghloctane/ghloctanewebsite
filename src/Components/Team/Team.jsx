@@ -34,7 +34,7 @@ const TeamSection = () => {
                                     <div className="d-flex flex-column align-items-center">
                                         <div className="leader-image">
                                             <img 
-                                                src="/assets/images/zeeshan haider.png" 
+                                                src="/assets/images/zeeshan haider.webp" 
                                                 alt="Zeeshan Haider" 
                                                 className="img-fluid"
                                             />
@@ -51,7 +51,7 @@ const TeamSection = () => {
                                     <div className="d-flex flex-column align-items-center">
                                         <div className="leader-image">
                                             <img 
-                                                src="/assets/images/hammad raza .png" 
+                                                src="/assets/images/hammad raza .webp" 
                                                 alt="Hammad Raza" 
                                                 className="img-fluid"
                                             />
@@ -98,7 +98,7 @@ const TeamSection = () => {
                             <AnimateOnScroll animation="fadeInLeft" speed="normal">
                                 <div className="image-container">
                                     <img 
-                                        src="/assets/images/our vision.png" 
+                                        src="/assets/images/our vision.webp" 
                                         alt="Our Vision" 
                                         className="chooseus-img" 
                                     />

@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useNav } from "../Context/NavContext";
 import AnimatedButton from "../Button/AnimatedButton";
+import { FaBars, FaAngleDown } from "react-icons/fa6";
 
 function Navbar() {
 const { isDropdownActive } = useNav();
@@ -35,7 +36,7 @@ return (
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <i className="fa-solid fa-bars"></i>
+                    <FaBars />
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
@@ -74,7 +75,7 @@ return (
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                             >
-                            Resources <i className="fa-solid fa-angle-down accent-color"></i>
+                            Resources <FaAngleDown className="accent-color" />
                             </a>
                             <ul className="dropdown-menu">
                             {/* <li>

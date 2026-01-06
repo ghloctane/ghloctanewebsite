@@ -61,7 +61,7 @@ function FunnelServiceSlider({ serviceTitle }) {
                 style={{
                     width: '100%',
                     height: `${containerHeight}px`,
-                    minHeight: `${containerHeight}px`,
+                    minHeight: '600px',
                 }}
             >
                 {funnelImages.map((image, index) => (

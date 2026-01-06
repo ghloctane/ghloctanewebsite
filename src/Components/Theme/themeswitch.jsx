@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa6';
 
 export default function ThemeSwitcher() {
     const [lightMode, setLightMode] = useState(false);
@@ -69,10 +70,7 @@ export default function ThemeSwitcher() {
 
     return (
         <button id="themeSwitch" onClick={toggleMode}>
-            <i
-                id="themeIcon"
-                className={`fas ${lightMode ? 'fa-sun' : 'fa-moon'}`}
-            ></i>
+            {lightMode ? <FaSun id="themeIcon" /> : <FaMoon id="themeIcon" />}
         </button>
     );
 }

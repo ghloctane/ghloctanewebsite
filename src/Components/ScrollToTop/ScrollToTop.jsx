@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './ScrollToTop.css';
+import { FaArrowUp } from 'react-icons/fa6';
 
 function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
@@ -62,7 +63,7 @@ function ScrollToTop() {
                     onClick={scrollToTop}
                     aria-label="Scroll to top"
                 >
-                    <i className="fa-solid fa-arrow-up"></i>
+                    <FaArrowUp />
                 </button>
             )}
         </>

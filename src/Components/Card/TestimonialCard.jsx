@@ -1,5 +1,6 @@
 import React from "react";
 import { useModalVideo } from "../Video/ModalVideoContext";
+import { FaStar, FaQuoteRight } from "react-icons/fa6";
 
 const TestimonialCard = ({ name, title, content, rating, image, video }) => {
   const { openModal } = useModalVideo();
@@ -9,7 +10,7 @@ const TestimonialCard = ({ name, title, content, rating, image, video }) => {
     <div className="card card-testimonial">
         <div className="stars">
             {Array.from({ length: rating }).map((_, i) => (
-            <i key={i} className="fa-solid fa-star"></i>
+            <FaStar key={i} />
             ))}
         </div>
         <div className="d-flex flex-row align-items-center justify-content-between">
@@ -19,7 +20,7 @@ const TestimonialCard = ({ name, title, content, rating, image, video }) => {
                     <p className="profile-info">{title}</p>
                 </div>
             </div>
-            <i className="fa-solid fa-3x fa-quote-right accent-color"></i>
+            <FaQuoteRight className="accent-color" style={{ fontSize: '3em' }} />
         </div>
         <p className="testimonial-description">"{content}"</p>
     </div>

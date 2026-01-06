@@ -1,5 +1,6 @@
 import React from "react";
 import { useModalVideo } from "./ModalVideoContext";
+import { FaXmark } from "react-icons/fa6";
 
 function ModalVideoSection() {
   const { isOpen, videoUrl, closeModal } = useModalVideo();
@@ -25,7 +26,7 @@ function ModalVideoSection() {
       }}
     >
         <span className="my-close" onClick={closeModal}>
-            <i className="fa-solid fa-xmark"></i>
+            <FaXmark />
         </span>
         <div className="my-modal">
             {isMP4 ? (

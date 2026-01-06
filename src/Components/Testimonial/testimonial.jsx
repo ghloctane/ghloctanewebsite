@@ -5,6 +5,7 @@ import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { FaPlay, FaCircleDot } from "react-icons/fa6";
 
 const TestimonialSection = () => {
     // Original video testimonials only - Using Vimeo embeds
@@ -111,7 +112,7 @@ const TestimonialSection = () => {
                                                             <div className="testimonial-video-thumbnail">
                                                                 <img src={video.thumbnail} alt={video.name} />
                                                                 <div className="play-icon">
-                                                                    <i className="fa-solid fa-play"></i>
+                                                                    <FaPlay />
                                                                 </div>
                                                             </div>
                                                             <div className="testimonial-video-info">
@@ -169,7 +170,7 @@ const TestimonialSection = () => {
                                 <div className="testimonial-header-wrapper-title">
                                     <div className="card-testimonial-header-title">
                                         <div className="sub-heading">
-                                            <i className="fa-regular fa-circle-dot"></i>
+                                            <FaCircleDot />
                                             <span>What Our Client Says</span>
                                         </div>
                                         <h2 className="title-heading">REAL RESULTS. REAL CLIENTS.</h2>
@@ -184,7 +185,7 @@ const TestimonialSection = () => {
                                                 >
                                                     <img src={selectedVideo.thumbnail} alt={selectedVideo.name} />
                                                     <div className="play-icon-large">
-                                                        <i className="fa-solid fa-play"></i>
+                                                        <FaPlay />
                                                     </div>
                                                 </div>
                                             ) : (
@@ -232,6 +233,7 @@ const TestimonialSection = () => {
                         <div className="d-flex flex-column">
                             <div className="overflow-hidden">
                                 <Swiper
+                                style={{ height: '300px', minHeight: '300px' }}
                                 slidesPerView={3} 
                                 spaceBetween={50} 
                                 speed={1000} 

@@ -27,7 +27,7 @@ const CustomizedDashboardsSection = () => {
                                 <AnimateOnScroll animation="fadeInLeft" speed="normal">
                                     <div className="d-flex flex-column gspace-2">
                                         <div className="sub-heading">
-                                            <i className="fa-regular fa-circle-dot"></i>
+                                            <FaCircleDot />
                                             <span>Customized Dashboards</span>
                                         </div>
                                         <h2 className="title-heading">CUSTOMIZED DASHBOARDS</h2>
@@ -40,7 +40,7 @@ const CustomizedDashboardsSection = () => {
                                         <p>Tailored dashboards designed to give you complete visibility and control over your business metrics and operations.</p>
                                         <div className="link-wrapper">
                                             <a href="./contact">View All Dashboards</a>
-                                            <i className="fa-solid fa-circle-arrow-right"></i>
+                                            <FaCircleArrowRight />
                                         </div>
                                     </div>
                                 </AnimateOnScroll>
@@ -55,6 +55,7 @@ const CustomizedDashboardsSection = () => {
 
                             <div className="swiperDashboards-container">
                                 <Swiper
+                                    style={{ height: '400px', minHeight: '400px' }}
                                     modules={[Autoplay]}
                                     slidesPerView={4}
                                     spaceBetween={20}

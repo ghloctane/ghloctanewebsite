@@ -36,6 +36,7 @@ const PartnershipSection = () => {
 
                             <div className="swiperPartner-container">
                                 <Swiper
+                                    style={{ height: '200px', minHeight: '200px' }}
                                     modules={[Autoplay]}
                                     slidesPerView={6}
                                     spaceBetween={10}

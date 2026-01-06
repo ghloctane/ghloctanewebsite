@@ -7,43 +7,43 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const TestimonialSection = () => {
-    // Original video testimonials only
+    // Original video testimonials only - Using Vimeo embeds
     const videoTestimonials = [
         {
             id: 1,
-            videoId: "/assets/testimonials/rathna.mp4",
+            videoId: "https://player.vimeo.com/video/1151987657?autoplay=1&title=0&byline=0&portrait=0",
             thumbnail: "/assets/testimonials/rathna.webp",
             name: "Rathna Rama krishna",
             designation: "RemodelerDigital CEO",
             text: "Zeeshan Haider is an expert GoHighLevel specialist with exceptional skills in workflows, landing pages, graphic design, and integrations, making complex setups feel easy. His calm, friendly nature, availability across time zones, and genuine enthusiasm to help make him a reliable go-to tech partner and a true secret weapon.",
-            isMP4: true
+            isVimeo: true
         },
         {
             id: 2,
-            videoId: "/assets/testimonials/marwyn.mp4",
+            videoId: "https://player.vimeo.com/video/1151987917?autoplay=1&title=0&byline=0&portrait=0",
             thumbnail: "/assets/testimonials/marwyn.webp",
             name: "Marwyn",
             designation: "15xmybusiness CEO",
             text: "Hello everyone, this is Marwyn, the CEO of 15x Business Solutions, the 15x Business Hacker King. Would like to give a shout out to Zeeshan. If I could give Zeeshan 100 star reviews, I'll give Zeeshan 100 star reviews",
-            isMP4: true
+            isVimeo: true
         },
         {
             id: 3,
-            videoId: "/assets/testimonials/Michael Sean.mp4",
+            videoId: "https://player.vimeo.com/video/1151988060?autoplay=1&title=0&byline=0&portrait=0",
             thumbnail: "/assets/testimonials/Michael Sean.webp",
             name: "Michael Chen",
             designation: "CEO",
             text: "Michael Sean highly recommends Zeeshan Haider for anything GoHighLevel, praising his lightning-fast communication and exceptional turnaround time. From automations to graphic design and tools, Zeeshan delivers top-level results and is a go-to expert.",
-            isMP4: true
+            isVimeo: true
         },
         {
             id: 4,
-            videoId: "/assets/testimonials/Matt.mp4",
+            videoId: "https://player.vimeo.com/video/1151988217?autoplay=1&title=0&byline=0&portrait=0",
             thumbnail: "/assets/testimonials/Matt.webp",
             name: "Matt",
             designation: "CEO",
             text: "Matt highly recommends Zeeshan and his team for GoHighLevel, praising their expertise in setting up accounts, workflows, and custom solutions. Zeeshan is always available, responsive, and a reliable partner for anything related to HighLevel.",
-            isMP4: true
+            isVimeo: true
         }
     ];
 
@@ -188,19 +188,32 @@ const TestimonialSection = () => {
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <video
-                                                    width="100%"
-                                                    height="100%"
-                                                    src={selectedVideo.videoId}
-                                                    controls
-                                                    autoPlay
-                                                    playsInline
-                                                    preload="none"
-                                                    type="video/mp4"
-                                                    className="testimonial-iframe"
-                                                >
-                                                    Your browser does not support the video tag.
-                                                </video>
+                                                selectedVideo.isVimeo ? (
+                                                    <iframe
+                                                        src={selectedVideo.videoId}
+                                                        width="100%"
+                                                        height="100%"
+                                                        frameBorder="0"
+                                                        allow="autoplay; fullscreen; picture-in-picture"
+                                                        allowFullScreen
+                                                        className="testimonial-iframe"
+                                                        title={selectedVideo.name}
+                                                    ></iframe>
+                                                ) : (
+                                                    <video
+                                                        width="100%"
+                                                        height="100%"
+                                                        src={selectedVideo.videoId}
+                                                        controls
+                                                        autoPlay
+                                                        playsInline
+                                                        preload="none"
+                                                        type="video/mp4"
+                                                        className="testimonial-iframe"
+                                                    >
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                )
                                             )}
                                         </div>
                                         <div className="testimonial-video-player-info">

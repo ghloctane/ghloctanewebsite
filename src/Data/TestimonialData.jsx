@@ -6,7 +6,7 @@ export const testimonials = [
         content: "We had 200+ leads sitting in our inbox with zero follow-up system. GHL Octane built us a multi-touchpoint sequence that contacts each lead 7 times across different channels. First month after implementation, we converted 23 leads that we would've otherwise lost. Their Zapier integrations are insanely creative.",
         rating: 5,
         image: "/assets/testimonials/rathna.webp",
-        video: "/assets/testimonials/rathna.mp4",
+        video: "https://player.vimeo.com/video/1151987657?autoplay=1&title=0&byline=0&portrait=0",
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const testimonials = [
         content: "Our appointment booking was a mess - double bookings, no-shows, manual calendar management. GHL Octane created a seamless booking flow with automated reminders, rescheduling options, and calendar sync. Now 92% of booked calls actually happen. The reduction in admin headaches alone pays for their services.",
         rating: 5,
         image: "/assets/testimonials/marwyn.webp",
-        video: "/assets/testimonials/marwyn.mp4",
+        video: "https://player.vimeo.com/video/1151987917?autoplay=1&title=0&byline=0&portrait=0",
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ export const testimonials = [
         content: "We needed white-label solutions for our 15 clients, each with different branding and workflows. GHL Octane built custom subdomains, branded funnels, and automated onboarding sequences for each one. What would've taken us months, they delivered in 3 weeks. Our clients think we're tech wizards now.",
         rating: 5,
         image: "/assets/testimonials/Michael Sean.webp",
-        video: "/assets/testimonials/Michael Sean.mp4",
+        video: "https://player.vimeo.com/video/1151988060?autoplay=1&title=0&byline=0&portrait=0",
     },
     {
         id: 4,

@@ -74,11 +74,25 @@
     <link rel="dns-prefetch" href="https://link.msgsndr.com">
     <link rel="dns-prefetch" href="https://lottie.host">
     
-    <!-- FontAwesome CSS - Standard loading (fonts already have font-display: swap) -->
-    <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css" />
-    <link rel="stylesheet" href="/assets/css/vendor/brands.css" />
-    <link rel="stylesheet" href="/assets/css/vendor/regular.css" />
-    <link rel="stylesheet" href="/assets/css/vendor/solid.css" />
+    <!-- Non-Critical Vendor CSS - Deferred Loading (Non-Blocking) -->
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/css/vendor/brands.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/css/vendor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/css/vendor/solid.css" media="print" onload="this.media='all'">
+    <!-- Swiper CSS (deferred - using CDN matching package.json version 11.2.10) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <!-- Animate.css (deferred - using CDN matching package.json version 4.1.1) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
+    <!-- Noscript fallback -->
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css">
+        <link rel="stylesheet" href="/assets/css/vendor/brands.css">
+        <link rel="stylesheet" href="/assets/css/vendor/regular.css">
+        <link rel="stylesheet" href="/assets/css/vendor/solid.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    </noscript>
     
     <title>GHL Octane - GoHighLevel Solutions</title>
     <link rel="icon" href="/assets/images/favicon.ico">

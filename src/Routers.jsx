@@ -14,6 +14,7 @@ import ServiceDetailPage from "./Page/ServiceDetail";
 import SinglePostPage from "./Page/SinglePost";
 import PortfolioPage from "./Page/Portfolio";
 import BookACallPage from "./Page/BookACall";
+import SpeedInsightsPage from "./Page/SpeedInsights";
 
 function AppRouter(){
     return (
@@ -32,6 +33,7 @@ function AppRouter(){
             <Route path="contact" element={<ContactPage />}/>
             <Route path="book-a-call" element={<BookACallPage />}/>
             <Route path="portfolio" element={<PortfolioPage />}/>
+            <Route path="speed-insights-guide" element={<SpeedInsightsPage />}/>
             <Route path="404_page" element={<NotFoundPage />}/>
             <Route path="*" element={<NotFoundPage />}/>
         </Routes>

@@ -5,13 +5,11 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   { ignores: ['dist'] },
+  js.configs.recommended,
   {
     files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
+    ...reactHooks.configs['recommended-latest'],
+    ...reactRefresh.configs.vite,
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -25,4 +23,4 @@ export default [
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
-])
+]

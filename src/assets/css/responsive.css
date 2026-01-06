@@ -424,8 +424,9 @@
     }
     .navbar-wrapper{
         padding: 15px 15px 15px 15px;
-        width: 100%;
-        max-width: 100%;
+        width: calc(100% - 40px) !important; /* Reduced width - 20px margin each side */
+        max-width: calc(100% - 40px) !important;
+        margin: 0 auto !important; /* Center it */
         box-sizing: border-box;
         overflow: hidden;
     }

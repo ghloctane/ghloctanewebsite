@@ -8,7 +8,6 @@ import GuideBannerSection from "../../Components/Banner/guide";
 import PricingPlanSection from "../../Components/Pricing/Pricing";
 import HeadTitle from "../../Components/Head/HeadTitle";
 import FunnelServiceSlider from "../../Components/ServiceDetail/FunnelServiceSlider";
-import ServiceLottieAnimation from "../../Components/Services/ServiceLottieAnimation";
 
 function ServiceDetailPage(){
     const { id } = useParams();
@@ -33,7 +32,7 @@ function ServiceDetailPage(){
             "api-integration": "/assets/images/services/Backend API Coding.png",
             "compliance-a2p-registration": "/assets/images/services/a2p.png",
             "social-media-marketing": "/assets/images/services/social.png",
-            "development": "/assets/images/services/development.png",
+            "development": "/assets/images/services/Backend API Coding.png", // Use Backend API Coding image for development
         };
         return imageMap[serviceSlug] || "/assets/images/services/automation.png";
     };
@@ -104,14 +103,12 @@ function ServiceDetailPage(){
                                     // Funnel Service - Special Slider with Auto-play and Hover Scroll
                                     <FunnelServiceSlider serviceTitle={currentService.title} />
                                 ) : (
-                                    // Other Services - Lottie Animation or Image Display
+                                    // Other Services - Original Images
                                     <div className="service-detail-image-container">
-                                        <ServiceLottieAnimation />
                                         <img 
                                             src={serviceImage} 
                                             alt={currentService.title}
                                             className="service-detail-image"
-                                            style={{ display: 'none' }}
                                         />
                                     </div>
                                 )}

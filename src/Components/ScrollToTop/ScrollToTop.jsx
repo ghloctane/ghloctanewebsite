@@ -6,13 +6,27 @@ function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
     const location = useLocation();
 
-    // Scroll to top on route change
+    // Scroll to top on route change and initial page load
     useEffect(() => {
+        // Immediate scroll to top
         window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'instant' // Instant scroll on route change
+            behavior: 'instant'
         });
+        
+        // Also ensure scroll position is at top after a brief delay (for mobile)
+        const timer = setTimeout(() => {
+            if (window.scrollY > 0) {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'instant'
+                });
+            }
+        }, 50);
+        
+        return () => clearTimeout(timer);
     }, [location.pathname]);
 
     // Show button when page is scrolled down

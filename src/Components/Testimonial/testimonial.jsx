@@ -52,6 +52,7 @@ const TestimonialSection = () => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false); // Track if video is playing
     const videoPlayerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [hasUserInteracted, setHasUserInteracted] = useState(false); // Track if user clicked a video
 
     // Check if mobile viewport
     useEffect(() => {
@@ -63,9 +64,9 @@ const TestimonialSection = () => {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
-    // Scroll to video player on mobile when video is selected
+    // Scroll to video player on mobile ONLY when user clicks a video (not on initial load)
     useEffect(() => {
-        if (isMobile && videoPlayerRef.current && selectedVideo) {
+        if (isMobile && videoPlayerRef.current && selectedVideo && hasUserInteracted) {
             setTimeout(() => {
                 videoPlayerRef.current?.scrollIntoView({ 
                     behavior: 'smooth', 
@@ -74,7 +75,7 @@ const TestimonialSection = () => {
                 });
             }, 100);
         }
-    }, [selectedVideo, isMobile]);
+    }, [selectedVideo, isMobile, hasUserInteracted]);
     return (
         <div className="section section-testimonial">
             <div className="hero-container">
@@ -102,6 +103,7 @@ const TestimonialSection = () => {
                                                             key={video.id}
                                                             className={`testimonial-video-item ${selectedVideo.id === video.id ? 'active' : ''}`}
                                                             onClick={() => {
+                                                                setHasUserInteracted(true); // Mark that user clicked
                                                                 setSelectedVideo(video);
                                                                 setIsVideoPlaying(true);
                                                             }}

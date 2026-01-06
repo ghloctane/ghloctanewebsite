@@ -9,10 +9,13 @@ const AnimateOnScroll = ({
     speed = 'normal',
     threshold = 0.05, // Reduced threshold for faster trigger
 }) => {
+    // Check if mobile - reduce animations on mobile
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 767;
+    
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold,
-        rootMargin: '100px', // Start animation much earlier
+        threshold: isMobile ? 0.02 : threshold, // Even lower threshold on mobile
+        rootMargin: isMobile ? '50px' : '100px', // Less margin on mobile
     });
 
     const speedClass = {

@@ -383,7 +383,188 @@
 
 /* 02 Mobile (max-width:: 767px) */
 
+/* Mobile Scroll Performance Optimizations */
+/* Mobile Scroll Performance Optimizations */
 @media screen and (max-width: 767px){
+    /* Smooth scrolling optimization */
+    * {
+        -webkit-overflow-scrolling: touch !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body {
+        overflow-x: hidden;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Hardware acceleration for better scroll performance */
+    .navbar-wrapper,
+    .navbar,
+    .navbar-container {
+        transform: translateZ(0);
+        will-change: auto;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    /* Reduce animations during scroll */
+    .animate__animated {
+        animation-duration: 0.3s !important;
+        animation-fill-mode: both;
+    }
+    
+    /* Optimize images for scroll */
+    img {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Disable heavy effects during scroll */
+    .background-paths-wrapper,
+    .background-paths-container,
+    .cta-floating-lines-wrapper {
+        display: none !important;
+    }
+    
+    /* Optimize video performance */
+    video, iframe {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce transform calculations */
+    [class*="animate__"] {
+        will-change: auto;
+    }
+    
+    /* Optimize Swiper for mobile */
+    .swiper {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce backdrop-filter on mobile */
+    .navbar,
+    .card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Optimize sections for scroll */
+    section,
+    .section {
+        contain: layout style paint;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce box-shadow calculations */
+    .card,
+    .navbar {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Optimize transitions */
+    * {
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Disable complex gradients during scroll */
+    .card::before,
+    .card::after {
+        display: none !important;
+    }
+    
+    /* Main mobile styles continue below */
+    /* Smooth scrolling optimization */
+    * {
+        -webkit-overflow-scrolling: touch !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body {
+        overflow-x: hidden;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Hardware acceleration for better scroll performance */
+    .navbar-wrapper,
+    .navbar,
+    .navbar-container {
+        transform: translateZ(0);
+        will-change: auto;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    /* Reduce animations during scroll */
+    .animate__animated {
+        animation-duration: 0.3s !important;
+        animation-fill-mode: both;
+    }
+    
+    /* Optimize images for scroll */
+    img {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Disable heavy effects during scroll */
+    .background-paths-wrapper,
+    .background-paths-container,
+    .cta-floating-lines-wrapper {
+        display: none !important;
+    }
+    
+    /* Optimize video performance */
+    video, iframe {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce transform calculations */
+    [class*="animate__"] {
+        will-change: auto;
+    }
+    
+    /* Optimize Swiper for mobile */
+    .swiper {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce backdrop-filter on mobile */
+    .navbar,
+    .card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Optimize sections for scroll */
+    section,
+    .section {
+        contain: layout style paint;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce box-shadow calculations */
+    .card,
+    .navbar {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Optimize transitions */
+    * {
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Disable complex gradients during scroll */
+    .card::before,
+    .card::after {
+        display: none !important;
+    }
+    
     /* Force menu button to show on mobile - Override main CSS */
     .nav-btn,
     button.nav-btn,

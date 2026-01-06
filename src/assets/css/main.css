@@ -6752,13 +6752,15 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .animate__animated {
-    animation-duration: 1.25s;
-    animation-duration: var(--animation-normal, 1.25s);
+    animation-duration: 0.4s !important; /* Reduced from 1.25s for much faster animations */
+    animation-duration: var(--animation-normal, 0.4s);
+    /* Performance optimization */
+    will-change: transform, opacity;
 }
 
 .animate__animated.animate__fast {
-    animation-duration: 0.75s;
-    animation-duration: var(--animation-fast, 0.75s);
+    animation-duration: 0.2s !important; /* Reduced from 0.75s */
+    animation-duration: var(--animation-fast, 0.2s);
 }
 
 .animate__animated.animate__slow {

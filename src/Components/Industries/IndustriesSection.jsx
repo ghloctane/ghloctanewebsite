@@ -3,7 +3,7 @@ import { industries } from "../../Data/IndustriesData";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
+// Swiper CSS loaded via CDN in index.html (non-blocking)
 
 const IndustriesSection = () => {
 

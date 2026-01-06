@@ -4,7 +4,7 @@ import TestimonialCard from "../Card/TestimonialCard";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+// Swiper CSS loaded via CDN in index.html (non-blocking)
 import { FaPlay, FaCircle } from "react-icons/fa";
 
 const TestimonialSection = () => {

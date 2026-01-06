@@ -1,5 +1,56 @@
 /* ================== Media Queries ================== */
 
+/* Mobile Optimization - Fix Layout Shifts for Swiper Components */
+@media screen and (max-width: 768px) {
+    /* Hero/Banner Slider - Mobile Responsive */
+    .section-banner {
+        min-height: 400px !important;
+        aspect-ratio: 16/9 !important;
+        contain: strict !important;
+        height: auto !important;
+    }
+    
+    /* Partnership Swiper - Mobile Responsive */
+    .swiperPartner-container {
+        min-height: 150px !important;
+        height: 150px !important;
+        aspect-ratio: 16/9 !important;
+        contain: strict !important;
+    }
+    
+    .swiperPartner .swiper-slide {
+        min-height: 120px !important;
+        height: 120px !important;
+    }
+    
+    /* Dashboard Swiper - Mobile Responsive */
+    .swiperDashboards-container {
+        min-height: 300px !important;
+        height: 300px !important;
+        aspect-ratio: 16/9 !important;
+        contain: strict !important;
+    }
+    
+    .swiperDashboards .swiper-slide {
+        min-height: 250px !important;
+        height: 250px !important;
+    }
+    
+    /* Testimonial Swiper - Mobile Responsive */
+    .swiperTestimonial .swiper-slide {
+        min-height: 350px !important;
+        contain: strict !important;
+    }
+    
+    /* Service Funnel Swiper - Mobile Responsive */
+    .service-funnel-swiper {
+        min-height: 400px !important;
+        height: 400px !important;
+        aspect-ratio: 16/9 !important;
+        contain: strict !important;
+    }
+}
+
 /* Book a Call Page Responsive */
 @media screen and (max-width: 767px) {
     .section-book-call {

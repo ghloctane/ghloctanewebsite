@@ -2,7 +2,7 @@ import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
+// Swiper CSS loaded via CDN in index.html (non-blocking)
 import { FaCircle, FaArrowCircleRight } from "react-icons/fa";
 
 const CustomizedDashboardsSection = () => {

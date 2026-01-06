@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
+// Swiper CSS loaded via CDN in index.html (non-blocking)
 
 function FunnelServiceSlider({ serviceTitle }) {
     const [hoveredSlide, setHoveredSlide] = useState(null);

@@ -30,17 +30,26 @@ function ScrollToTop() {
         return () => clearTimeout(timer);
     }, [location.pathname]);
 
-    // Show button when page is scrolled down
+    // Show button when page is scrolled down - Optimized with passive listener
     useEffect(() => {
+        let ticking = false;
+        
         const toggleVisibility = () => {
-            if (window.pageYOffset > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (window.pageYOffset > 300) {
+                        setIsVisible(true);
+                    } else {
+                        setIsVisible(false);
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
-        window.addEventListener('scroll', toggleVisibility);
+        // Use passive listener for better scroll performance
+        window.addEventListener('scroll', toggleVisibility, { passive: true });
 
         return () => {
             window.removeEventListener('scroll', toggleVisibility);

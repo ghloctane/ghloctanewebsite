@@ -9,13 +9,13 @@ const AnimateOnScroll = ({
     speed = 'normal',
     threshold = 0.05, // Reduced threshold for faster trigger
 }) => {
-    // Check if mobile - reduce animations on mobile
+    // Check if mobile - DISABLE ALL ANIMATIONS on mobile (767px and below)
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 767;
     
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: isMobile ? 0.02 : threshold, // Even lower threshold on mobile
-        rootMargin: isMobile ? '50px' : '100px', // Less margin on mobile
+        threshold: isMobile ? 0.02 : threshold,
+        rootMargin: isMobile ? '50px' : '100px',
     });
 
     const speedClass = {
@@ -27,8 +27,20 @@ const AnimateOnScroll = ({
     // Pastikan children adalah elemen React tunggal
     const child = React.Children.only(children);
 
-    // Optimized: Only apply opacity transition when not in view
-    // Once in view, remove opacity control for better performance
+    // MOBILE: NO ANIMATIONS - Just show content immediately
+    if (isMobile) {
+        return cloneElement(child, {
+            ref,
+            className: child.props.className || '',
+            style: {
+                ...child.props.style,
+                opacity: 1, // Always visible on mobile
+                animation: 'none', // Disable all animations
+            },
+        });
+    }
+
+    // DESKTOP: Normal animations
     return cloneElement(child, {
         ref,
         className: `${child.props.className || ''} animate__animated ${
@@ -36,10 +48,8 @@ const AnimateOnScroll = ({
         }`.trim(),
         style: {
             ...child.props.style,
-            // Only control opacity if not in view yet
-            opacity: inView ? undefined : 0.5, // Changed from 0 to 0.5 for better initial render
+            opacity: inView ? undefined : 0.5,
             animationDelay: inView ? `${delay}ms` : undefined,
-            // Remove transition once animated for better performance
             transition: inView ? undefined : 'opacity 0.2s ease-out',
         },
     });

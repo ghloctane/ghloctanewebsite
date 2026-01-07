@@ -222,6 +222,8 @@
 
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 body{
@@ -232,6 +234,9 @@ body{
     position: relative;
     z-index: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: auto; /* Changed from contain to auto for smoother scroll */
 }
 
 body::before{
@@ -247,10 +252,10 @@ body::before{
     background-attachment: scroll !important; /* Changed to scroll to prevent GPU overload - no parallax */
     z-index: -1;
     pointer-events: none;
-    /* Hardware Acceleration - will be enhanced in desktop media query */
-    will-change: scroll-position;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+    /* Optimized for smooth scrolling - removed will-change and transform */
+    will-change: auto;
+    transform: none;
+    -webkit-transform: none;
 }  
 
 h1 {
@@ -6922,8 +6927,8 @@ body::-webkit-scrollbar-thumb:hover {
 .animate__animated {
     animation-duration: 0.4s !important; /* Reduced from 1.25s for much faster animations */
     animation-duration: var(--animation-normal, 0.4s);
-    /* Performance optimization */
-    will-change: transform, opacity;
+    /* Performance optimization - removed will-change for smoother scroll */
+    will-change: auto;
 }
 
 .animate__animated.animate__fast {

@@ -903,177 +903,10 @@
         justify-content: center !important;
     }
     
-    /* Ensure all sections are responsive on mobile */
-    .section {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px) !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-    
-    /* All cards responsive on mobile */
-    .card,
-    .card-service,
-    .card-testimonial,
-    .card-about,
-    .card-pricing,
-    .card-chooseus,
-    .card-expertise,
-    .card-case-studies,
-    .card-partner,
-    .card-team,
-    .card-blog {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px) !important;
-        margin: 0 auto clamp(15px, 3vw, 30px) auto !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Hero container responsive */
-    .hero-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 clamp(10px, 3vw, 20px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* All headings responsive */
-    h1, h2, h3, h4, h5, h6 {
-        font-size: clamp(1.5rem, 5vw, 3rem) !important;
-        line-height: 1.3 !important;
-        word-wrap: break-word !important;
-        hyphens: auto !important;
-    }
-    
-    h1 { font-size: clamp(2rem, 6vw, 4rem) !important; }
-    h2 { font-size: clamp(1.75rem, 5.5vw, 3.5rem) !important; }
-    h3 { font-size: clamp(1.5rem, 5vw, 3rem) !important; }
-    h4 { font-size: clamp(1.25rem, 4vw, 2.5rem) !important; }
-    h5 { font-size: clamp(1.1rem, 3.5vw, 2rem) !important; }
-    h6 { font-size: clamp(1rem, 3vw, 1.5rem) !important; }
-    
-    /* All text responsive */
-    p, span, a, button, input, textarea, select, label {
-        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
-        line-height: 1.6 !important;
-    }
-    
-    /* Forms responsive */
-    .form,
-    .contact-form,
-    .newsletter-form {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    .form input,
-    .form textarea,
-    .form select,
-    .form button {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(12px, 3vw, 18px) clamp(15px, 3.5vw, 25px) !important;
-        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Buttons responsive */
-    .btn,
-    .btn-title,
-    .animated-button,
-    button {
-        padding: clamp(12px, 3vw, 18px) clamp(20px, 4vw, 30px) !important;
-        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
-        min-height: 44px !important; /* Touch target size */
-        width: auto !important;
-        max-width: 100% !important;
-    }
-    
-    /* Images responsive */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
-    }
-    
-    /* Grids and layouts responsive */
-    .row,
-    .row-cols-1,
-    .row-cols-md-2,
-    .row-cols-lg-3 {
-        margin: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .col,
-    [class*="col-"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(10px, 2vw, 20px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Flex containers responsive */
-    .d-flex {
-        flex-wrap: wrap !important;
-        gap: clamp(15px, 3vw, 30px) !important;
-    }
-    
-    /* Footer responsive */
-    .section-footer,
-    .footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px) clamp(20px, 4vw, 40px) clamp(15px, 4vw, 30px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    .footer-wrapper,
-    .footer-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Sub-heading responsive */
-    .sub-heading {
-        font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
-        padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 25px) !important;
-    }
-    
-    /* Title heading responsive */
-    .title-heading {
-        font-size: clamp(1.5rem, 6vw, 3.5rem) !important;
-        line-height: 1.3 !important;
-        margin: clamp(15px, 3vw, 30px) 0 !important;
-    }
-    
-    .title-heading-banner {
-        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
-        line-height: 1.3 !important;
-        text-align: center !important;
-        margin: clamp(15px, 3vw, 30px) 0 !important;
-    }
-    
-    /* Heading container responsive */
-    .heading-container,
-    .heading-container-medium,
-    .heading-container-wide {
-        max-width: 100% !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
     
     /* Optimize images for scroll */
     img {
         will-change: auto;
-        transform: translateZ(0);
     }
     
     /* Disable heavy effects during scroll - Force hide on mobile */
@@ -1093,10 +926,6 @@
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-        width: 0 !important;
-        height: 0 !important;
     }
     
     /* Disable Three.js canvas elements EXCEPT Silk background */
@@ -1120,7 +949,6 @@
     /* Optimize video performance */
     video, iframe {
         will-change: auto;
-        transform: translateZ(0);
     }
     
     /* Disable will-change for performance on mobile */
@@ -1302,177 +1130,10 @@
         justify-content: center !important;
     }
     
-    /* Ensure all sections are responsive on mobile */
-    .section {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px) !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-    
-    /* All cards responsive on mobile */
-    .card,
-    .card-service,
-    .card-testimonial,
-    .card-about,
-    .card-pricing,
-    .card-chooseus,
-    .card-expertise,
-    .card-case-studies,
-    .card-partner,
-    .card-team,
-    .card-blog {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px) !important;
-        margin: 0 auto clamp(15px, 3vw, 30px) auto !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Hero container responsive */
-    .hero-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 clamp(10px, 3vw, 20px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* All headings responsive */
-    h1, h2, h3, h4, h5, h6 {
-        font-size: clamp(1.5rem, 5vw, 3rem) !important;
-        line-height: 1.3 !important;
-        word-wrap: break-word !important;
-        hyphens: auto !important;
-    }
-    
-    h1 { font-size: clamp(2rem, 6vw, 4rem) !important; }
-    h2 { font-size: clamp(1.75rem, 5.5vw, 3.5rem) !important; }
-    h3 { font-size: clamp(1.5rem, 5vw, 3rem) !important; }
-    h4 { font-size: clamp(1.25rem, 4vw, 2.5rem) !important; }
-    h5 { font-size: clamp(1.1rem, 3.5vw, 2rem) !important; }
-    h6 { font-size: clamp(1rem, 3vw, 1.5rem) !important; }
-    
-    /* All text responsive */
-    p, span, a, button, input, textarea, select, label {
-        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
-        line-height: 1.6 !important;
-    }
-    
-    /* Forms responsive */
-    .form,
-    .contact-form,
-    .newsletter-form {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    .form input,
-    .form textarea,
-    .form select,
-    .form button {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(12px, 3vw, 18px) clamp(15px, 3.5vw, 25px) !important;
-        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Buttons responsive */
-    .btn,
-    .btn-title,
-    .animated-button,
-    button {
-        padding: clamp(12px, 3vw, 18px) clamp(20px, 4vw, 30px) !important;
-        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
-        min-height: 44px !important; /* Touch target size */
-        width: auto !important;
-        max-width: 100% !important;
-    }
-    
-    /* Images responsive */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
-    }
-    
-    /* Grids and layouts responsive */
-    .row,
-    .row-cols-1,
-    .row-cols-md-2,
-    .row-cols-lg-3 {
-        margin: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .col,
-    [class*="col-"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(10px, 2vw, 20px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Flex containers responsive */
-    .d-flex {
-        flex-wrap: wrap !important;
-        gap: clamp(15px, 3vw, 30px) !important;
-    }
-    
-    /* Footer responsive */
-    .section-footer,
-    .footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: clamp(30px, 5vw, 60px) clamp(15px, 4vw, 30px) clamp(20px, 4vw, 40px) clamp(15px, 4vw, 30px) !important;
-        box-sizing: border-box !important;
-    }
-    
-    .footer-wrapper,
-    .footer-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Sub-heading responsive */
-    .sub-heading {
-        font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
-        padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 25px) !important;
-    }
-    
-    /* Title heading responsive */
-    .title-heading {
-        font-size: clamp(1.5rem, 6vw, 3.5rem) !important;
-        line-height: 1.3 !important;
-        margin: clamp(15px, 3vw, 30px) 0 !important;
-    }
-    
-    .title-heading-banner {
-        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
-        line-height: 1.3 !important;
-        text-align: center !important;
-        margin: clamp(15px, 3vw, 30px) 0 !important;
-    }
-    
-    /* Heading container responsive */
-    .heading-container,
-    .heading-container-medium,
-    .heading-container-wide {
-        max-width: 100% !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
     
     /* Optimize images for scroll */
     img {
         will-change: auto;
-        transform: translateZ(0);
     }
     
     /* Disable heavy effects during scroll - Force hide on mobile */
@@ -1492,10 +1153,6 @@
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-        width: 0 !important;
-        height: 0 !important;
     }
     
     /* Disable Three.js canvas elements EXCEPT Silk background */
@@ -1519,7 +1176,6 @@
     /* Optimize video performance */
     video, iframe {
         will-change: auto;
-        transform: translateZ(0);
     }
     
     /* Disable will-change for performance on mobile */

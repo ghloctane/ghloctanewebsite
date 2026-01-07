@@ -365,6 +365,9 @@ export default function FloatingLines({
 
     const setSize = () => {
       const el = containerRef.current;
+      // Fix: Add null check to prevent "Cannot read properties of null" error
+      if (!el) return;
+      
       const width = el.clientWidth || 1;
       const height = el.clientHeight || 1;
 
@@ -375,7 +378,10 @@ export default function FloatingLines({
       uniforms.iResolution.value.set(canvasWidth, canvasHeight, 1);
     };
 
-    setSize();
+    // Fix: Only call setSize if container exists
+    if (containerRef.current) {
+      setSize();
+    }
 
     const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(setSize) : null;
 

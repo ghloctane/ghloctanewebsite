@@ -501,10 +501,60 @@
         flex-direction: row;
         width: 100%;
     }
+    /* Tablet: Expertise section responsive */
     .expertise-title,
     .expertise-img-layout{
-        width: 100%;
-        margin-left: 0;
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .section-expertise .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .section-expertise .d-flex.flex-column.flex-lg-row {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .expertise-img-layout {
+        order: 2 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .expertise-title {
+        order: 1 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .expertise-img {
+        height: auto !important;
+        min-height: auto !important;
+        width: 100% !important;
+    }
+    
+    .expertise-img img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+    
+    .card-expertise-wrapper {
+        width: 100% !important;
+        padding: 0 0 20px 0 !important;
+    }
+    
+    .card-expertise {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     .section-stats .expertise-title {
         margin-left: 0;
@@ -616,13 +666,18 @@
     .card-expertise .counter-detail{
         font-size: var(--font-size-12xl);
     }
+    /* Tablet: Auto adjust - Stack vertically */
     .chooseus-card-container{
-        width: 100%;
-        order: 2;
+        width: 100% !important;
+        order: 2 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     .chooseus-content-container{
-        width: 100%;
-        order: 1;
+        width: 100% !important;
+        order: 1 !important;
+        padding: 0 !important;
+        margin: 0 0 30px 0 !important;
     }
     .contactus-content{
         width: 80%;
@@ -801,112 +856,20 @@
         transform: none !important;
     }
     
-    /* FORCE ALL ICONS TO BE VISIBLE ON MOBILE */
-    .service-icon,
-    .service-icon-wrapper,
-    .service-icon-box,
-    .service-icon i,
-    .service-icon img,
-    .icon,
-    .icon-circle,
-    .process-icon,
-    .process-icon-wrapper,
-    .chooseus-icon-wrapper,
-    .chooseus-icon-layout,
-    i[class*="fa-"],
-    [class*="icon"] {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        z-index: 10 !important;
-        position: relative !important;
-    }
-    
-    /* Service icon wrapper mobile responsive */
-    .service-icon-wrapper {
-        width: clamp(70px, 15vw, 100px) !important;
-        min-height: clamp(70px, 15vw, 100px) !important;
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .service-icon {
-        width: clamp(60px, 12vw, 80px) !important;
-        min-height: clamp(60px, 12vw, 80px) !important;
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .service-icon i {
-        font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
-        color: var(--accent-color) !important;
-        display: inline-block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .service-icon img {
-        width: clamp(40px, 10vw, 60px) !important;
-        height: auto !important;
+    /* Optimize images for scroll - Ensure all images are visible on mobile */
+    img {
+        will-change: auto;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
-    /* FontAwesome icons - Force visible on mobile */
-    i[class*="fa-"],
-    [class*="fa-"],
-    .fa,
-    .fas,
-    .far,
-    .fal,
-    .fab,
-    .fa-solid,
-    .fa-regular,
-    .fa-light,
-    .fa-brands {
-        display: inline-block !important;
+    img.img-fluid {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: inherit !important;
-        font-style: normal !important;
-        font-weight: normal !important;
-        line-height: 1 !important;
-        text-rendering: auto !important;
-        -webkit-font-smoothing: antialiased !important;
-        -moz-osx-font-smoothing: grayscale !important;
-    }
-    
-    /* All icon containers - ensure visibility */
-    .icon-wrapper,
-    .icon-container,
-    .service-icon-wrapper,
-    .service-icon-box,
-    .process-icon-wrapper,
-    .chooseus-icon-wrapper {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 10 !important;
-    }
-    
-    /* Icon circles and boxes */
-    .icon-circle,
-    .icon-box {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    
-    /* Optimize images for scroll */
-    img {
-        will-change: auto;
     }
     
     /* Disable heavy effects during scroll - Force hide on mobile */
@@ -919,6 +882,7 @@
         visibility: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
+    }
     
     /* Ensure Banner FloatingLines is visible on mobile */
     .banner-visual-background .floating-lines-container {
@@ -928,17 +892,19 @@
         pointer-events: none !important;
     }
     
-    /* Disable Three.js canvas elements EXCEPT Silk background */
-    canvas:not(.banner-visual-background canvas) {
+    /* Disable Three.js canvas elements EXCEPT FloatingLines background */
+    canvas:not(.banner-visual-background canvas):not(.floating-lines-container canvas) {
         display: none !important;
     }
     
-    /* Ensure Silk canvas is visible on mobile */
-    .banner-visual-background canvas {
+    /* Ensure FloatingLines canvas is visible on mobile */
+    .banner-visual-background canvas,
+    .floating-lines-container canvas {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
+    
     
     /* Disable GridScan and Hyperspeed components */
     .grid-scan-container,
@@ -1028,112 +994,20 @@
         transform: none !important;
     }
     
-    /* FORCE ALL ICONS TO BE VISIBLE ON MOBILE */
-    .service-icon,
-    .service-icon-wrapper,
-    .service-icon-box,
-    .service-icon i,
-    .service-icon img,
-    .icon,
-    .icon-circle,
-    .process-icon,
-    .process-icon-wrapper,
-    .chooseus-icon-wrapper,
-    .chooseus-icon-layout,
-    i[class*="fa-"],
-    [class*="icon"] {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        z-index: 10 !important;
-        position: relative !important;
-    }
-    
-    /* Service icon wrapper mobile responsive */
-    .service-icon-wrapper {
-        width: clamp(70px, 15vw, 100px) !important;
-        min-height: clamp(70px, 15vw, 100px) !important;
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .service-icon {
-        width: clamp(60px, 12vw, 80px) !important;
-        min-height: clamp(60px, 12vw, 80px) !important;
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .service-icon i {
-        font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
-        color: var(--accent-color) !important;
-        display: inline-block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .service-icon img {
-        width: clamp(40px, 10vw, 60px) !important;
-        height: auto !important;
+    /* Optimize images for scroll - Ensure all images are visible on mobile */
+    img {
+        will-change: auto;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
-    /* FontAwesome icons - Force visible on mobile */
-    i[class*="fa-"],
-    [class*="fa-"],
-    .fa,
-    .fas,
-    .far,
-    .fal,
-    .fab,
-    .fa-solid,
-    .fa-regular,
-    .fa-light,
-    .fa-brands {
-        display: inline-block !important;
+    img.img-fluid {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        font-size: inherit !important;
-        font-style: normal !important;
-        font-weight: normal !important;
-        line-height: 1 !important;
-        text-rendering: auto !important;
-        -webkit-font-smoothing: antialiased !important;
-        -moz-osx-font-smoothing: grayscale !important;
-    }
-    
-    /* All icon containers - ensure visibility */
-    .icon-wrapper,
-    .icon-container,
-    .service-icon-wrapper,
-    .service-icon-box,
-    .process-icon-wrapper,
-    .chooseus-icon-wrapper {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 10 !important;
-    }
-    
-    /* Icon circles and boxes */
-    .icon-circle,
-    .icon-box {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    
-    /* Optimize images for scroll */
-    img {
-        will-change: auto;
     }
     
     /* Disable heavy effects during scroll - Force hide on mobile */
@@ -1146,6 +1020,7 @@
         visibility: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
+    }
     
     /* Ensure Banner FloatingLines is visible on mobile */
     .banner-visual-background .floating-lines-container {
@@ -1155,17 +1030,19 @@
         pointer-events: none !important;
     }
     
-    /* Disable Three.js canvas elements EXCEPT Silk background */
-    canvas:not(.banner-visual-background canvas) {
+    /* Disable Three.js canvas elements EXCEPT FloatingLines background */
+    canvas:not(.banner-visual-background canvas):not(.floating-lines-container canvas) {
         display: none !important;
     }
     
-    /* Ensure Silk canvas is visible on mobile */
-    .banner-visual-background canvas {
+    /* Ensure FloatingLines canvas is visible on mobile */
+    .banner-visual-background canvas,
+    .floating-lines-container canvas {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
+    
     
     /* Disable GridScan and Hyperspeed components */
     .grid-scan-container,
@@ -1755,26 +1632,94 @@
     
     /* Testimonial Video Section Mobile */
     .testimonial-video-list-container {
-        flex-direction: column;
-        height: auto;
+        flex-direction: column !important;
+        height: auto !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .testimonial-video-list {
-        min-height: 200px;
-        max-height: 300px;
-        padding: 10px;
+        min-height: 200px !important;
+        max-height: 300px !important;
+        padding: 10px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .testimonial-video-item {
-        flex-direction: row;
-        gap: 10px;
-        padding: 10px;
+        flex-direction: row !important;
+        gap: 10px !important;
+        padding: 10px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
-    .testimonial-video-thumbnail {
-        width: 80px;
-        height: 60px;
-        min-width: 80px;
+    .testimonial-video-thumbnail,
+    .testimonial-video-item .testimonial-video-thumbnail {
+        width: 80px !important;
+        height: 60px !important;
+        min-width: 80px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .testimonial-video-thumbnail img,
+    .testimonial-video-item .testimonial-video-thumbnail img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        object-fit: cover !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .testimonial-video-thumbnail-large,
+    .testimonial-video-player .testimonial-video-thumbnail-large {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .testimonial-video-thumbnail-large img,
+    .testimonial-video-player .testimonial-video-thumbnail-large img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        object-fit: cover !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .card-testimonial-reviewer {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .testimonial-video-player {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .video-container {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .testimonial-video-info {
@@ -1853,20 +1798,179 @@
     .expertise-list{
         width: 100%;
     }
-    .card-expertise{
-        width: 250px;
+    /* Mobile: Expertise section full responsive */
+    .section-expertise {
+        padding: clamp(40px, 5vw, 60px) clamp(15px, 4vw, 20px) !important;
+    }
+    
+    .section-expertise .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .section-expertise .d-flex.flex-column.flex-lg-row {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .expertise-img-layout {
+        order: 2 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .expertise-title {
+        order: 1 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .expertise-img {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: 500px !important;
+        width: 100% !important;
+    }
+    
+    .expertise-img img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 500px !important;
+        object-fit: contain !important;
+    }
+    
+    .expertise-layout {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .card-expertise-wrapper {
+        width: 100% !important;
+        padding: 0 0 20px 0 !important;
+    }
+    
+    .card-expertise {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: clamp(20px, 4vw, 30px) !important;
+    }
+    
+    .card-expertise.card-expertise-counter {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .expertise-spacer {
+        display: none !important;
+    }
+    /* Mobile: Full responsive layout */
+    /* Digital Process phase icons - ensure visible on mobile */
+    .phase-icon-container {
+        width: 35px !important;
+        height: 35px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    .phase-icon,
+    .phase-text-box .phase-icon,
+    .digital-process-step .phase-icon,
+    .phase-icon-container .phase-icon {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
     }
     .card-chooseus{
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 20px !important;
+        margin: 0 0 20px 0 !important;
+        box-sizing: border-box !important;
     }
+    
+    .chooseus-icon-wrapper,
+    .card-chooseus .chooseus-icon-wrapper {
+        flex-direction: column !important;
+        min-height: auto !important;
+        width: 100px !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .chooseus-icon-layout,
+    .card-chooseus .chooseus-icon-layout {
+        width: 100px !important;
+        height: 100px !important;
+        min-height: 100px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .chooseus-icon,
+    .card-chooseus .chooseus-icon {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .chooseus-icon img,
+    .chooseus-icon img.img-fluid,
+    .card-chooseus .chooseus-icon img,
+    .card-chooseus .chooseus-icon img.img-fluid,
+    .chooseus-icon-wrapper .chooseus-icon img,
+    .chooseus-icon-layout .chooseus-icon img,
+    .chooseus-icon-wrapper .chooseus-icon-layout .chooseus-icon img {
+        width: 60% !important;
+        height: auto !important;
+        max-width: 60px !important;
+        min-width: 40px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        object-fit: contain !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    
+    .chooseus-content{
+        width: 100% !important;
+        padding: 0 0 0 20px !important;
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
     .card-chooseus-cta-wrapper{
-        width: 250px;
-    }
-    .chooseus-icon-wrapper{
-        flex-direction: row;
-        min-height: 0;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     .chooseus-spacer.above {
         border-radius: 0px 25px 0px 0px;

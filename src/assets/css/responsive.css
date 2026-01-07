@@ -11,7 +11,8 @@
     body {
         scroll-behavior: smooth !important;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: contain;
+        overscroll-behavior-y: auto !important;
+        overscroll-behavior: auto !important;
     }
     
     /* Hardware acceleration for smooth scrolling */
@@ -40,17 +41,19 @@
         scroll-padding-top: 80px; /* Account for fixed navbar */
     }
     
-    /* Reduce scroll jank */
+    /* Reduce scroll jank - Optimized for fast rendering */
     * {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
+        text-rendering: optimizeSpeed; /* Changed from optimizeLegibility to optimizeSpeed */
+        will-change: auto !important;
     }
     
-    /* Optimize images during scroll */
+    /* Optimize images during scroll - Native browser rendering */
     img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+        image-rendering: auto;
+        will-change: auto;
+        transform: none;
     }
     
     /* Disable scroll hijacking - let browser handle it */
@@ -98,9 +101,35 @@
         will-change: auto; /* Removed will-change for smoother scroll */
     }
     
-    /* Smooth transitions */
+    /* Smooth transitions - Optimized for fast rendering */
     * {
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: auto !important;
+    }
+    
+    /* Remove scroll blocking from all elements */
+    * {
+        overscroll-behavior: auto !important;
+        contain: none !important;
+    }
+    
+    /* Only apply contain where absolutely necessary */
+    .swiper-container,
+    .swiper-wrapper {
+        contain: layout style paint;
+    }
+    
+    /* Remove transform that causes scroll lag */
+    .section,
+    .card,
+    .navbar,
+    .hero-container,
+    .navbar-wrapper,
+    .banner-video-container,
+    section,
+    div {
+        transform: none !important;
+        will-change: auto !important;
     }
 }
 
@@ -830,19 +859,22 @@
     }
     
     html, body {
-        overflow-x: hidden;
-        overscroll-behavior-y: contain;
-        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: auto !important;
+        overscroll-behavior: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-behavior: auto !important;
     }
     
-    /* Hardware acceleration for better scroll performance */
+    /* Remove hardware acceleration that causes scroll lag */
     .navbar-wrapper,
     .navbar,
     .navbar-container {
-        transform: translateZ(0);
-        will-change: auto;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+        transform: none !important;
+        will-change: auto !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
     }
     
     /* DISABLE ALL SCROLL ANIMATIONS ON MOBILE - Simple and clean */
@@ -961,26 +993,43 @@
     }
     
     /* Main mobile styles continue below */
-    /* Smooth scrolling optimization */
+    /* Mobile scroll optimization - Native fast scroll */
     * {
         -webkit-overflow-scrolling: touch !important;
         -webkit-tap-highlight-color: transparent;
+        scroll-behavior: auto !important;
+        overscroll-behavior: auto !important;
+        touch-action: auto !important;
     }
     
     html, body {
-        overflow-x: hidden;
-        overscroll-behavior-y: contain;
-        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: auto !important;
+        overscroll-behavior: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-behavior: auto !important;
+        touch-action: pan-y !important;
+        -ms-touch-action: pan-y !important;
     }
     
-    /* Hardware acceleration for better scroll performance */
+    /* Remove scroll blocking from all elements */
+    section,
+    .section,
+    .card {
+        contain: none !important;
+        will-change: auto !important;
+        transform: none !important;
+    }
+    
+    /* Remove hardware acceleration that causes scroll lag */
     .navbar-wrapper,
     .navbar,
     .navbar-container {
-        transform: translateZ(0);
-        will-change: auto;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+        transform: none !important;
+        will-change: auto !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
     }
     
     /* DISABLE ALL SCROLL ANIMATIONS ON MOBILE - Simple and clean */

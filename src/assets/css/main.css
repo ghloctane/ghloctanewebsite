@@ -614,7 +614,7 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: visible;
     position: relative;
     will-change: auto;
-    contain: layout style paint;
+    contain: none; /* Removed for faster scroll */
 }
 
 .section-funnel .hero-container {
@@ -5234,8 +5234,8 @@ body::-webkit-scrollbar-thumb:hover {
     background-attachment: scroll !important; /* Changed to scroll to prevent GPU overload - no parallax */
     /* Hardware Acceleration disabled - causes GPU overload */
     will-change: auto !important;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+    transform: none;
+    -webkit-transform: none;
     display: flex;
     flex-direction: column;
     overflow: hidden;

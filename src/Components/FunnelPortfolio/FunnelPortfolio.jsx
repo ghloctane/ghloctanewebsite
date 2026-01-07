@@ -18,7 +18,7 @@ function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
             const rect = img.getBoundingClientRect();
             const imgHeight = img.offsetHeight || rect.height || 0;
             
-            console.log(`[${itemId}] Image loaded - Height: ${imgHeight}px, Container: ${containerHeight}px`);
+            // Image loaded - height calculated
             
             if (imgHeight > 0) {
                 setImageHeights(prev => ({
@@ -39,7 +39,7 @@ function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
         // Maximum scroll = image height - container height
         // This will show the bottom of the image when fully scrolled
         const maxScroll = imgHeight - containerHeight;
-        console.log(`[${itemId}] Scroll Amount: ${maxScroll}px (${imgHeight}px - ${containerHeight}px)`);
+        // Scroll amount calculated
         return maxScroll;
     };
 

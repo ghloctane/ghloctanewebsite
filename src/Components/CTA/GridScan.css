@@ -40,6 +40,6 @@
   padding: 2px 6px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: none !important; /* Disabled for GPU performance */
 }
 

@@ -1,101 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import VideoButton from "../Video/VideoButton";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
+import FloatingLines from "../CTA/FloatingLines";
 
 function BannerHomeSection() {
 
-    const playerRef = useRef(null);
     const videoContainerRef = useRef(null);
-
-    useEffect(() => {
-        if (!window.YT) {
-            const tag = document.createElement("script");
-            tag.src = "https://www.youtube.com/iframe_api";
-            const firstScriptTag = document.getElementsByTagName("script")[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        } else {
-            onYouTubeIframeAPIReady();
-        }
-
-        window.onYouTubeIframeAPIReady = () => {
-            playerRef.current = new window.YT.Player("banner-video-background", {
-                videoId: "P68V3iH4TeE",
-                playerVars: {
-                autoplay: 1,
-                controls: 0,
-                mute: 1,
-                loop: 1,
-                playlist: "P68V3iH4TeE",
-                showinfo: 0,
-                rel: 0,
-                enablejsapi: 1,
-                disablekb: 1,
-                modestbranding: 1,
-                iv_load_policy: 3,
-                'origin': window.location.origin
-                },
-                events: {
-                onReady: onPlayerReady,
-                onStateChange: onPlayerStateChange
-                }
-            });
-        };
-
-        function onPlayerReady(event) {
-            event.target.playVideo();
-            setYoutubeSize();
-            window.addEventListener("resize", setYoutubeSize);
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data === window.YT.PlayerState.ENDED) {
-                playerRef.current.playVideo();
-            }
-            if (event.data === window.YT.PlayerState.PLAYING) {
-                playerRef.current.setPlaybackQuality("hd1080");
-            }
-        }
-
-        function setYoutubeSize() {
-            const container = videoContainerRef.current;
-            if (!container || !playerRef.current?.getIframe) return;
-
-            const containerWidth = container.offsetWidth;
-            const containerHeight = container.offsetHeight;
-            const aspectRatio = 16 / 9;
-
-            let newWidth, newHeight;
-            if (containerWidth / containerHeight > aspectRatio) {
-                newWidth = containerWidth;
-                newHeight = containerWidth / aspectRatio;
-            } else {
-                newWidth = containerHeight * aspectRatio;
-                newHeight = containerHeight;
-            }
-
-            const iframe = playerRef.current.getIframe();
-            iframe.style.width = `${newWidth}px`;
-            iframe.style.height = `${newHeight}px`;
-        }
-
-        function handleYouTubeErrors() {
-            window.addEventListener('message', function(event) {
-                if (event.origin !== 'https://www.youtube.com') return;
-            
-                try {
-                    var data = JSON.parse(event.data);
-                   
-                } catch (e) {
-         
-                }
-            });
-        }
-
-        return () => {
-            window.removeEventListener("resize", setYoutubeSize);
-        };
-    }, []);
 
     return (
         <div className="section-banner">
@@ -104,7 +15,23 @@ function BannerHomeSection() {
                     ref={videoContainerRef}
                     className="banner-video-container keep-dark"
                 >
-                    <div id="banner-video-background"></div>
+                    {/* FloatingLines Background - Mobile + Desktop Visible */}
+                    <div className="banner-visual-background" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+                        <FloatingLines
+                            linesGradient={['#27428C', '#2F5AA8', '#1A2F5C']}
+                            enabledWaves={['top', 'middle', 'bottom']}
+                            lineCount={[6, 8, 6]}
+                            lineDistance={[5, 6, 5]}
+                            animationSpeed={1}
+                            interactive={true}
+                            bendRadius={5.0}
+                            bendStrength={-0.5}
+                            mouseDamping={0.05}
+                            parallax={true}
+                            parallaxStrength={0.2}
+                            mixBlendMode="screen"
+                        />
+                    </div>
                     <div className="hero-container position-relative">
                         <div className="d-flex flex-column gspace-2">
                             <AnimateOnScroll animation="fadeInLeft" speed="normal">

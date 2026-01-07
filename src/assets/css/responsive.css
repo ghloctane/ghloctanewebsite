@@ -1,8 +1,10 @@
 /* ================== Media Queries ================== */
 
-/* Desktop: Restore blur effects with Hardware Acceleration (GPU can handle it) */
+/* DISABLED: Desktop blur effects - Causes GPU overload */
+/* Blur effects disabled for better performance - see Performance Patch at end of file */
+/*
 @media screen and (min-width: 769px) {
-    /* Restore backdrop-filter for desktop only with GPU acceleration */
+    Restore backdrop-filter for desktop only with GPU acceleration - DISABLED
     .section-partner,
     .section-guide,
     .section-about,
@@ -12,27 +14,31 @@
     .navbar-wrapper,
     .card-about,
     .card-partner {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        /* Hardware Acceleration for smooth scrolling on low-end devices */
+        backdrop-filter: blur(10px); - DISABLED
+        -webkit-backdrop-filter: blur(10px); - DISABLED
+        Hardware Acceleration for smooth scrolling - DISABLED
         will-change: backdrop-filter, transform;
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
     }
+}
+*/
     
-    /* Restore fixed backgrounds for desktop parallax with GPU acceleration */
+    /* DISABLED: Restore fixed backgrounds for desktop parallax - Causes GPU overload */
+    /* Parallax disabled for better performance - see Performance Patch at end of file */
+    /*
     .section-banner::before,
     .section-featured-project,
     body::before {
         background-attachment: fixed;
-        /* Hardware Acceleration for parallax scrolling */
+        Hardware Acceleration for parallax scrolling - DISABLED
         will-change: scroll-position;
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
     }
-}
+    */
 
 /* Mobile Optimization - Fix Layout Shifts for Swiper Components */
 @media screen and (max-width: 768px) {
@@ -59,38 +65,42 @@
     .guide-banner {
         background-attachment: scroll !important;
     }
-    /* Hero/Banner Slider - Fixed for Mobile Layout */
+    /* Hero/Banner Slider - Fully Responsive Mobile Layout */
     .section-banner {
         width: 100% !important;
+        max-width: 100% !important;
         height: auto !important;
-        min-height: auto !important;      /* 100vh hata diya taake zabardasti khinche na */
-        aspect-ratio: auto !important;    /* 16/9 HATA DIYA (Ye issue tha) */
-        contain: content !important;      /* 'Strict' se 'Content' kar diya (Safe option) */
-        padding-top: 10px !important;     /* Upar ka gap khatam (Pehle 80px tha) */
-        padding-bottom: 40px !important;  
-        display: flex !important;         /* Flex use karein center ke liye */
+        min-height: auto !important;
+        aspect-ratio: auto !important;
+        contain: content !important;
+        padding: clamp(10px, 3vw, 20px) clamp(10px, 3vw, 15px) clamp(30px, 5vw, 40px) clamp(10px, 3vw, 15px) !important;
+        display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;   /* Center align karne ke liye */
+        align-items: center !important;
         justify-content: center !important;
         margin: 0 auto !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
     
-    /* Banner Video Container - Fixed Layout */
+    /* Banner Video Container - Fully Responsive Mobile Layout */
     .banner-video-container {
         width: 100% !important;
         max-width: 100% !important;
-        height: 600px !important;         /* Fixed height set kiya (auto hata diya) */
-        min-height: 600px !important;     /* Minimum height bhi set kiya */
-        aspect-ratio: auto !important;    /* Ratio hata diya taake text fit aye */
-        margin: 0 auto !important;         /* Center align karne ke liye */
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 30px 20px !important;
-        contain: content !important;      /* Strict hata diya */
-        overflow: visible !important;     /* Hidden hata diya taake content kate na */
+        height: auto !important;
+        min-height: clamp(400px, 60vh, 600px) !important;
+        aspect-ratio: auto !important;
+        overflow: hidden !important; /* Ensure Silk effect is visible */
+        margin: 0 auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: clamp(20px, 5vw, 30px) clamp(15px, 4vw, 20px) !important;
+        contain: content !important;
+        overflow: visible !important;
         display: flex !important;
         flex-direction: column !important;
-        border-radius: 20px !important;   /* Thora golai di mobile ke liye */
+        border-radius: clamp(15px, 3vw, 20px) !important;
+        box-sizing: border-box !important;
     }
     
     .banner-video-container .hero-container {
@@ -133,6 +143,7 @@
         margin-bottom: 20px !important;
     }
     
+    /* Mobile: Column layout for banner-heading */
     .banner-heading {
         flex-direction: column !important;
         gap: 20px !important;
@@ -460,10 +471,11 @@
     .team-layout{
         padding: 30px 30px 0px 30px;
     }
-    .banner-heading{
+    /* Banner heading - Keep row on tablet, column only on mobile */
+    /* .banner-heading{
         flex-direction: column;
         gap: 100px;
-    }
+    } */
     .single-service-title-layout{
         width: 85%;
     }
@@ -690,11 +702,18 @@
     .background-paths-wrapper,
     .background-paths-container,
     .cta-floating-lines-wrapper,
-    .floating-lines-container,
+    .floating-lines-container:not(.banner-visual-background .floating-lines-container),
     .background-paths-svg {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
+        pointer-events: none !important;
+    
+    /* Ensure Banner FloatingLines is visible on mobile */
+    .banner-visual-background .floating-lines-container {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         pointer-events: none !important;
         position: absolute !important;
         left: -9999px !important;
@@ -702,9 +721,16 @@
         height: 0 !important;
     }
     
-    /* Disable Three.js canvas elements */
-    canvas {
+    /* Disable Three.js canvas elements EXCEPT Silk background */
+    canvas:not(.banner-visual-background canvas) {
         display: none !important;
+    }
+    
+    /* Ensure Silk canvas is visible on mobile */
+    .banner-visual-background canvas {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Disable GridScan and Hyperspeed components */
@@ -800,11 +826,18 @@
     .background-paths-wrapper,
     .background-paths-container,
     .cta-floating-lines-wrapper,
-    .floating-lines-container,
+    .floating-lines-container:not(.banner-visual-background .floating-lines-container),
     .background-paths-svg {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
+        pointer-events: none !important;
+    
+    /* Ensure Banner FloatingLines is visible on mobile */
+    .banner-visual-background .floating-lines-container {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         pointer-events: none !important;
         position: absolute !important;
         left: -9999px !important;
@@ -812,9 +845,16 @@
         height: 0 !important;
     }
     
-    /* Disable Three.js canvas elements */
-    canvas {
+    /* Disable Three.js canvas elements EXCEPT Silk background */
+    canvas:not(.banner-visual-background canvas) {
         display: none !important;
+    }
+    
+    /* Ensure Silk canvas is visible on mobile */
+    .banner-visual-background canvas {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Disable GridScan and Hyperspeed components */
@@ -910,26 +950,27 @@
         max-width: 50%;
     }
     .navbar-wrapper{
-        padding: 15px 15px 15px 15px;
-        width: calc(100% - 40px) !important; /* Reduced width - 20px margin each side */
-        max-width: calc(100% - 40px) !important;
-        margin: 0 auto !important; /* Center it */
+        padding: clamp(12px, 3vw, 20px) clamp(15px, 4vw, 30px) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: visible;
     }
     
     .navbar{
-        padding: 12px 15px 12px 15px;
-        width: 100%;
-        max-width: 100%;
+        padding: clamp(10px, 2vw, 15px) clamp(12px, 3vw, 20px) !important;
+        width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: visible;
+        border-radius: clamp(12px, 2vw, 20px);
     }
     
     .navbar-container{
-        flex-wrap: wrap !important;
-        gap: 12px;
-        align-items: center;
+        flex-wrap: nowrap !important;
+        gap: 12px !important;
+        align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -941,22 +982,27 @@
     }
     
     .logo-container{
-        flex: 0 1 auto;
-        max-width: 70%;
-        flex-shrink: 0;
+        flex: 0 1 auto !important;
+        max-width: calc(100% - 60px) !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
         gap: 0;
         padding: 0;
         margin: 0;
         order: 0;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
     }
     
     .logo-container img,
     .site-logo{
-        width: 160px !important;
-        max-width: 160px;
-        height: auto;
-        margin: 0;
-        padding: 0;
+        width: clamp(120px, 25vw, 180px) !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        object-fit: contain !important;
     }
     
     .navbar-brand{
@@ -1015,12 +1061,13 @@
         opacity: 1 !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 10px 14px !important;
-        font-size: 20px !important;
-        border-radius: 8px !important;
+        padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 14px) !important;
+        font-size: clamp(18px, 4vw, 22px) !important;
+        border-radius: clamp(6px, 1.5vw, 10px) !important;
         min-width: 44px !important;
-        width: 44px !important;
-        height: 44px !important;
+        width: auto !important;
+        height: auto !important;
+        min-height: 44px !important;
         flex-shrink: 0 !important;
         order: 2 !important;
         margin: 0 !important;
@@ -1039,6 +1086,7 @@
         background-color: var(--accent-color) !important;
         color: var(--primary) !important;
         cursor: pointer !important;
+        box-sizing: border-box !important;
     }
     
     button.nav-btn i,
@@ -1200,22 +1248,35 @@
     }
     
     .navbar-collapse{
-        order: 4;
-        width: 100%;
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid rgba(168, 184, 224, 0.2);
+        order: 4 !important;
+        width: 100% !important;
+        margin-top: clamp(12px, 3vw, 20px) !important;
+        padding-top: clamp(12px, 3vw, 20px) !important;
+        border-top: 1px solid rgba(168, 184, 224, 0.2) !important;
+        box-sizing: border-box !important;
     }
     
     .navbar-nav{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-        width: 100%;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: clamp(4px, 1vw, 8px) !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     
     .nav-item{
-        width: 100%;
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    .nav-link{
+        padding: clamp(10px, 2.5vw, 14px) clamp(12px, 3vw, 18px) !important;
+        font-size: clamp(14px, 3.5vw, 16px) !important;
+        width: 100% !important;
+        display: block !important;
+        text-align: left !important;
+        border-radius: clamp(6px, 1.5vw, 10px) !important;
     }
     
     .nav-link{
@@ -1239,16 +1300,21 @@
         font-size: var(--font-size-sm) !important;
     }
     
+    /* Banner Video Container - Fully Responsive Small Mobile (767px and below) */
     .banner-video-container{
-        padding: 40px 15px 40px 15px !important;
-        margin: 0 15px !important;
-        min-height: 400px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: clamp(30px, 6vw, 40px) clamp(15px, 4vw, 20px) !important;
+        margin: 0 clamp(10px, 2vw, 15px) !important;
+        min-height: clamp(350px, 55vh, 500px) !important;
+        overflow: hidden !important; /* Ensure Silk effect is visible on mobile */
         height: auto !important;
-        aspect-ratio: 16/9 !important;
-        contain: strict !important;
-        overflow: hidden !important;
+        aspect-ratio: auto !important;
+        contain: content !important;
+        overflow: visible !important;
         display: flex !important;
         flex-direction: column !important;
+        box-sizing: border-box !important;
     }
     
     .banner-video-container .hero-container {
@@ -1265,6 +1331,7 @@
         margin-bottom: 20px !important;
     }
     
+    /* Mobile: Column layout for banner-heading (767px and below) */
     .banner-heading{
         flex-direction: column !important;
         gap: 20px !important;
@@ -1299,7 +1366,10 @@
     /* Duplicate banner styles removed - using enhanced styles above at line 62-122 */
     
     .section-banner{
-        padding: 0px 15px 0px 15px;
+        padding: clamp(15px, 3vw, 20px) clamp(10px, 2vw, 15px) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     .section-guide{
         padding: 0px 20px 0px 20px;
@@ -1869,3 +1939,372 @@
         --bs-gutter-y: 50px; 
     }
 }
+
+/* ===================================================================
+   STABILITY & PERFORMANCE CSS PATCH - DESKTOP LAG FIX
+   ===================================================================
+   Fixes: GPU Overload, Parallax Jitter, Blur Performance Issues
+   =================================================================== */
+
+
+/* ==================== DESKTOP LAG FIX (GPU OVERLOAD) (> 769px) ==================== */
+
+@media screen and (min-width: 769px) {
+    /* NEUTRALIZE PARALLAX - Change all fixed backgrounds to scroll */
+    *,
+    body::before,
+    body::after,
+    .section-banner::before,
+    .section-banner::after,
+    .section-featured-project,
+    .section-featured-project::before,
+    .section-featured-project::after,
+    .guide-banner,
+    .guide-banner::before,
+    .guide-banner::after,
+    [class*="banner"]::before,
+    [class*="banner"]::after,
+    [class*="section"]::before,
+    [class*="section"]::after,
+    [data-glow]::before,
+    [data-glow]::after {
+        background-attachment: scroll !important;
+    }
+    
+    /* REMOVE BLURS - Change backdrop-filter to none, use solid colors */
+    *,
+    .section-partner,
+    .section-guide,
+    .section-about,
+    .card-service,
+    .card-testimonial,
+    .card-website-showcase,
+    .navbar-wrapper,
+    .card-about,
+    .card-partner,
+    .card,
+    .navbar,
+    [class*="card"],
+    [class*="section"],
+    [data-glow] {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Use solid fallback colors instead of blur */
+    .section-partner,
+    .section-guide,
+    .section-about,
+    .card-service,
+    .card-testimonial,
+    .card-website-showcase,
+    .navbar-wrapper,
+    .card-about,
+    .card-partner {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    /* DISABLE SCROLL HIJACKING - Remove custom smooth-scrolling conflicts */
+    html {
+        scroll-behavior: auto !important;
+    }
+    
+    body {
+        scroll-behavior: auto !important;
+    }
+    
+    /* Remove will-change overuse that causes GPU strain */
+    * {
+        will-change: auto !important;
+    }
+    
+    /* Only allow will-change on actively animating elements */
+    .swiper-wrapper,
+    .swiper-slide {
+        will-change: transform;
+    }
+}
+
+/* ==================== END OF DESKTOP LAG FIX ==================== */
+
+/* ==================== HERO SECTION LAYOUT - DESKTOP ROW / MOBILE COLUMN ==================== */
+/* This comes at the END to override all previous styles with highest priority */
+
+/* Desktop & Tablet: Row layout for banner-heading (768px and above) */
+/* This MUST override all mobile styles */
+@media screen and (min-width: 768px) {
+    .banner-heading {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 30px !important;
+        width: 100% !important;
+    }
+    
+    /* Override Bootstrap order classes for desktop */
+    .banner-content.order-lg-2,
+    .banner-content {
+        width: auto !important;
+        max-width: 50% !important;
+        text-align: left !important;
+        order: 2 !important;
+        justify-content: flex-start !important;
+    }
+    
+    .banner-video-content.order-lg-1,
+    .banner-video-content {
+        width: auto !important;
+        max-width: 50% !important;
+        order: 1 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .banner-content p {
+        text-align: left !important;
+        max-width: 100% !important;
+    }
+    
+    .banner-video-content p {
+        text-align: left !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Ensure row layout for larger screens (992px+) - Bootstrap lg breakpoint */
+@media screen and (min-width: 992px) {
+    .banner-heading {
+        flex-direction: row !important;
+        gap: 40px !important;
+    }
+    
+    /* Ensure Bootstrap order classes work correctly */
+    .banner-content.order-lg-2 {
+        order: 2 !important;
+    }
+    
+    .banner-video-content.order-lg-1 {
+        order: 1 !important;
+    }
+    
+    /* Navbar improvements for desktop */
+    .navbar-wrapper{
+        padding: 20px 30px !important;
+    }
+    
+    .navbar{
+        padding: 12px 30px !important;
+    }
+    
+    .navbar-container{
+        gap: 20px !important;
+    }
+    
+    .logo-container img,
+    .site-logo{
+        width: 200px !important;
+        max-width: 200px !important;
+    }
+    
+    .navbar-action-container{
+        display: flex !important;
+    }
+    
+    button.nav-btn,
+    button.navbar-toggler.nav-btn{
+        display: none !important;
+    }
+    
+    .navbar-collapse{
+        display: flex !important;
+        order: unset !important;
+        width: auto !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+    }
+    
+    .navbar-nav{
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0 !important;
+    }
+    
+    .nav-item{
+        width: auto !important;
+    }
+    
+    .nav-link{
+        padding: 8px 16px !important;
+        font-size: var(--font-size-base) !important;
+        width: auto !important;
+        display: inline-block !important;
+        text-align: center !important;
+    }
+}
+
+/* ==================== END OF HERO SECTION LAYOUT ==================== */
+
+/* ==================== BANNER VIDEO CONTAINER - FULLY RESPONSIVE ALL SCREENS ==================== */
+
+/* Tablet (768px - 991px) - Responsive with margin */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Navbar improvements for tablet */
+    .navbar-wrapper{
+        padding: clamp(15px, 2.5vw, 25px) clamp(20px, 4vw, 40px) !important;
+    }
+    
+    .navbar{
+        padding: clamp(12px, 2vw, 15px) clamp(18px, 3vw, 25px) !important;
+    }
+    
+    .logo-container img,
+    .site-logo{
+        width: clamp(150px, 20vw, 180px) !important;
+    }
+    
+    .navbar-container{
+        gap: 20px !important;
+    }
+    
+    .navbar-action-container{
+        display: flex !important;
+    }
+    
+    button.nav-btn,
+    button.navbar-toggler.nav-btn{
+        display: none !important;
+    }
+    
+    .navbar-collapse{
+        display: flex !important;
+        order: unset !important;
+        width: auto !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+    }
+    
+    .navbar-nav{
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    
+    .nav-item{
+        width: auto !important;
+    }
+    
+    .nav-link{
+        padding: 8px 14px !important;
+        font-size: 15px !important;
+        width: auto !important;
+        display: inline-block !important;
+        text-align: center !important;
+    }
+
+    .banner-video-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: clamp(60px, 8vw, 100px) clamp(25px, 4vw, 35px) !important;
+        margin: 0 clamp(20px, 3vw, 25px) !important; /* Tablet par margin hai */
+        min-height: clamp(500px, 65vh, 650px) !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+        border-radius: clamp(15px, 3vw, 20px) !important; /* Tablet par border radius */
+    }
+    
+    .banner-video-container .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    #banner-video-background {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    #banner-video-background iframe {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+}
+
+/* Desktop (992px+) - FULL WIDTH with rounded corners */
+@media screen and (min-width: 992px) {
+    .banner-video-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: clamp(80px, 10vw, 120px) clamp(30px, 4vw, 50px) !important;
+        margin: 0 !important; /* Full width - no margin */
+        min-height: clamp(550px, 70vh, 800px) !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+        border-radius: clamp(25px, 4vw, 40px) !important; /* Rounded corners from outside */
+    }
+}
+
+/* Large Desktop (1200px+) - FULL WIDTH with rounded corners */
+@media screen and (min-width: 1200px) {
+    .banner-video-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: clamp(100px, 12vw, 120px) clamp(40px, 5vw, 60px) !important;
+        margin: 0 !important; /* Full width */
+        min-height: clamp(600px, 75vh, 800px) !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+        border-radius: clamp(30px, 5vw, 45px) !important; /* Rounded corners from outside */
+    }
+}
+
+/* Extra Large Screens (1400px+) - FULL WIDTH with rounded corners */
+@media screen and (min-width: 1400px) {
+    .banner-video-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 120px clamp(50px, 6vw, 80px) !important;
+        margin: 0 !important; /* Full width */
+        min-height: 700px !important;
+        border-radius: 45px !important; /* Rounded corners from outside */
+    }
+}
+
+/* Video Background Responsive Fix - All Screens */
+#banner-video-background {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+#banner-video-background iframe {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+@media screen and (max-width: 767px) {
+    #banner-video-background {
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    #banner-video-background iframe {
+        transform: none !important;
+    }
+}
+
+/* Section Banner Responsive - Global (applies to all screens) */
+.section-banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+}
+
+/* ==================== END OF BANNER VIDEO CONTAINER RESPONSIVE FIX ==================== */

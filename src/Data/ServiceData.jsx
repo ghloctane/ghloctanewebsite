@@ -1,7 +1,7 @@
 export const services = [
     {
         id: 1,
-        icon: "/assets/images/Icon-7.webp",
+        icon: "/assets/images/Icon-7.png",
         title: "Social Media Automation",
         content: "Automate lead capture & follow-ups from ads and DMs.",
         speed: "slow",
@@ -9,7 +9,7 @@ export const services = [
     },
     {
         id: 2,
-        icon: "/assets/images/digital-marketing-icons-F4LJ4W8.webp",
+        icon: "/assets/images/digital-marketing-icons-F4LJ4W8.png",
         title: "Funnel & Website Design",
         content: "High-converting funnels built inside GHL.",
         speed: "normal",
@@ -17,7 +17,7 @@ export const services = [
     },
     {
         id: 3,
-        icon: "/assets/images/Icon-8.webp",
+        icon: "/assets/images/Icon-8.png",
         title: "PPC & Tracking Setup",
         content: "Facebook, Google & TikTok tracking done right.",
         speed: "fast",
@@ -25,7 +25,7 @@ export const services = [
     },
     {
         id: 4,
-        icon: "/assets/images/Icon-5.webp",
+        icon: "/assets/images/Icon-5.png",
         title: "Email & SMS Marketing",
         content: "Automated sequences that convert leads into customers.",
         speed: "slow",
@@ -33,7 +33,7 @@ export const services = [
     },
     {
         id: 5,
-        icon: "/assets/images/Icon-6.webp",
+        icon: "/assets/images/Icon-6.png",
         title: "Branding & Workflow Design",
         content: "Professional setups for agencies & businesses.",
         speed: "normal",
@@ -41,7 +41,7 @@ export const services = [
     },
     {
         id: 6,
-        icon: "/assets/images/Icon-4.webp",
+        icon: "/assets/images/Icon-4.png",
         title: "Web Development",
         content: "Fast, conversion-focused websites integrated with GHL.",
         speed: "fast",

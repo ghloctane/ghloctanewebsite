@@ -683,6 +683,11 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: var(--global-border-radius);
     min-height: 400px;
     height: 400px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .swiperDashboards-container::before,
@@ -716,6 +721,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .swiperDashboards .swiper-wrapper{
     transition-timing-function: linear !important;
+    display: flex;
+    align-items: center;
 }
 
 .swiperDashboards .dashboard-slide{
@@ -727,17 +734,20 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100%;
     padding: 10px;
     transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 .swiperDashboards .dashboard-image{
     width: 100%;
     height: auto;
+    max-height: 100%;
     object-fit: contain;
     border-radius: var(--global-border-radius);
     border: 1px solid var(--accent-color-3);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    max-height: none;
+    margin: 0 auto;
+    display: block;
 }
 
 .swiperDashboards .dashboard-slide:hover{
@@ -3640,18 +3650,24 @@ body::-webkit-scrollbar-thumb:hover {
     content-visibility: auto;
     contain: layout paint;
     aspect-ratio: 16/9;
-    margin: 0px -100px 0px -100px;
+    margin: 0 auto;
     overflow: hidden;
     position: relative;
     z-index: 10;
     pointer-events: auto;
     min-height: 200px;
     height: 200px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .swiperPartner .swiper-slide{
     width: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     pointer-events: auto;
     height: 180px;
     min-height: 180px;
@@ -3659,25 +3675,28 @@ body::-webkit-scrollbar-thumb:hover {
 
 .swiperPartner .swiper-wrapper{
     transition-timing-function: linear !important;
+    display: flex;
+    align-items: center;
 }
 
 .swiperPartner .partner-slide{
     background-color: transparent;
     padding: 10px;
-    margin: 5px 5px 5px 5px;
+    margin: 0;
     border-radius: 0;
     transition-duration: 0.6s;
     box-shadow: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
+    height: 100%;
     min-height: 180px;
-    overflow: visible;
+    overflow: hidden;
     cursor: pointer;
     pointer-events: auto;
     position: relative;
     z-index: 10;
+    width: 100%;
 }
 
 .swiperPartner .partner-logo{
@@ -3690,6 +3709,8 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1;
     transition: all 0.4s ease;
     pointer-events: none;
+    margin: 0 auto;
+    display: block;
 }
 
 .swiperPartner .partner-slide:hover{
@@ -3843,10 +3864,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .card-service{
-    background: linear-gradient(135deg, rgba(39, 66, 140, 0.95) 0%, rgba(30, 50, 110, 0.98) 50%, rgba(25, 40, 90, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(39, 66, 140, 0.95) 0%, rgba(30, 50, 110, 0.98) 50%, rgba(25, 40, 90, 0.95) 100%) !important;
     /* backdrop-filter: blur(10px); */ /* Removed for mobile performance */
     /* -webkit-backdrop-filter: blur(10px); */
-    background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
+    /* background: rgba(255, 255, 255, 0.95); */ /* REMOVED - White background was overriding dark gradient */
     border-radius: var(--global-border-radius);
     padding: 30px 30px 30px 30px;
     border: 1px solid rgba(168, 184, 224, 0.3);
@@ -3859,6 +3880,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 425px;
     box-shadow: 0 8px 30px rgba(39, 66, 140, 0.3);
     transition: all 0.3s ease;
+    color: #FFFFFF !important; /* Text color white for dark background */
 }
 
 .card-service::before {
@@ -3873,7 +3895,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .col:nth-child(even) .card-service {
-    background: linear-gradient(135deg, rgba(39, 66, 140, 0.95) 0%, rgba(30, 50, 110, 0.98) 50%, rgba(25, 40, 90, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(39, 66, 140, 0.95) 0%, rgba(30, 50, 110, 0.98) 50%, rgba(25, 40, 90, 0.95) 100%) !important;
 }
 
 .service-icon-wrapper{
@@ -4654,7 +4676,7 @@ body::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(var(--accent-color-4), var(--accent-color-4)) padding-box, 
                 linear-gradient(135deg, rgba(39, 66, 140, 0.5), rgba(168, 184, 224, 0.3)) border-box;
     border-radius: var(--global-border-radius);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -4759,6 +4781,7 @@ body::-webkit-scrollbar-thumb:hover {
 .card-funnel-portfolio:hover {
     box-shadow: var(--box-shadow-top-left-wide);
     transform: translateY(-5px);
+    transition: all 1s ease;
 }
 
 /* ================== 33. Pricing Components ================== */
@@ -4779,13 +4802,15 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 62.5px 30px 62.5px 0px;
     border: 1px solid rgba(168, 184, 224, 0.3);
     border-radius: var(--global-border-radius);
-    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%);
+    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%) !important;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     z-index: 1;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    color: #ffffff !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .card-pricing-title:hover {
@@ -4837,16 +4862,18 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 30px 0px 30px 30px;
     border: 1px solid rgba(168, 184, 224, 0.3);
     border-radius: var(--global-border-radius);
-    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%) !important;
+    color: #ffffff !important;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     align-items: center;
     justify-content: space-between;
     align-self: stretch;
     z-index: 1;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .pricing-highlight-box:hover {
@@ -4893,24 +4920,34 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px;
     border: 1px solid rgba(168, 184, 224, 0.3);
-    background: linear-gradient(135deg, rgba(30, 36, 64, 0.8) 0%, rgba(37, 43, 74, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(30, 36, 64, 0.8) 0%, rgba(37, 43, 74, 0.9) 100%) !important;
     /* backdrop-filter: blur(10px); */ /* Removed for mobile performance */
     /* -webkit-backdrop-filter: blur(10px); */
-    background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
-    color: #ffffff;
+    /* background: rgba(255, 255, 255, 0.95); */ /* REMOVED - White background was overriding dark gradient */
+    color: #ffffff !important;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .pricing-highlights a,
 .pricing-highlights i{
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9) !important;
     transition: all 0.3s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .pricing-highlights:hover a,
 .pricing-highlights:hover i{
-    color: rgba(168, 184, 224, 1);
+    color: rgba(168, 184, 224, 1) !important;
+}
+
+.pricing-highlight-box h5 {
+    color: #ffffff !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .card-pricing{
@@ -4923,11 +4960,11 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: start;
     padding: 30px 30px 30px 30px;
     border: 1px solid rgba(168, 184, 224, 0.3);
-    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%);
+    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%) !important;
     /* backdrop-filter: blur(10px); */ /* Removed for mobile performance */
     /* -webkit-backdrop-filter: blur(10px); */
-    background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
-    color: #ffffff;
+    /* background: rgba(255, 255, 255, 0.95); */ /* REMOVED - White background was overriding dark gradient */
+    color: #ffffff !important;
     position: relative;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
@@ -4949,8 +4986,8 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%) !important;
+    color: #ffffff !important;
 }
 
 .card-pricing.pricing-highlight:hover {
@@ -5003,13 +5040,28 @@ body::-webkit-scrollbar-thumb:hover {
 
 .card-pricing-title .link-wrapper a,
 .card-pricing-title .link-wrapper i {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9) !important;
     transition: all 0.3s ease;
+}
+
+.card-pricing-title .link-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card-pricing-title .link-wrapper:hover {
+    background: rgba(168, 184, 224, 0.2) !important;
+    border: 1px solid rgba(168, 184, 224, 0.5) !important;
+    box-shadow: 0 2px 12px rgba(168, 184, 224, 0.4) !important;
 }
 
 .card-pricing-title .link-wrapper:hover a,
 .card-pricing-title .link-wrapper:hover i {
-    color: rgba(168, 184, 224, 1);
+    color: rgba(200, 210, 240, 1) !important; /* Brighter color for better visibility */
     transform: translateX(5px);
 }
 
@@ -5799,22 +5851,33 @@ body::-webkit-scrollbar-thumb:hover {
     background-image: radial-gradient(at bottom right, var(--accent-color-3) 0%, var(--accent-color-4) 50%);
     padding: 30px 30px 30px 30px;
     border: 1px solid var(--accent-color-3);
+    height: 100%;
+    min-height: 400px;
+    overflow: visible;
     min-height: 350px;
     height: 100%;
 }
 
 /* Testimonial Swiper - CSS Containment */
+.swiperTestimonial {
+    height: auto !important;
+    min-height: 400px;
+    padding-bottom: 20px;
+}
+
 .swiperTestimonial .swiper-slide{
     content-visibility: auto;
-    contain: layout paint;
+    contain: content;
     height: auto;
-    min-height: 300px;
+    min-height: 400px;
     display: flex;
+    align-items: stretch;
 }
 
 .swiperTestimonial .swiper-slide > *{
     width: 100%;
-    height: 100%;
+    height: auto;
+    min-height: 100%;
 }
 
 .profile-name{

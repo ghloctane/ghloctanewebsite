@@ -41,7 +41,7 @@ const PartnershipSection = () => {
                                     slidesPerView={6}
                                     spaceBetween={10}
                                     loop={true}
-                                    speed={3000}
+                                    speed={5000}
                                     autoHeight={false}
                                     observer={true}
                                     observeParents={true}

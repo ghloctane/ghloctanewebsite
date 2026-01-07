@@ -36,22 +36,132 @@
 
 /* Mobile Optimization - Fix Layout Shifts for Swiper Components */
 @media screen and (max-width: 768px) {
-    /* Disable all blur effects on mobile for performance */
-    * {
+    /* Disable blur effects on mobile for performance - target specific elements */
+    .section-partner,
+    .section-guide,
+    .section-about,
+    .card-service,
+    .card-testimonial,
+    .card-website-showcase,
+    .navbar-wrapper,
+    .card-about,
+    .card-partner,
+    .section,
+    .card {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
     }
     
-    /* Force scroll backgrounds on mobile */
-    * {
+    /* Force scroll backgrounds on mobile - target specific elements */
+    body::before,
+    .section-banner::before,
+    .section-featured-project,
+    .guide-banner {
         background-attachment: scroll !important;
     }
-    /* Hero/Banner Slider - Mobile Responsive */
+    /* Hero/Banner Slider - Fixed for Mobile Layout */
     .section-banner {
-        min-height: 400px !important;
-        aspect-ratio: 16/9 !important;
-        contain: strict !important;
+        width: 100% !important;
         height: auto !important;
+        min-height: auto !important;      /* 100vh hata diya taake zabardasti khinche na */
+        aspect-ratio: auto !important;    /* 16/9 HATA DIYA (Ye issue tha) */
+        contain: content !important;      /* 'Strict' se 'Content' kar diya (Safe option) */
+        padding-top: 10px !important;     /* Upar ka gap khatam (Pehle 80px tha) */
+        padding-bottom: 40px !important;  
+        display: flex !important;         /* Flex use karein center ke liye */
+        flex-direction: column !important;
+        align-items: center !important;   /* Center align karne ke liye */
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Banner Video Container - Fixed Layout */
+    .banner-video-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 600px !important;         /* Fixed height set kiya (auto hata diya) */
+        min-height: 600px !important;     /* Minimum height bhi set kiya */
+        aspect-ratio: auto !important;    /* Ratio hata diya taake text fit aye */
+        margin: 0 auto !important;         /* Center align karne ke liye */
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 30px 20px !important;
+        contain: content !important;      /* Strict hata diya */
+        overflow: visible !important;     /* Hidden hata diya taake content kate na */
+        display: flex !important;
+        flex-direction: column !important;
+        border-radius: 20px !important;   /* Thora golai di mobile ke liye */
+    }
+    
+    .banner-video-container .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;   /* Content ko center karein */
+        text-align: center !important;
+    }
+    
+    /* Video Background ko zoom karke card mein puri cover karne ke liye */
+    #banner-video-background {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 200% !important;
+        height: 200% !important;
+        transform: translate(-50%, -50%) scale(1.5) translateZ(0) !important;
+        z-index: -1 !important;
+        object-fit: cover !important;
+    }
+    
+    /* Zoom video iframe on mobile for full coverage */
+    #banner-video-background iframe {
+        width: 200% !important;
+        height: 200% !important;
+        transform: scale(1.5) !important;
+        pointer-events: none !important;
+        object-fit: cover !important;
+    }
+    
+    .title-heading-banner {
+        margin-top: 10px !important;
+        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .banner-heading {
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+        display: flex !important;
+    }
+    
+    .banner-video-content {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        order: 2 !important;
+    }
+    
+    .banner-video-content p {
+        font-size: clamp(0.875rem, 2vw, 1rem) !important;
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .banner-content {
+        width: 100% !important;
+        text-align: center !important;
+        order: 1 !important;
+    }
+    
+    .banner-content p {
+        font-size: clamp(0.875rem, 2vw, 1rem) !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
     }
     
     /* Partnership Swiper - Mobile Responsive */
@@ -67,23 +177,84 @@
         height: 120px !important;
     }
     
-    /* Dashboard Swiper - Mobile Responsive */
+    /* Dashboard Swiper - Mobile Responsive (Slow, Center Aligned, Within Card) */
     .swiperDashboards-container {
         min-height: 300px !important;
         height: 300px !important;
         aspect-ratio: 16/9 !important;
-        contain: strict !important;
+        contain: layout paint !important;
+        overflow: hidden !important; /* Card ke andar */
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 20px 15px !important;
+    }
+    
+    .swiperDashboards {
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+    
+    .swiperDashboards .swiper-wrapper {
+        display: flex !important;
+        align-items: center !important;
+        transition-timing-function: linear !important;
     }
     
     .swiperDashboards .swiper-slide {
         min-height: 250px !important;
         height: 250px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
-    /* Testimonial Swiper - Mobile Responsive */
+    .swiperDashboards .dashboard-slide {
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important; /* Card ke andar */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .swiperDashboards .dashboard-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        margin: 0 auto !important; /* Center align */
+        display: block !important;
+    }
+    
+    /* Card case studies - Ensure overflow hidden */
+    .card-case-studies {
+        overflow: hidden !important; /* Dashboards card ke andar */
+    }
+    
+    /* Testimonial Swiper - Mobile Responsive (Cards visible) */
+    .swiperTestimonial {
+        height: auto !important;
+        min-height: 400px !important;
+        overflow: visible !important;
+    }
+    
     .swiperTestimonial .swiper-slide {
-        min-height: 350px !important;
-        contain: strict !important;
+        min-height: 400px !important;
+        contain: content !important; /* Changed from strict to content */
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+    .card-testimonial {
+        height: auto !important;
+        min-height: 400px !important;
+        overflow: visible !important;
+        padding: 25px 20px !important;
     }
     
     /* Service Funnel Swiper - Mobile Responsive */
@@ -894,53 +1065,79 @@
         overflow: hidden !important;
     }
     
-    /* Hide Partnership and Industries sections on mobile (both use section-partner class) */
+    /* Partnership section - Show on mobile (Optimized for scroll) */
     .section-partner,
     .section.section-partner,
-    div.section-partner,
-    .section-partner[0],
-    .section-partner[1] {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        min-height: 0 !important;
-        max-height: 0 !important;
-        padding: 0 !important;
+    div.section-partner {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 40px 20px !important;
         margin: 0 !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        left: -9999px !important;
+        overflow: visible !important;
+        position: static !important;
+        left: auto !important;
+        contain: content !important; /* Prevent layout shifts */
     }
     
-    /* Hide Industries section on mobile (backup rule) */
-    .section-industries,
-    .section.section-industries {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        min-height: 0 !important;
-        max-height: 0 !important;
-        padding: 0 !important;
+    /* Partnership card - Mobile optimized (Logos card ke andar) */
+    .card-partner {
+        padding: 20px 15px !important;
         margin: 0 !important;
-        overflow: hidden !important;
+        overflow: hidden !important; /* Logos card ke andar rakhne ke liye */
+        position: relative !important;
     }
     
-    /* Partnership section - Enable logos on mobile (if needed later) */
+    /* Partnership swiper container - Mobile optimized */
+    .swiperPartner-container {
+        display: block !important;
+        height: auto !important;
+        min-height: 120px !important;
+        max-height: 200px !important;
+        overflow: visible !important;
+        contain: content !important; /* Prevent scroll issues */
+    }
+    
+    /* Partnership section - Swiper running properly on mobile (Slow & Center Aligned) */
+    .swiperPartner-container {
+        overflow: hidden !important; /* Card ke andar rakhne ke liye */
+        width: 100% !important;
+        height: auto !important;
+        min-height: 150px !important;
+        max-height: 200px !important;
+        padding: 20px 15px !important;
+        margin: 0 !important; /* Negative margin remove */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Swiper running animation - Mobile optimized (Slow) */
     .swiperPartner {
+        height: auto !important;
+        min-height: 150px !important;
+        max-height: 200px !important;
+        overflow: hidden !important; /* Card ke andar */
         touch-action: pan-y !important;
         -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
     }
     
     .swiperPartner .swiper-wrapper {
         display: flex !important;
         transition-timing-function: linear !important;
+        align-items: center !important; /* Center align */
     }
     
     .swiperPartner .swiper-slide {
         flex-shrink: 0 !important;
         width: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 100% !important;
     }
     
     .swiperPartner .partner-slide {
@@ -949,6 +1146,9 @@
         justify-content: center !important;
         padding: 10px !important;
         min-width: 100px !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important; /* Card ke andar */
     }
     
     .swiperPartner .partner-logo {
@@ -957,11 +1157,42 @@
         width: auto !important;
         height: auto !important;
         object-fit: contain !important;
+        margin: 0 auto !important; /* Center align */
+        display: block !important;
     }
     
-    .swiperPartner-container {
+    /* Desktop - Card partner overflow fix (Logos card ke andar) */
+    @media screen and (min-width: 769px) {
+        .card-partner {
+            overflow: hidden !important;
+        }
+        .swiperPartner-container {
+            margin: 0 auto !important; /* Negative margin remove */
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+    }
+    
+    /* Industries section - Show on mobile */
+    .section-industries,
+    .section.section-industries {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 40px 20px !important;
+        margin: 0 !important;
         overflow: visible !important;
-        width: 100% !important;
+        contain: content !important; /* Prevent layout shifts */
+    }
+    
+    /* Duplicate styles removed - Using swiper running styles above at line 1041 */
+    
+    /* Autoplay disable on mobile (Static grid) */
+    .swiperPartner .swiper-wrapper::before,
+    .swiperPartner .swiper-wrapper::after {
+        display: none !important;
     }
     
     .navbar-action-container-mobile{
@@ -1011,58 +1242,61 @@
     .banner-video-container{
         padding: 40px 15px 40px 15px !important;
         margin: 0 15px !important;
+        min-height: 400px !important;
+        height: auto !important;
+        aspect-ratio: 16/9 !important;
+        contain: strict !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
-    #banner-video-background {
-        width: 200vw !important;
-        height: 200vh !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) scale(2.5) !important;
-        z-index: 0 !important;
+    .banner-video-container .hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
     }
     
-    /* Zoom video iframe on mobile for full coverage */
-    #banner-video-background iframe {
-        width: 200vw !important;
-        height: 200vh !important;
-        transform: scale(2.5) !important;
-        pointer-events: none !important;
+    .title-heading-banner {
+        font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .banner-heading{
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+        display: flex !important;
     }
     
     .banner-video-content{
         width: 100% !important;
-        margin-bottom: 20px;
+        margin-bottom: 20px !important;
+        order: 2 !important;
     }
     
     .banner-video-content p{
-        font-size: var(--font-size-sm) !important;
+        font-size: clamp(0.875rem, 2vw, 1rem) !important;
         max-width: 100% !important;
-        text-align: center;
-    }
-    
-    .banner-heading{
-        flex-direction: column;
-        gap: 30px !important;
+        text-align: center !important;
     }
     
     .banner-content{
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
+        text-align: center !important;
+        order: 1 !important;
     }
     
     .banner-content p{
-        font-size: var(--font-size-sm) !important;
-        text-align: center;
-        margin-bottom: 20px;
+        font-size: clamp(0.875rem, 2vw, 1rem) !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
     }
     
-    .title-heading-banner{
-        font-size: var(--font-size-8xl) !important;
-        line-height: 1.3;
-        text-align: center;
-    }
+    /* Duplicate banner styles removed - using enhanced styles above at line 62-122 */
     
     .section-banner{
         padding: 0px 15px 0px 15px;

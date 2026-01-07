@@ -61,7 +61,7 @@ const CustomizedDashboardsSection = () => {
                                     slidesPerView={4}
                                     spaceBetween={20}
                                     loop={true}
-                                    speed={3000}
+                                    speed={5000}
                                     autoHeight={false}
                                     observer={true}
                                     observeParents={true}
@@ -71,11 +71,11 @@ const CustomizedDashboardsSection = () => {
                                         disableOnInteraction: false,
                                         pauseOnMouseEnter: true,
                                     }}
-                                    allowTouchMove={false}
+                                    allowTouchMove={true}
                                     breakpoints={{
-                                        230: { slidesPerView: 2 },
-                                        767: { slidesPerView: 3 },
-                                        1024: { slidesPerView: 4 },
+                                        230: { slidesPerView: 2, allowTouchMove: true },
+                                        767: { slidesPerView: 3, allowTouchMove: true },
+                                        1024: { slidesPerView: 4, allowTouchMove: false },
                                     }}
                                     className="swiperDashboards"
                                 >

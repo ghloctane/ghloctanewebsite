@@ -41,7 +41,7 @@ const IndustriesSection = () => {
                                     slidesPerView={6}
                                     spaceBetween={20}
                                     loop={true}
-                                    speed={3000}
+                                    speed={5000}
                                     autoHeight={false}
                                     observer={true}
                                     observeParents={true}
@@ -51,11 +51,11 @@ const IndustriesSection = () => {
                                         disableOnInteraction: false,
                                         pauseOnMouseEnter: true,
                                     }}
-                                    allowTouchMove={false}
+                                    allowTouchMove={true}
                                     breakpoints={{
-                                    230: { slidesPerView: 3 },
-                                    767: { slidesPerView: 4 },
-                                    1024: { slidesPerView: 6 },
+                                    230: { slidesPerView: 3, allowTouchMove: true },
+                                    767: { slidesPerView: 4, allowTouchMove: true },
+                                    1024: { slidesPerView: 6, allowTouchMove: false },
                                     }}
                                     className="swiperPartner"
                                 >

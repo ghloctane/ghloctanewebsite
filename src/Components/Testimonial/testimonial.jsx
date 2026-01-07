@@ -233,7 +233,7 @@ const TestimonialSection = () => {
                         <div className="d-flex flex-column">
                             <div className="overflow-hidden">
                                 <Swiper
-                                style={{ height: '300px', minHeight: '300px' }}
+                                style={{ height: 'auto', minHeight: '400px' }}
                                 slidesPerView={3} 
                                 spaceBetween={50} 
                                 speed={1000} 

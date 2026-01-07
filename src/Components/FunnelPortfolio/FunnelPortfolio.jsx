@@ -101,8 +101,8 @@ function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
                                                                 ? `translate3d(0, -${getScrollAmount(item.id)}px, 0)` 
                                                                 : 'translate3d(0, 0, 0)',
                                                             transition: hoveredCard === item.id 
-                                                                ? 'transform 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' 
-                                                                : 'transform 0.5s ease-out',
+                                                                ? 'transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94)' 
+                                                                : 'transform 1s ease-out',
                                                             pointerEvents: 'none',
                                                             willChange: hoveredCard === item.id ? 'transform' : 'auto',
                                                             backfaceVisibility: 'hidden',

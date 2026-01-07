@@ -1,12 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
-import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
+const BackgroundPaths = lazy(() => import("../BackgroundPaths/BackgroundPaths"));
 
 const LeaderSection = () => {
     return (
         <>
             <div className="section section-leader">
-                <BackgroundPaths />
+                <Suspense fallback={null}>
+                    <BackgroundPaths />
+                </Suspense>
                 <div className="hero-container">
                     <div className="d-flex flex-column justify-content-center text-center gspace-5">
                         <div className="d-flex flex-column justify-content-center text-center gspace-2">

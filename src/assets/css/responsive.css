@@ -1,7 +1,51 @@
 /* ================== Media Queries ================== */
 
+/* Desktop: Restore blur effects with Hardware Acceleration (GPU can handle it) */
+@media screen and (min-width: 769px) {
+    /* Restore backdrop-filter for desktop only with GPU acceleration */
+    .section-partner,
+    .section-guide,
+    .section-about,
+    .card-service,
+    .card-testimonial,
+    .card-website-showcase,
+    .navbar-wrapper,
+    .card-about,
+    .card-partner {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        /* Hardware Acceleration for smooth scrolling on low-end devices */
+        will-change: backdrop-filter, transform;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    /* Restore fixed backgrounds for desktop parallax with GPU acceleration */
+    .section-banner::before,
+    .section-featured-project,
+    body::before {
+        background-attachment: fixed;
+        /* Hardware Acceleration for parallax scrolling */
+        will-change: scroll-position;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+}
+
 /* Mobile Optimization - Fix Layout Shifts for Swiper Components */
 @media screen and (max-width: 768px) {
+    /* Disable all blur effects on mobile for performance */
+    * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Force scroll backgrounds on mobile */
+    * {
+        background-attachment: scroll !important;
+    }
     /* Hero/Banner Slider - Mobile Responsive */
     .section-banner {
         min-height: 400px !important;

@@ -239,6 +239,9 @@ const TestimonialSection = () => {
                                 speed={1000} 
                                 loop={true}
                                 autoHeight={false}
+                                observer={true}
+                                observeParents={true}
+                                watchSlidesProgress={false}
                                 autoplay={{
                                     delay: 5000,
                                     disableOnInteraction: false

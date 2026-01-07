@@ -43,6 +43,9 @@ const PartnershipSection = () => {
                                     loop={true}
                                     speed={3000}
                                     autoHeight={false}
+                                    observer={true}
+                                    observeParents={true}
+                                    watchSlidesProgress={false}
                                     autoplay={{
                                         delay: 0,
                                         disableOnInteraction: false,

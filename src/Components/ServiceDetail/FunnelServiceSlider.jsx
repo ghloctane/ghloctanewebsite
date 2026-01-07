@@ -52,6 +52,9 @@ function FunnelServiceSlider({ serviceTitle }) {
                 spaceBetween={0}
                 slidesPerView={1}
                 autoHeight={false}
+                observer={true}
+                observeParents={true}
+                watchSlidesProgress={false}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,

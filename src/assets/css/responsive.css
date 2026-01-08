@@ -2,134 +2,29 @@
 
 /* ================== DESKTOP SMOOTH SCROLLING ================== */
 @media screen and (min-width: 769px) {
-    /* Enable smooth scrolling on desktop */
+    /* ✅ SIMPLE smooth scroll - no conflicts */
     html {
-        scroll-behavior: smooth !important;
-        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
     }
     
     body {
-        scroll-behavior: smooth !important;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: auto !important;
-        overscroll-behavior: auto !important;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
     
-    /* Hardware acceleration for smooth scrolling */
-    * {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    
-    /* Optimize scroll performance - minimal hardware acceleration */
+    /* ✅ Remove ALL will-change & transform - causes lag */
     .section,
     .card,
     .navbar,
-    .hero-container,
-    .navbar-wrapper,
-    .banner-video-container {
-        will-change: auto; /* Let browser decide */
-        transform: none; /* Removed translateZ for smoother scroll */
-        -webkit-transform: none;
-        backface-visibility: visible; /* Changed to visible for better performance */
-        -webkit-backface-visibility: visible;
-        contain: none; /* Removed contain for smoother scroll */
+    .hero-container {
+        will-change: auto;
+        transform: none;
+        backface-visibility: visible;
     }
     
     /* Smooth scroll for anchor links */
     html {
         scroll-padding-top: 80px; /* Account for fixed navbar */
-    }
-    
-    /* Reduce scroll jank - Optimized for fast rendering */
-    * {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeSpeed; /* Changed from optimizeLegibility to optimizeSpeed */
-        will-change: auto !important;
-    }
-    
-    /* Optimize images during scroll - Native browser rendering */
-    img {
-        image-rendering: auto;
-        will-change: auto;
-        transform: none;
-    }
-    
-    /* Disable scroll hijacking - let browser handle it */
-    * {
-        scroll-behavior: smooth;
-    }
-    
-    /* Prevent scroll lag - removed contain for smoother scroll */
-    .section,
-    .card {
-        contain: none; /* Removed for smoother scrolling */
-    }
-    
-    /* Optimize scroll container - native browser scroll */
-    body,
-    html {
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        /* Remove any scroll blocking */
-        overscroll-behavior: auto;
-        overscroll-behavior-y: auto;
-        overscroll-behavior-x: auto;
-    }
-    
-    /* Ensure no scroll blocking on any element */
-    * {
-        overscroll-behavior: auto;
-    }
-    
-    /* Native smooth scroll - let browser handle it */
-    html {
-        scroll-behavior: smooth !important;
-    }
-    
-    body {
-        scroll-behavior: smooth !important;
-    }
-    
-    /* Reduce repaints during scroll */
-    .navbar,
-    .navbar-wrapper {
-        position: relative;
-        will-change: auto; /* Removed will-change for smoother scroll */
-    }
-    
-    /* Smooth transitions - Optimized for fast rendering */
-    * {
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: auto !important;
-    }
-    
-    /* Remove scroll blocking from all elements */
-    * {
-        overscroll-behavior: auto !important;
-        contain: none !important;
-    }
-    
-    /* Only apply contain where absolutely necessary */
-    .swiper-container,
-    .swiper-wrapper {
-        contain: layout style paint;
-    }
-    
-    /* Remove transform that causes scroll lag */
-    .section,
-    .card,
-    .navbar,
-    .hero-container,
-    .navbar-wrapper,
-    .banner-video-container,
-    section,
-    div {
-        transform: none !important;
-        will-change: auto !important;
     }
 }
 
@@ -607,6 +502,12 @@
         justify-content: center;
         align-items: center;
     }
+
+    /* ✅ Move stats cards container down more on mobile */
+    .section-stats .stats-cards-container {
+        margin-top: 60px; /* ✅ Even more spacing on mobile */
+        padding-top: 20px; /* ✅ Additional spacing */
+    }
     
     .section-stats .d-flex.flex-column.gap-3 {
         width: 100%;
@@ -620,6 +521,44 @@
         align-items: center;
         gap: 1rem !important;
         width: 100%;
+    }
+
+    /* Stats Cards Container - Mobile */
+    .stats-cards-container {
+        min-height: auto;
+        gap: 1rem;
+        margin-top: 40px; /* ✅ More spacing on mobile */
+    }
+
+    .stats-cards-row {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .section-stats .card-stats {
+        min-height: 180px;
+        position: relative; /* ✅ Ensure stacking context */
+        z-index: 1; /* ✅ Ensure card is above canvas */
+    }
+
+    /* ✅ Fix overlay issue - Ensure content is above canvas */
+    .section-stats .card-stats > *:not(canvas):not(#lights) {
+        position: relative;
+        z-index: 10 !important; /* ✅ Higher than canvas z-index: 0 */
+    }
+
+    /* ✅ Ensure Hyperspeed canvas stays behind content */
+    .section-stats .card-stats canvas,
+    .section-stats .card-stats #lights,
+    .section-stats .card-stats #lights > * {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0 !important; /* ✅ Behind all content */
+        pointer-events: none !important;
     }
     .card-expertise{
         width: 320px;
@@ -814,6 +753,12 @@
         box-sizing: border-box;
         gap: 1rem !important;
     }
+
+    /* Stats Cards Container - Tablet */
+    .stats-cards-row {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 }
 
 /* 01.6 Smaller Desktop (max-width: 1200px) - Prevent Stats Cards Cropping */
@@ -849,22 +794,14 @@
 
 /* 02 Mobile (max-width:: 767px) */
 
-/* Mobile Scroll Performance Optimizations */
-/* Mobile Scroll Performance Optimizations */
-@media screen and (max-width: 767px){
-    /* Smooth scrolling optimization */
-    * {
-        -webkit-overflow-scrolling: touch !important;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
+/* ================== MOBILE SCROLL OPTIMIZATION ================== */
+@media screen and (max-width: 767px) {
+    /* ✅ Fast native scroll */
     html, body {
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        overscroll-behavior-y: auto !important;
-        overscroll-behavior: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        scroll-behavior: auto !important;
+        scroll-behavior: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     /* Remove hardware acceleration that causes scroll lag */
@@ -981,8 +918,13 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
     }
     
-    /* Optimize transitions */
-    * {
+    /* Optimize transitions - Target specific elements instead of * selector */
+    .card,
+    .btn,
+    .nav-link,
+    .dropdown-item,
+    a,
+    button {
         transition-duration: 0.2s !important;
     }
     
@@ -990,27 +932,6 @@
     .card::before,
     .card::after {
         display: none !important;
-    }
-    
-    /* Main mobile styles continue below */
-    /* Mobile scroll optimization - Native fast scroll */
-    * {
-        -webkit-overflow-scrolling: touch !important;
-        -webkit-tap-highlight-color: transparent;
-        scroll-behavior: auto !important;
-        overscroll-behavior: auto !important;
-        touch-action: auto !important;
-    }
-    
-    html, body {
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        overscroll-behavior-y: auto !important;
-        overscroll-behavior: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        scroll-behavior: auto !important;
-        touch-action: pan-y !important;
-        -ms-touch-action: pan-y !important;
     }
     
     /* Remove scroll blocking from all elements */
@@ -1018,133 +939,16 @@
     .section,
     .card {
         contain: none !important;
-        will-change: auto !important;
         transform: none !important;
     }
     
-    /* Remove hardware acceleration that causes scroll lag */
-    .navbar-wrapper,
-    .navbar,
-    .navbar-container {
+    /* Banner video background - Mobile specific transform */
+    #banner-video-background {
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    #banner-video-background iframe {
         transform: none !important;
-        will-change: auto !important;
-        backface-visibility: visible !important;
-        -webkit-backface-visibility: visible !important;
-    }
-    
-    /* DISABLE ALL SCROLL ANIMATIONS ON MOBILE - Simple and clean */
-    .animate__animated,
-    [class*="animate__"] {
-        animation: none !important;
-        animation-duration: 0s !important;
-        animation-delay: 0s !important;
-        animation-fill-mode: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    
-    /* Optimize images for scroll - Ensure all images are visible on mobile */
-    img {
-        will-change: auto;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    img.img-fluid {
-        max-width: 100% !important;
-        height: auto !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    /* Disable heavy effects during scroll - Force hide on mobile */
-    .background-paths-wrapper,
-    .background-paths-container,
-    .cta-floating-lines-wrapper,
-    .floating-lines-container:not(.banner-visual-background .floating-lines-container),
-    .background-paths-svg {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
-    
-    /* Ensure Banner FloatingLines is visible on mobile */
-    .banner-visual-background .floating-lines-container {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: none !important;
-    }
-    
-    /* Disable Three.js canvas elements EXCEPT FloatingLines background */
-    canvas:not(.banner-visual-background canvas):not(.floating-lines-container canvas) {
-        display: none !important;
-    }
-    
-    /* Ensure FloatingLines canvas is visible on mobile */
-    .banner-visual-background canvas,
-    .floating-lines-container canvas {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    
-    /* Disable GridScan and Hyperspeed components */
-    .grid-scan-container,
-    .hyperspeed-container {
-        display: none !important;
-    }
-    
-    /* Optimize video performance */
-    video, iframe {
-        will-change: auto;
-    }
-    
-    /* Disable will-change for performance on mobile */
-    [class*="animate__"] {
-        will-change: auto !important;
-        transform: none !important;
-    }
-    
-    /* Optimize Swiper for mobile */
-    .swiper {
-        will-change: auto;
-        transform: translateZ(0);
-    }
-    
-    /* Reduce backdrop-filter on mobile */
-    .navbar,
-    .card {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-    }
-    
-    /* Optimize sections for scroll */
-    section,
-    .section {
-        contain: layout style paint;
-        transform: translateZ(0);
-    }
-    
-    /* Reduce box-shadow calculations */
-    .card,
-    .navbar {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    }
-    
-    /* Optimize transitions */
-    * {
-        transition-duration: 0.2s !important;
-    }
-    
-    /* Disable complex gradients during scroll */
-    .card::before,
-    .card::after {
-        display: none !important;
     }
     
     /* Force menu button to show on mobile - Override main CSS */
@@ -1819,17 +1623,176 @@
         width: 100%;
         justify-content: space-between;
     }
-    .about-img{
-        height: 550px;
+    /* ================== About Section Mobile Responsive ================== */
+    .section-about {
+        padding: 60px 15px !important;
     }
-    .card-about{
-        width: 250px;
+    
+    .section-about .hero-container {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
-    .card-about .counter{
-        font-size: var(--font-size-10xl);
+    
+    .section-about .d-flex.flex-column.flex-lg-row {
+        flex-direction: column !important;
+        gap: 30px !important;
     }
-    .card-about .counter-detail{
-        font-size: var(--font-size-6xl);
+    
+    /* About Image Layout - Mobile */
+    /* ✅ Mobile Order: Text first (order: 1), Image second (order: 2), Card after image */
+    .about-title {
+        width: 100% !important;
+        order: 1 !important; /* ✅ Text comes first */
+        margin: 0 !important;
+        padding: 0 15px !important;
+        margin-bottom: 30px !important; /* ✅ Space after text */
+    }
+    
+    .about-img-layout {
+        width: 100% !important;
+        order: 2 !important; /* ✅ Image comes second */
+        margin: 0 !important;
+        padding: 0 15px !important;
+    }
+    
+    /* Image Container - Mobile */
+    .image-container.about-img {
+        display: flex !important;
+        flex-direction: column !important; /* ✅ Stack image and card vertically */
+        justify-content: flex-start !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        gap: 20px !important; /* ✅ Space between image and card */
+    }
+    
+    /* ✅ Fixed: Mobile responsive image height - Full image display */
+    .about-img {
+        height: auto !important;
+        min-height: 350px !important;
+        max-height: 500px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        position: relative !important;
+        order: 1 !important; /* ✅ Image first in container */
+    }
+    
+    .about-img img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        border-radius: 20px !important;
+    }
+
+    /* ✅ Remove overlay - Card appears after image, not overlaying */
+    .section-about .about-layout {
+        position: relative !important; /* ✅ Not absolute = no overlay */
+        top: auto !important; /* ✅ Remove absolute positioning */
+        left: auto !important; /* ✅ Remove absolute positioning */
+        margin-top: 0 !important; /* ✅ No negative margin */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+        z-index: 1 !important;
+        order: 2 !important; /* ✅ Card comes after image */
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .card-about-wrapper {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important; /* ✅ Remove wrapper padding */
+        background-color: transparent !important; /* ✅ No background */
+        border-radius: 0 !important; /* ✅ No border radius */
+        margin: 0 !important; /* ✅ No margin */
+    }
+
+    /* ✅ Fixed: Mobile card full width - No overlay */
+    .card-about {
+        width: 100% !important;
+        max-width: 280px !important;
+        padding: 20px 15px !important;
+        margin: 0 auto !important;
+        position: relative !important; /* ✅ Not absolute */
+    }
+
+    .card-about .counter {
+        font-size: var(--font-size-8xl) !important;
+    }
+    
+    .card-about .counter-detail {
+        font-size: var(--font-size-5xl) !important;
+    }
+    
+    .card-about h6 {
+        font-size: var(--font-size-sm) !important;
+        line-height: 1.4 !important;
+    }
+
+    .about-spacer {
+        display: none !important;
+    }
+
+    /* ✅ Ensure LeaderSection is visible on mobile */
+    .section-leader {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 1 !important;
+        overflow: visible !important;
+    }
+
+    .section-leader .hero-container {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+    
+    .about-title .sub-heading {
+        font-size: var(--font-size-sm) !important;
+    }
+    
+    .about-title .title-heading {
+        font-size: var(--font-size-7xl) !important;
+        line-height: 1.3 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .about-title p {
+        font-size: var(--font-size-sm) !important;
+        line-height: 1.6 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .about-list {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .about-list ul.check-list {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .about-list ul.check-list li {
+        margin-bottom: 10px !important;
+    }
+    
+    .about-list ul.check-list li a {
+        font-size: var(--font-size-sm) !important;
     }
     .section404{
         width: 100%;
@@ -1892,8 +1855,13 @@
     }
     
     .expertise-layout {
+        position: relative !important; /* Back in flow on mobile */
         width: 100% !important;
         padding: 0 !important;
+        margin-top: -60px !important; /* Visual overlap */
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        z-index: 10 !important;
     }
     
     .card-expertise-wrapper {
@@ -2126,6 +2094,33 @@
     .copyright,
     .legal-link{
         font-size: var(--font-size-xs);
+    }
+    
+    /* Portfolio Images - Mobile Size Constraint (Width & Height) */
+    .portfolio-image-wrapper {
+        height: auto !important;
+        max-height: 500px !important;
+        width: 100% !important;
+        max-width: 348px !important;
+        margin: 0 auto !important;
+    }
+    
+    .portfolio-image {
+        max-width: 348px !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    
+    .portfolio-image-container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        max-width: 348px !important;
+        margin: 0 auto !important;
     }
 }
 
@@ -2435,6 +2430,7 @@
     }
     
     /* REMOVE BLURS - Change backdrop-filter to none, use solid colors */
+    /* Note: .card already has backdrop-filter removed in main.css (line 3256) */
     *,
     .section-partner,
     .section-guide,
@@ -2445,9 +2441,8 @@
     .navbar-wrapper,
     .card-about,
     .card-partner,
-    .card,
+    /* .card - REMOVED: Already handled in main.css (line 3256), also covered by * selector */
     .navbar,
-    [class*="card"],
     [class*="section"],
     [data-glow] {
         backdrop-filter: none !important;
@@ -2467,16 +2462,10 @@
         background-color: rgba(255, 255, 255, 0.95) !important;
     }
     
-    /* DISABLE SCROLL HIJACKING - Remove custom smooth-scrolling conflicts */
-    html {
-        scroll-behavior: auto !important;
-    }
-    
-    body {
-        scroll-behavior: auto !important;
-    }
+    /* ✅ REMOVED scroll-behavior conflict - let desktop section handle smooth scroll */
     
     /* Remove will-change overuse that causes GPU strain */
+    /* Note: Using * selector here is intentional - resets will-change on ALL elements to prevent GPU overload */
     * {
         will-change: auto !important;
     }
@@ -2749,15 +2738,7 @@
     object-fit: cover !important;
 }
 
-@media screen and (max-width: 767px) {
-    #banner-video-background {
-        transform: translate(-50%, -50%) !important;
-    }
-    
-    #banner-video-background iframe {
-        transform: none !important;
-    }
-}
+/* Banner video mobile transform moved to main mobile section (line ~890) */
 
 /* Section Banner Responsive - Global (applies to all screens) */
 .section-banner {

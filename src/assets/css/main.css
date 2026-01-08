@@ -14,17 +14,15 @@
 07. Form Layout Components
 08. Navbar
 09. Sidebar
-10. Content Edit Sidebar
-11. Newsletter Form
+10. Newsletter Form
 12. Button
 13. Banner Video Container
 14. Banner Components
 15. Footer
 16. Digital Process
 17. Heading Components
-18. Sidebar Overlay
-19. Content Sidebar Overlay
-20. Custom Spacer Components
+18. Content Sidebar Overlay
+19. Custom Spacer Components
 21. Text Components
 22. Search Components
 23. Card Components
@@ -67,7 +65,13 @@
 /* ================== 01. Import Vendor ================== */
 
 @import url('/assets/css/vendor/font-family-plus-jakarta-sans.css');
-/* FontAwesome CSS loaded via index.html (fonts have font-display: swap) */
+
+/* 
+ * FontAwesome CSS is loaded via index.html (lines 81-84) for better performance
+ * This avoids blocking CSS parsing and allows deferred loading
+ * All 4 FontAwesome files are loaded: fontawesome.css, brands.css, regular.css, solid.css
+ * DO NOT uncomment the @import statements below - they're intentionally disabled
+ */
 /* @import url('/assets/css/vendor/fontawesome.css'); */
 /* @import url('/assets/css/vendor/brands.css'); */
 /* @import url('/assets/css/vendor/regular.css'); */
@@ -222,7 +226,7 @@
 
 html {
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* ✅ REMOVE scroll-behavior here - let responsive.css handle it */
     -webkit-overflow-scrolling: touch;
 }
 
@@ -234,7 +238,7 @@ body{
     position: relative;
     z-index: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* ✅ REMOVE scroll-behavior here - let responsive.css handle it */
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: auto; /* Changed from contain to auto for smoother scroll */
 }
@@ -369,9 +373,8 @@ body::-webkit-scrollbar-thumb:hover {
     margin: 0;
     position: relative;
     z-index: 1;
-    background: rgba(248, 249, 255, 0.6);
-    /* backdrop-filter: blur(1px); */ /* Removed for mobile performance */
-    background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
+    /* Using solid background instead of backdrop-filter for better performance */
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .hero-container {
@@ -764,30 +767,97 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Stats Section Card - Wide */
+/* ================== Stats Section - Card Styles ================== */
 .section-stats .card-stats {
+    position: relative;
+    overflow: hidden;
     width: 100% !important;
     max-width: 100% !important;
+    background: linear-gradient(135deg, 
+        rgba(39, 66, 140, 0.95) 0%, 
+        rgba(30, 50, 110, 0.98) 50%, 
+        rgba(25, 40, 90, 0.95) 100%) !important;
+    border: 1px solid rgba(168, 184, 224, 0.3);
     color: #ffffff !important;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
 }
 
 .section-stats .card-stats h4 {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
     color: #ffffff !important;
+    position: relative;
+    z-index: 2;
 }
 
 .section-stats .card-stats p {
     font-size: clamp(1.1rem, 2vw, 1.3rem);
     color: #ffffff !important;
+    position: relative;
+    z-index: 2;
 }
 
 .section-stats .card-stats .expertise-link a {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     color: #ffffff !important;
+    position: relative;
+    z-index: 2;
 }
 
 .section-stats .card-stats .expertise-link i {
     color: #ffffff !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* Stats Card Link Hover */
+.section-stats .card-stats .expertise-link:hover a,
+.section-stats .card-stats .expertise-link:hover i {
+    color: rgba(168, 184, 224, 1) !important;
+}
+
+/* Hyperspeed Canvas in Stats Card */
+.section-stats .card-stats canvas,
+.section-stats .card-stats #lights,
+.section-stats .card-stats #lights > * {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important; /* ✅ Behind all content */
+    pointer-events: none !important;
+}
+
+/* ✅ Ensure all card content is above canvas */
+.section-stats .card-stats > *:not(canvas):not(#lights) {
+    position: relative;
+    z-index: 10 !important; /* ✅ Higher than canvas */
+}
+
+/* ================== Stats Cards Container ================== */
+.stats-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 400px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px; /* ✅ Move cards down more in section */
+    padding-top: 30px; /* ✅ Additional spacing from top */
+}
+
+.stats-cards-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
 }
 
 /* Expertise Section - Wider Layout (Similar to Hero Section) */
@@ -1199,7 +1269,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-self: stretch;
     width: 100%;
     height: 100%;
-    padding: clamp(15px, 2vw, 30px) clamp(20px, 3vw, 30px);
+    /* Padding handled by responsive.css for different breakpoints */
     box-sizing: border-box;
 }
 
@@ -1209,7 +1279,7 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
     max-width: 100%;
     z-index: 3;
-    padding: clamp(10px, 1.5vw, 15px) clamp(15px, 2.5vw, 30px);
+    /* Padding handled by responsive.css for different breakpoints */
     border: 1px solid rgba(168, 184, 224, 0.4);
     background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
     border-radius: var(--global-border-radius);
@@ -1464,79 +1534,7 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 5px;
 }
 
-/* ================== 10. Content Edit Sidebar ================== */
-
-.content-edit-sidebar {
-    position: fixed;
-    top: 0;
-    right: -410px;
-    width: 410px;
-    height: 100%;
-    background-color: transparent;
-    background-image: radial-gradient(at top left, var(--accent-color-3) 0%, var(--accent-color-4) 50%);
-    transition: transform 0.4s ease-in-out;
-    z-index: 1000;
-    overflow-y: auto;
-    max-height: 100vh;
-    cursor: default;
-    padding: 0px 16px 0px 5px;
-}
-
-.content-edit-sidebar.active{
-    transform: translateX(-410px);
-}
-
-.content-edit-sidebar .content{
-    padding: 50px 30px 0px 30px;
-}
-
-.content-edit-sidebar .content span{
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-normal);
-}
-
-.close-btn-second {
-    display: inline-block;
-    justify-content: center;
-    background-color: var(--accent-transparent);
-    border: none;
-    border-radius: 25% 25% 25% 25%;
-    color: var(--primary);
-    font-weight: var(--font-weight-bold);
-    position: relative;
-    font-size: var(--font-size-lg);
-    cursor: pointer;
-    border: 1px solid var(--accent-color);
-    padding: 12px 15px 12px 15px;
-    transition: all 0.4s;
-}
-
-.close-btn-second:hover{
-    border: 1px solid var(--primary);
-    color: var(--accent-color);
-}
-
-
-.content-edit{
-    padding: 5px 6px 0px 5px;
-    background-color: transparent;
-    color: var(--primary);
-    height: auto;
-    border: none;
-    transition: all 0.3s;
-}
-
-.content-edit svg {
-    width: 30px;
-    height: 30px;
-}
-
-.content-edit:hover{
-    color: var(--accent-color);
-}
-
-/* ================== 11. Newsletter Form ================== */
+/* ================== 10. Newsletter Form ================== */
 
 #newsletterForm {
     display: flex;
@@ -1571,12 +1569,18 @@ body::-webkit-scrollbar-thumb:hover {
     color: var(--primary);
 }
 
+/* Complete Newsletter Form Autofill Fix - Merged Duplicate Rules */
 #newsletterForm input:autofill,
 #newsletterForm input:autofill:focus {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    box-shadow: 0 0 0 1000px transparent inset !important;
+    /* Remove browser default yellow background using box-shadow trick */
+    -webkit-box-shadow: 0 0 0 1000px var(--secondary) inset !important;
+    box-shadow: 0 0 0 1000px var(--secondary) inset !important;
+    /* Set custom colors */
     background-color: var(--secondary) !important;
-    -webkit-text-fill-color: var(--secondary) !important;
+    color: var(--text-color) !important;
+    -webkit-text-fill-color: var(--text-color) !important;
+    /* Smooth transition when autofill activates */
+    transition: background-color 5000s ease-in-out;
 }
 
 #newsletterForm .error-text {
@@ -1601,14 +1605,6 @@ body::-webkit-scrollbar-thumb:hover {
 #newsletter-error{
     background-color: var(--primary);
     color: var(--primary);
-}
-
-
-#newsletterForm input:autofill,
-#newsletterForm input:autofill:focus{
-    background-color: var(--secondary) !important;
-    color: var(--text-color) !important;
-    -webkit-text-fill-color: var(--text-color) !important;
 }
 
 /* ================== 12. Button ================== */
@@ -3026,15 +3022,7 @@ body::-webkit-scrollbar-thumb:hover {
     max-width: 100%;
     object-fit: contain;
 }
-/* ================== 18. Sidebar Overlay ================== */
-
-.sidebar-overlay{
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-}
-
-/* ================== 19. Content Sidebar Overlay ================== */
+/* ================== 18. Content Sidebar Overlay ================== */
 
 .content-overlay{
     position: fixed;
@@ -3256,10 +3244,8 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: var(--global-border-radius);
     border: none;    
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 255, 0.95) 100%);
-    /* backdrop-filter: blur(10px); */ /* Removed for mobile performance */
-    /* -webkit-backdrop-filter: blur(10px); */
-    background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
+    /* Using solid background instead of backdrop-filter for better performance */
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .card::before {
@@ -3287,10 +3273,15 @@ body::-webkit-scrollbar-thumb:hover {
     top: 0;
     left: 0;
     width: 100%;
+    pointer-events: none; /* ✅ Prevent scroll blocking */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+}
+
+.about-layout > * {
+    pointer-events: auto; /* ✅ Enable clicks on children */
 }
 
 .card-about-wrapper{
@@ -3395,7 +3386,12 @@ body::-webkit-scrollbar-thumb:hover {
     left: 0;
     width: 100%;
     display: flex;
+    pointer-events: none; /* Prevent scroll blocking */
     flex-direction: row;
+}
+
+.expertise-layout > * {
+    pointer-events: auto; /* Enable clicks on children */
 }
 
 .card-expertise-wrapper{
@@ -3410,6 +3406,7 @@ body::-webkit-scrollbar-thumb:hover {
     flex-direction: column;
     gap: 20px 20px;
     width: 360px;
+    max-width: 100%;
     height: 100%;
     padding: 20px 20px 20px 20px;
     background-color: transparent;
@@ -3443,7 +3440,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .card-expertise.card-expertise-counter{
     justify-content: center;
-    width: 60%;
+    width: auto; /* Changed from 60% to auto for better flexibility */
+    max-width: 400px; /* Added max-width constraint */
     height: auto;
     padding: 30px 30px 30px 30px;
     background-image: radial-gradient(at top left, var(--accent-color-3) 0%, var(--accent-color-4) 50%);
@@ -3465,7 +3463,7 @@ body::-webkit-scrollbar-thumb:hover {
 .expertise-img-layout{
     width: 40%;
     position: relative;
-    margin-left: 50px;
+    margin-left: 30px; /* Reduced from 50px for better desktop compatibility */
     padding-right: 20px;
     box-sizing: border-box;
     overflow: visible;
@@ -4726,16 +4724,17 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
 }
 
-.card-funnel-portfolio.portfolio-card{
+/* ================== Funnel Portfolio - Full Screenshot Effect ================== */
+
+/* Card wrapper */
+.card-funnel-portfolio.portfolio-card {
     position: relative;
-    background-color: var(--accent-color-4);
-    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 255, 0.95) 100%);
     border: 2px solid transparent;
-    background: linear-gradient(var(--accent-color-4), var(--accent-color-4)) padding-box, 
-                linear-gradient(135deg, rgba(39, 66, 140, 0.5), rgba(168, 184, 224, 0.3)) border-box;
     border-radius: var(--global-border-radius);
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -4745,34 +4744,48 @@ body::-webkit-scrollbar-thumb:hover {
 .card-funnel-portfolio.portfolio-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 40px rgba(39, 66, 140, 0.6), 
-                0 0 80px rgba(168, 184, 224, 0.4), 
-                inset 0 0 60px rgba(39, 66, 140, 0.1);
+                0 0 80px rgba(168, 184, 224, 0.4);
     border-color: rgba(168, 184, 224, 0.6);
 }
 
+/* Image wrapper - fixed height container */
 .portfolio-image-wrapper {
     position: relative;
     width: 100%;
     height: 500px;
     overflow: hidden;
-    background-color: transparent;
-    touch-action: pan-y;
-    pointer-events: auto;
+    background: #f8f9ff;
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0 0;
 }
 
+/* Scroll container */
 .portfolio-image-scroll {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
-    touch-action: pan-y;
-    border: 1px solid rgba(168, 184, 224, 0.3);
-    border-radius: var(--global-border-radius);
 }
 
-.portfolio-image-scroll > div {
-    max-width: 100%;
-    pointer-events: none;
+/* ✅ Image container - this moves on hover */
+.portfolio-image-container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* ✅ Smooth 4 second transition */
+    transition: transform 4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+/* ✅ Image - full width, auto height (like screenshot) */
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* ✅ Critical: No max-height, let it be as tall as needed */
+    max-height: none !important;
+    object-fit: contain;
+    object-position: top center;
 }
 
 /* View More Button in Funnel Section */
@@ -4809,24 +4822,59 @@ body::-webkit-scrollbar-thumb:hover {
     color: rgba(168, 184, 224, 1) !important;
 }
 
-@media (max-width: 768px) {
+/* ================== Responsive ================== */
+
+/* Desktop - taller container */
+@media screen and (min-width: 1200px) {
     .portfolio-image-wrapper {
-        height: 500px !important;
+        height: 600px;
     }
 }
 
-@media (max-width: 576px) {
+/* Tablet */
+@media screen and (max-width: 991px) and (min-width: 768px) {
     .portfolio-image-wrapper {
-        height: 420px !important;
+        height: 450px;
     }
 }
 
+/* Mobile - disable hover effect and keep image size */
+@media screen and (max-width: 767px) {
+    .portfolio-image-container {
+        position: relative !important;
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .portfolio-image-wrapper {
+        height: auto !important;
+        min-height: 300px;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .portfolio-image {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 348px !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+/* Content area below image (if needed in future) */
 .funnel-portfolio-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px 10px;
-    padding: 20px 30px 20px 30px;
-    text-align: start;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 0 0 var(--global-border-radius) var(--global-border-radius);
+}
+
+.funnel-portfolio-content h4 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary);
+    margin: 0;
 }
 
 .funnel-portfolio-content h4 {
@@ -6920,9 +6968,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ================== 54. Animate Components ================== */
 
-.animate-box {
-    opacity: 0;
-}
+/* .animate-box - REMOVED: Redundant - AnimateOnScroll component handles opacity via animate.css classes */
 
 .animate__animated {
     animation-duration: 0.4s !important; /* Reduced from 1.25s for much faster animations */
@@ -8051,3 +8097,4 @@ body::-webkit-scrollbar-thumb:hover {
         animation-duration: 25s;
     }
 }
+

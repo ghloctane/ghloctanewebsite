@@ -52,6 +52,7 @@ function ChooseUsSection(){
                                                     </div>
                                                 </AnimateOnScroll>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

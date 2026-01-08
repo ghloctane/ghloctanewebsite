@@ -6,8 +6,8 @@ import BannerHomeSection from "../../Components/Banner";
 // Critical above-the-fold components (loaded immediately)
 import ExpertiseSection from "../../Components/Expertise/expertise";
 import PartnershipSection from "../../Components/Partnership/Partnership";
-import StatsSection from "../../Components/Stats/StatsSection";
-import AboutHomeSection from "../../Components/About/AboutHome";
+import OurImpact from "../../Components/Impact/OurImpact";
+import AboutSection from "../../Components/About/about";
 
 // Lazy load non-critical components (below the fold)
 const LeaderSection = lazy(() => import("../../Components/Leader/Leader"));
@@ -42,8 +42,8 @@ function HomePage(){
             <BannerHomeSection />
             <ExpertiseSection />
             <PartnershipSection />
-            <StatsSection />
-            <AboutHomeSection />
+            <OurImpact />
+            <AboutSection isHomePage={true} />
             
             {/* Lazy loaded sections with Suspense */}
             <Suspense fallback={<SectionPlaceholder />}>

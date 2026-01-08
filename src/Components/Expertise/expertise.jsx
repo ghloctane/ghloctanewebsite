@@ -13,17 +13,18 @@ function ExpertiseSection(){
                     <div className="d-flex flex-column flex-lg-row gspace-5">
                         <div className="expertise-img-layout">
                             <div className="image-container expertise-img">
-                                <AnimateOnScroll animation="fadeInUp" speed="normal">
+                                <AnimateOnScroll animation="fadeInUp" speed="normal" delay={0}>
                                     <img
                                         src="/assets/images/expertise.webp"
                                         alt="Expertise Image"
                                         className="img-fluid"
+                                        loading="lazy"
                                     />
                                 </AnimateOnScroll>
                                 <div className="expertise-layout">
                                     <div className="d-flex flex-column">
                                         <div className="card-expertise-wrapper">
-                                            <AnimateOnScroll animation="fadeInDown" speed="normal">
+                                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={200}>
                                                 <div className="card card-expertise">
                                     <h4>READY TO ELEVATE YOUR DIGITAL GROWTH?</h4>
                                     <p>Data-Driven Strategies. Measurable Results.</p>
@@ -41,39 +42,43 @@ function ExpertiseSection(){
                             </div>
                         </div>
                         <div className="expertise-title">
-                            <AnimateOnScroll animation="fadeInRight" speed="normal">
+                            <AnimateOnScroll animation="fadeInRight" speed="normal" delay={100}>
                                 <div className="sub-heading">
                                     <i className="fa-regular fa-circle-dot"></i>
                                     <span>Our Core Expertise</span>
                                 </div>
                             </AnimateOnScroll>
 
-                            <AnimateOnScroll animation="fadeInRight" speed="normal">
+                            <AnimateOnScroll animation="fadeInRight" speed="normal" delay={200}>
                                 <h2 className="title-heading">
-                                    OUR CORE EXPERTISE
+                                    Building Systems That Convert
                                 </h2>
                             </AnimateOnScroll>
-                            <p>
-                                At GHL Octane, we don't guess — we build systems that convert.
-                                From CRM setup to automation and ads, everything is optimized for growth.
-                            </p>
+                            <AnimateOnScroll animation="fadeInUp" speed="normal" delay={300}>
+                                <p>
+                                    At GHL Octane, we don't guess — we build systems that convert.
+                                    From CRM setup to automation and ads, everything is optimized for growth.
+                                </p>
+                            </AnimateOnScroll>
                             <div className="d-flex flex-column flex-md-row gspace-2">
-                                <div className="expertise-list">
-                                    <h5>What We Do Best</h5>
-                                    <ul className="check-list">
-                                        <li><a href="./contact">Data-Driven Approach</a></li>
-                                        <li><a href="./contact">Creative & Innovative</a></li>
-                                        <li><a href="./contact">Scalable Systems</a></li>
-                                        <li><a href="./contact">Transparent Reporting</a></li>
-                                    </ul>
-                                </div>
+                                <AnimateOnScroll animation="fadeInUp" speed="normal" delay={400}>
+                                    <div className="expertise-list">
+                                        <h5>What We Do Best</h5>
+                                        <ul className="check-list">
+                                            <li><a href="./contact">Data-Driven Approach</a></li>
+                                            <li><a href="./contact">Creative & Innovative</a></li>
+                                            <li><a href="./contact">Scalable Systems</a></li>
+                                            <li><a href="./contact">Transparent Reporting</a></li>
+                                        </ul>
+                                    </div>
+                                </AnimateOnScroll>
 
-                                <AnimateOnScroll animation="fadeInUp">
-                                    <div className="card card-expertise card-expertise-counter animate-box">
+                                <AnimateOnScroll animation="fadeInUp" speed="normal" delay={500}>
+                                    <div className="card card-expertise card-expertise-counter">
                                         <div className="d-flex flex-row gspace-2 align-items-center">
                                             <div className="d-flex flex-row align-items-center">
                                             <CounterOnScroll
-                                                target={21}
+                                                target={20}
                                                 suffix="+"
                                                 counterClassName="counter"
                                                 suffixClassName="counter-detail"

@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React, { cloneElement, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 import 'animate.css';
 
@@ -7,15 +7,19 @@ const AnimateOnScroll = ({
     animation = 'fadeInUp',
     delay = 0,
     speed = 'normal',
-    threshold = 0.05, // Reduced threshold for faster trigger
+    threshold = 0.15,
 }) => {
-    // Check if mobile - DISABLE ALL ANIMATIONS on mobile (767px and below)
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 767;
-    
+    // ✅ FIX: Proper mobile detection with useMemo
+    const isMobile = useMemo(() => {
+        if (typeof window === 'undefined') return false;
+        return window.innerWidth <= 767;
+    }, []);
+
+    // ✅ FIX: Proper threshold & rootMargin
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: isMobile ? 0.02 : threshold,
-        rootMargin: isMobile ? '50px' : '100px',
+        threshold: isMobile ? 0.05 : 0.15, // Mobile: 5% visible, Desktop: 15% visible
+        rootMargin: isMobile ? '100px' : '50px', // Mobile: larger margin for earlier trigger
     });
 
     const speedClass = {
@@ -24,33 +28,25 @@ const AnimateOnScroll = ({
         slow: 'animate__slow',
     }[speed];
 
-    // Pastikan children adalah elemen React tunggal
     const child = React.Children.only(children);
 
-    // MOBILE: NO ANIMATIONS - Just show content immediately
+    // MOBILE: NO ANIMATIONS
     if (isMobile) {
         return cloneElement(child, {
             ref,
             className: child.props.className || '',
-            style: {
-                ...child.props.style,
-                opacity: 1, // Always visible on mobile
-                animation: 'none', // Disable all animations
-            },
         });
     }
 
-    // DESKTOP: Normal animations
+    // DESKTOP: Smooth animations
     return cloneElement(child, {
         ref,
-        className: `${child.props.className || ''} animate__animated ${
-            inView ? `animate__${animation} ${speedClass}` : ''
+        className: `${child.props.className || ''} ${
+            inView ? `animate__animated animate__${animation} ${speedClass}` : ''
         }`.trim(),
         style: {
             ...child.props.style,
-            opacity: inView ? undefined : 0.5,
-            animationDelay: inView ? `${delay}ms` : undefined,
-            transition: inView ? undefined : 'opacity 0.2s ease-out',
+            animationDelay: inView ? `${delay}ms` : '0ms',
         },
     });
 };

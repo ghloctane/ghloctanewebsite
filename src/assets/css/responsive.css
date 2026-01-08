@@ -17,7 +17,7 @@
     .card,
     .navbar,
     .hero-container {
-        /* ✅ REMOVED: will-change: auto - causes GPU layer creation and continuous repaint */
+        will-change: auto;
         transform: none;
         backface-visibility: visible;
     }
@@ -100,7 +100,7 @@
         height: auto !important;
         min-height: auto !important;
         aspect-ratio: auto !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important;
         padding: clamp(10px, 3vw, 20px) clamp(10px, 3vw, 15px) clamp(30px, 5vw, 40px) clamp(10px, 3vw, 15px) !important;
         display: flex !important;
         flex-direction: column !important;
@@ -116,15 +116,14 @@
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        /* ✅ FIXED: Removed vh from min-height to prevent mobile address bar issues */
-        min-height: 450px !important;
+        min-height: clamp(400px, 60vh, 600px) !important;
         aspect-ratio: auto !important;
         overflow: hidden !important; /* Ensure Silk effect is visible */
         margin: 0 auto !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         padding: clamp(20px, 5vw, 30px) clamp(15px, 4vw, 20px) !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important;
         overflow: visible !important;
         display: flex !important;
         flex-direction: column !important;
@@ -143,20 +142,25 @@
         text-align: center !important;
     }
     
-    /* ✅ REMOVED: Video Background code - not in use, was causing massive CLS with 200% scale */
-    /* Video background completely removed - using Silk shader instead */
+    /* Video Background ko zoom karke card mein puri cover karne ke liye */
     #banner-video-background {
-        display: none !important;
-        width: 100% !important;
-        height: 100% !important;
-        transform: none !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 200% !important;
+        height: 200% !important;
+        transform: translate(-50%, -50%) scale(1.5) translateZ(0) !important;
+        z-index: -1 !important;
+        object-fit: cover !important;
     }
     
+    /* Zoom video iframe on mobile for full coverage */
     #banner-video-background iframe {
-        display: none !important;
-        width: 100% !important;
-        height: 100% !important;
-        transform: none !important;
+        width: 200% !important;
+        height: 200% !important;
+        transform: scale(1.5) !important;
+        pointer-events: none !important;
+        object-fit: cover !important;
     }
     
     .title-heading-banner {
@@ -204,7 +208,7 @@
         min-height: 150px !important;
         height: 150px !important;
         aspect-ratio: 16/9 !important;
-        /* ✅ REMOVED: contain: strict !important - causes layout isolation and page jumps */
+        contain: strict !important;
     }
     
     .swiperPartner .swiper-slide {
@@ -217,7 +221,7 @@
         min-height: 300px !important;
         height: 300px !important;
         aspect-ratio: 16/9 !important;
-        /* ✅ REMOVED: contain: layout paint !important - causes layout isolation and page jumps */
+        contain: layout paint !important;
         overflow: hidden !important; /* Card ke andar */
         width: 100% !important;
         max-width: 100% !important;
@@ -264,8 +268,6 @@
         object-fit: contain !important;
         margin: 0 auto !important; /* Center align */
         display: block !important;
-        /* ✅ FIXED: Add aspect ratio to prevent layout shift */
-        aspect-ratio: 16 / 9;
     }
     
     /* Card case studies - Ensure overflow hidden */
@@ -282,7 +284,7 @@
     
     .swiperTestimonial .swiper-slide {
         min-height: 400px !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important; /* Changed from strict to content */
         height: auto !important;
         overflow: visible !important;
     }
@@ -299,7 +301,7 @@
         min-height: 400px !important;
         height: 400px !important;
         aspect-ratio: 16/9 !important;
-        /* ✅ REMOVED: contain: strict !important - causes layout isolation and page jumps */
+        contain: strict !important;
     }
 }
 
@@ -807,12 +809,9 @@
     .navbar,
     .navbar-container {
         transform: none !important;
-        /* ✅ REMOVED: will-change: auto !important - causes GPU layer creation */
+        will-change: auto !important;
         backface-visibility: visible !important;
         -webkit-backface-visibility: visible !important;
-        /* ✅ FIXED: Navbar height - ensure fixed height to prevent content jump */
-        min-height: 70px !important;
-        height: auto !important;
     }
     
     /* DISABLE ALL SCROLL ANIMATIONS ON MOBILE - Simple and clean */
@@ -828,12 +827,10 @@
     
     /* Optimize images for scroll - Ensure all images are visible on mobile */
     img {
-        /* ✅ REMOVED: will-change: auto - causes GPU layer creation */
+        will-change: auto;
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        /* ✅ FIXED: Add aspect ratio to prevent layout shift */
-        aspect-ratio: attr(width) / attr(height);
     }
     
     img.img-fluid {
@@ -884,22 +881,21 @@
         display: none !important;
     }
     
-    /* ✅ REMOVED: Video/iframe optimization - will-change removed for performance */
-    /* video, iframe ruleset removed - no properties needed */
+    /* Optimize video performance */
+    video, iframe {
+        will-change: auto;
+    }
     
     /* Disable will-change for performance on mobile */
     [class*="animate__"] {
-        /* ✅ REMOVED: will-change: auto !important - causes GPU layer creation */
+        will-change: auto !important;
         transform: none !important;
     }
     
-    /* Empty ruleset removed */
-    
     /* Optimize Swiper for mobile */
     .swiper {
-        /* ✅ REMOVED: will-change: auto - causes GPU layer creation */
-        /* ✅ FIXED: transform on/off issue - use consistent transform */
-        transform: none !important;
+        will-change: auto;
+        transform: translateZ(0);
     }
     
     /* Reduce backdrop-filter on mobile */
@@ -912,9 +908,8 @@
     /* Optimize sections for scroll */
     section,
     .section {
-        /* ✅ REMOVED: contain: layout style paint - causes layout isolation and page jumps */
-        /* ✅ FIXED: transform on/off issue - use consistent transform */
-        transform: none !important;
+        contain: layout style paint;
+        transform: translateZ(0);
     }
     
     /* Reduce box-shadow calculations */
@@ -947,14 +942,12 @@
         transform: none !important;
     }
     
-    /* ✅ REMOVED: Video background code - not in use, was causing massive CLS */
+    /* Banner video background - Mobile specific transform */
     #banner-video-background {
-        display: none !important;
-        transform: none !important;
+        transform: translate(-50%, -50%) !important;
     }
     
     #banner-video-background iframe {
-        display: none !important;
         transform: none !important;
     }
     
@@ -1174,7 +1167,7 @@
         overflow: visible !important;
         position: static !important;
         left: auto !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important; /* Prevent layout shifts */
     }
     
     /* Partnership card - Mobile optimized (Logos card ke andar) */
@@ -1192,7 +1185,7 @@
         min-height: 120px !important;
         max-height: 200px !important;
         overflow: visible !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important; /* Prevent scroll issues */
     }
     
     /* Partnership section - Swiper running properly on mobile (Slow & Center Aligned) */
@@ -1279,7 +1272,7 @@
         padding: 40px 20px !important;
         margin: 0 !important;
         overflow: visible !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important; /* Prevent layout shifts */
     }
     
     /* Duplicate styles removed - Using swiper running styles above at line 1041 */
@@ -1353,12 +1346,11 @@
         max-width: 100% !important;
         padding: clamp(30px, 6vw, 40px) clamp(15px, 4vw, 20px) !important;
         margin: 0 clamp(10px, 2vw, 15px) !important;
-        /* ✅ FIXED: Removed vh from min-height to prevent mobile address bar issues */
-        min-height: 450px !important;
+        min-height: clamp(350px, 55vh, 500px) !important;
         overflow: hidden !important; /* Ensure Silk effect is visible on mobile */
         height: auto !important;
         aspect-ratio: auto !important;
-        /* ✅ REMOVED: contain: content !important - causes layout isolation and page jumps */
+        contain: content !important;
         overflow: visible !important;
         display: flex !important;
         flex-direction: column !important;
@@ -2472,8 +2464,11 @@
     
     /* ✅ REMOVED scroll-behavior conflict - let desktop section handle smooth scroll */
     
-    /* ✅ REMOVED: Global will-change: auto !important - causes continuous repaint and GPU overload */
-    /* Note: will-change should only be used on actively animating elements, not globally */
+    /* Remove will-change overuse that causes GPU strain */
+    /* Note: Using * selector here is intentional - resets will-change on ALL elements to prevent GPU overload */
+    * {
+        will-change: auto !important;
+    }
     
     /* Only allow will-change on actively animating elements */
     .swiper-wrapper,
@@ -2730,19 +2725,17 @@
     }
 }
 
-/* ✅ REMOVED: Video Background code - not in use, was causing massive CLS */
+/* Video Background Responsive Fix - All Screens */
 #banner-video-background {
-    display: none !important;
     width: 100% !important;
     height: 100% !important;
-    transform: none !important;
+    object-fit: cover !important;
 }
 
 #banner-video-background iframe {
-    display: none !important;
     width: 100% !important;
     height: 100% !important;
-    transform: none !important;
+    object-fit: cover !important;
 }
 
 /* Banner video mobile transform moved to main mobile section (line ~890) */

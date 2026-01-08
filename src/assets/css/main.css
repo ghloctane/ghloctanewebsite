@@ -234,7 +234,7 @@ body{
     background-color: #FFFFFF;
     font-family: var(--global-font);
     color: var(--primary);
-    /* ✅ REMOVED: transition: all - causes page to animate on scroll/resize */
+    transition: all 0.3s ease;
     position: relative;
     z-index: 0;
     overflow-x: hidden;
@@ -257,7 +257,7 @@ body::before{
     z-index: -1;
     pointer-events: none;
     /* Optimized for smooth scrolling - removed will-change and transform */
-    /* ✅ REMOVED: will-change: auto - causes GPU layer creation */
+    will-change: auto;
     transform: none;
     -webkit-transform: none;
 }  
@@ -677,10 +677,10 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 20px;
 }
 
-/* Dashboard Swiper - CSS Containment REMOVED for performance */
+/* Dashboard Swiper - CSS Containment */
 .swiperDashboards-container{
-    /* ✅ REMOVED: content-visibility: auto - causes CLS/flicker */
-    /* ✅ REMOVED: contain: layout paint - causes layout isolation and page jumps */
+    content-visibility: auto;
+    contain: layout paint;
     aspect-ratio: 16/9;
     position: relative;
     z-index: 2;
@@ -911,13 +911,12 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
 }
 
-/* Hero/Banner Slider - CSS Containment REMOVED for performance */
+/* Hero/Banner Slider - CSS Containment for Layout Stability */
 .section-banner{
-    /* ✅ REMOVED: content-visibility: auto - hero should always be visible, no skipping */
-    /* ✅ REMOVED: contain: layout paint - causes layout isolation and page jumps */
+    content-visibility: auto;
+    contain: layout paint;
     aspect-ratio: auto; /* Changed from 16/9 to auto for better responsiveness */
-    /* ✅ FIXED: Removed vh from min-height to prevent mobile address bar issues */
-    min-height: 500px; /* Fixed min-height instead of vh+clamp mix */
+    min-height: clamp(400px, 50vh, 600px); /* Responsive min-height */
     padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px);
     margin: 0;
     width: 100%;
@@ -1280,9 +1279,6 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
     max-width: 100%;
     z-index: 3;
-    /* ✅ FIXED: Navbar height - ensure fixed min-height to prevent content jump */
-    min-height: 70px;
-    height: auto;
     /* Padding handled by responsive.css for different breakpoints */
     border: 1px solid rgba(168, 184, 224, 0.4);
     background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
@@ -1705,8 +1701,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    /* ✅ FIXED: Removed vh from min-height to prevent mobile address bar issues */
-    min-height: 500px;
+    min-height: clamp(400px, 50vh, 600px);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -1774,14 +1769,9 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 0;
 }
 
-/* YouTube Video Background - COMPLETELY REMOVED (Replaced with Silk Shader) */
-/* ✅ REMOVED: All video background code - not in use anymore */
+/* YouTube Video Background - DISABLED (Replaced with Silk Shader) */
 #banner-video-background {
-    display: none !important;
-    width: 100% !important;
-    height: 100% !important;
-    transform: none !important;
-    /* ✅ REMOVED: 200% scale - was causing massive CLS */
+    display: none !important; /* Video removed, using Silk shader instead */
 }
 
 /* Silk Shader Container */
@@ -2823,7 +2813,6 @@ body::-webkit-scrollbar-thumb:hover {
 .title-heading{
      display: inline-block;
     -webkit-background-clip: text;
-    background-clip: text; /* ✅ Added standard property for compatibility */
     background-color: transparent;
     background-image: linear-gradient(284deg, var(--accent-transparent) 3%, var(--primary) 100%);
     -webkit-text-fill-color: transparent;
@@ -3712,10 +3701,10 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100px;
 }
 
-/* Partnership Swiper - CSS Containment REMOVED for performance */
+/* Partnership Swiper - CSS Containment */
 .swiperPartner-container{
-    /* ✅ REMOVED: content-visibility: auto - causes CLS/flicker */
-    /* ✅ REMOVED: contain: layout paint - causes layout isolation and page jumps */
+    content-visibility: auto;
+    contain: layout paint;
     aspect-ratio: 16/9;
     margin: 0 auto;
     overflow: hidden;
@@ -5292,7 +5281,7 @@ body::-webkit-scrollbar-thumb:hover {
     background-repeat: no-repeat;
     background-attachment: scroll !important; /* Changed to scroll to prevent GPU overload - no parallax */
     /* Hardware Acceleration disabled - causes GPU overload */
-    /* ✅ REMOVED: will-change: auto !important - causes continuous repaint */
+    will-change: auto !important;
     transform: none;
     -webkit-transform: none;
     display: flex;
@@ -5982,8 +5971,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .swiperTestimonial .swiper-slide{
-    /* ✅ REMOVED: content-visibility: auto - causes CLS/flicker */
-    /* ✅ REMOVED: contain: content - causes layout isolation and page jumps */
+    content-visibility: auto;
+    contain: content;
     height: auto;
     min-height: 400px;
     display: flex;
@@ -8108,4 +8097,3 @@ body::-webkit-scrollbar-thumb:hover {
         animation-duration: 25s;
     }
 }
-

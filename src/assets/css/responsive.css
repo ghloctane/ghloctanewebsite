@@ -875,8 +875,7 @@
     }
     
     
-    /* Disable GridScan and Hyperspeed components */
-    .grid-scan-container,
+    /* Disable Hyperspeed component */
     .hyperspeed-container {
         display: none !important;
     }

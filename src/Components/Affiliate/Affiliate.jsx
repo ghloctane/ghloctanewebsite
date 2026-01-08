@@ -1,12 +1,10 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
-import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 const AffiliateSection = () => {
     return (
         <div className="section section-affiliate">
-            <BackgroundPaths />
             <div className="hero-container">
                 <div className="d-flex flex-column justify-content-center text-center gspace-5">
                     <div className="d-flex flex-column justify-content-center text-center gspace-2">

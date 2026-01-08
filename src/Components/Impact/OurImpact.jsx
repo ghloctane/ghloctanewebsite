@@ -1,7 +1,6 @@
 import React, { useMemo, Suspense, lazy } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import StatsCard from "../Card/StatsCard";
-import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 // ✅ Lazy load Hyperspeed for better performance
 const Hyperspeed = lazy(() => import("../Hyperspeed/Hyperspeed"));
@@ -17,7 +16,6 @@ const OurImpact = () => {
 
   return (
     <div className="section section-stats">
-      <BackgroundPaths />
       <div className="hero-container">
         <div className="d-flex flex-column flex-lg-row gspace-5">
           
@@ -62,7 +60,7 @@ const OurImpact = () => {
             <AnimateOnScroll animation="fadeInUp" speed="normal" delay={400}>
               <div className="mt-4">
                 <div className="card card-expertise card-stats">
-                  <Suspense fallback={<div style={{ minHeight: '100px' }} />}>
+                  <Suspense fallback={<div className="suspense-fallback" />}>
                     <Hyperspeed />
                   </Suspense>
                   <h4>REAL RESULTS. REAL IMPACT.</h4>

@@ -110,7 +110,7 @@ const TestimonialSection = () => {
                                                             }}
                                                         >
                                                             <div className="testimonial-video-thumbnail">
-                                                                <img src={video.thumbnail} alt={video.name} />
+                                                                <img src={video.thumbnail} alt={video.name} loading="lazy" />
                                                                 <div className="play-icon">
                                                                     <FaPlay />
                                                                 </div>
@@ -183,7 +183,7 @@ const TestimonialSection = () => {
                                                     className="testimonial-video-thumbnail-large"
                                                     onClick={() => setIsVideoPlaying(true)}
                                                 >
-                                                    <img src={selectedVideo.thumbnail} alt={selectedVideo.name} />
+                                                    <img src={selectedVideo.thumbnail} alt={selectedVideo.name} loading="eager" />
                                                     <div className="play-icon-large">
                                                         <FaPlay />
                                                     </div>
@@ -233,7 +233,7 @@ const TestimonialSection = () => {
                         <div className="d-flex flex-column">
                             <div className="overflow-hidden">
                                 <Swiper
-                                style={{ height: 'auto', minHeight: '400px' }}
+                                className="testimonial-video-container"
                                 slidesPerView={3} 
                                 spaceBetween={50} 
                                 speed={1000} 

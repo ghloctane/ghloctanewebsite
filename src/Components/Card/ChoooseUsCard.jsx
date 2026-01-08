@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 
-const ChooseUsCard = ({icon, title, content, link, speed}) => {
+const ChooseUsCard = memo(({icon, title, content, link, speed}) => {
     
     return (
         <>
@@ -11,7 +11,7 @@ const ChooseUsCard = ({icon, title, content, link, speed}) => {
                         <div className="chooseus-spacer above"></div>
                             <div className="chooseus-icon-layout">
                                 <div className="chooseus-icon">
-                                    <img src={icon} alt="Why Choose Us Icon" className="img-fluid" />
+                                    <img src={icon} alt="Why Choose Us Icon" className="img-fluid" loading="lazy" />
                                 </div>
                             </div>
                         <div className="chooseus-spacer below"></div>
@@ -28,6 +28,8 @@ const ChooseUsCard = ({icon, title, content, link, speed}) => {
             </AnimateOnScroll>
         </>
       );
-};
+});
+
+ChooseUsCard.displayName = 'ChooseUsCard';
 
 export default ChooseUsCard;

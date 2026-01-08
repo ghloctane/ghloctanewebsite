@@ -6,6 +6,7 @@ import App from './App.jsx'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import './assets/css/main.css'
 import './assets/css/responsive.css'
+import './assets/css/inline-styles.css'
 // Swiper CSS moved to index.html (non-blocking) - removed from JS bundle
 // import "swiper/css";
 // import "swiper/css/navigation";

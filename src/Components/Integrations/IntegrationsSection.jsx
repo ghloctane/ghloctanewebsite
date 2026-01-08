@@ -77,6 +77,7 @@ const IntegrationsSection = () => {
                                         src={integration.src} 
                                         alt={integration.alt}
                                         className="integration-logo"
+                                        loading="lazy"
                                     />
                                 ))}
                             </div>

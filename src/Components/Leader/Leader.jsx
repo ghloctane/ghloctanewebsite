@@ -1,14 +1,10 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
-const BackgroundPaths = lazy(() => import("../BackgroundPaths/BackgroundPaths"));
 
 const LeaderSection = () => {
     return (
         <>
             <div className="section section-leader">
-                <Suspense fallback={null}>
-                    <BackgroundPaths />
-                </Suspense>
                 <div className="hero-container">
                     <div className="d-flex flex-column justify-content-center text-center gspace-5">
                         <div className="d-flex flex-column justify-content-center text-center gspace-2">
@@ -39,6 +35,7 @@ const LeaderSection = () => {
                                                 src="/assets/images/zeeshan haider.webp" 
                                                 alt="Zeeshan Haider" 
                                                 className="img-fluid"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <div className="leader-text">
@@ -56,6 +53,7 @@ const LeaderSection = () => {
                                                 src="/assets/images/hammad raza .webp" 
                                                 alt="Hammad Raza" 
                                                 className="img-fluid"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <div className="leader-text">
@@ -102,7 +100,8 @@ const LeaderSection = () => {
                                     <img 
                                         src="/assets/images/our vision.webp" 
                                         alt="Our Vision" 
-                                        className="chooseus-img" 
+                                        className="chooseus-img"
+                                        loading="lazy"
                                     />
                                 </div>
                             </AnimateOnScroll>

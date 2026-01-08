@@ -1,13 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
 
-const DigitalStepCard = ({ icon, step, title, content, color, index, isOdd }) => {
+const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd }) => {
     return (
         <div className={`phase-container ${isOdd ? 'phase-above' : 'phase-below'}`} style={{ '--phase-color': color }}>
             {/* Text Box - positioned above or below based on index */}
             {isOdd && (
                 <div className="phase-text-box">
                     <div className="phase-icon-container">
-                        <img src={icon} alt={title} className="phase-icon" />
+                        <img src={icon} alt={title} className="phase-icon" loading="lazy" />
                     </div>
                     <h3 className="phase-title" style={{ color: color }}>
                         <i className="fa-solid fa-diagram-project"></i> {title.toUpperCase()}
@@ -33,7 +33,7 @@ const DigitalStepCard = ({ icon, step, title, content, color, index, isOdd }) =>
                     <div className="phase-connector-line"></div>
                     <div className="phase-text-box">
                         <div className="phase-icon-container">
-                            <img src={icon} alt={title} className="phase-icon" />
+                            <img src={icon} alt={title} className="phase-icon" loading="lazy" />
                         </div>
                         <h3 className="phase-title" style={{ color: color }}>
                             <i className="fa-solid fa-diagram-project"></i> {title.toUpperCase()}
@@ -44,6 +44,8 @@ const DigitalStepCard = ({ icon, step, title, content, color, index, isOdd }) =>
             )}
         </div>
     );
-};
+});
+
+DigitalStepCard.displayName = 'DigitalStepCard';
 
 export default DigitalStepCard;

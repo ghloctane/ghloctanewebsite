@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
 
-const ServiceCard = ({icon, title, content, link, speed = ""}) => {
+const ServiceCard = memo(({icon, title, content, link, speed = ""}) => {
     // Check if icon is a FontAwesome class or image path
     const isFontAwesome = icon && icon.startsWith('fa-');
     
@@ -17,7 +17,7 @@ const ServiceCard = ({icon, title, content, link, speed = ""}) => {
                                     {isFontAwesome ? (
                                         <i className={icon}></i>
                                     ) : (
-                                        <img src={icon} alt="Service Icon" className="img-fluid" />
+                                        <img src={icon} alt="Service Icon" className="img-fluid" loading="lazy" />
                                     )}
                                 </div>
                             </div>
@@ -34,6 +34,8 @@ const ServiceCard = ({icon, title, content, link, speed = ""}) => {
             </AnimateOnScroll>
         </>
     );
-}
+});
+
+ServiceCard.displayName = 'ServiceCard';
 
 export default ServiceCard;

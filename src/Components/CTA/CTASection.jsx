@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import FloatingLines from "./FloatingLines";
+import React, { useState, useEffect, Suspense, lazy } from "react";
+const FloatingLines = lazy(() => import("./FloatingLines"));
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
 
@@ -22,20 +22,22 @@ const CTASection = () => {
                 <div className="cta-container">
                     {!isMobile && (
                         <div className="cta-floating-lines-wrapper">
-                            <FloatingLines
-                                linesGradient={['#27428c', '#a8b8e0']}
-                                enabledWaves={['top', 'middle', 'bottom']}
-                                lineCount={[8, 6, 8]}
-                                lineDistance={[5, 5, 5]}
-                                animationSpeed={0.8}
-                                interactive={true}
-                                bendRadius={5.0}
-                                bendStrength={-0.5}
-                                mouseDamping={0.05}
-                                parallax={true}
-                                parallaxStrength={0.2}
-                                mixBlendMode="screen"
-                            />
+                            <Suspense fallback={null}>
+                                <FloatingLines
+                                    linesGradient={['#27428c', '#a8b8e0']}
+                                    enabledWaves={['top', 'middle', 'bottom']}
+                                    lineCount={[8, 6, 8]}
+                                    lineDistance={[5, 5, 5]}
+                                    animationSpeed={0.8}
+                                    interactive={true}
+                                    bendRadius={5.0}
+                                    bendStrength={-0.5}
+                                    mouseDamping={0.05}
+                                    parallax={true}
+                                    parallaxStrength={0.2}
+                                    mixBlendMode="screen"
+                                />
+                            </Suspense>
                         </div>
                     )}
                     <div className="cta-content">

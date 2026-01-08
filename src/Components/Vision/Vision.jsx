@@ -6,7 +6,7 @@ const VisionSection = () => {
         <div className="section">
             <div className="hero-container">
                 <div className="d-flex flex-column flex-lg-row gspace-5 align-items-center">
-                    <div className="chooseus-content-container" style={{flex: 1}}>
+                    <div className="chooseus-content-container vision-content-container">
                         <div className="d-flex flex-column gspace-2">
                             <AnimateOnScroll animation="fadeInRight" speed="normal">
                                 <div className="sub-heading">
@@ -29,7 +29,7 @@ const VisionSection = () => {
                             </AnimateOnScroll>
                         </div>
                     </div>
-                    <div className="chooseus-card-container" style={{flex: 1}}>
+                    <div className="chooseus-card-container vision-card-container">
                         <AnimateOnScroll animation="fadeInLeft" speed="normal">
                             <div className="image-container">
                                 <img 

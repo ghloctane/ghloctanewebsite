@@ -188,6 +188,21 @@ const Silk = ({
 
 	const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
+	// ✅ Disable on mobile for better performance
+	if (isMobile) {
+		return (
+			<div style={{
+				width: '100%',
+				height: '100%',
+				background: `linear-gradient(135deg, ${color} 0%, #000000 100%)`,
+				position: 'absolute',
+				top: 0,
+				left: 0,
+				zIndex: 0
+			}} />
+		);
+	}
+
 	return (
 		<Canvas
 			ref={canvasRef}

@@ -13,7 +13,7 @@ const Footer = () => {
                             <div className="col col-lg-4">
                                 <div className="footer-logo-container">
                                     <div className="logo-container-footer">
-                                    <img src="/assets/images/GHL Octane Favicon.webp" alt="Logo" className="site-logo img-fluid footer-logo-img" />
+                                    <img src="/assets/images/GHL Octane Favicon.webp" alt="Logo" className="site-logo img-fluid footer-logo-img" loading="lazy" />
                                     </div>
                                     <h4><span className="brand-name">GHL Octane</span> — Driving Growth Through Smart GoHighLevel Systems.</h4>
                                     <p>
@@ -68,11 +68,11 @@ const Footer = () => {
                                             <SocialButton href="https://linkedin.com" icon="linkedin" />
                                         </div>
                                         <div className="footer-certified-badges">
-                                            <img src="/assets/images/certified.webp" alt="HighLevel Certified Admin" className="certified-badge-img certified-badge-main" />
+                                            <img src="/assets/images/certified.webp" alt="HighLevel Certified Admin" className="certified-badge-img certified-badge-main" loading="lazy" />
                                             <div className="footer-integration-badges">
-                                                <img src="https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/67abd58650fb000ed8851f30.png" alt="Zapier" className="certified-badge-img" />
-                                                <img src="/assets/images/ghl.webp" alt="GoHighLevel" className="certified-badge-img" />
-                                                <img src="/assets/images/shopify.webp" alt="Shopify" className="certified-badge-img" />
+                                                <img src="https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/67abd58650fb000ed8851f30.png" alt="Zapier" className="certified-badge-img" loading="lazy" />
+                                                <img src="/assets/images/ghl.webp" alt="GoHighLevel" className="certified-badge-img" loading="lazy" />
+                                                <img src="/assets/images/shopify.webp" alt="Shopify" className="certified-badge-img" loading="lazy" />
                                             </div>
                                         </div>
                                     </div>

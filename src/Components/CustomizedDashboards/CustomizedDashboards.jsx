@@ -85,7 +85,8 @@ const CustomizedDashboardsSection = () => {
                                                 <img 
                                                     src={image.url} 
                                                     alt={`Dashboard ${image.id}`} 
-                                                    className="dashboard-image img-fluid" 
+                                                    className="dashboard-image img-fluid"
+                                                    loading="lazy"
                                                 />
                                             </div>
                                         </SwiperSlide>

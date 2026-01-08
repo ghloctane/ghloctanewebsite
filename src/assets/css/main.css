@@ -3629,8 +3629,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ================== 26. Partner Components ================== */
 
-.card-partner,
-.card-website-showcase {
+.card-partner {
     background-color: transparent;
     background-image: radial-gradient(at top left, var(--accent-color-4) 30%, var(--accent-color-4) 30%);
     padding: 0px 0px 50px 0px;

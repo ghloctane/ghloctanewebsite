@@ -1,12 +1,10 @@
 import React from "react";
 import { ghlTeamsData } from "../../Data/GHLTeamsData";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
-import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 const GHLTeamsSection = () => {
     return (
         <div className="section section-ghl-teams">
-            <BackgroundPaths />
             <div className="hero-container">
                 <div className="d-flex flex-column gspace-5">
                     <div className="d-flex flex-column justify-content-center text-center gspace-2">
@@ -59,6 +57,7 @@ const GHLTeamsSection = () => {
                                                     src={team.representation || "/assets/images/services/automation.webp"} 
                                                     alt={team.title}
                                                     className="ghl-team-image"
+                                                    loading="lazy"
                                                 />
                                             </div>
                                         </AnimateOnScroll>

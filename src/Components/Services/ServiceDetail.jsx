@@ -149,8 +149,8 @@ const ServiceDetailSection = () => {
                                     <img
                                         src={service.icon}
                                         alt={service.title}
-                                        className="img-fluid"
-                                        style={{objectFit: 'contain', padding: '20px'}}
+                                        className="img-fluid service-detail-image"
+                                        loading="lazy"
                                     />
                                 </AnimateOnScroll>
                             </div>
@@ -189,7 +189,7 @@ const ServiceDetailSection = () => {
                                         </ul>
                                     </div>
 
-                                    <div className="link-wrapper" style={{marginTop: '20px'}}>
+                                    <div className="link-wrapper service-detail-link-wrapper">
                                         <a href="./contact">
                                             Get Started
                                             <i className="fa-solid fa-circle-arrow-right"></i>

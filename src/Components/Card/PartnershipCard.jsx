@@ -1,15 +1,17 @@
-import React from "react";
+import React, { memo } from "react";
 
-const PartnershipCard = ({ logo }) => {
+const PartnershipCard = memo(({ logo }) => {
   return (
     <div className="col partnership-container">
         <div className="partnership-item">
             <a href="#">
-                <img src={logo} alt="Partner Logo" className="img-fluid" />
+                <img src={logo} alt="Partner Logo" className="img-fluid" loading="lazy" />
             </a>
         </div>
     </div>
   );
-};
+});
+
+PartnershipCard.displayName = 'PartnershipCard';
 
 export default PartnershipCard;

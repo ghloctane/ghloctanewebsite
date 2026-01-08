@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, Suspense, lazy } from "react";
 import VideoButton from "../Video/VideoButton";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
-import FloatingLines from "../CTA/FloatingLines";
+const FloatingLines = lazy(() => import("../CTA/FloatingLines"));
 
 function BannerHomeSection() {
 
@@ -15,22 +15,24 @@ function BannerHomeSection() {
                     ref={videoContainerRef}
                     className="banner-video-container keep-dark"
                 >
-                    {/* FloatingLines Background - Mobile + Desktop Visible */}
+                    {/* FloatingLines Background - Lazy loaded, disabled on mobile */}
                     <div className="banner-visual-background" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-                        <FloatingLines
-                            linesGradient={['#27428C', '#2F5AA8', '#1A2F5C']}
-                            enabledWaves={['top', 'middle', 'bottom']}
-                            lineCount={[6, 8, 6]}
-                            lineDistance={[5, 6, 5]}
-                            animationSpeed={1}
-                            interactive={true}
-                            bendRadius={5.0}
-                            bendStrength={-0.5}
-                            mouseDamping={0.05}
-                            parallax={true}
-                            parallaxStrength={0.2}
-                            mixBlendMode="screen"
-                        />
+                        <Suspense fallback={null}>
+                            <FloatingLines
+                                linesGradient={['#27428C', '#2F5AA8', '#1A2F5C']}
+                                enabledWaves={['top', 'middle', 'bottom']}
+                                lineCount={[6, 8, 6]}
+                                lineDistance={[5, 6, 5]}
+                                animationSpeed={1}
+                                interactive={true}
+                                bendRadius={5.0}
+                                bendStrength={-0.5}
+                                mouseDamping={0.05}
+                                parallax={true}
+                                parallaxStrength={0.2}
+                                mixBlendMode="screen"
+                            />
+                        </Suspense>
                     </div>
                     <div className="hero-container position-relative">
                         <div className="d-flex flex-column gspace-2">

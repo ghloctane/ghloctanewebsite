@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import {
   Scene,
   OrthographicCamera,
@@ -253,6 +253,20 @@ export default function FloatingLines({
   const currentInfluenceRef = useRef(0);
   const targetParallaxRef = useRef(new Vector2(0, 0));
   const currentParallaxRef = useRef(new Vector2(0, 0));
+  const rafRef = useRef(null);
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef(null);
+  
+  // ✅ Mobile detection
+  const isMobile = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth <= 767;
+  }, []);
+
+  // ✅ Disable on mobile
+  if (isMobile) {
+    return null;
+  }
 
   const getLineCount = waveType => {
     if (typeof lineCount === 'number') return lineCount;
@@ -416,30 +430,52 @@ export default function FloatingLines({
       renderer.domElement.addEventListener('pointerleave', handlePointerLeave);
     }
 
-    let raf = 0;
+    // ✅ Pause animation during scroll for better performance
+    const handleScroll = () => {
+      isScrollingRef.current = true;
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     const renderLoop = () => {
-      uniforms.iTime.value = clock.getElapsedTime();
+      // ✅ Pause animation during scroll
+      if (!isScrollingRef.current) {
+        uniforms.iTime.value = clock.getElapsedTime();
 
-      if (interactive) {
-        currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);
-        uniforms.iMouse.value.copy(currentMouseRef.current);
+        if (interactive) {
+          currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);
+          uniforms.iMouse.value.copy(currentMouseRef.current);
 
-        currentInfluenceRef.current += (targetInfluenceRef.current - currentInfluenceRef.current) * mouseDamping;
-        uniforms.bendInfluence.value = currentInfluenceRef.current;
+          currentInfluenceRef.current += (targetInfluenceRef.current - currentInfluenceRef.current) * mouseDamping;
+          uniforms.bendInfluence.value = currentInfluenceRef.current;
+        }
+
+        if (parallax) {
+          currentParallaxRef.current.lerp(targetParallaxRef.current, mouseDamping);
+          uniforms.parallaxOffset.value.copy(currentParallaxRef.current);
+        }
+
+        renderer.render(scene, camera);
       }
-
-      if (parallax) {
-        currentParallaxRef.current.lerp(targetParallaxRef.current, mouseDamping);
-        uniforms.parallaxOffset.value.copy(currentParallaxRef.current);
-      }
-
-      renderer.render(scene, camera);
-      raf = requestAnimationFrame(renderLoop);
+      rafRef.current = requestAnimationFrame(renderLoop);
     };
     renderLoop();
 
     return () => {
-      cancelAnimationFrame(raf);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      window.removeEventListener('scroll', handleScroll);
+      
       // eslint-disable-next-line react-hooks/exhaustive-deps
       if (ro && containerRef.current) {
         ro.disconnect();

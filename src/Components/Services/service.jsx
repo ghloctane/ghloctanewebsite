@@ -16,14 +16,14 @@ function ServiceSection(){
                 <div className="hero-container">
                     <div className="d-flex flex-column justify-content-center text-center gspace-5">
                         <div className="d-flex flex-column justify-content-center text-center gspace-2">
-                            <AnimateOnScroll animation="fadeInDown" speed="normal">    
+                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={0}>    
                                 <div className="sub-heading align-self-center">
                                     <i className="fa-regular fa-circle-dot"></i>
                                     <span>Our Services</span>
                                 </div>
                             </AnimateOnScroll>
 
-                            <AnimateOnScroll animation="fadeInDown" speed="normal">
+                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={100}>
                                 <h2 className="title-heading heading-container heading-container-medium">
                                     DIGITAL SOLUTIONS THAT DRIVE REAL RESULTS
                                 </h2>
@@ -46,8 +46,8 @@ function ServiceSection(){
                         </div>
 
                         {/* Our Services Button */}
-                        <AnimateOnScroll animation="fadeInUp" speed="normal">
-                            <div className="d-flex justify-content-center" style={{ marginTop: '20px' }}>
+                        <AnimateOnScroll animation="fadeInUp" speed="normal" delay={200}>
+                            <div className="d-flex justify-content-center service-button-container">
                                 <Link to="/service" className="view-all-services-btn">
                                     <span className="btn-text">View All Services</span>
                                     <span className="btn-icon">

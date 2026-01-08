@@ -43,11 +43,10 @@ const WebsiteShowcase = () => {
                                     {[...websites, ...websites].map((site, index) => (
                                         <div 
                                             key={`right-${site.id}-${index}`} 
-                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo' : ''}`}
+                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
-                                            style={site.demoUrl ? { cursor: 'pointer' } : {}}
                                         >
-                                            <img src={site.image} alt={site.title} />
+                                            <img src={site.image} alt={site.title} loading="lazy" />
                                             {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>
@@ -64,11 +63,10 @@ const WebsiteShowcase = () => {
                                     {[...websites, ...websites].map((site, index) => (
                                         <div 
                                             key={`left-${index}`} 
-                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo' : ''}`}
+                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
-                                            style={site.demoUrl ? { cursor: 'pointer' } : {}}
                                         >
-                                            <img src={site.image} alt={site.title} />
+                                            <img src={site.image} alt={site.title} loading="lazy" />
                                             {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>

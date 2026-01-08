@@ -8,7 +8,7 @@ function PricingPlanSection(){
         <div className="section">
             <div className="hero-container">
                 <div className="d-flex flex-column justify-content-center text-center gspace-5">
-                    <AnimateOnScroll animation="fadeInUp" speed="normal">
+                    <AnimateOnScroll animation="fadeInUp" speed="normal" delay={0}>
                         <div className="d-flex flex-column gspace-2">
                             <div className="sub-heading align-self-center">
                                 <i className="fa-regular fa-circle-dot"></i>
@@ -22,7 +22,7 @@ function PricingPlanSection(){
                     <div className="row row-cols-lg-3 row-cols-1 grid-spacer-2">
                         <div className="col">
                             <div className="pricing-container">
-                                <AnimateOnScroll animation="fadeInLeft" speed="normal">
+                                <AnimateOnScroll animation="fadeInLeft" speed="normal" delay={100}>
                                     <div className="card card-pricing-title">
                                         <div className="spacer" />
                                         <div className="content">
@@ -43,7 +43,7 @@ function PricingPlanSection(){
                                             <h3>$800</h3>
                                             <p>/Month</p>
                                         </div>
-                                        <p style={{fontSize: '14px', marginBottom: '20px', opacity: '0.8'}}>Perfect for startups</p>
+                                        <p className="pricing-starter-note">Perfect for startups</p>
                                         <AnimatedButton href="/book-a-call">
                                             Get Started
                                         </AnimatedButton>
@@ -62,7 +62,7 @@ function PricingPlanSection(){
                             </div>
                         </div>
                         <div className="col">
-                            <AnimateOnScroll animation="fadeInUp" speed="slow">
+                            <AnimateOnScroll animation="fadeInUp" speed="slow" delay={300}>
                                 <div className="card card-pricing pricing-highlight">
                                     <div className="spacer" />
                                     <h4>Growth</h4>
@@ -134,11 +134,11 @@ function PricingPlanSection(){
                                     </div>
                                 </AnimateOnScroll>
 
-                                <AnimateOnScroll animation="fadeInUp" speed="normal">
+                                <AnimateOnScroll animation="fadeInUp" speed="normal" delay={400}>
                                     <div className="card card-pricing">
                                         <h4>Enterprise Elite</h4>
                                         <p>Contact Sales Team for Agency and Enterprise Prices</p>
-                                        <p style={{fontSize: '14px', marginBottom: '20px', opacity: '0.8'}}>For businesses who need pro solutions and integrations</p>
+                                        <p className="pricing-growth-note">For businesses who need pro solutions and integrations</p>
                                         <AnimatedButton href="/book-a-call">
                                             Contact Sales
                                         </AnimatedButton>

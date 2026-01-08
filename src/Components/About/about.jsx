@@ -1,16 +1,11 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
-
-const BackgroundPaths = lazy(() => import("../BackgroundPaths/BackgroundPaths"));
 
 function AboutSection({ isHomePage = false }) {
 
     return(
         <div className="section section-about">
-            <Suspense fallback={<div style={{ minHeight: '100px' }} />}>
-                <BackgroundPaths />
-            </Suspense>
             <div className="hero-container">
                 <div className="d-flex flex-column flex-lg-row gspace-5">
                     <div className="about-img-layout">

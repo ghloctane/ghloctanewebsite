@@ -20,6 +20,7 @@ const BlogPostSection = () => {
                                         src={blog.image}
                                         alt={blog.title}
                                         className="img-fluid"
+                                        loading="lazy"
                                     />
                                     </div>
                                     <div className="d-grid">
@@ -54,6 +55,7 @@ const BlogPostSection = () => {
                             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=2400&h=1600&fit=crop&q=80"
                             alt="Recent Post"
                             className="img-fluid"
+                            loading="lazy"
                             />
                         </div>
                         <h3>How to Grow Your Digital Business</h3>

@@ -28,6 +28,7 @@ const PartnershipListSection = () => {
                                         src={partner.logo}
                                         alt="Partner Logo"
                                         className="partner-logo img-fluid"
+                                        loading="lazy"
                                         />
                                     </a>
                                 </div>

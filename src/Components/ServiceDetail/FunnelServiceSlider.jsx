@@ -147,6 +147,7 @@ function FunnelServiceSlider({ serviceTitle }) {
                                             src={image} 
                                             alt={`${serviceTitle || 'Funnel'} - ${index + 1}`}
                                             className="service-detail-image service-funnel-image"
+                                            loading="lazy"
                                             style={{
                                                 width: '100%',
                                                 height: 'auto',

@@ -28,7 +28,7 @@ const IntegrationsSection = lazy(() => import("../../Components/Integrations/Int
 const CTASection = lazy(() => import("../../Components/CTA/CTASection"));
 
 // Loading fallback component
-const SectionPlaceholder = () => <div className="section" style={{ minHeight: '400px' }}></div>;
+const SectionPlaceholder = () => <div className="section section-placeholder"></div>;
 
 function HomePage(){
     return(

@@ -75,7 +75,7 @@ const PartnershipSection = () => {
                                     {partnerships.concat(partnerships).concat(partnerships).concat(partnerships).map((partner, index) => (
                                     <SwiperSlide key={partner.id + index}>
                                         <div className="partner-slide">
-                                            <img src={partner.logo} alt="Client" className="partner-logo img-fluid" />
+                                            <img src={partner.logo} alt="Client" className="partner-logo img-fluid" loading="lazy" />
                                         </div>
                                     </SwiperSlide>
                                     ))}

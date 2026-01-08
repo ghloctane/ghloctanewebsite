@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 
-function BlogCard({ blog }) {
-    const handleClick = () => {
+const BlogCard = memo(({ blog }) => {
+    const handleClick = useCallback(() => {
         window.location.href = blog.link;
-    };
+    }, [blog.link]);
 
     return (
         <div className="col">
@@ -14,7 +14,7 @@ function BlogCard({ blog }) {
                     onClick={handleClick}
                 >
                     <div className="blog-image">
-                        <img src={blog.image} alt="Blog" />
+                        <img src={blog.image} alt="Blog" loading="lazy" />
                     </div>
                     <div className="card-body">
                         <div className="d-flex flex-row gspace-2">
@@ -39,6 +39,8 @@ function BlogCard({ blog }) {
             </AnimateOnScroll>
         </div>
     );
-}
+});
+
+BlogCard.displayName = 'BlogCard';
 
 export default BlogCard;

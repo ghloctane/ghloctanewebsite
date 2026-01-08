@@ -1,35 +1,33 @@
 import React from "react";
 import AnimateOnScroll from "../Hooks/AnimateOnScroll";
-import BackgroundPaths from "../BackgroundPaths/BackgroundPaths";
 
 const TeamSection = () => {
     return (
         <>
             <div className="section section-leader">
-                <BackgroundPaths />
                 <div className="hero-container">
                     <div className="d-flex flex-column justify-content-center text-center gspace-5">
                         <div className="d-flex flex-column justify-content-center text-center gspace-2">
-                            <AnimateOnScroll animation="fadeInDown" speed="normal">
+                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={0}>
                                 <div className="sub-heading align-self-center">
                                     <i className="fa-regular fa-circle-dot"></i>
                                     <span>Our Leaders</span>
                                 </div>
                             </AnimateOnScroll>
-                            <AnimateOnScroll animation="fadeInDown" speed="normal">
+                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={100}>
                                 <h2 className="title-heading heading-container heading-container-medium">
                                     MEET THE VISIONARIES BEHIND GHL OCTANE
                                 </h2>
                             </AnimateOnScroll>
-                            <AnimateOnScroll animation="fadeInUp" speed="normal">
-                                <p style={{maxWidth: '700px', margin: '0 auto'}}>
+                            <AnimateOnScroll animation="fadeInUp" speed="normal" delay={200}>
+                                <p className="team-description">
                                     Our leadership team brings years of experience in GoHighLevel automation and digital marketing to help your business thrive.
                                 </p>
                             </AnimateOnScroll>
                         </div>
 
                         <div className="row row-cols-lg-2 row-cols-1 grid-spacer-4 justify-content-center">
-                            <AnimateOnScroll animation="fadeInUp" speed="normal">
+                            <AnimateOnScroll animation="fadeInUp" speed="normal" delay={300}>
                                 <div className="col">
                                     <div className="d-flex flex-column align-items-center">
                                         <div className="leader-image">
@@ -37,6 +35,7 @@ const TeamSection = () => {
                                                 src="/assets/images/zeeshan haider.webp" 
                                                 alt="Zeeshan Haider" 
                                                 className="img-fluid"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <div className="leader-text">
@@ -46,7 +45,7 @@ const TeamSection = () => {
                                     </div>
                                 </div>
                             </AnimateOnScroll>
-                            <AnimateOnScroll animation="fadeInUp" speed="normal">
+                            <AnimateOnScroll animation="fadeInUp" speed="normal" delay={400}>
                                 <div className="col">
                                     <div className="d-flex flex-column align-items-center">
                                         <div className="leader-image">
@@ -54,6 +53,7 @@ const TeamSection = () => {
                                                 src="/assets/images/hammad raza .webp" 
                                                 alt="Hammad Raza" 
                                                 className="img-fluid"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <div className="leader-text">
@@ -100,7 +100,8 @@ const TeamSection = () => {
                                     <img 
                                         src="/assets/images/our vision.webp" 
                                         alt="Our Vision" 
-                                        className="chooseus-img" 
+                                        className="chooseus-img"
+                                        loading="lazy"
                                     />
                                 </div>
                             </AnimateOnScroll>

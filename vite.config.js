@@ -16,13 +16,25 @@ export default defineConfig({
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router-dom')) {
             return 'react-vendor';
           }
+          // Three.js in separate chunk (heavy - 600KB)
+          if (id.includes('node_modules/three')) {
+            return 'three-vendor';
+          }
+          // React Three Fiber in separate chunk (400KB)
+          if (id.includes('node_modules/@react-three/fiber')) {
+            return 'three-fiber-vendor';
+          }
+          // Postprocessing in separate chunk (used with Three.js)
+          if (id.includes('node_modules/postprocessing')) {
+            return 'postprocessing-vendor';
+          }
+          // Framer Motion in separate chunk (500KB)
+          if (id.includes('node_modules/framer-motion')) {
+            return 'framer-motion-vendor';
+          }
           // Swiper in separate chunk
           if (id.includes('node_modules/swiper')) {
             return 'swiper-vendor';
-          }
-          // Animation libraries in separate chunk (lazy loaded)
-          if (id.includes('node_modules/framer-motion') || id.includes('node_modules/gsap')) {
-            return 'animation-vendor';
           }
           // Other large dependencies
           if (id.includes('node_modules')) {
@@ -43,5 +55,6 @@ export default defineConfig({
   // Optimize dependencies
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'swiper'],
+    exclude: ['three', '@react-three/fiber', 'postprocessing'], // Exclude heavy Three.js libs - load on demand
   },
 })

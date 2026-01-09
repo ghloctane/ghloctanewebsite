@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import "./IntegrationsSection.css";
 
 const IntegrationsSection = () => {
@@ -55,18 +54,16 @@ const IntegrationsSection = () => {
         <div className="section section-integrations">
             <div className="hero-container">
                 <div className="card card-integrations">
-                    <AnimateOnScroll animation="fadeInUp" speed="normal">
-                        <div className="d-flex flex-column align-items-center text-center gspace-3">
-                            <div className="sub-heading">
-                                <i className="fa-regular fa-circle-dot"></i>
-                                <span>Integrations</span>
-                            </div>
-                            <h2 className="title-heading">Integrate Your Favorite Tools with GHL</h2>
-                            <p style={{ maxWidth: '700px', margin: '0 auto' }}>
-                                Power up your GoHighLevel with seamless integrations. Connect all your favorite tools and platforms to create the ultimate automation ecosystem.
-                            </p>
+                    <div className="d-flex flex-column align-items-center text-center gspace-3">
+                        <div className="sub-heading">
+                            <i className="fa-regular fa-circle-dot"></i>
+                            <span>Integrations</span>
                         </div>
-                    </AnimateOnScroll>
+                        <h2 className="title-heading">Integrate Your Favorite Tools with GHL</h2>
+                        <p style={{ maxWidth: '700px', margin: '0 auto' }}>
+                            Power up your GoHighLevel with seamless integrations. Connect all your favorite tools and platforms to create the ultimate automation ecosystem.
+                        </p>
+                    </div>
 
                     <div className="integrations-scroller-wrapper">
                         <div className="scroller" data-direction="left" data-speed="slow">

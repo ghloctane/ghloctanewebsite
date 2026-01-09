@@ -64,7 +64,8 @@
 
 /* ================== 01. Import Vendor ================== */
 
-@import url('/assets/css/vendor/font-family-plus-jakarta-sans.css');
+/* Font family CSS loaded via _document.tsx for Next.js compatibility */
+/* @import url('/assets/css/vendor/font-family-plus-jakarta-sans.css'); */
 
 /* 
  * FontAwesome CSS is loaded via index.html (lines 81-84) for better performance
@@ -234,7 +235,7 @@ body{
     background-color: #FFFFFF;
     font-family: var(--global-font);
     color: var(--primary);
-    transition: all 0.3s ease;
+    /* Removed transition: all - causes performance issues on scroll */
     position: relative;
     z-index: 0;
     overflow-x: hidden;
@@ -260,6 +261,8 @@ body::before{
     will-change: auto;
     transform: none;
     -webkit-transform: none;
+    /* No animation on main background - static gradient only */
+    animation: none !important;
 }  
 
 h1 {
@@ -374,7 +377,12 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     z-index: 1;
     /* Using solid background instead of backdrop-filter for better performance */
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
+    /* Ensure sections are always visible - no scroll-based hiding */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
 }
 
 .hero-container {
@@ -425,6 +433,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Leader Section - Wide Layout */
+.section-leader {
+    background: rgba(255, 255, 255, 0.95) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
+}
+
 .section-leader .hero-container {
     max-width: 1280px;
     width: 100%;
@@ -504,8 +520,12 @@ body::-webkit-scrollbar-thumb:hover {
     border: none;
     border-radius: var(--global-border-radius);
     padding: 120px 20px 120px 20px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
 }
 
 .section-vision::before {
@@ -679,7 +699,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Dashboard Swiper - CSS Containment */
 .swiperDashboards-container{
-    content-visibility: auto;
+    /* Removed content-visibility: auto - causes sections to appear on scroll */
     contain: layout paint;
     aspect-ratio: 16/9;
     position: relative;
@@ -862,15 +882,21 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Expertise Section - Wider Layout (Similar to Hero Section) */
 .section-expertise {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     padding: 120px 20px 60px 20px;
     margin: 0;
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     /* backdrop-filter: blur(1px); */ /* Removed for mobile performance */
-    background: rgba(255, 255, 255, 0.95); /* Solid background instead of blur */
+    /* Ensure section is always visible - no scroll-based hiding */
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    /* Disable content-visibility that causes scroll-based appearance */
+    content-visibility: visible !important;
+    contain: none !important;
 }
 
 .section-expertise::before {
@@ -888,14 +914,11 @@ body::-webkit-scrollbar-thumb:hover {
     animation: subtlePulse 8s ease-in-out infinite;
 }
 
+/* Disabled subtlePulse animation for better performance - no animation */
 @keyframes subtlePulse {
-    0%, 100% {
+    0%, 100%, 50% {
         opacity: 1;
         transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.02);
     }
 }
 
@@ -913,7 +936,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Hero/Banner Slider - CSS Containment for Layout Stability */
 .section-banner{
-    content-visibility: auto;
+    /* Removed content-visibility: auto - causes sections to appear on scroll */
     contain: layout paint;
     aspect-ratio: auto; /* Changed from 16/9 to auto for better responsiveness */
     min-height: clamp(400px, 50vh, 600px); /* Responsive min-height */
@@ -3702,7 +3725,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Partnership Swiper - CSS Containment */
 .swiperPartner-container{
-    content-visibility: auto;
+    /* Removed content-visibility: auto - causes sections to appear on scroll */
     contain: layout paint;
     aspect-ratio: 16/9;
     margin: 0 auto;
@@ -4773,7 +4796,7 @@ body::-webkit-scrollbar-thumb:hover {
     left: 0;
     /* ✅ Smooth 4 second transition */
     transition: transform 4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
+    /* will-change removed for better performance */
 }
 
 /* ✅ Image - full width, auto height (like screenshot) */
@@ -5970,7 +5993,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .swiperTestimonial .swiper-slide{
-    content-visibility: auto;
+    /* Removed content-visibility: auto - causes sections to appear on scroll */
     contain: content;
     height: auto;
     min-height: 400px;
@@ -8095,4 +8118,16 @@ body::-webkit-scrollbar-thumb:hover {
     .website-showcase-left {
         animation-duration: 25s;
     }
+}
+
+/* Hide Next.js portal element */
+nextjs-portal {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
 }

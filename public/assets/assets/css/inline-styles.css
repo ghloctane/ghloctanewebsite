@@ -1,0 +1,77 @@
+/* Inline Styles Moved to CSS for Better Performance */
+
+/* Service Section */
+.service-button-container {
+    margin-top: 20px;
+}
+
+/* Team Section */
+.team-description {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Pricing Section */
+.pricing-starter-note {
+    font-size: 14px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.pricing-growth-note {
+    font-size: 14px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* Vision Component */
+.vision-content-container {
+    flex: 1;
+}
+
+.vision-card-container {
+    flex: 1;
+}
+
+/* Website Showcase */
+.website-showcase-demo-cursor {
+    cursor: pointer;
+}
+
+/* Testimonial Section */
+.testimonial-video-container {
+    height: auto;
+    min-height: 400px;
+}
+
+/* Service Detail */
+.service-detail-image {
+    object-fit: contain;
+    padding: 20px;
+}
+
+.service-detail-link-wrapper {
+    margin-top: 20px;
+}
+
+/* Book a Call Page */
+.book-call-text-center {
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.book-call-iframe {
+    width: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+/* Section Placeholder */
+.section-placeholder {
+    min-height: 400px;
+}
+
+/* Suspense Fallback */
+.suspense-fallback {
+    min-height: 100px;
+}

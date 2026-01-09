@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { allServicesData } from "../../Data/AllServicesData";
 import ServiceCard from "../Card/ServiceCard";
-import AnimateOnScroll from "../Hooks/AnimateOnScroll";
 import AnimatedButton from "../Button/AnimatedButton";
 
 function ServiceSection(){
@@ -16,18 +15,14 @@ function ServiceSection(){
                 <div className="hero-container">
                     <div className="d-flex flex-column justify-content-center text-center gspace-5">
                         <div className="d-flex flex-column justify-content-center text-center gspace-2">
-                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={0}>    
-                                <div className="sub-heading align-self-center">
-                                    <i className="fa-regular fa-circle-dot"></i>
-                                    <span>Our Services</span>
-                                </div>
-                            </AnimateOnScroll>
+                            <div className="sub-heading align-self-center">
+                                <i className="fa-regular fa-circle-dot"></i>
+                                <span>Our Services</span>
+                            </div>
 
-                            <AnimateOnScroll animation="fadeInDown" speed="normal" delay={100}>
-                                <h2 className="title-heading heading-container heading-container-medium">
-                                    DIGITAL SOLUTIONS THAT DRIVE REAL RESULTS
-                                </h2>
-                            </AnimateOnScroll>
+                            <h2 className="title-heading heading-container heading-container-medium">
+                                DIGITAL SOLUTIONS THAT DRIVE REAL RESULTS
+                            </h2>
                         </div>
                         <div className="card-service-wrapper">
                             <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 grid-spacer-2">
@@ -46,16 +41,14 @@ function ServiceSection(){
                         </div>
 
                         {/* Our Services Button */}
-                        <AnimateOnScroll animation="fadeInUp" speed="normal" delay={200}>
-                            <div className="d-flex justify-content-center service-button-container">
-                                <Link to="/service" className="view-all-services-btn">
-                                    <span className="btn-text">View All Services</span>
-                                    <span className="btn-icon">
-                                        <i className="fa-solid fa-arrow-right"></i>
-                                    </span>
-                                </Link>
-                            </div>
-                        </AnimateOnScroll>
+                        <div className="d-flex justify-content-center service-button-container">
+                            <Link to="/service" className="view-all-services-btn">
+                                <span className="btn-text">View All Services</span>
+                                <span className="btn-icon">
+                                    <i className="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </Link>
+                        </div>
 
                         <div className="service-link-footer">
                             <p>

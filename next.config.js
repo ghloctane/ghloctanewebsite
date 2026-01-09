@@ -28,7 +28,9 @@ const nextConfig = {
   },
 
   // Output configuration
-  output: 'standalone',
+  // Removed 'standalone' output - Vercel handles Next.js builds automatically
+  // If deploying elsewhere (not Vercel), you can uncomment the line below:
+  // output: 'standalone',
   
   // Experimental features
   experimental: {

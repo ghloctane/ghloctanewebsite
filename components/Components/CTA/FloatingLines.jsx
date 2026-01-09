@@ -262,8 +262,8 @@ export default function FloatingLines({
     return window.innerWidth <= 767;
   }, []);
 
-  // ✅ Disable on mobile
-  if (isMobile) {
+  // ✅ Disable on mobile unless enableOnMobile is true
+  if (isMobile && !enableOnMobile) {
     return null;
   }
 

@@ -852,8 +852,6 @@
     /* Disable heavy effects during scroll - Force hide on mobile */
     .background-paths-wrapper,
     .background-paths-container,
-    .cta-floating-lines-wrapper,
-    .floating-lines-container:not(.banner-visual-background .floating-lines-container),
     .background-paths-svg {
         display: none !important;
         visibility: hidden !important;
@@ -861,22 +859,40 @@
         pointer-events: none !important;
     }
     
+    /* Hide CTA FloatingLines on mobile (but keep Banner FloatingLines) */
+    .cta-floating-lines-wrapper,
+    .cta-floating-lines-wrapper .floating-lines-container {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    
     /* Ensure Banner FloatingLines is visible on mobile */
+    .banner-video-container .floating-lines-container,
     .banner-visual-background .floating-lines-container {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1 !important;
     }
     
-    /* Disable Three.js canvas elements EXCEPT FloatingLines background */
-    canvas:not(.banner-visual-background canvas):not(.floating-lines-container canvas) {
+    /* Disable Three.js canvas elements EXCEPT Banner FloatingLines */
+    canvas:not(.banner-video-container canvas):not(.banner-visual-background canvas) {
         display: none !important;
     }
     
-    /* Ensure FloatingLines canvas is visible on mobile */
+    /* Ensure Banner FloatingLines canvas is visible on mobile */
+    .banner-video-container .floating-lines-container canvas,
+    .banner-video-container canvas,
     .banner-visual-background canvas,
-    .floating-lines-container canvas {
+    .banner-visual-background .floating-lines-container canvas {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;

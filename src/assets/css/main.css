@@ -1751,6 +1751,8 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1 !important;
 }
 
+/* FloatingLines container in Banner - Always visible with proper z-index */
+.banner-video-container .floating-lines-container,
 .banner-visual-background .floating-lines-container {
     width: 100% !important;
     height: 100% !important;
@@ -1759,6 +1761,9 @@ body::-webkit-scrollbar-thumb:hover {
     left: 0 !important;
     display: block !important;
     visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
 }
 
 .banner-video-container .hero-container *{

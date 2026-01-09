@@ -868,7 +868,7 @@
         pointer-events: none !important;
     }
     
-    /* Ensure Banner FloatingLines is visible on mobile */
+    /* Ensure Banner FloatingLines is clearly visible on mobile */
     .banner-video-container .floating-lines-container,
     .banner-visual-background .floating-lines-container {
         display: block !important;
@@ -880,7 +880,10 @@
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
         z-index: 1 !important;
+        overflow: visible !important;
     }
     
     /* Disable Three.js canvas elements EXCEPT Banner FloatingLines */
@@ -888,7 +891,7 @@
         display: none !important;
     }
     
-    /* Ensure Banner FloatingLines canvas is visible on mobile */
+    /* Ensure Banner FloatingLines canvas is clearly visible on mobile */
     .banner-video-container .floating-lines-container canvas,
     .banner-video-container canvas,
     .banner-visual-background canvas,
@@ -896,6 +899,24 @@
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1 !important;
+    }
+    
+    /* Ensure banner-video-container allows FloatingLines to be visible */
+    .banner-video-container {
+        position: relative !important;
+        overflow: visible !important;
+    }
+    
+    /* Ensure hero-container is above FloatingLines but doesn't hide it */
+    .banner-video-container .hero-container {
+        position: relative !important;
+        z-index: 10 !important;
     }
     
     

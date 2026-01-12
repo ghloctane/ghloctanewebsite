@@ -1764,6 +1764,22 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1 !important;
     z-index: 1 !important;
     pointer-events: none !important;
+    overflow: visible !important;
+}
+
+/* FloatingLines canvas */
+.banner-video-container .floating-lines-container canvas,
+.banner-visual-background .floating-lines-container canvas {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
 }
 
 .banner-video-container .hero-container *{

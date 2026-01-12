@@ -14,7 +14,7 @@ function BannerHomeSection() {
                 className="banner-video-container keep-dark"
             >
                 <Suspense fallback={null}>
-                    <FloatingLines />
+                    <FloatingLines enableOnMobile={true} />
                 </Suspense>
                 <div className="hero-container position-relative">
                     <div className="d-flex flex-column gspace-2">

@@ -132,11 +132,12 @@
     }
     
     /* Mobile: Ensure background gradient shows (same as desktop) */
+    /* Fix Overlay Opacity: Reduce opacity so lines are clear */
     .banner-video-container::before {
         top: 0 !important;
         left: 0 !important;
-        opacity: 0.51 !important;
-        z-index: 0 !important;
+        opacity: 0.2 !important; /* Reduced from 0.51 to make lines visible */
+        z-index: 0 !important; /* Behind floating lines */
     }
     
     .banner-video-container .hero-container {
@@ -224,21 +225,49 @@
         height: 120px !important;
     }
     
-    /* Dashboard Swiper - Mobile Responsive (Slow, Center Aligned, Within Card) */
+    /* Dashboard Swiper - Mobile Responsive (Desktop Jaisa Layout) */
+    /* ✅ Container - Proportionally smaller but same look */
     .swiperDashboards-container {
-        min-height: 300px !important;
-        height: 300px !important;
+        min-height: 280px !important; /* ✅ Proportional to desktop 400px */
+        height: 280px !important;
         aspect-ratio: 16/9 !important;
         contain: layout paint !important;
-        overflow: hidden !important; /* Card ke andar */
+        overflow: hidden !important;
         width: 100% !important;
         max-width: 100% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 20px 15px !important;
+        padding: 20px 0 !important; /* ✅ Match desktop padding */
+        background: linear-gradient(135deg, #1a1f3a 0%, #252b4a 50%, #1e2440 100%) !important; /* ✅ Same gradient */
+        border-radius: var(--global-border-radius) !important;
+        position: relative !important;
+        z-index: 2 !important;
     }
     
+    /* ✅ Keep side gradients on mobile */
+    .swiperDashboards-container::before,
+    .swiperDashboards-container::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 60px !important; /* ✅ Smaller on mobile */
+        z-index: 3 !important;
+        pointer-events: none !important;
+    }
+    
+    .swiperDashboards-container::before {
+        left: 0 !important;
+        background: linear-gradient(to right, rgba(26, 31, 58, 1) 0%, rgba(26, 31, 58, 0.8) 50%, transparent 100%) !important;
+    }
+    
+    .swiperDashboards-container::after {
+        right: 0 !important;
+        background: linear-gradient(to left, rgba(26, 31, 58, 1) 0%, rgba(26, 31, 58, 0.8) 50%, transparent 100%) !important;
+    }
+    
+    /* ✅ Swiper wrapper */
     .swiperDashboards {
         width: 100% !important;
         height: 100% !important;
@@ -251,36 +280,69 @@
         transition-timing-function: linear !important;
     }
     
+    /* ✅ Slides - Proportional to desktop 340px */
     .swiperDashboards .swiper-slide {
-        min-height: 250px !important;
-        height: 250px !important;
         display: flex !important;
-        align-items: center !important;
         justify-content: center !important;
+        align-items: center !important;
+        height: 240px !important; /* ✅ 340px ka 70% */
+        min-height: 240px !important;
     }
     
+    /* ✅ Dashboard slide container */
     .swiperDashboards .dashboard-slide {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         width: 100% !important;
         height: 100% !important;
-        overflow: hidden !important; /* Card ke andar */
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        padding: 8px !important; /* ✅ Proportional to desktop 10px */
+        transition: transform 0.3s ease !important;
+        overflow: hidden !important;
     }
     
+    /* ✅ KEY: Dashboard Image - Same styling as desktop */
     .swiperDashboards .dashboard-image {
         width: 100% !important;
-        max-width: 100% !important;
         height: auto !important;
         max-height: 100% !important;
-        object-fit: contain !important;
-        margin: 0 auto !important; /* Center align */
+        object-fit: contain !important; /* ✅ Same as desktop */
+        border-radius: var(--global-border-radius) !important; /* ✅ Same as desktop */
+        border: 1px solid var(--accent-color-3) !important; /* ✅ Same as desktop */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important; /* ✅ Same as desktop */
+        transition: all 0.3s ease !important;
+        margin: 0 auto !important;
         display: block !important;
     }
     
-    /* Card case studies - Ensure overflow hidden */
+    /* ✅ Hover effects - Same as desktop */
+    .swiperDashboards .dashboard-slide:hover {
+        transform: translateY(-5px) !important;
+    }
+    
+    .swiperDashboards .dashboard-slide:hover .dashboard-image {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+        border-color: var(--accent-color) !important;
+    }
+    
+    /* ✅ Card case studies - Proper height */
     .card-case-studies {
-        overflow: hidden !important; /* Dashboards card ke andar */
+        overflow: hidden !important;
+        min-height: 350px !important; /* ✅ Adjust based on content */
+    }
+    
+    /* ✅ Overlay - Keep same as desktop */
+    .swiperDashboards-overlay {
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        left: 0 !important;
+        background-color: transparent !important;
+        background-image: radial-gradient(at top center, var(--accent-color) 0%, var(--accent-transparent) 40%) !important;
+        opacity: 0.1 !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
     }
     
     /* Testimonial Swiper - Mobile Responsive (Cards visible) */
@@ -868,33 +930,25 @@
         pointer-events: none !important;
     }
     
-    /* Ensure Banner FloatingLines is clearly visible on mobile */
+    /* ================== FLOATING LINES - FORCE VISIBILITY ON MOBILE ================== */
+    
+    /* 1. Force Display Banner FloatingLines Container */
     .banner-video-container .floating-lines-container,
     .banner-visual-background .floating-lines-container {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: none !important;
-        width: 100% !important;
-        height: 100% !important;
+        z-index: 1 !important;
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        z-index: 1 !important;
-        overflow: visible !important;
+        width: 100% !important;
+        height: 100% !important;
     }
     
-    /* Disable Three.js canvas elements EXCEPT Banner FloatingLines */
-    canvas:not(.banner-video-container canvas):not(.banner-visual-background canvas) {
-        display: none !important;
-    }
-    
-    /* Ensure Banner FloatingLines canvas is clearly visible on mobile */
+    /* 2. Force Display Banner FloatingLines Canvas */
     .banner-video-container .floating-lines-container canvas,
-    .banner-video-container canvas,
-    .banner-visual-background canvas,
     .banner-visual-background .floating-lines-container canvas {
         display: block !important;
         visibility: visible !important;
@@ -907,16 +961,36 @@
         z-index: 1 !important;
     }
     
-    /* Ensure banner-video-container allows FloatingLines to be visible */
-    .banner-video-container {
-        position: relative !important;
-        overflow: visible !important;
+    /* 3. Hide CTA FloatingLines (keep only banner) */
+    .cta-floating-lines-wrapper,
+    .cta-floating-lines-wrapper canvas,
+    .cta-floating-lines-wrapper .floating-lines-container,
+    .cta-floating-lines-wrapper .floating-lines-container canvas {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
     
-    /* Ensure hero-container is above FloatingLines but doesn't hide it */
+    /* 4. Ensure banner container allows overflow */
+    .banner-video-container {
+        overflow: visible !important;
+        position: relative !important;
+        contain: none !important;
+    }
+    
+    /* 5. Ensure text stays above lines */
     .banner-video-container .hero-container {
         position: relative !important;
         z-index: 10 !important;
+    }
+    
+    /* 6. Ensure background wrapper shows */
+    .banner-visual-background {
+        z-index: 0 !important;
+        position: absolute !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     
@@ -1683,18 +1757,24 @@
     }
     /* ================== About Section Mobile Responsive ================== */
     .section-about {
-        padding: 60px 15px !important;
+        padding: 80px 15px !important; /* Increased from 60px for better spacing */
+        min-height: auto !important;
+        height: auto !important;
+        overflow: visible !important; /* ✅ Allow content to show */
+        position: relative !important; /* ✅ Ensure proper containment */
     }
     
     .section-about .hero-container {
         padding: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
+        min-height: auto !important;
     }
     
     .section-about .d-flex.flex-column.flex-lg-row {
         flex-direction: column !important;
-        gap: 30px !important;
+        gap: 40px !important; /* Increased from 30px for better spacing between elements */
+        min-height: auto !important;
     }
     
     /* About Image Layout - Mobile */
@@ -1704,7 +1784,7 @@
         order: 1 !important; /* ✅ Text comes first */
         margin: 0 !important;
         padding: 0 15px !important;
-        margin-bottom: 30px !important; /* ✅ Space after text */
+        margin-bottom: 40px !important; /* ✅ Increased space after text */
     }
     
     .about-img-layout {
@@ -1712,6 +1792,7 @@
         order: 2 !important; /* ✅ Image comes second */
         margin: 0 !important;
         padding: 0 15px !important;
+        margin-bottom: 20px !important; /* ✅ Space after image layout */
     }
     
     /* Image Container - Mobile */
@@ -1723,8 +1804,12 @@
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        position: relative !important;
-        gap: 20px !important; /* ✅ Space between image and card */
+        min-height: auto !important;
+        position: relative !important; /* ✅ Ensure relative positioning */
+        gap: 30px !important; /* ✅ Increased space between image and card */
+        margin-bottom: 20px !important; /* ✅ Space after container */
+        overflow: visible !important; /* ✅ Allow card to show */
+        z-index: 1 !important; /* ✅ Ensure proper stacking */
     }
     
     /* ✅ Fixed: Mobile responsive image height - Full image display */
@@ -1757,34 +1842,53 @@
         position: relative !important; /* ✅ Not absolute = no overlay */
         top: auto !important; /* ✅ Remove absolute positioning */
         left: auto !important; /* ✅ Remove absolute positioning */
-        margin-top: 0 !important; /* ✅ No negative margin */
+        right: auto !important;
+        bottom: auto !important;
+        margin-top: 20px !important; /* ✅ Space after image */
         margin-left: 0 !important;
         margin-right: 0 !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 30px !important; /* ✅ Space at bottom for better visibility */
         width: 100% !important;
+        max-width: 100% !important;
         z-index: 1 !important;
         order: 2 !important; /* ✅ Card comes after image */
         display: flex !important;
         flex-direction: column !important;
+        overflow: visible !important; /* ✅ Allow content to show */
     }
 
     .card-about-wrapper {
         width: 100% !important;
+        max-width: 100% !important;
         display: flex !important;
         justify-content: center !important;
+        align-items: center !important;
         padding: 0 !important; /* ✅ Remove wrapper padding */
         background-color: transparent !important; /* ✅ No background */
         border-radius: 0 !important; /* ✅ No border radius */
-        margin: 0 !important; /* ✅ No margin */
+        margin: 0 !important; /* ✅ Remove negative margin completely */
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        position: relative !important; /* ✅ Ensure relative positioning */
+        top: auto !important; /* ✅ Remove any top positioning */
+        left: auto !important; /* ✅ Remove any left positioning */
     }
 
-    /* ✅ Fixed: Mobile card full width - No overlay */
+    /* ✅ Fixed: Mobile card properly contained within about section */
     .card-about {
         width: 100% !important;
         max-width: 280px !important;
         padding: 20px 15px !important;
-        margin: 0 auto !important;
-        position: relative !important; /* ✅ Not absolute */
+        margin: 0 auto !important; /* ✅ Center the card */
+        margin-top: 0 !important; /* ✅ Remove any top margin */
+        margin-bottom: 0 !important;
+        position: relative !important; /* ✅ Not absolute - stays in flow */
+        top: auto !important; /* ✅ Remove any top positioning */
+        left: auto !important; /* ✅ Remove any left positioning */
+        right: auto !important;
+        bottom: auto !important;
     }
 
     .card-about .counter {
@@ -1817,6 +1921,77 @@
     .section-leader .hero-container {
         position: relative !important;
         z-index: 2 !important;
+    }
+    
+    /* Leader Section Heading - Left Align on Mobile */
+    .section-leader .sub-heading {
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: left !important;
+        align-self: flex-start !important;
+    }
+    
+    .section-leader .d-flex.flex-column.justify-content-center.text-center {
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+    
+    .section-leader .d-flex.flex-column.justify-content-center.text-center.gspace-2 {
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+    
+    /* Leader Images - Mobile Responsive with Design */
+    .section-leader .leader-image {
+        width: 100% !important;
+        max-width: 350px !important; /* Consistent placeholder size */
+        height: 350px !important; /* Same height as width for square placeholder */
+        min-height: 350px !important;
+        aspect-ratio: 1 / 1 !important; /* Square placeholder */
+        margin: 0 auto 30px auto !important; /* Increased spacing before text */
+        border-radius: var(--global-border-radius) !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 24px rgba(39, 66, 140, 0.15) !important; /* Enhanced shadow */
+        border: 3px solid var(--accent-color-3) !important; /* Border design */
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(232, 237, 255, 0.2) 100%) !important; /* Subtle background */
+        position: relative !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Hover effect for leader images */
+    .section-leader .leader-image:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 32px rgba(39, 66, 140, 0.25) !important;
+        border-color: var(--accent-color) !important;
+    }
+    
+    .section-leader .leader-image img {
+        width: 100% !important;
+        height: 100% !important; /* Fill the placeholder */
+        max-width: 100% !important;
+        object-fit: cover !important; /* Fill placeholder nicely */
+        object-position: center top !important; /* Show face area */
+        display: block !important;
+        border-radius: var(--global-border-radius) !important;
+        position: relative !important;
+        z-index: 0 !important;
+    }
+    
+    /* Leader Text - Mobile with proper spacing */
+    .section-leader .leader-text {
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 0 !important; /* Spacing already in image margin-bottom */
+        margin-bottom: 40px !important; /* Space after each leader card */
+    }
+    
+    .section-leader .leader-text h4 {
+        margin-bottom: 8px !important;
+        font-size: clamp(1.2rem, 4vw, 1.5rem) !important;
+    }
+    
+    .section-leader .leader-text .leader-title {
+        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
     }
     
     .about-title .sub-heading {
@@ -1968,88 +2143,115 @@
         position: relative !important;
         z-index: 10 !important;
     }
-    .card-chooseus{
-        flex-direction: row !important;
+    /* ================== ChooseUs Cards - Simple Mobile Design ================== */
+    .card-chooseus {
+        flex-direction: column !important; /* ✅ Simple vertical layout */
         width: 100% !important;
+        max-width: 100% !important;
         min-height: auto !important;
-        padding: 20px !important;
-        margin: 0 0 20px 0 !important;
+        padding: 25px 20px !important; /* ✅ Clean padding */
+        margin: 0 0 25px 0 !important; /* ✅ Space between cards */
         box-sizing: border-box !important;
+        background: rgba(255, 255, 255, 0.95) !important; /* ✅ Simple background */
+        border: 1px solid var(--accent-color-3) !important; /* ✅ Simple border */
+        border-radius: var(--global-border-radius) !important;
+        box-shadow: 0 4px 15px rgba(39, 66, 140, 0.1) !important; /* ✅ Simple shadow */
     }
     
+    /* Hide spacers on mobile - Simple design */
+    .chooseus-spacer.above,
+    .chooseus-spacer.below {
+        display: none !important;
+    }
+    
+    /* Simple Icon Wrapper */
     .chooseus-icon-wrapper,
     .card-chooseus .chooseus-icon-wrapper {
-        flex-direction: column !important;
+        width: 100% !important;
         min-height: auto !important;
-        width: 100px !important;
-        flex-shrink: 0 !important;
+        height: auto !important;
         display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 10 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-bottom: 20px !important; /* ✅ Space after icon */
+        padding: 0 !important;
     }
     
+    /* Simple Icon Layout */
     .chooseus-icon-layout,
     .card-chooseus .chooseus-icon-layout {
-        width: 100px !important;
-        height: 100px !important;
-        min-height: 100px !important;
+        width: 80px !important; /* ✅ Consistent size */
+        height: 80px !important;
+        min-height: 80px !important;
+        max-width: 80px !important;
         display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 10 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-color: var(--accent-color-4) !important; /* ✅ Simple background */
+        border-radius: 50% !important; /* ✅ Circular icon */
+        padding: 0 !important;
+        margin: 0 auto !important; /* ✅ Centered */
     }
     
+    /* Simple Icon */
     .chooseus-icon,
     .card-chooseus .chooseus-icon {
         width: 100% !important;
         height: 100% !important;
-        min-height: 100px !important;
         display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
         align-items: center !important;
         justify-content: center !important;
-        position: relative !important;
-        z-index: 10 !important;
+        background: transparent !important; /* ✅ Remove gradient */
+        box-shadow: none !important; /* ✅ Remove shadow */
+        border-radius: 50% !important;
     }
     
+    /* Simple Icon Image */
     .chooseus-icon img,
-    .chooseus-icon img.img-fluid,
-    .card-chooseus .chooseus-icon img,
-    .card-chooseus .chooseus-icon img.img-fluid,
-    .chooseus-icon-wrapper .chooseus-icon img,
-    .chooseus-icon-layout .chooseus-icon img,
-    .chooseus-icon-wrapper .chooseus-icon-layout .chooseus-icon img {
-        width: 60% !important;
-        height: auto !important;
-        max-width: 60px !important;
-        min-width: 40px !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+    .card-chooseus .chooseus-icon img {
+        width: 50px !important; /* ✅ Consistent icon size */
+        height: 50px !important;
+        max-width: 50px !important;
+        min-width: 50px !important;
         object-fit: contain !important;
-        position: relative !important;
-        z-index: 10 !important;
+        display: block !important;
+        filter: brightness(0) saturate(100%) invert(18%) sepia(89%) saturate(1234%) hue-rotate(210deg) brightness(0.9) contrast(1.1) !important;
     }
     
-    .chooseus-content{
+    /* Simple Content */
+    .chooseus-content {
         width: 100% !important;
-        padding: 0 0 0 20px !important;
+        padding: 0 !important; /* ✅ Remove padding */
         flex: 1 !important;
         display: flex !important;
         flex-direction: column !important;
+        text-align: center !important; /* ✅ Center align content */
+        gap: 15px !important; /* ✅ Consistent spacing */
     }
     
-    .card-chooseus-cta-wrapper{
+    .chooseus-content h4,
+    .chooseus-content .chooseus-title {
+        font-size: clamp(1.1rem, 4vw, 1.4rem) !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+    
+    .chooseus-content p {
+        font-size: clamp(0.9rem, 3vw, 1rem) !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .chooseus-content .link-wrapper {
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 10px !important;
+    }
+    
+    .card-chooseus-cta-wrapper {
         width: 100% !important;
         max-width: 100% !important;
-    }
-    .chooseus-spacer.above {
-        border-radius: 0px 25px 0px 0px;
-        box-shadow: 10px -10px 0px 0px var(--secondary);
     }
     .about-wrapper{
         padding: 20px 0px 0px 0px;
@@ -2740,6 +2942,64 @@
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
+    }
+}
+
+/* ==================== DIGITAL PROCESS MOBILE ANIMATIONS ==================== */
+/* Tablet adjustments (max-width: 991px) */
+@media (max-width: 991px) {
+    .phase-horizontal-connector.phase-line-visible {
+        width: 40px !important;
+    }
+    
+    .phase-circle {
+        width: 85px !important;
+        height: 85px !important;
+    }
+    
+    .phase-number {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Mobile adjustments (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    /* Vertical timeline on mobile */
+    .phases-timeline {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .phase-horizontal-connector {
+        display: none !important; /* Hide horizontal connectors on mobile */
+    }
+    
+    /* Show vertical connectors between phases */
+    .phase-container:not(:last-child)::after {
+        content: '' !important;
+        width: 4px !important;
+        height: 40px !important;
+        background: var(--phase-color) !important;
+        position: absolute !important;
+        bottom: -40px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        opacity: 0 !important;
+    }
+    
+    .phase-container.phase-visible:not(:last-child)::after {
+        opacity: 1 !important;
+        animation: verticalLineGrow 0.5s ease-out forwards !important;
+        animation-delay: 1.2s !important;
+    }
+    
+    @keyframes verticalLineGrow {
+        0% {
+            height: 0 !important;
+        }
+        100% {
+            height: 40px !important;
+        }
     }
 }
 

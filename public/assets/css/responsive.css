@@ -136,14 +136,8 @@
     .banner-video-container::before {
         top: 0 !important;
         left: 0 !important;
-        opacity: 0.05 !important; /* Reduced to make floating lines more visible */
+        opacity: 0.2 !important; /* Reduced from 0.51 to make lines visible */
         z-index: 0 !important; /* Behind floating lines */
-        pointer-events: none !important;
-    }
-    
-    /* Disable any overlay that blocks floating lines on mobile */
-    .banner-video-container > div:first-child:not(.floating-lines-container):not(.hero-container) {
-        display: none !important;
     }
     
     .banner-video-container .hero-container {
@@ -977,9 +971,9 @@
         opacity: 0 !important;
     }
     
-    /* 4. Ensure banner container clips content to rounded corners */
+    /* 4. Ensure banner container allows overflow */
     .banner-video-container {
-        overflow: hidden !important;
+        overflow: visible !important;
         position: relative !important;
         contain: none !important;
     }

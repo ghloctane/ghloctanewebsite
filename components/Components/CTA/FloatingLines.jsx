@@ -438,7 +438,7 @@ export default function FloatingLines({
       }
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false;
-      }, 150);
+      }, 100); // Reduced timeout for better responsiveness
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

@@ -65,6 +65,7 @@ const CustomizedDashboardsSection = () => {
                                         delay: 0,
                                         disableOnInteraction: false,
                                         pauseOnMouseEnter: true,
+                                        waitForTransition: false,
                                     }}
                                     allowTouchMove={true}
                                     breakpoints={{
@@ -75,7 +76,7 @@ const CustomizedDashboardsSection = () => {
                                     className="swiperDashboards"
                                 >
                                     {placeholderImages.concat(placeholderImages).map((image, index) => (
-                                        <SwiperSlide key={image.id + index}>
+                                        <SwiperSlide key={`dashboard-${index}`}>
                                             <div className="dashboard-slide">
                                                 <img 
                                                     src={image.url} 

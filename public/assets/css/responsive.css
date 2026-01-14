@@ -136,7 +136,7 @@
     .banner-video-container::before {
         top: 0 !important;
         left: 0 !important;
-        opacity: 0.05 !important; /* Reduced to make lines more visible */
+        opacity: 0.05 !important; /* Reduced to make floating lines more visible */
         z-index: 0 !important; /* Behind floating lines */
         pointer-events: none !important;
     }
@@ -892,14 +892,12 @@
     
     /* DISABLE ALL SCROLL ANIMATIONS ON MOBILE - Simple and clean */
     .animate__animated,
-    [class*="animate__"],
-    .animate-box {
+    [class*="animate__"] {
         animation: none !important;
         animation-duration: 0s !important;
         animation-delay: 0s !important;
         animation-fill-mode: none !important;
         opacity: 1 !important;
-        visibility: visible !important;
         transform: none !important;
     }
     
@@ -947,7 +945,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: none !important;
-        z-index: 5 !important;
+        z-index: 1 !important;
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
@@ -966,7 +964,7 @@
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
-        z-index: 5 !important;
+        z-index: 1 !important;
     }
     
     /* 3. Hide CTA FloatingLines (keep only banner) */

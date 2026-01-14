@@ -48,6 +48,7 @@ const IndustriesSection = () => {
                                         delay: 0,
                                         disableOnInteraction: false,
                                         pauseOnMouseEnter: true,
+                                        waitForTransition: false,
                                     }}
                                     allowTouchMove={true}
                                     breakpoints={{
@@ -88,7 +89,7 @@ const IndustriesSection = () => {
                                         };
                                         const industryColor = colors[industry.name] || { bg: "linear-gradient(135deg, #27428c 0%, #3d5ba8 100%)", icon: "#FFFFFF" };
                                         return (
-                                            <SwiperSlide key={industry.id + index}>
+                                            <SwiperSlide key={`industry-${index}`}>
                                                 <div className="partner-slide">
                                                     <div className="d-flex flex-column align-items-center gspace-1 industry-item">
                                                         <div 

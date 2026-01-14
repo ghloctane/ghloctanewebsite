@@ -383,28 +383,6 @@ body::-webkit-scrollbar-thumb:hover {
     visibility: visible !important;
     display: block !important;
     transform: none !important;
-    /* Disable content-visibility that causes scroll-based appearance */
-    content-visibility: visible !important;
-    contain: none !important;
-}
-
-/* Force all section children to be visible immediately - NO ANIMATIONS */
-.section *,
-.section-expertise *,
-.section-about *,
-.section-leader *,
-.section-vision *,
-.section-testimonial *,
-.section-funnel *,
-.section-stats *,
-.section-chooseus *,
-.section-featured *,
-.section-dashboards * {
-    opacity: 1 !important;
-    visibility: visible !important;
-    animation: none !important;
-    animation-play-state: paused !important;
-    transform: none !important;
 }
 
 .hero-container {
@@ -1784,7 +1762,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    z-index: 5 !important;
+    z-index: 1 !important;
     pointer-events: none !important;
     overflow: visible !important;
 }
@@ -1800,7 +1778,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    z-index: 5 !important;
+    z-index: 1 !important;
     pointer-events: none !important;
 }
 
@@ -1826,14 +1804,13 @@ body::-webkit-scrollbar-thumb:hover {
     content: '';
     background-color: transparent;
     background-image: radial-gradient(at center center, var(--accent-transparent) 0%, var(--secondary) 100%);
-    opacity: 0.1;
+    opacity: 0.51;
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+    top: 100%;
+    left: 100%;
     z-index: 0;
-    pointer-events: none;
 }
 
 /* YouTube Video Background - DISABLED (Replaced with Silk Shader) */
@@ -1841,8 +1818,8 @@ body::-webkit-scrollbar-thumb:hover {
     display: none !important; /* Video removed, using Silk shader instead */
 }
 
-/* Silk Shader Container - Disabled to not overlay FloatingLines */
-.banner-video-container > div:first-child:not(.floating-lines-container):not(.hero-container) {
+/* Silk Shader Container */
+.banner-video-container > div:first-child {
     position: absolute;
     top: 0;
     left: 0;
@@ -1850,7 +1827,6 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100%;
     z-index: 0;
     pointer-events: none;
-    display: none !important; /* Disable silk shader overlay */
 }
 
 
@@ -2262,9 +2238,9 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     flex-direction: row;
     gap: 15px 15px;
-    opacity: 1;
-    transform: none;
-    animation: none;
+    opacity: 0;
+    transform: translateX(-80px) scale(0.9);
+    animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     min-width: 240px;
     flex-shrink: 0;
 }
@@ -2315,14 +2291,19 @@ body::-webkit-scrollbar-thumb:hover {
 .digital-process-step::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -2px;
     left: 0;
     right: 0;
     height: 3px;
     background: var(--step-color, #4ECDC4);
     border-radius: 12px 12px 0 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.digital-process-step.step-visible::before {
     opacity: 1;
-    transition: none;
+    animation: drawLine 0.6s ease-out forwards;
     animation-delay: calc(var(--step-index, 0) * 0.2s);
 }
 
@@ -2345,9 +2326,9 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
     height: 4px;
     background: var(--step-color, #4ECDC4);
-    transform: scaleX(1);
+    transform: scaleX(0);
     transform-origin: left;
-    transition: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .digital-process-step.step-visible::before {
@@ -7030,18 +7011,23 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ================== 54. Animate Components ================== */
 
-/* ALL SCROLL ANIMATIONS DISABLED - Simple load, no animations */
-.animate__animated,
-[class*="animate__"],
-.animate-box {
-    animation: none !important;
-    animation-duration: 0s !important;
-    animation-delay: 0s !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    will-change: auto !important;
-    transition: none !important;
+/* .animate-box - REMOVED: Redundant - AnimateOnScroll component handles opacity via animate.css classes */
+
+.animate__animated {
+    animation-duration: 0.4s !important; /* Reduced from 1.25s for much faster animations */
+    animation-duration: var(--animation-normal, 0.4s);
+    /* Performance optimization - removed will-change for smoother scroll */
+    will-change: auto;
+}
+
+.animate__animated.animate__fast {
+    animation-duration: 0.2s !important; /* Reduced from 0.75s */
+    animation-duration: var(--animation-fast, 0.2s);
+}
+
+.animate__animated.animate__slow {
+    animation-duration: 2s;
+    animation-duration: var(--animation-slow, 2s);
 }
 
 /* ================== 55. CustomText Container Components ================== */

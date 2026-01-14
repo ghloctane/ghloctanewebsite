@@ -36,7 +36,7 @@ export const testimonials = [
         video: "/assets/testimonials/client4.mp4",
     },
     {
-        id: 4,
+        id: 10,
         name: "Sophia Lewis",
         title: "Founder",
         content: "From SEO to paid ads, Marko nailed every aspect of our campaign. Our website traffic skyrocketed, and lead generation has never been better!",
@@ -68,7 +68,7 @@ export const testimonials = [
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&q=80",
     },
     {
-        id: 8,
+        id: 11,
         name: "Sophia Lewis",
         title: "Founder",
         content: "From SEO to paid ads, Marko nailed every aspect of our campaign. Our website traffic skyrocketed, and lead generation has never been better!",

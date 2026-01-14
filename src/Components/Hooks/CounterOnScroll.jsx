@@ -17,9 +17,9 @@ const [count, setCount] = useState(0);
 
     useEffect(() => {
         if (inView) {
-            const steps = 60; // Jumlah frame animasi
+            const steps = 30; // Reduced frame count for better performance
             const increment = Math.max(1, Math.ceil(target / steps));
-            const delay = duration / (target / increment);
+            const delay = Math.max(16, duration / (target / increment)); // Minimum 16ms delay (60fps cap)
 
             const interval = setInterval(() => {
                 setCount((prev) => {

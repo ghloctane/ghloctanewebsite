@@ -98,4 +98,3 @@ const CustomizedDashboardsSection = () => {
 };
 
 export default CustomizedDashboardsSection;
-

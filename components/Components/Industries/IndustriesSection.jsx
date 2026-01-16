@@ -39,7 +39,7 @@ const IndustriesSection = () => {
                                     slidesPerView={6}
                                     spaceBetween={20}
                                     loop={true}
-                                    speed={5000}
+                                    speed={3000}
                                     autoHeight={false}
                                     observer={true}
                                     observeParents={true}
@@ -47,9 +47,11 @@ const IndustriesSection = () => {
                                     autoplay={{
                                         delay: 0,
                                         disableOnInteraction: false,
-                                        pauseOnMouseEnter: true,
+                                        pauseOnMouseEnter: false,
+                                        reverseDirection: false,
                                     }}
                                     allowTouchMove={true}
+                                    freeMode={false}
                                     breakpoints={{
                                     230: { slidesPerView: 3, allowTouchMove: true },
                                     767: { slidesPerView: 4, allowTouchMove: true },
@@ -88,7 +90,7 @@ const IndustriesSection = () => {
                                         };
                                         const industryColor = colors[industry.name] || { bg: "linear-gradient(135deg, #27428c 0%, #3d5ba8 100%)", icon: "#FFFFFF" };
                                         return (
-                                            <SwiperSlide key={industry.id + index}>
+                                            <SwiperSlide key={`industry-${industry.id}-${index}`}>
                                                 <div className="partner-slide">
                                                     <div className="d-flex flex-column align-items-center gspace-1 industry-item">
                                                         <div 

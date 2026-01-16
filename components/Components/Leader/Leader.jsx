@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const LeaderSection = () => {
     return (
@@ -23,11 +24,12 @@ const LeaderSection = () => {
                             <div className="col">
                                 <div className="d-flex flex-column align-items-center">
                                     <div className="leader-image">
-                                        <img 
+                                        <Image 
                                             src="/assets/images/zeeshan haider.webp" 
-                                            alt="Zeeshan Haider" 
+                                            alt="Zeeshan Haider - Founder" 
                                             className="img-fluid"
-                                            loading="lazy"
+                                            width={300}
+                                            height={300}
                                         />
                                     </div>
                                     <div className="leader-text">
@@ -39,11 +41,12 @@ const LeaderSection = () => {
                             <div className="col">
                                 <div className="d-flex flex-column align-items-center">
                                     <div className="leader-image">
-                                        <img 
+                                        <Image 
                                             src="/assets/images/hammad raza .webp" 
-                                            alt="Hammad Raza" 
+                                            alt="Hammad Raza - CEO and Co-Founder" 
                                             className="img-fluid"
-                                            loading="lazy"
+                                            width={300}
+                                            height={300}
                                         />
                                     </div>
                                     <div className="leader-text">
@@ -79,11 +82,12 @@ const LeaderSection = () => {
                         </div>
                         <div className="chooseus-card-container">
                             <div className="image-container">
-                                <img 
+                                <Image 
                                     src="/assets/images/our vision.webp" 
-                                    alt="Our Vision" 
+                                    alt="GHL Octane Vision" 
                                     className="chooseus-img"
-                                    loading="lazy"
+                                    width={600}
+                                    height={400}
                                 />
                             </div>
                         </div>

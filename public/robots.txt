@@ -1,0 +1,16 @@
+# robots.txt for GHL Octane
+# https://ghloctane.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ghloctane.com/sitemap.xml
+
+# Disallow admin/private paths (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+
+# Crawl delay (optional, for politeness)
+Crawl-delay: 1

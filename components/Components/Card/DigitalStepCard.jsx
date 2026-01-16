@@ -1,8 +1,40 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 
 const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd }) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const cardRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            setIsVisible(true);
+                        }, index * 300);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => {
+            if (cardRef.current) {
+                observer.unobserve(cardRef.current);
+            }
+        };
+    }, [index]);
+
     return (
-        <div className={`phase-container ${isOdd ? 'phase-above' : 'phase-below'}`} style={{ '--phase-color': color }}>
+        <div 
+            ref={cardRef}
+            className={`phase-container ${isOdd ? 'phase-above' : 'phase-below'} ${isVisible ? 'phase-visible' : 'phase-hidden'}`} 
+            style={{ '--phase-color': color }}
+        >
             {/* Text Box - positioned above or below based on index */}
             {isOdd && (
                 <div className="phase-text-box">

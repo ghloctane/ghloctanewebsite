@@ -136,7 +136,7 @@
     .banner-video-container::before {
         top: 0 !important;
         left: 0 !important;
-        opacity: 0.2 !important; /* Reduced from 0.51 to make lines visible */
+        opacity: 0.15 !important; /* Reduced to match desktop for consistency */
         z-index: 0 !important; /* Behind floating lines */
     }
     

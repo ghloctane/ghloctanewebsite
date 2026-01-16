@@ -46,9 +46,9 @@ export default function HomePage() {
       <AboutSection isHomePage={true} />
       
       {/* Lazy loaded sections with Suspense */}
-      <Suspense fallback={<SectionPlaceholder />}>
+      {/* <Suspense fallback={<SectionPlaceholder />}>
         <LeaderSection />
-      </Suspense>
+      </Suspense> */}
       <Suspense fallback={<SectionPlaceholder />}>
         <ChooseUsSection />
       </Suspense>

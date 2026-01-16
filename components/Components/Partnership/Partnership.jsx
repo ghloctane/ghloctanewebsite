@@ -47,7 +47,7 @@ const PartnershipSection = () => {
                                     autoplay={{
                                         delay: 0,
                                         disableOnInteraction: false,
-                                        pauseOnMouseEnter: true,
+                                        pauseOnMouseEnter: false,
                                     }}
                                     allowTouchMove={true}
                                     touchEventsTarget="container"
@@ -71,7 +71,7 @@ const PartnershipSection = () => {
                                     className="swiperPartner"
                                 >
                                     {partnerships.concat(partnerships).concat(partnerships).concat(partnerships).map((partner, index) => (
-                                    <SwiperSlide key={partner.id + index}>
+                                    <SwiperSlide key={`partner-${partner.id}-${index}`}>
                                         <div className="partner-slide">
                                             <img src={partner.logo} alt="Client" className="partner-logo img-fluid" loading="lazy" />
                                         </div>

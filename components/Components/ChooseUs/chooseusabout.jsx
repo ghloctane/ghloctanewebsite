@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { whychooseus } from "../../Data/ChooseUsData";
 import ChooseUsCard from "../Card/ChoooseUsCard";
 
@@ -33,7 +34,7 @@ function ChooseUsAboutSection(){
                                     <p className="mb-0">We believe growth comes from systems, not shortcuts. Our mission is to help businesses fully leverage GoHighLevel to automate operations, improve lead quality, and increase revenue.</p>
                                 </div>
                                 <div className="image-container">
-                                    <img src="/assets/images/team.webp" alt="Why Choose Us Image" className="chooseus-img" loading="lazy" />
+                                    <Image src="/assets/images/team.webp" alt="GHL Octane Team" className="chooseus-img" width={600} height={400} />
                                     <div className="card-chooseus-cta-layout">
                                         <div className="chooseus-cta-spacer"></div>
                                         <div className="d-flex flex-column align-items-end">

@@ -37,8 +37,8 @@ export default function Document() {
         <meta name="twitter:image" content="https://ghloctane.com/assets/images/GHL Octane Final.webp" />
         <meta name="twitter:image:alt" content="GHL Octane - GoHighLevel Solutions" />
         
-        {/* Google Search Console Verification */}
-        <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+        {/* Google Search Console Verification - Add your verification code here */}
+        {/* <meta name="google-site-verification" content="YOUR_ACTUAL_VERIFICATION_CODE" /> */}
         
         {/* Additional SEO */}
         <meta name="geo.region" content="US" />

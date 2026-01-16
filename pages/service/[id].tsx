@@ -1,49 +1,85 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { GetStaticPaths, GetStaticProps } from "next";
 import BannerInnerSection from "../../components/Components/Banner/Inner";
 import { allServicesData } from "../../components/Data/AllServicesData";
 import AnimatedButton from "../../components/Components/Button/AnimatedButton";
 import GuideBannerSection from "../../components/Components/Banner/guide";
 import PricingPlanSection from "../../components/Components/Pricing/Pricing";
 import HeadTitle from "../../components/Components/Head/HeadTitle";
+import SEOHead from "../../components/Components/Head/SEOHead";
 import FunnelServiceSlider from "../../components/Components/ServiceDetail/FunnelServiceSlider";
 
-export default function ServiceDetailPage() {
-  const router = useRouter();
-  const { id } = router.query;
-  
-  // Find service by slug
-  const service = allServicesData.find((s: { slug: string }) => s.slug === id);
-  
-  // If service not found, show first service as default
-  const currentService = service || allServicesData[0];
+interface ServiceType {
+  id: number;
+  slug: string;
+  title: string;
+  icon: string;
+  cardDescription: string;
+  fullDescription: string;
+  whatsIncluded: string[];
+}
 
-  // Map services to their images
-  const getServiceImage = (serviceSlug: string): string => {
-    const imageMap: Record<string, string> = {
-      "funnel-landing-page-design": "/assets/images/services/funnel.webp",
-      "crm-pipeline-setup": "/assets/images/services/crm pipeline.webp",
-      "automation-workflow": "/assets/images/services/automation.webp",
-      "white-label-agency": "/assets/images/services/whitelabel.webp",
-      "integrations-ai": "/assets/images/services/ai.webp",
-      "chatbots-voice-agents": "/assets/images/services/chatbot.webp",
-      "lead-capture-nurture": "/assets/images/services/leadcapture.webp",
-      "support-maintenance-training": "/assets/images/services/support.webp",
-      "api-integration": "/assets/images/services/Backend API Coding.webp",
-      "compliance-a2p-registration": "/assets/images/services/a2p.webp",
-      "social-media-marketing": "/assets/images/services/social.webp",
-      "development": "/assets/images/services/Backend API Coding.webp",
-    };
-    return imageMap[serviceSlug] || "/assets/images/services/automation.webp";
+interface ServiceDetailPageProps {
+  service: ServiceType;
+  serviceImage: string;
+}
+
+const imageMap: Record<string, string> = {
+  "funnel-landing-page-design": "/assets/images/services/funnel.webp",
+  "crm-pipeline-setup": "/assets/images/services/crm pipeline.webp",
+  "automation-workflow": "/assets/images/services/automation.webp",
+  "white-label-agency": "/assets/images/services/whitelabel.webp",
+  "integrations-ai": "/assets/images/services/ai.webp",
+  "chatbots-voice-agents": "/assets/images/services/chatbot.webp",
+  "lead-capture-nurture": "/assets/images/services/leadcapture.webp",
+  "support-maintenance-training": "/assets/images/services/support.webp",
+  "api-integration": "/assets/images/services/Backend API Coding.webp",
+  "compliance-a2p-registration": "/assets/images/services/a2p.webp",
+  "social-media-marketing": "/assets/images/services/social.webp",
+  "development": "/assets/images/services/Backend API Coding.webp",
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = allServicesData.map((service: ServiceType) => ({
+    params: { id: service.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
   };
+};
 
-  const serviceImage = getServiceImage(currentService.slug);
-  const isFunnelService = currentService.slug === "funnel-landing-page-design";
+export const getStaticProps: GetStaticProps<ServiceDetailPageProps> = async ({ params }) => {
+  const slug = params?.id as string;
+  const service = allServicesData.find((s: ServiceType) => s.slug === slug);
+
+  if (!service) {
+    return { notFound: true };
+  }
+
+  const serviceImage = imageMap[service.slug] || "/assets/images/services/automation.webp";
+
+  return {
+    props: {
+      service,
+      serviceImage,
+    },
+  };
+};
+
+export default function ServiceDetailPage({ service, serviceImage }: ServiceDetailPageProps) {
+  const isFunnelService = service.slug === "funnel-landing-page-design";
 
   return (
     <>
-      <HeadTitle title={`${currentService.title} - GHL Octane`} />
-      <BannerInnerSection title={currentService.title} currentPage="Services" />
+      <SEOHead 
+        title={`${service.title} - GHL Octane`}
+        description={service.fullDescription}
+        keywords={`GoHighLevel, GHL, ${service.title}, automation, CRM`}
+      />
+      <HeadTitle title={`${service.title} - GHL Octane`} />
+      <BannerInnerSection title={service.title} currentPage="Services" />
       
       {/* Service Detail Section */}
       <div className="section">
@@ -54,20 +90,20 @@ export default function ServiceDetailPage() {
               <div className="d-flex flex-column gspace-3 text-start">
                 <div className="service-detail-number-wrapper">
                   <span className="service-detail-number">
-                    {String(currentService.id).padStart(2, '0')}
+                    {String(service.id).padStart(2, '0')}
                   </span>
                 </div>
 
-                <h2 className="service-detail-page-title">{currentService.title}</h2>
+                <h2 className="service-detail-page-title">{service.title}</h2>
 
-                <p className="service-detail-card-desc">{currentService.cardDescription}</p>
+                <p className="service-detail-card-desc">{service.cardDescription}</p>
 
-                <p className="service-detail-full-desc">{currentService.fullDescription}</p>
+                <p className="service-detail-full-desc">{service.fullDescription}</p>
 
                 <div className="service-detail-includes">
                   <h3>What&apos;s Included:</h3>
                   <ul className="service-detail-features-list">
-                    {currentService.whatsIncluded.map((item: string, idx: number) => (
+                    {service.whatsIncluded.map((item: string, idx: number) => (
                       <li key={idx}>
                         <i className="fa-solid fa-check-circle"></i>
                         <span>{item}</span>
@@ -88,13 +124,13 @@ export default function ServiceDetailPage() {
             <div className="col">
               {isFunnelService ? (
                 // Funnel Service - Special Slider
-                <FunnelServiceSlider serviceTitle={currentService.title} />
+                <FunnelServiceSlider serviceTitle={service.title} />
               ) : (
                 // Other Services - Original Images
                 <div className="service-detail-image-container">
                   <img 
                     src={serviceImage} 
-                    alt={currentService.title}
+                    alt={service.title}
                     className="service-detail-image"
                     loading="lazy"
                   />

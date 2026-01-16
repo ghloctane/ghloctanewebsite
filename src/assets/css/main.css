@@ -790,20 +790,66 @@ body::-webkit-scrollbar-thumb:hover {
 /* ================== Stats Section - Card Styles ================== */
 .section-stats .card-stats {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     width: 100% !important;
     max-width: 100% !important;
-    background: linear-gradient(135deg, 
-        rgba(39, 66, 140, 0.95) 0%, 
-        rgba(30, 50, 110, 0.98) 50%, 
-        rgba(25, 40, 90, 0.95) 100%) !important;
-    border: 1px solid rgba(168, 184, 224, 0.3);
+    background: #27428c !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff !important;
     min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+        0 20px 60px rgba(39, 66, 140, 0.4),
+        0 15px 40px rgba(39, 66, 140, 0.3),
+        0 10px 20px rgba(39, 66, 140, 0.2),
+        inset 0 -5px 20px rgba(255, 255, 255, 0.1);
+}
+
+.section-stats .card-stats:hover {
+    transform: translateY(-15px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+    box-shadow: 
+        0 30px 80px rgba(39, 66, 140, 0.5),
+        0 25px 60px rgba(39, 66, 140, 0.4),
+        0 20px 40px rgba(39, 66, 140, 0.3),
+        0 15px 30px rgba(39, 66, 140, 0.3),
+        inset 0 -8px 30px rgba(255, 255, 255, 0.15);
+}
+
+.section-stats .card-stats::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #27428c;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    filter: blur(20px);
+}
+
+.section-stats .card-stats:hover::before {
+    opacity: 0.8;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .section-stats .card-stats h4 {
@@ -1804,7 +1850,7 @@ body::-webkit-scrollbar-thumb:hover {
     content: '';
     background-color: transparent;
     background-image: radial-gradient(at center center, var(--accent-transparent) 0%, var(--secondary) 100%);
-    opacity: 0.51;
+    opacity: 0.15;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -2580,8 +2626,9 @@ body::-webkit-scrollbar-thumb:hover {
     gap: 0;
     width: 100%;
     position: relative;
-    padding: 0 20px;
+    padding: 60px 40px;
     min-height: 550px;
+    overflow: visible;
 }
 
 /* Static gray wavy line - vertical snake pattern */
@@ -2628,10 +2675,39 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
     flex: 1;
-    max-width: 200px;
+    max-width: 220px;
     z-index: 2;
+    padding: 20px 10px;
+}
+
+/* Scroll-based animation states */
+.phase-container.phase-hidden {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+}
+
+.phase-container.phase-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.phase-container.phase-visible .phase-connector-line {
+    animation: lineDrawIn 0.8s ease-out forwards, lineGlow 2s ease-in-out infinite 0.8s;
+}
+
+@keyframes lineDrawIn {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 80px;
+        opacity: 1;
+    }
 }
 
 .phase-above {
@@ -2650,13 +2726,25 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 20px;
 }
 
-/* Vertical Connector Line */
+/* Vertical Connector Line with Animation */
 .phase-connector-line {
     width: 4px;
     height: 80px;
-    background-color: #A0AEC0;
+    background: linear-gradient(to bottom, var(--phase-color) 0%, var(--phase-color) 100%);
     position: relative;
     z-index: 1;
+    animation: lineGlow 2s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+    0%, 100% {
+        opacity: 0.6;
+        box-shadow: 0 0 5px var(--phase-color);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px var(--phase-color), 0 0 25px var(--phase-color);
+    }
 }
 
 /* Numbered Circle */
@@ -2672,6 +2760,24 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 5;
     box-shadow: 0 0 0 8px #FFFFFF, 0 4px 15px rgba(0, 0, 0, 0.2);
     flex-shrink: 0;
+}
+
+/* Horizontal connecting line between circles */
+.phase-circle::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100% + 40px);
+    height: 4px;
+    background: linear-gradient(to right, var(--phase-color), transparent);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.phase-container:last-child .phase-circle::after {
+    display: none;
 }
 
 .phase-number {
@@ -2694,11 +2800,12 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 18px 15px;
     width: 100%;
     max-width: 100%;
-    min-height: 180px;
+    min-height: 220px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    flex: 1;
 }
 
 /* Icon Container */
@@ -2709,6 +2816,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    transition: transform 0.3s ease;
 }
 
 .phase-icon {
@@ -2716,6 +2824,11 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100%;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(18%) sepia(89%) saturate(1234%) hue-rotate(210deg) brightness(0.9) contrast(1.1);
+    transition: none;
+}
+
+.phase-container:hover .phase-icon {
+    transform: none;
 }
 
 /* Title */
@@ -2742,14 +2855,38 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 400;
 }
 
+.phase-circle {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.phase-text-box {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .phase-container:hover .phase-circle {
-    transform: scale(1.08);
-    transition: transform 0.3s ease;
+    transform: scale(1.12);
+    box-shadow: 0 0 0 8px #FFFFFF, 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 30px var(--phase-color);
 }
 
 .phase-container:hover .phase-text-box {
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
-    transition: box-shadow 0.3s ease;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-width: 4px;
+}
+
+.phase-container:hover .phase-connector-line {
+    animation: lineGlowHover 0.8s ease-in-out infinite;
+}
+
+@keyframes lineGlowHover {
+    0%, 100% {
+        opacity: 0.8;
+        box-shadow: 0 0 10px var(--phase-color);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px var(--phase-color), 0 0 35px var(--phase-color);
+    }
 }
 
 /* Responsive Styles */
@@ -3286,7 +3423,8 @@ body::-webkit-scrollbar-thumb:hover {
 .card{
     position: relative;
     border-radius: var(--global-border-radius);
-    border: none;    
+    border: none !important;
+    outline: none !important;    
     overflow: hidden;
     /* Using solid background instead of backdrop-filter for better performance */
     background: rgba(255, 255, 255, 0.95);
@@ -3320,8 +3458,11 @@ body::-webkit-scrollbar-thumb:hover {
     pointer-events: none; /* ✅ Prevent scroll blocking */
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
+    border: none !important;
+    outline: none !important;
+    padding-right: 70px;
 }
 
 .about-layout > * {
@@ -3333,6 +3474,8 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: var(--secondary);
     border-radius: 0px 0px 30px 0px;
     margin: -20px auto 0 auto;
+    border: none !important;
+    outline: none !important;
 }
 
 .card-about{
@@ -3352,6 +3495,8 @@ body::-webkit-scrollbar-thumb:hover {
     color: var(--primary);
     box-shadow: 0 4px 20px rgba(39, 66, 140, 0.1);
     transition: all 0.6s;
+    border: none !important;
+    outline: none !important;
 }
 
 .about-spacer{
@@ -3379,9 +3524,12 @@ body::-webkit-scrollbar-thumb:hover {
 
 .image-container.about-img{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
+    border: none !important;
+    outline: none !important;
+    padding-right: 50px;
 }
 
 .about-title{
@@ -3812,15 +3960,23 @@ body::-webkit-scrollbar-thumb:hover {
     display: block;
 }
 
+.swiperPartner .partner-slide {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swiperPartner .partner-logo {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .swiperPartner .partner-slide:hover{
     box-shadow: none !important;
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.05);
 }
 
 .swiperPartner .partner-slide:hover .partner-logo{
     filter: grayscale(0%) !important;
     opacity: 1 !important;
-    transform: scale(1.1) !important;
+    transform: scale(1.15) rotate(-3deg) !important;
 }
 /* ================== 27. Partnership Components ================== */
 
@@ -5378,6 +5534,21 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: var(--font-weight-semibold);
 }
 
+/* Guide Text Transition Animations */
+.guide-text-transition {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.guide-text-fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.guide-text-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .avatar {
     width: 60px;
     height: 60px;
@@ -6651,6 +6822,13 @@ body::-webkit-scrollbar-thumb:hover {
     object-position: center;
 }
 
+.image-container.about-img img {
+    border-radius: 25px;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /* ================== 47. Request Loader ================== */
 
 .request-loader {
@@ -7285,6 +7463,7 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 15px;
     overflow: visible;
     position: relative;
+    cursor: pointer;
 }
 
 .industry-icon-wrapper {
@@ -7295,18 +7474,22 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     border-radius: 16px;
     border: 2px solid transparent;
-    transition: all 0.4s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease;
     margin-bottom: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: visible;
     position: relative;
+    will-change: transform;
 }
 
 .industry-icon {
     font-size: 2.5rem;
-    transition: all 0.4s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
+    will-change: transform;
 }
 
 .industry-name {
@@ -7314,21 +7497,21 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 600;
     color: #27428c;
     text-align: center;
-    transition: all 0.4s ease;
+    transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
 .swiperPartner .partner-slide:hover .industry-icon-wrapper {
     border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 .swiperPartner .partner-slide:hover .industry-icon {
-    transform: scale(1.15);
+    transform: scale(1.2) rotate(5deg);
 }
 
 .swiperPartner .partner-slide:hover .industry-name {
-    color: #27428c;
+    color: #1a3366;
     font-weight: 700;
 }
 
@@ -8151,4 +8334,82 @@ nextjs-portal {
     position: absolute !important;
     top: -9999px !important;
     left: -9999px !important;
+}
+
+/* ================== Inline Styles (Merged for Production) ================== */
+
+/* Service Section */
+.service-button-container {
+    margin-top: 20px;
+}
+
+/* Team Section */
+.team-description {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Pricing Section */
+.pricing-starter-note {
+    font-size: 14px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.pricing-growth-note {
+    font-size: 14px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* Vision Component */
+.vision-content-container {
+    flex: 1;
+}
+
+.vision-card-container {
+    flex: 1;
+}
+
+/* Website Showcase */
+.website-showcase-demo-cursor {
+    cursor: pointer;
+}
+
+/* Testimonial Section */
+.testimonial-video-container {
+    height: auto;
+    min-height: 400px;
+}
+
+/* Service Detail */
+.service-detail-image {
+    object-fit: contain;
+    padding: 20px;
+}
+
+.service-detail-link-wrapper {
+    margin-top: 20px;
+}
+
+/* Book a Call Page */
+.book-call-text-center {
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.book-call-iframe {
+    width: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+/* Section Placeholder */
+.section-placeholder {
+    min-height: 400px;
+}
+
+/* Suspense Fallback */
+.suspense-fallback {
+    min-height: 100px;
 }

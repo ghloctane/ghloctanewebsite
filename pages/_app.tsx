@@ -1,9 +1,6 @@
-import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import '../src/assets/css/main.css';
 import '../src/assets/css/responsive.css';
-import '../src/assets/css/inline-styles.css';
-// Component CSS imports
 import '../components/Components/Button/AnimatedButton.css';
 import '../components/Components/CTA/FloatingLines.css';
 import '../components/Components/Card/StatsCard.css';
@@ -18,14 +15,6 @@ import Sidebar from '../components/Components/Sidebar/Sidebar';
 import ScrollToTop from '../components/Components/ScrollToTop/ScrollToTop';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    // Load Bootstrap JS on client-side only
-    if (typeof window !== 'undefined') {
-      // Bootstrap JS is loaded via script tag in _document.tsx
-      // No additional initialization needed
-    }
-  }, []);
-
   return (
     <NavProvider>
       <ModalVideoProvider>

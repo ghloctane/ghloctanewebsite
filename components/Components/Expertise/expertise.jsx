@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 
 function ExpertiseSection(){
@@ -10,11 +11,12 @@ function ExpertiseSection(){
                     <div className="d-flex flex-column flex-lg-row gspace-5">
                         <div className="expertise-img-layout">
                             <div className="image-container expertise-img">
-                                <img
+                                <Image
                                     src="/assets/images/expertise.webp"
-                                    alt="Expertise Image"
+                                    alt="GHL Octane Expertise"
                                     className="img-fluid"
-                                    loading="lazy"
+                                    width={500}
+                                    height={400}
                                 />
                                 <div className="expertise-layout">
                                     <div className="d-flex flex-column">

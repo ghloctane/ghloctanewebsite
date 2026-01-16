@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 
 function AboutSection({ isHomePage = false }) {
@@ -9,11 +10,12 @@ function AboutSection({ isHomePage = false }) {
                 <div className="d-flex flex-column flex-lg-row gspace-5">
                     <div className="about-img-layout">
                         <div className="image-container about-img">
-                            <img
+                            <Image
                                 src="/assets/images/aboutus.webp"
                                 alt={isHomePage ? "About GHL Octane" : "About Us Image"}
                                 className="img-fluid"
-                                loading="lazy"
+                                width={500}
+                                height={400}
                             />
                         
                             <div className="about-layout">

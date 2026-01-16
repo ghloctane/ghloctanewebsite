@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const VisionSection = () => {
     return (
@@ -24,10 +25,12 @@ const VisionSection = () => {
                     </div>
                     <div className="chooseus-card-container vision-card-container">
                         <div className="image-container">
-                            <img 
+                            <Image 
                                 src="/assets/images/our vision.webp" 
-                                alt="Our Vision" 
-                                className="chooseus-img" 
+                                alt="GHL Octane Vision" 
+                                className="chooseus-img"
+                                width={600}
+                                height={400}
                             />
                         </div>
                     </div>

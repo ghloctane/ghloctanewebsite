@@ -9,7 +9,9 @@ const CTASection = () => {
                 <div className="cta-container">
                     <div className="cta-floating-lines-wrapper">
                         <Suspense fallback={null}>
-                            <FloatingLines />
+                            <FloatingLines 
+                                linesGradient={['#1e7acc', '#1e7acc', '#1e7acc', '#1e7acc', '#15a83e']}
+                            />
                         </Suspense>
                     </div>
                     <div className="cta-content">

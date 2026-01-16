@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useNav } from "../Context/NavContext";
 import AnimatedButton from "../Button/AnimatedButton";
 import { FaBars, FaAngleDown } from "react-icons/fa";
@@ -13,14 +14,13 @@ return (
             <div className="navbar-container">
                 <div className="logo-container">
                     <Link className="navbar-brand" href="/">
-                    <img
+                    <Image
                         src="/assets/images/GHL Octane Final.webp"
                         className="site-logo img-fluid"
-                        alt="Logo"
-                        loading="eager"
-                        fetchPriority="high"
-                        width="200"
-                        height="60"
+                        alt="GHL Octane Logo"
+                        priority
+                        width={200}
+                        height={60}
                     />
                     </Link>
                 </div>
@@ -63,6 +63,7 @@ return (
                             <a
                             className={`nav-link dropdown-toggle ${
                                 isDropdownActive([
+                                "/portfolio",
                                 "/team",
                                 "/pricing",
                                 "/testimonial",
@@ -78,11 +79,11 @@ return (
                             Resources <FaAngleDown className="accent-color" />
                             </a>
                             <ul className="dropdown-menu">
-                            {/* <li>
-                                <Link href="/case-studies" className="dropdown-item">
-                                    Case Studies
+                            <li>
+                                <Link href="/portfolio" className="dropdown-item">
+                                    Portfolio
                                 </Link>
-                            </li> */}
+                            </li>
                             <li>
                                 <Link href="/team" className="dropdown-item">
                                     Our Team

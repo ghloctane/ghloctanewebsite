@@ -11,6 +11,7 @@ import {
   Clock
 } from 'three';
 
+import './FloatingLines.css';
 
 const vertexShader = `
 precision highp float;
@@ -243,8 +244,7 @@ export default function FloatingLines({
   mouseDamping = 0.05,
   parallax = true,
   parallaxStrength = 0.2,
-  mixBlendMode = 'screen',
-  enableOnMobile = false
+  mixBlendMode = 'screen'
 }) {
   const containerRef = useRef(null);
   const targetMouseRef = useRef(new Vector2(-1000, -1000));
@@ -263,8 +263,8 @@ export default function FloatingLines({
     return window.innerWidth <= 767;
   }, []);
 
-  // ✅ Disable on mobile unless enableOnMobile is true
-  if (isMobile && !enableOnMobile) {
+  // ✅ Disable on mobile
+  if (isMobile) {
     return null;
   }
 
@@ -438,7 +438,7 @@ export default function FloatingLines({
       }
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false;
-      }, 100); // Reduced timeout for better responsiveness
+      }, 150);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -521,4 +521,3 @@ export default function FloatingLines({
     />
   );
 }
-

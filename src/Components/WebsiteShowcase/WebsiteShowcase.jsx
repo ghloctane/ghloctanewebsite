@@ -40,7 +40,7 @@ const WebsiteShowcase = () => {
                                 <div className="website-showcase-track website-showcase-right">
                                     {[...websites, ...websites].map((site, index) => (
                                         <div 
-                                            key={`right-${index}`} 
+                                            key={`right-${site.id}-${index}`} 
                                             className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
                                         >
@@ -82,4 +82,3 @@ const WebsiteShowcase = () => {
 };
 
 export default WebsiteShowcase;
-

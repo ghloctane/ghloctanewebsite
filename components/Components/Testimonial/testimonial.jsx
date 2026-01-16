@@ -247,7 +247,7 @@ const TestimonialSection = () => {
                                 }}>
                                     {/* Fix: Duplicate slides for smooth loop when enabled */}
                                     {testimonials.slice(0, 3).concat(testimonials.slice(0, 3)).map((item, index) => (
-                                    <SwiperSlide key={`${item.id}-${index}`}>
+                                    <SwiperSlide key={`testimonial-${index}`}>
                                         <TestimonialCard {...item} />
                                     </SwiperSlide>
                                     ))}

@@ -40,10 +40,10 @@ const PartnershipSection = () => {
                                     slidesPerView={6}
                                     spaceBetween={10}
                                     loop={true}
-                                    speed={3000}
+                                    speed={5000}
                                     autoHeight={false}
-                                    observer={false}
-                                    observeParents={false}
+                                    observer={true}
+                                    observeParents={true}
                                     watchSlidesProgress={false}
                                     autoplay={{
                                         delay: 0,
@@ -52,7 +52,6 @@ const PartnershipSection = () => {
                                     }}
                                     allowTouchMove={true}
                                     touchEventsTarget="container"
-                                    updateOnWindowResize={false}
                                     breakpoints={{
                                     230: { 
                                         slidesPerView: 3,

@@ -231,12 +231,13 @@ const TestimonialSection = () => {
                                 className="testimonial-video-container swiperTestimonial"
                                 slidesPerView={3} 
                                 spaceBetween={50} 
-                                speed={1000} 
-                                loop={testimonials.slice(0, 3).length >= 6} // Fix: Only enable loop if we have enough slides (slidesPerView * 2)
+                                speed={800} 
+                                loop={testimonials.slice(0, 3).length >= 6}
                                 autoHeight={false}
-                                observer={true}
-                                observeParents={true}
+                                observer={false}
+                                observeParents={false}
                                 watchSlidesProgress={false}
+                                updateOnWindowResize={false}
                                 autoplay={{
                                     delay: 5000,
                                     disableOnInteraction: false

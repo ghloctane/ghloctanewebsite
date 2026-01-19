@@ -735,6 +735,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     height: 340px;
     min-height: 340px;
+    width: auto !important;
 }
 
 .swiperDashboards .swiper-wrapper{

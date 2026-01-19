@@ -74,7 +74,10 @@ export default function Document() {
         {/* DNS Prefetch for external resources */}
         <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
         <link rel="dns-prefetch" href="https://link.msgsndr.com" />
-        <link rel="dns-prefetch" href="https://lottie.host" />
+        
+        {/* Performance hints for low-end devices */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Critical CSS - Load synchronously for proper layout */}
         <link rel="stylesheet" href="/assets/css/vendor/font-family-plus-jakarta-sans.css" />

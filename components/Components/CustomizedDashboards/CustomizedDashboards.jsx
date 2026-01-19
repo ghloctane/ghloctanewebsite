@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 // Swiper CSS loaded via CDN in index.html (non-blocking)
@@ -53,13 +54,13 @@ const CustomizedDashboardsSection = () => {
                                 <Swiper
                                     style={{ height: '400px', minHeight: '400px' }}
                                     modules={[Autoplay]}
-                                    slidesPerView={4}
+                                    slidesPerView={'auto'}
                                     spaceBetween={20}
                                     loop={true}
-                                    speed={5000}
+                                    speed={3000}
                                     autoHeight={false}
-                                    observer={true}
-                                    observeParents={true}
+                                    observer={false}
+                                    observeParents={false}
                                     watchSlidesProgress={false}
                                     autoplay={{
                                         delay: 0,
@@ -68,21 +69,20 @@ const CustomizedDashboardsSection = () => {
                                         waitForTransition: false,
                                     }}
                                     allowTouchMove={true}
-                                    breakpoints={{
-                                        230: { slidesPerView: 2, allowTouchMove: true },
-                                        767: { slidesPerView: 3, allowTouchMove: true },
-                                        1024: { slidesPerView: 4, allowTouchMove: false },
-                                    }}
+                                    updateOnWindowResize={false}
                                     className="swiperDashboards"
                                 >
                                     {placeholderImages.concat(placeholderImages).map((image, index) => (
                                         <SwiperSlide key={`dashboard-${index}`}>
                                             <div className="dashboard-slide">
-                                                <img 
+                                                <Image 
                                                     src={image.url} 
-                                                    alt={`Dashboard ${image.id}`} 
-                                                    className="dashboard-image img-fluid"
+                                                    alt={image.title} 
+                                                    className="dashboard-image"
+                                                    width={600}
+                                                    height={400}
                                                     loading="lazy"
+                                                    style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </div>
                                         </SwiperSlide>

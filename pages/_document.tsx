@@ -88,20 +88,8 @@ export default function Document() {
         <link rel="stylesheet" href="/assets/css/vendor/solid.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" />
         
-        {/* Non-Critical CSS - Deferred loading */}
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener('load', function() {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
-                document.head.appendChild(link);
-              });
-            `
-          }}
-        />
+        {/* Non-Critical CSS - Load directly to avoid testing tool conflicts */}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         
         
         <link rel="icon" href="/assets/images/favicon.ico" />

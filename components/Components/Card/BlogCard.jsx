@@ -13,7 +13,7 @@ const BlogCard = memo(({ blog }) => {
                 onClick={handleClick}
             >
                 <div className="blog-image">
-                    <Image src={blog.image} alt={blog.title} width={400} height={250} loading="lazy" />
+                    <Image src={blog.image} alt={blog.title} width={400} height={250} />
                 </div>
                 <div className="card-body">
                     <div className="d-flex flex-row gspace-2">

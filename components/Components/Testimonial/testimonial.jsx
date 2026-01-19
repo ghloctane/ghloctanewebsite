@@ -3,8 +3,6 @@ import Image from "next/image";
 import { testimonials } from "../../Data/TestimonialData";
 import TestimonialCard from "../Card/TestimonialCard";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
-import { Swiper, SwiperSlide } from "swiper/react";
-// Swiper CSS loaded via CDN in index.html (non-blocking)
 import { FaPlay, FaCircle } from "react-icons/fa";
 
 const TestimonialSection = () => {
@@ -109,7 +107,7 @@ const TestimonialSection = () => {
                                                             }}
                                                         >
                                                             <div className="testimonial-video-thumbnail">
-                                                                <Image src={video.thumbnail} alt={video.name} width={150} height={150} loading="lazy" />
+                                                                <Image src={video.thumbnail} alt={video.name} width={150} height={150} />
                                                                 <div className="play-icon">
                                                                     <FaPlay />
                                                                 </div>
@@ -224,37 +222,13 @@ const TestimonialSection = () => {
                         </div>
                     </div>
 
-                    {/* Text Testimonials Carousel - First 3 only */}
-                    <div className="d-flex flex-column">
-                            <div className="overflow-hidden">
-                                <Swiper
-                                className="testimonial-video-container swiperTestimonial"
-                                slidesPerView={3} 
-                                spaceBetween={50} 
-                                speed={800} 
-                                loop={testimonials.slice(0, 3).length >= 6}
-                                autoHeight={false}
-                                observer={false}
-                                observeParents={false}
-                                watchSlidesProgress={false}
-                                updateOnWindowResize={false}
-                                autoplay={{
-                                    delay: 5000,
-                                    disableOnInteraction: false
-                                }}
-                                breakpoints={{
-                                    230: { slidesPerView: 1 },
-                                    767: { slidesPerView: 2 },
-                                    1024: { slidesPerView: 3 },
-                                }}>
-                                    {/* Fix: Duplicate slides for smooth loop when enabled */}
-                                    {testimonials.slice(0, 3).concat(testimonials.slice(0, 3)).map((item, index) => (
-                                    <SwiperSlide key={`testimonial-${index}`}>
-                                        <TestimonialCard {...item} />
-                                    </SwiperSlide>
-                                    ))}
-                                </Swiper>
+                    {/* Text Testimonials - Fixed 3 Cards (No Carousel) */}
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        {testimonials.slice(0, 3).map((item, index) => (
+                            <div key={`testimonial-${index}`} className="col">
+                                <TestimonialCard {...item} />
                             </div>
+                        ))}
                     </div>
                 </div>
             </div>

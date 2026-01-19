@@ -81,7 +81,6 @@ const CustomizedDashboardsSection = () => {
                                                     className="dashboard-image"
                                                     width={600}
                                                     height={400}
-                                                    loading="lazy"
                                                     style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </div>

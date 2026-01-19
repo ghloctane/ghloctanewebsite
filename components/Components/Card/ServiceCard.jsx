@@ -15,7 +15,7 @@ const ServiceCard = memo(({icon, title, content, link, speed = ""}) => {
                             {isFontAwesome ? (
                                 <i className={icon}></i>
                             ) : (
-                                <Image src={icon} alt="Service Icon" className="img-fluid" width={60} height={60} loading="lazy" />
+                                <Image src={icon} alt="Service Icon" className="img-fluid" width={60} height={60} />
                             )}
                         </div>
                     </div>

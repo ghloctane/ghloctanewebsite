@@ -45,7 +45,7 @@ const WebsiteShowcase = () => {
                                             className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
                                         >
-                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} loading="lazy" />
+                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} />
                                             {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>
@@ -65,7 +65,7 @@ const WebsiteShowcase = () => {
                                             className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
                                         >
-                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} loading="lazy" />
+                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} />
                                             {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>

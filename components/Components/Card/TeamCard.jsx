@@ -7,7 +7,7 @@ const TeamCard = memo(({ name, title, image, socials }) => {
     <div className="col">
         <div className="d-flex flex-column">
             <div className="image-team">
-                <Image src={image} alt={name} className="img-fluid" width={400} height={500} loading="lazy" />
+                <Image src={image} alt={name} className="img-fluid" width={400} height={500} />
                 <div className="social-team-wrapper">
                     <div className="social-team-spacer"></div>
                     <div className="d-flex flex-column align-items-end">

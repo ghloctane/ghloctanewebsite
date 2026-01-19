@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const WebsiteShowcase = () => {
     // Website template images
@@ -44,7 +45,7 @@ const WebsiteShowcase = () => {
                                             className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
                                         >
-                                            <img src={site.image} alt={site.title} loading="lazy" />
+                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} loading="lazy" />
                                             {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>
@@ -64,7 +65,7 @@ const WebsiteShowcase = () => {
                                             className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
                                             onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
                                         >
-                                            <img src={site.image} alt={site.title} loading="lazy" />
+                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} loading="lazy" />
                                             {site.demoUrl && (
                                                 <div className="website-showcase-overlay">
                                                     <span className="website-showcase-demo-text">Live Demo</span>

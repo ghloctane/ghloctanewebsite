@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd }) => {
     const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +40,7 @@ const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd 
             {isOdd && (
                 <div className="phase-text-box">
                     <div className="phase-icon-container">
-                        <img src={icon} alt={title} className="phase-icon" loading="lazy" />
+                        <Image src={icon} alt={title} className="phase-icon" width={35} height={35} loading="lazy" />
                     </div>
                     <h3 className="phase-title" style={{ color: color }}>
                         <i className="fa-solid fa-diagram-project"></i> {title.toUpperCase()}
@@ -65,7 +66,7 @@ const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd 
                     <div className="phase-connector-line"></div>
                     <div className="phase-text-box">
                         <div className="phase-icon-container">
-                            <img src={icon} alt={title} className="phase-icon" loading="lazy" />
+                            <Image src={icon} alt={title} className="phase-icon" width={35} height={35} loading="lazy" />
                         </div>
                         <h3 className="phase-title" style={{ color: color }}>
                             <i className="fa-solid fa-diagram-project"></i> {title.toUpperCase()}

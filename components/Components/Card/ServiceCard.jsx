@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Image from "next/image";
 import AnimatedButton from "../Button/AnimatedButton";
 
 const ServiceCard = memo(({icon, title, content, link, speed = ""}) => {
@@ -14,7 +15,7 @@ const ServiceCard = memo(({icon, title, content, link, speed = ""}) => {
                             {isFontAwesome ? (
                                 <i className={icon}></i>
                             ) : (
-                                <img src={icon} alt="Service Icon" className="img-fluid" loading="lazy" />
+                                <Image src={icon} alt="Service Icon" className="img-fluid" width={60} height={60} loading="lazy" />
                             )}
                         </div>
                     </div>

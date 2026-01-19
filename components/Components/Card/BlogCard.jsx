@@ -1,4 +1,5 @@
 import React, { memo, useCallback } from "react";
+import Image from "next/image";
 
 const BlogCard = memo(({ blog }) => {
     const handleClick = useCallback(() => {
@@ -12,7 +13,7 @@ const BlogCard = memo(({ blog }) => {
                 onClick={handleClick}
             >
                 <div className="blog-image">
-                    <img src={blog.image} alt="Blog" loading="lazy" />
+                    <Image src={blog.image} alt={blog.title} width={400} height={250} loading="lazy" />
                 </div>
                 <div className="card-body">
                     <div className="d-flex flex-row gspace-2">

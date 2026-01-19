@@ -17,7 +17,6 @@ function ExpertiseSection(){
                                     className="img-fluid"
                                     width={500}
                                     height={400}
-                                    loading="eager"
                                 />
                                 <div className="expertise-layout">
                                     <div className="d-flex flex-column">

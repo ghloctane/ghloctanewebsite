@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { partnerships } from "../../Data/PartnershipData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -73,7 +74,7 @@ const PartnershipSection = () => {
                                     {partnerships.concat(partnerships).concat(partnerships).concat(partnerships).map((partner, index) => (
                                     <SwiperSlide key={`partner-${partner.id}-${index}`}>
                                         <div className="partner-slide">
-                                            <img src={partner.logo} alt="Client" className="partner-logo img-fluid" loading="lazy" />
+                                            <Image src={partner.logo} alt="Technology Partner" className="partner-logo img-fluid" width={120} height={60} loading="lazy" />
                                         </div>
                                     </SwiperSlide>
                                     ))}

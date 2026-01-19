@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Image from "next/image";
 import SocialButton from "../Social/SocialButton";
 
 const TeamCard = memo(({ name, title, image, socials }) => {
@@ -6,7 +7,7 @@ const TeamCard = memo(({ name, title, image, socials }) => {
     <div className="col">
         <div className="d-flex flex-column">
             <div className="image-team">
-                <img src={image} alt={name} className="img-fluid" loading="lazy" />
+                <Image src={image} alt={name} className="img-fluid" width={400} height={500} loading="lazy" />
                 <div className="social-team-wrapper">
                     <div className="social-team-spacer"></div>
                     <div className="d-flex flex-column align-items-end">

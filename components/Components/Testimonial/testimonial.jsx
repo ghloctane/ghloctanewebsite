@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { testimonials } from "../../Data/TestimonialData";
 import TestimonialCard from "../Card/TestimonialCard";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
@@ -108,7 +109,7 @@ const TestimonialSection = () => {
                                                             }}
                                                         >
                                                             <div className="testimonial-video-thumbnail">
-                                                                <img src={video.thumbnail} alt={video.name} loading="lazy" />
+                                                                <Image src={video.thumbnail} alt={video.name} width={150} height={150} loading="lazy" />
                                                                 <div className="play-icon">
                                                                     <FaPlay />
                                                                 </div>
@@ -179,7 +180,7 @@ const TestimonialSection = () => {
                                                     className="testimonial-video-thumbnail-large"
                                                     onClick={() => setIsVideoPlaying(true)}
                                                 >
-                                                    <img src={selectedVideo.thumbnail} alt={selectedVideo.name} loading="eager" />
+                                                    <Image src={selectedVideo.thumbnail} alt={selectedVideo.name} width={800} height={450} priority />
                                                     <div className="play-icon-large">
                                                         <FaPlay />
                                                     </div>

@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Image from "next/image";
 
 const ChooseUsCard = memo(({icon, title, content, link, speed}) => {
     
@@ -8,7 +9,7 @@ const ChooseUsCard = memo(({icon, title, content, link, speed}) => {
                 <div className="chooseus-spacer above"></div>
                     <div className="chooseus-icon-layout">
                         <div className="chooseus-icon">
-                            <img src={icon} alt="Why Choose Us Icon" className="img-fluid" loading="lazy" />
+                            <Image src={icon} alt="Why Choose Us Icon" className="img-fluid" width={80} height={80} loading="lazy" />
                         </div>
                     </div>
                 <div className="chooseus-spacer below"></div>

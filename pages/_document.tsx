@@ -76,17 +76,29 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://link.msgsndr.com" />
         <link rel="dns-prefetch" href="https://lottie.host" />
         
-        {/* Font Family CSS - Loaded first for proper font rendering */}
+        {/* Critical CSS - Load synchronously for proper layout */}
         <link rel="stylesheet" href="/assets/css/vendor/font-family-plus-jakarta-sans.css" />
-        
-        {/* Non-Critical Vendor CSS - Load normally (Next.js handles optimization) */}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css" />
         <link rel="stylesheet" href="/assets/css/vendor/brands.css" />
         <link rel="stylesheet" href="/assets/css/vendor/regular.css" />
         <link rel="stylesheet" href="/assets/css/vendor/solid.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        
+        {/* Non-Critical CSS - Deferred loading */}
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+                document.head.appendChild(link);
+              });
+            `
+          }}
+        />
         
         
         <link rel="icon" href="/assets/images/favicon.ico" />

@@ -90,9 +90,6 @@ export default function Document() {
         
         
         <link rel="icon" href="/assets/images/favicon.ico" />
-        
-        {/* Performance: Preload critical resources */}
-        <link rel="preload" href="/assets/images/GHL Octane Final.webp" as="image" />
       </Head>
       <body>
         <Main />

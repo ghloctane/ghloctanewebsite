@@ -3976,7 +3976,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100px;
 }
 
-/* Partnership Swiper - CSS Containment */
+/* Partnership Swiper - CSS Containment + GPU Rendering */
 .swiperPartner-container{
     /* Removed content-visibility: auto - causes sections to appear on scroll */
     contain: layout paint;
@@ -3994,10 +3994,20 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     justify-content: center;
     perspective: 1000px;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
 }
 
 .swiperPartner-container:hover {
     z-index: 20;
+}
+
+.swiperPartner {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 .swiperPartner .swiper-slide{
     width: auto;
@@ -4008,6 +4018,10 @@ body::-webkit-scrollbar-thumb:hover {
     height: 180px;
     min-height: 180px;
     transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
 }
 
 .swiperPartner .swiper-wrapper{
@@ -4015,6 +4029,9 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .swiperPartner .partner-slide{
@@ -4036,7 +4053,9 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 10;
     width: 100%;
     backface-visibility: hidden;
-    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
 }
 
 .swiperPartner .partner-logo{
@@ -4052,7 +4071,11 @@ body::-webkit-scrollbar-thumb:hover {
     margin: 0 auto;
     display: block;
     backface-visibility: hidden;
-    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    will-change: transform, filter;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 /* Smooth entrance animation */
@@ -4073,14 +4096,14 @@ body::-webkit-scrollbar-thumb:hover {
 
 .swiperPartner .partner-slide:hover{
     box-shadow: none !important;
-    transform: translateY(-15px) translateZ(0);
+    transform: translate3d(0, -15px, 0);
     background: transparent;
 }
 
 .swiperPartner .partner-slide:hover .partner-logo{
     filter: grayscale(0%) drop-shadow(0 10px 20px rgba(39, 66, 140, 0.3)) !important;
     opacity: 1 !important;
-    transform: scale(1.2) translateZ(0) !important;
+    transform: translate3d(0, 0, 0) scale(1.2) !important;
 }
 /* ================== 27. Partnership Components ================== */
 

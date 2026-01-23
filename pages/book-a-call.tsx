@@ -23,20 +23,33 @@ export default function BookACallPage() {
 
   return (
     <>
-      <HeadTitle title="Book a Call - GHL Octane - GoHighLevel Solutions" />
-      <BannerInnerSection title="Book a Call" currentPage="Book a Call" />
+      <HeadTitle title="Book a Strategy Call - GHL Octane - GoHighLevel Experts" />
+      <BannerInnerSection title="Book Your Strategy Call" currentPage="Book a Call" />
       
-      <div className="section">
+      <div className="section section-book-call">
         <div className="hero-container">
           <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="booking-container">
-                <div 
-                  className="msgsndr-form" 
-                  data-form-id="YOUR_FORM_ID"
-                  style={{ minHeight: '600px' }}
-                >
-                  {/* Booking form will be embedded here */}
+            <div className="col-12">
+              <div className="book-call-wrapper">
+                <div className="card book-call-card">
+                  <div className="book-call-header">
+                    <div className="sub-heading align-self-center">
+                      <i className="fa-regular fa-calendar-check"></i>
+                      <span>Schedule Your Free Consultation</span>
+                    </div>
+                    <h2 className="title-heading">Let's Discuss Your GHL Setup</h2>
+                    <p>
+                      Book a free 30-minute strategy call with our certified GoHighLevel experts. 
+                      We'll analyze your current setup and show you how to automate, scale, and grow faster.
+                    </p>
+                  </div>
+                  
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/booking/PsJoFoWxfZtIss11UYkj"
+                    className="book-call-iframe"
+                    id="inline-booking-PsJoFoWxfZtIss11UYkj"
+                    title="Book Your Strategy Call"
+                  />
                 </div>
               </div>
             </div>

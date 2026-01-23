@@ -136,14 +136,8 @@
     .banner-video-container::before {
         top: 0 !important;
         left: 0 !important;
-        opacity: 0.15 !important; /* Reduced to match desktop for consistency */
+        opacity: 0.2 !important; /* Reduced from 0.51 to make lines visible */
         z-index: 0 !important; /* Behind floating lines */
-        pointer-events: none !important;
-    }
-    
-    /* Disable any overlay that blocks floating lines on mobile */
-    .banner-video-container > div:first-child:not(.floating-lines-container):not(.hero-container) {
-        display: none !important;
     }
     
     .banner-video-container .hero-container {
@@ -384,24 +378,81 @@
 /* Book a Call Page Responsive */
 @media screen and (max-width: 767px) {
     .section-book-call {
-        padding: 50px 15px;
+        padding: 50px 15px 60px 15px;
     }
 
     .book-call-card {
-        padding: 30px 20px 20px 20px;
+        padding: 35px 20px 35px 20px;
+        gap: 30px;
+        box-shadow: 0 20px 50px rgba(39, 66, 140, 0.3), 
+                    0 10px 25px rgba(39, 66, 140, 0.2);
+    }
+
+    .book-call-header {
+        gap: 15px;
+    }
+
+    .book-call-header .sub-heading {
+        padding: 10px 20px;
+        font-size: var(--font-size-sm);
     }
 
     .book-call-header h2 {
-        font-size: 28px;
+        font-size: clamp(24px, 6vw, 32px);
     }
 
-    .book-call-iframe-wrapper {
-        min-height: 600px;
-        padding: 15px;
+    .book-call-header p {
+        font-size: var(--font-size-base);
     }
 
-    .book-call-iframe-wrapper iframe {
-        min-height: 600px;
+    .book-call-iframe {
+        min-height: 800px;
+        height: 800px;
+    }
+
+    .book-call-benefits {
+        padding-top: 15px;
+    }
+
+    .book-call-benefits .col {
+        margin-bottom: 20px;
+    }
+
+    .book-call-benefits .col:last-child {
+        margin-bottom: 0;
+    }
+
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+
+    .benefit-icon i {
+        font-size: 1.5rem;
+    }
+
+    .book-call-benefits h5 {
+        font-size: var(--font-size-base);
+    }
+
+    .book-call-benefits p {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Tablet - wider padding */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .book-call-card {
+        padding: 50px 40px 50px 40px;
+    }
+}
+
+/* Tablet View */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .book-call-iframe {
+        min-height: 850px;
+        height: 850px;
     }
 }
 
@@ -892,14 +943,12 @@
     
     /* DISABLE ALL SCROLL ANIMATIONS ON MOBILE - Simple and clean */
     .animate__animated,
-    [class*="animate__"],
-    .animate-box {
+    [class*="animate__"] {
         animation: none !important;
         animation-duration: 0s !important;
         animation-delay: 0s !important;
         animation-fill-mode: none !important;
         opacity: 1 !important;
-        visibility: visible !important;
         transform: none !important;
     }
     
@@ -947,7 +996,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         pointer-events: none !important;
-        z-index: 5 !important;
+        z-index: 1 !important;
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
@@ -966,7 +1015,7 @@
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
-        z-index: 5 !important;
+        z-index: 1 !important;
     }
     
     /* 3. Hide CTA FloatingLines (keep only banner) */
@@ -979,9 +1028,9 @@
         opacity: 0 !important;
     }
     
-    /* 4. Ensure banner container clips content to rounded corners */
+    /* 4. Ensure banner container allows overflow */
     .banner-video-container {
-        overflow: hidden !important;
+        overflow: visible !important;
         position: relative !important;
         contain: none !important;
     }
@@ -2950,64 +2999,6 @@
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
-    }
-}
-
-/* ==================== DIGITAL PROCESS MOBILE ANIMATIONS ==================== */
-/* Tablet adjustments (max-width: 991px) */
-@media (max-width: 991px) {
-    .phase-horizontal-connector.phase-line-visible {
-        width: 40px !important;
-    }
-    
-    .phase-circle {
-        width: 85px !important;
-        height: 85px !important;
-    }
-    
-    .phase-number {
-        font-size: 2.5rem !important;
-    }
-}
-
-/* Mobile adjustments (max-width: 767px) */
-@media screen and (max-width: 767px) {
-    /* Vertical timeline on mobile */
-    .phases-timeline {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    
-    .phase-horizontal-connector {
-        display: none !important; /* Hide horizontal connectors on mobile */
-    }
-    
-    /* Show vertical connectors between phases */
-    .phase-container:not(:last-child)::after {
-        content: '' !important;
-        width: 4px !important;
-        height: 40px !important;
-        background: var(--phase-color) !important;
-        position: absolute !important;
-        bottom: -40px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        opacity: 0 !important;
-    }
-    
-    .phase-container.phase-visible:not(:last-child)::after {
-        opacity: 1 !important;
-        animation: verticalLineGrow 0.5s ease-out forwards !important;
-        animation-delay: 1.2s !important;
-    }
-    
-    @keyframes verticalLineGrow {
-        0% {
-            height: 0 !important;
-        }
-        100% {
-            height: 40px !important;
-        }
     }
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useMemo, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { funnelPortfolio } from "../../Data/FunnelPortfolioData";
 
 /**
@@ -95,11 +96,14 @@ function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
                                                             : 'translateY(0px)',
                                                     }}
                                                 >
-                                                    <img
+                                                    <Image
                                                         src={item.image}
                                                         alt={item.title}
+                                                        width={800}
+                                                        height={2000}
+                                                        quality={100}
+                                                        unoptimized
                                                         className="portfolio-image"
-                                                        loading="lazy"
                                                         onLoad={(e) => handleImageLoad(item.id, e.target)}
                                                         onError={(e) => {
                                                             e.target.style.display = 'none';

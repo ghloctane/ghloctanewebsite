@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState, useMemo } from 'react';
 import {
   Scene,
@@ -228,6 +230,31 @@ function hexToVec3(hex) {
   return new Vector3(r / 255, g / 255, b / 255);
 }
 
+interface WavePosition {
+  x: number;
+  y: number;
+  rotate: number;
+}
+
+interface FloatingLinesProps {
+  linesGradient?: string[];
+  enabledWaves?: string[];
+  lineCount?: number | number[];
+  lineDistance?: number | number[];
+  topWavePosition?: WavePosition;
+  middleWavePosition?: WavePosition;
+  bottomWavePosition?: WavePosition;
+  animationSpeed?: number;
+  interactive?: boolean;
+  bendRadius?: number;
+  bendStrength?: number;
+  mouseDamping?: number;
+  parallax?: boolean;
+  parallaxStrength?: number;
+  mixBlendMode?: string;
+  enableOnMobile?: boolean;
+}
+
 export default function FloatingLines({
   linesGradient,
   enabledWaves = ['top', 'middle', 'bottom'],
@@ -245,7 +272,7 @@ export default function FloatingLines({
   parallaxStrength = 0.2,
   mixBlendMode = 'screen',
   enableOnMobile = false
-}) {
+}: FloatingLinesProps) {
   const containerRef = useRef(null);
   const targetMouseRef = useRef(new Vector2(-1000, -1000));
   const currentMouseRef = useRef(new Vector2(-1000, -1000));
@@ -294,7 +321,6 @@ export default function FloatingLines({
     if (!containerRef.current) return;
 
     const scene = new Scene();
-
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 

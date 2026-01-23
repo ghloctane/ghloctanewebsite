@@ -1,10 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 
-/**
- * @param {{ children: React.ReactNode; href?: string; onClick?: () => void; type?: string; className?: string }} props
- */
-const AnimatedButton = ({ children, href, onClick, type = 'button', className = '' }) => {
+interface AnimatedButtonProps {
+  children: React.ReactNode;
+  href?: string;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
+}
+
+const AnimatedButton: React.FC<AnimatedButtonProps> = ({ 
+  children, 
+  href, 
+  onClick, 
+  type = 'button', 
+  className = '' 
+}) => {
   // Check if href is internal (starts with /) or external
   const isInternalLink = href && href.startsWith('/');
   const isExternalLink = href && (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:'));

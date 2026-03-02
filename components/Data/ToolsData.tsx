@@ -22,9 +22,7 @@ export const allTools: Tool[] = [
         price: "USD 149",
         priceLabel: "Lifetime Deal",
         ctaText: "Buy Now",
-        ctaLink: "/book-a-call",
-        videoId: "https://player.vimeo.com/video/1151987657?autoplay=1&title=0&byline=0&portrait=0", // Using an existing site video as placeholder
-        isVimeo: true
+        ctaLink: "/book-a-call"
     },
     {
         id: 2,

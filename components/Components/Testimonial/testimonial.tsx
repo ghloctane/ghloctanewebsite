@@ -67,8 +67,8 @@ const TestimonialSection = () => {
     useEffect(() => {
         if (isMobile && videoPlayerRef.current && selectedVideo && hasUserInteracted) {
             setTimeout(() => {
-                videoPlayerRef.current?.scrollIntoView({ 
-                    behavior: 'smooth', 
+                videoPlayerRef.current?.scrollIntoView({
+                    behavior: 'smooth',
                     block: 'start',
                     inline: 'nearest'
                 });
@@ -82,77 +82,76 @@ const TestimonialSection = () => {
                     <div className="row row-cols-lg-2 row-cols-1 grid-spacer-5">
                         <div className="col col-lg-4">
                             <div className="testimonial-header-wrapper">
-                                    <div className="card card-testimonial-reviewer">
-                                        <div className="testimonial-video-list-container">
-                                            <div 
-                                                className="testimonial-video-list"
-                                                onScroll={(e) => {
-                                                    const element = e.target;
-                                                    const scrollBottom = element.scrollHeight - element.scrollTop - element.clientHeight;
-                                                    // Load more videos when near bottom
-                                                    if (scrollBottom < 50 && visibleVideos < videoTestimonials.length) {
-                                                        setVisibleVideos(prev => Math.min(prev + 2, videoTestimonials.length));
-                                                    }
-                                                }}
-                                            >
-                                                <div className="testimonial-video-scroll">
-                                                    {videoTestimonials.slice(0, visibleVideos).map((video) => (
-                                                        <div 
-                                                            key={video.id}
-                                                            className={`testimonial-video-item ${selectedVideo.id === video.id ? 'active' : ''}`}
-                                                            onClick={() => {
-                                                                setHasUserInteracted(true); // Mark that user clicked
-                                                                setSelectedVideo(video);
-                                                                setIsVideoPlaying(true);
-                                                            }}
-                                                        >
-                                                            <div className="testimonial-video-thumbnail">
-                                                                <Image src={video.thumbnail} alt={video.name} width={150} height={150} />
-                                                                <div className="play-icon">
-                                                                    <FaPlay />
-                                                                </div>
-                                                            </div>
-                                                            <div className="testimonial-video-info">
-                                                                <h6 className="testimonial-video-name">{video.name}</h6>
-                                                                <span className="testimonial-video-designation">{video.designation}</span>
+                                <div className="card card-testimonial-reviewer">
+                                    <div className="testimonial-video-list-container">
+                                        <div
+                                            className="testimonial-video-list"
+                                            onScroll={(e) => {
+                                                const element = e.target;
+                                                const scrollBottom = element.scrollHeight - element.scrollTop - element.clientHeight;
+                                                // Load more videos when near bottom
+                                                if (scrollBottom < 50 && visibleVideos < videoTestimonials.length) {
+                                                    setVisibleVideos(prev => Math.min(prev + 2, videoTestimonials.length));
+                                                }
+                                            }}
+                                        >
+                                            <div className="testimonial-video-scroll">
+                                                {videoTestimonials.slice(0, visibleVideos).map((video) => (
+                                                    <div
+                                                        key={video.id}
+                                                        className={`testimonial-video-item ${selectedVideo.id === video.id ? 'active' : ''}`}
+                                                        onClick={() => {
+                                                            setHasUserInteracted(true); // Mark that user clicked
+                                                            setSelectedVideo(video);
+                                                            setIsVideoPlaying(true);
+                                                        }}
+                                                    >
+                                                        <div className="testimonial-video-thumbnail">
+                                                            <Image src={video.thumbnail} alt={video.name} width={300} height={300} />
+                                                            <div className="play-icon">
+                                                                <FaPlay />
                                                             </div>
                                                         </div>
-                                                    ))}
-                                                </div>
+                                                        <div className="testimonial-video-info">
+                                                            <h6 className="testimonial-video-name">{video.name}</h6>
+                                                            <span className="testimonial-video-designation">{video.designation}</span>
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </div>
-                                            <div className="testimonial-video-stats">
-                                                <div className="card card-expertise">
-                                                    <div className="d-flex flex-column flex-md-row flex-lg-column justify-content-between gspace-3">
-                                                        <div className="testimonial-reviewer">
-                                                            <div className="detail">
-                                                                <h6>2.7k Positive</h6>
-                                                                <h6>Reviews</h6>
-                                                            </div>
+                                        </div>
+                                        <div className="testimonial-video-stats">
+                                            <div className="card card-expertise">
+                                                <div className="d-flex flex-column flex-md-row flex-lg-column justify-content-between gspace-3">
+                                                    <div className="testimonial-reviewer">
+                                                        <div className="detail">
+                                                            <h6>2.7k Positive</h6>
+                                                            <h6>Reviews</h6>
                                                         </div>
-                                                        <div className="testimonial-rating-container">
-                                                            <div className="d-flex flex-column justify-content-center align-items-center gspace-1">
-                                                                <div className="d-flex flex-row align-items-center">
-                                                                    <CounterOnScroll
-                                                                        target={90}
-                                                                        suffix="%"
-                                                                        counterClassName="counter"
-                                                                        suffixClassName="counter-detail"
-                                                                    />
-                                                                </div>
-                                                                <p>Improvement in Lead Response Time</p>
+                                                    </div>
+                                                    <div className="testimonial-rating-container">
+                                                        <div className="d-flex flex-column justify-content-center align-items-center gspace-1">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <CounterOnScroll
+                                                                    target={90}
+                                                                    suffix="%"
+                                                                    counterClassName="counter"
+                                                                    suffixClassName="counter-detail"
+                                                                />
                                                             </div>
-                                                            <div className="underline-vertical"></div>
-                                                            <div className="d-flex flex-column justify-content-center align-items-center gspace-1">
-                                                                <div className="d-flex flex-row align-items-center">
-                                                                    <CounterOnScroll
-                                                                        target={49}
-                                                                        suffix="%"
-                                                                        counterClassName="counter"
-                                                                        suffixClassName="counter-detail"
-                                                                    />
-                                                                </div>
-                                                                <p>Increase in Conversion Rate</p>
+                                                            <p>Improvement in Lead Response Time</p>
+                                                        </div>
+                                                        <div className="underline-vertical"></div>
+                                                        <div className="d-flex flex-column justify-content-center align-items-center gspace-1">
+                                                            <div className="d-flex flex-row align-items-center">
+                                                                <CounterOnScroll
+                                                                    target={49}
+                                                                    suffix="%"
+                                                                    counterClassName="counter"
+                                                                    suffixClassName="counter-detail"
+                                                                />
                                                             </div>
+                                                            <p>Increase in Conversion Rate</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,65 +159,66 @@ const TestimonialSection = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                         <div className="col col-lg-8">
                             <div className="testimonial-header-wrapper-title">
-                                    <div className="card-testimonial-header-title">
-                                        <div className="sub-heading">
-                                            <FaCircle />
-                                            <span>What Our Client Says</span>
-                                        </div>
-                                        <h2 className="title-heading">REAL RESULTS. REAL CLIENTS.</h2>
-                                        <p>90% Improvement in Lead Response Time | 49% Increase in Conversion Rate</p>
+                                <div className="card-testimonial-header-title">
+                                    <div className="sub-heading">
+                                        <FaCircle />
+                                        <span>What Our Client Says</span>
                                     </div>
-                                    <div className="testimonial-video-player" ref={videoPlayerRef}>
-                                        <div className="video-container">
-                                            {!isVideoPlaying ? (
-                                                <div 
-                                                    className="testimonial-video-thumbnail-large"
-                                                    onClick={() => setIsVideoPlaying(true)}
-                                                >
-                                                    <Image src={selectedVideo.thumbnail} alt={selectedVideo.name} width={800} height={450} priority />
-                                                    <div className="play-icon-large">
-                                                        <FaPlay />
-                                                    </div>
+                                    <h2 className="title-heading">REAL RESULTS. REAL CLIENTS.</h2>
+                                    <p>90% Improvement in Lead Response Time | 49% Increase in Conversion Rate</p>
+                                </div>
+                                <div className="testimonial-video-player" ref={videoPlayerRef}>
+                                    <div className="video-container">
+                                        {!isVideoPlaying ? (
+                                            <div
+                                                className="testimonial-video-thumbnail-large"
+                                                onClick={() => setIsVideoPlaying(true)}
+                                            >
+                                                <Image src={selectedVideo.thumbnail} alt={selectedVideo.name} width={800} height={450} priority />
+                                                <div className="play-icon-large">
+                                                    <FaPlay />
                                                 </div>
+                                            </div>
+                                        ) : (
+                                            selectedVideo.isVimeo ? (
+                                                <iframe
+                                                    src={selectedVideo.videoId}
+                                                    width="100%"
+                                                    height="100%"
+                                                    frameBorder="0"
+                                                    allow="autoplay; fullscreen; picture-in-picture"
+                                                    allowFullScreen
+                                                    className="testimonial-iframe"
+                                                    title={selectedVideo.name}
+                                                ></iframe>
                                             ) : (
-                                                selectedVideo.isVimeo ? (
-                                                    <iframe
-                                                        src={selectedVideo.videoId}
-                                                        width="100%"
-                                                        height="100%"
-                                                        frameBorder="0"
-                                                        allow="autoplay; fullscreen; picture-in-picture"
-                                                        allowFullScreen
-                                                        className="testimonial-iframe"
-                                                        title={selectedVideo.name}
-                                                    ></iframe>
-                                                ) : (
-                                                    <video
-                                                        width="100%"
-                                                        height="100%"
-                                                        src={selectedVideo.videoId}
-                                                        controls
-                                                        autoPlay
-                                                        playsInline
-                                                        preload="none"
-                                                        type="video/mp4"
-                                                        className="testimonial-iframe"
-                                                    >
-                                                        Your browser does not support the video tag.
-                                                    </video>
-                                                )
-                                            )}
-                                        </div>
-                                        <div className="testimonial-video-player-info">
-                                            <h5>{selectedVideo.name}</h5>
-                                            <span>{selectedVideo.designation}</span>
-                                            <p>{selectedVideo.text}</p>
-                                        </div>
+                                                <video
+                                                    width="100%"
+                                                    height="100%"
+                                                    src={selectedVideo.videoId}
+                                                    controls
+                                                    autoPlay
+                                                    playsInline
+                                                    preload="none"
+                                                    type="video/mp4"
+                                                    className="testimonial-iframe"
+                                                >
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            )
+                                        )}
+                                    </div>
+                                    <div className="testimonial-video-player-info">
+                                        <h5>{selectedVideo.name}</h5>
+                                        <span>{selectedVideo.designation}</span>
+                                        <p>{selectedVideo.text}</p>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
 

@@ -17,66 +17,66 @@ const WebsiteShowcase = () => {
         <div className="section-website-showcase">
             <div className="hero-container">
                 <div className="card card-website-showcase">
-                        <div className="website-spacer"></div>
+                    <div className="website-spacer"></div>
 
-                        <div className="row row-cols-lg-2 row-cols-1 align-items-center px-5 position-relative z-2">
-                            <div className="col">
-                                <div className="d-flex flex-column justify-content-start pe-lg-3 pe-0">
-                                    <h3 className="title-heading">TURBO-CHARGED WEBSITES</h3>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="d-flex flex-column ps-lg-3 ps-0">
-                                    <p>
-                                        Lightning-fast, conversion-optimized websites that integrate seamlessly with your GoHighLevel setup. Built for speed and results.
-                                    </p>
-                                </div>
+                    <div className="row row-cols-lg-2 row-cols-1 align-items-center px-5 position-relative z-2">
+                        <div className="col">
+                            <div className="d-flex flex-column justify-content-start pe-lg-3 pe-0">
+                                <h3 className="title-heading">TURBO-CHARGED WEBSITES</h3>
                             </div>
                         </div>
-
-                        {/* Scrolling Rows Container */}
-                        <div className="website-showcase-container">
-                            {/* Row 1 - Moving Right */}
-                            <div className="website-showcase-row">
-                                <div className="website-showcase-track website-showcase-right">
-                                    {[...websites, ...websites].map((site, index) => (
-                                        <div 
-                                            key={`right-${index}`} 
-                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
-                                            onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
-                                        >
-                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} />
-                                            {site.demoUrl && (
-                                                <div className="website-showcase-overlay">
-                                                    <span className="website-showcase-demo-text">Live Demo</span>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Row 2 - Moving Left */}
-                            <div className="website-showcase-row">
-                                <div className="website-showcase-track website-showcase-left">
-                                    {[...websites, ...websites].map((site, index) => (
-                                        <div 
-                                            key={`left-${index}`} 
-                                            className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
-                                            onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
-                                        >
-                                            <Image src={site.image} alt={`${site.title} Website Template`} width={400} height={300} />
-                                            {site.demoUrl && (
-                                                <div className="website-showcase-overlay">
-                                                    <span className="website-showcase-demo-text">Live Demo</span>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
+                        <div className="col">
+                            <div className="d-flex flex-column ps-lg-3 ps-0">
+                                <p>
+                                    Lightning-fast, conversion-optimized websites that integrate seamlessly with your GoHighLevel setup. Built for speed and results.
+                                </p>
                             </div>
                         </div>
                     </div>
+
+                    {/* Scrolling Rows Container */}
+                    <div className="website-showcase-container">
+                        {/* Row 1 - Moving Right */}
+                        <div className="website-showcase-row">
+                            <div className="website-showcase-track website-showcase-right">
+                                {[...websites, ...websites].map((site, index) => (
+                                    <div
+                                        key={`right-${index}`}
+                                        className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
+                                        onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
+                                    >
+                                        <Image src={site.image} alt={`${site.title} Website Template`} width={800} height={600} />
+                                        {site.demoUrl && (
+                                            <div className="website-showcase-overlay">
+                                                <span className="website-showcase-demo-text">Live Demo</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Row 2 - Moving Left */}
+                        <div className="website-showcase-row">
+                            <div className="website-showcase-track website-showcase-left">
+                                {[...websites, ...websites].map((site, index) => (
+                                    <div
+                                        key={`left-${index}`}
+                                        className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
+                                        onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
+                                    >
+                                        <Image src={site.image} alt={`${site.title} Website Template`} width={800} height={600} />
+                                        {site.demoUrl && (
+                                            <div className="website-showcase-overlay">
+                                                <span className="website-showcase-demo-text">Live Demo</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

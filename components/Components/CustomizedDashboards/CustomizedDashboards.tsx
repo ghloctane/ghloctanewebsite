@@ -15,7 +15,7 @@ const CustomizedDashboardsSection = () => {
         { id: 5, url: "/assets/images/dashboard2.webp", title: "Dashboard 5" },
         { id: 6, url: "/assets/images/dashboard3.webp", title: "Dashboard 6" },
     ];
-    
+
     const placeholderImages = dashboardImages;
 
     return (
@@ -75,18 +75,18 @@ const CustomizedDashboardsSection = () => {
                                     {placeholderImages.concat(placeholderImages).map((image, index) => (
                                         <SwiperSlide key={`dashboard-${index}`}>
                                             <div className="dashboard-slide">
-                                                <Image 
-                                                    src={image.url} 
-                                                    alt={image.title} 
+                                                <Image
+                                                    src={image.url}
+                                                    alt={image.title}
                                                     className="dashboard-image"
-                                                    width={600}
-                                                    height={400}
+                                                    width={1200}
+                                                    height={800}
                                                     style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </div>
                                         </SwiperSlide>
                                     ))}
-                                </Swiper>   
+                                </Swiper>
                             </div>
                         </div>
                     </div>

@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 
-function ExpertiseSection(){
+function ExpertiseSection() {
 
-    return(
+    return (
         <>
-           <div className="section-expertise">
+            <div className="section-expertise">
                 <div className="hero-container">
                     <div className="d-flex flex-column flex-lg-row gspace-5">
                         <div className="expertise-img-layout">
@@ -15,23 +15,23 @@ function ExpertiseSection(){
                                     src="/assets/images/expertise.webp"
                                     alt="GHL Octane Expertise"
                                     className="img-fluid"
-                                    width={500}
-                                    height={400}
+                                    width={1200}
+                                    height={960}
                                 />
                                 <div className="expertise-layout">
                                     <div className="d-flex flex-column">
                                         <div className="card-expertise-wrapper">
                                             <div className="card card-expertise">
-                                    <h4>READY TO ELEVATE YOUR DIGITAL GROWTH?</h4>
-                                    <p>Data-Driven Strategies. Measurable Results.</p>
-                                    <div className="d-flex align-items-center flex-row gspace-2 expertise-link">
-                                        <a href="./contact">Book Your Free Strategy Call</a>
-                                        <i className="fa-solid fa-circle-arrow-right"></i>
-                                    </div>
+                                                <h4>READY TO ELEVATE YOUR DIGITAL GROWTH?</h4>
+                                                <p>Data-Driven Strategies. Measurable Results.</p>
+                                                <div className="d-flex align-items-center flex-row gspace-2 expertise-link">
+                                                    <a href="./contact">Book Your Free Strategy Call</a>
+                                                    <i className="fa-solid fa-circle-arrow-right"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    <div className="expertise-spacer"></div>
-                                        </div>
+                                        <div className="expertise-spacer"></div>
+                                    </div>
                                     <div className="expertise-spacer"></div>
                                 </div>
                             </div>
@@ -63,13 +63,13 @@ function ExpertiseSection(){
                                 <div className="card card-expertise card-expertise-counter">
                                     <div className="d-flex flex-row gspace-2 align-items-center">
                                         <div className="d-flex flex-row align-items-center">
-                                        <CounterOnScroll
-                                            target={20}
-                                            suffix="+"
-                                            counterClassName="counter"
-                                            suffixClassName="counter-detail"
-                                            threshold={0.1}
-                                        />
+                                            <CounterOnScroll
+                                                target={20}
+                                                suffix="+"
+                                                counterClassName="counter"
+                                                suffixClassName="counter-detail"
+                                                threshold={0.1}
+                                            />
                                         </div>
                                         <h6>Certified GHL Experts</h6>
                                     </div>

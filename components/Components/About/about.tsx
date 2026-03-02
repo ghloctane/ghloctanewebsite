@@ -4,7 +4,7 @@ import CounterOnScroll from "../Hooks/CounterOnScroll";
 
 function AboutSection({ isHomePage = false }) {
 
-    return(
+    return (
         <div className="section section-about">
             <div className="hero-container">
                 <div className="d-flex flex-column flex-lg-row gspace-5">
@@ -14,10 +14,10 @@ function AboutSection({ isHomePage = false }) {
                                 src="/assets/images/aboutus.webp"
                                 alt={isHomePage ? "About GHL Octane" : "About Us Image"}
                                 className="img-fluid"
-                                width={500}
-                                height={400}
+                                width={1200}
+                                height={960}
                             />
-                        
+
                             <div className="about-layout">
                                 <div className="d-flex flex-column">
                                     <div className="card-about-wrapper">

@@ -25,7 +25,6 @@ interface ServiceDetailPageProps {
 }
 
 const imageMap: Record<string, string> = {
-  "funnel-landing-page-design": "/assets/images/services/funnel.webp",
   "crm-pipeline-setup": "/assets/images/services/crm pipeline.webp",
   "automation-workflow": "/assets/images/services/automation.webp",
   "white-label-agency": "/assets/images/services/whitelabel.webp",
@@ -73,14 +72,14 @@ export default function ServiceDetailPage({ service, serviceImage }: ServiceDeta
 
   return (
     <>
-      <SEOHead 
+      <SEOHead
         title={`${service.title} - GHL Octane`}
         description={service.fullDescription}
         keywords={`GoHighLevel, GHL, ${service.title}, automation, CRM`}
       />
       <HeadTitle title={`${service.title} - GHL Octane`} />
       <BannerInnerSection title={service.title} currentPage="Services" />
-      
+
       {/* Service Detail Section */}
       <div className="section">
         <div className="hero-container">
@@ -128,8 +127,8 @@ export default function ServiceDetailPage({ service, serviceImage }: ServiceDeta
               ) : (
                 // Other Services - Original Images
                 <div className="service-detail-image-container">
-                  <img 
-                    src={serviceImage} 
+                  <img
+                    src={serviceImage}
                     alt={service.title}
                     className="service-detail-image"
                     loading="lazy"

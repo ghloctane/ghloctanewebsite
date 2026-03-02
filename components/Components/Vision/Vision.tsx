@@ -25,12 +25,12 @@ const VisionSection = () => {
                     </div>
                     <div className="chooseus-card-container vision-card-container">
                         <div className="image-container">
-                            <Image 
-                                src="/assets/images/our vision.webp" 
-                                alt="GHL Octane Vision" 
+                            <Image
+                                src="/assets/images/our vision.webp"
+                                alt="GHL Octane Vision"
                                 className="chooseus-img"
-                                width={600}
-                                height={400}
+                                width={1200}
+                                height={800}
                             />
                         </div>
                     </div>

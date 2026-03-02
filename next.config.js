@@ -7,19 +7,20 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const nextConfig = {
   reactStrictMode: true,
-  
+
   // Temporarily disable type checking during build (fix types incrementally)
   typescript: {
     ignoreBuildErrors: true,
   },
-  
+
   // Compression & Performance
   compress: true,
   poweredByHeader: false,
-  
+
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
+    qualities: [75, 100],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year cache
@@ -74,7 +75,7 @@ const nextConfig = {
 
   // Turbopack configuration (Next.js 16 default)
   turbopack: {},
-  
+
   // Webpack configuration for Three.js and other libraries (fallback)
   webpack: (config, { isServer }) => {
     // Handle Three.js for client-side only
@@ -107,10 +108,15 @@ const nextConfig = {
   // Removed 'standalone' output - Vercel handles Next.js builds automatically
   // If deploying elsewhere (not Vercel), you can uncomment the line below:
   // output: 'standalone',
-  
+
   // Experimental features
   experimental: {
     optimizePackageImports: ['swiper', 'react-icons', 'three'],
+    // Disable client-side router cache so pages always show fresh content
+    staleTimes: {
+      dynamic: 0,
+      static: 30,
+    },
   },
 
   // Production optimizations

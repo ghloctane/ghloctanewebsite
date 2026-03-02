@@ -3,8 +3,8 @@ import Image from "next/image";
 import { whychooseus } from "../../Data/ChooseUsData";
 import ChooseUsCard from "../Card/ChoooseUsCard";
 
-function ChooseUsSection(){
-    return(
+function ChooseUsSection() {
+    return (
         <>
             <div className="section">
                 <div className="hero-container">
@@ -12,7 +12,7 @@ function ChooseUsSection(){
                         <div className="chooseus-card-container">
                             <div className="d-flex flex-column gspace-2">
                                 {whychooseus.slice(0, 3).map((item) => (
-                                    <ChooseUsCard 
+                                    <ChooseUsCard
                                         key={item.id}
                                         icon={item.icon}
                                         title={item.title}
@@ -33,7 +33,7 @@ function ChooseUsSection(){
                                     <p className="mb-0">We believe growth comes from systems, not shortcuts. Our mission is to help businesses fully leverage GoHighLevel to automate operations, improve lead quality, and increase revenue.</p>
                                 </div>
                                 <div className="image-container">
-                                    <Image src="/assets/images/team.webp" alt="GHL Octane Team" className="chooseus-img" width={600} height={400} />
+                                    <Image src="/assets/images/team.webp" alt="GHL Octane Team" className="chooseus-img" width={1200} height={800} />
                                     <div className="card-chooseus-cta-layout">
                                         <div className="chooseus-cta-spacer"></div>
                                         <div className="d-flex flex-column align-items-end">

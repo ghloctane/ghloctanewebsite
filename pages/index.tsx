@@ -6,8 +6,8 @@ import BannerHomeSection from "../components/Components/Banner";
 // Critical above-the-fold components (loaded immediately)
 import ExpertiseSection from "../components/Components/Expertise/expertise";
 import PartnershipSection from "../components/Components/Partnership/Partnership";
-import OurImpact from "../components/Components/Impact/OurImpact";
-import AboutSection from "../components/Components/About/about";
+
+
 
 // Lazy load non-critical components (below the fold)
 const LeaderSection = lazy(() => import("../components/Components/Leader/Leader"));
@@ -22,8 +22,8 @@ const WebsiteShowcase = lazy(() => import("../components/Components/WebsiteShowc
 const TestimonialSection = lazy(() => import("../components/Components/Testimonial/testimonial"));
 const DigitalProcessSection = lazy(() => import("../components/Components/DigitalProcess/digitalstep"));
 const PricingPlanSection = lazy(() => import("../components/Components/Pricing/Pricing"));
-const IndustriesSection = lazy(() => import("../components/Components/Industries/IndustriesSection"));
-const NewsletterSection = lazy(() => import("../components/Components/Form/Newsletter"));
+
+
 const IntegrationsSection = lazy(() => import("../components/Components/Integrations/IntegrationsSection"));
 const CTASection = lazy(() => import("../components/Components/CTA/CTASection"));
 
@@ -33,7 +33,7 @@ const SectionPlaceholder = () => <div className="section section-placeholder"></
 export default function HomePage() {
   return (
     <>
-      <SEOHead 
+      <SEOHead
         title="GHL Octane - Professional GoHighLevel Solutions for Agencies & Businesses"
         description="Transform your business with expert GoHighLevel implementation. CRM setup, automation workflows, funnel design, white-label agency builds, and marketing automation solutions."
         keywords="GoHighLevel, GHL, CRM setup, automation workflow, funnel design, marketing automation, white label agency, GHL integration, lead generation"
@@ -42,9 +42,9 @@ export default function HomePage() {
       <BannerHomeSection />
       <ExpertiseSection />
       <PartnershipSection />
-      <OurImpact />
-      <AboutSection isHomePage={true} />
-      
+
+
+
       {/* Lazy loaded sections with Suspense */}
       {/* <Suspense fallback={<SectionPlaceholder />}>
         <LeaderSection />
@@ -61,9 +61,7 @@ export default function HomePage() {
       <Suspense fallback={<SectionPlaceholder />}>
         <ServiceSection />
       </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <IndustriesSection />
-      </Suspense>
+
       <Suspense fallback={<SectionPlaceholder />}>
         <FunnelPortfolioSection limit={3} showViewMore={true} />
       </Suspense>
@@ -85,9 +83,7 @@ export default function HomePage() {
       <Suspense fallback={<SectionPlaceholder />}>
         <PricingPlanSection />
       </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <NewsletterSection />
-      </Suspense>
+
       <Suspense fallback={<SectionPlaceholder />}>
         <IntegrationsSection />
       </Suspense>

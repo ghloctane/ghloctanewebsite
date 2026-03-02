@@ -24,12 +24,12 @@ const TeamSection = () => {
                             <div className="col">
                                 <div className="d-flex flex-column align-items-center">
                                     <div className="leader-image">
-                                        <Image 
-                                            src="/assets/images/zeeshan haider.webp" 
-                                            alt="Zeeshan Haider - Founder" 
+                                        <Image
+                                            src="/assets/images/zeeshan haider.webp"
+                                            alt="Zeeshan Haider - Founder"
                                             className="img-fluid"
-                                            width={300}
-                                            height={300}
+                                            width={800}
+                                            height={800}
                                         />
                                     </div>
                                     <div className="leader-text">
@@ -41,12 +41,12 @@ const TeamSection = () => {
                             <div className="col">
                                 <div className="d-flex flex-column align-items-center">
                                     <div className="leader-image">
-                                        <Image 
-                                            src="/assets/images/hammad raza .webp" 
-                                            alt="Hammad Raza - CEO and Co-Founder" 
+                                        <Image
+                                            src="/assets/images/hammad raza .webp"
+                                            alt="Hammad Raza - CEO and Co-Founder"
                                             className="img-fluid"
-                                            width={300}
-                                            height={300}
+                                            width={800}
+                                            height={800}
                                         />
                                     </div>
                                     <div className="leader-text">
@@ -82,12 +82,12 @@ const TeamSection = () => {
                         </div>
                         <div className="chooseus-card-container">
                             <div className="image-container">
-                                <Image 
-                                    src="/assets/images/our vision.webp" 
-                                    alt="GHL Octane Vision" 
+                                <Image
+                                    src="/assets/images/our vision.webp"
+                                    alt="GHL Octane Vision"
                                     className="chooseus-img"
-                                    width={600}
-                                    height={400}
+                                    width={1200}
+                                    height={800}
                                 />
                             </div>
                         </div>

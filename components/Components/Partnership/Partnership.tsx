@@ -11,77 +11,77 @@ const PartnershipSection = () => {
         <div className="section-partner">
             <div className="hero-container">
                 <div className="card card-partner">
-                        <div className="partner-spacer"></div>
+                    <div className="partner-spacer"></div>
 
-                        <div className="row row-cols-lg-2 row-cols-1 align-items-center px-5 position-relative z-2">
-                            <div className="col">
-                                <div className="d-flex flex-column justify-content-start pe-lg-3 pe-0">
-                                    <h3 className="title-heading">EXPERTISE</h3>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="d-flex flex-column ps-lg-3 ps-0">
-                                    <p>
-                                        Our expertise spans across modern web technologies and digital tools that power today's businesses.
-                                    </p>
-                                </div>
+                    <div className="row row-cols-lg-2 row-cols-1 align-items-center px-5 position-relative z-2">
+                        <div className="col">
+                            <div className="d-flex flex-column justify-content-start pe-lg-3 pe-0">
+                                <h3 className="title-heading">EXPERTISE</h3>
                             </div>
                         </div>
-
-                        <div className="swiperPartner-layout">
-                            <div className="swiperPartner-overlay">
-                                <div className="spacer"></div>
+                        <div className="col">
+                            <div className="d-flex flex-column ps-lg-3 ps-0">
+                                <p>
+                                    Our expertise spans across modern web technologies and digital tools that power today's businesses.
+                                </p>
                             </div>
+                        </div>
+                    </div>
 
-                            <div className="swiperPartner-container">
-                                <Swiper
-                                    style={{ height: '200px', minHeight: '200px' }}
-                                    modules={[Autoplay]}
-                                    slidesPerView={6}
-                                    spaceBetween={10}
-                                    loop={true}
-                                    speed={5000}
-                                    autoHeight={false}
-                                    observer={true}
-                                    observeParents={true}
-                                    watchSlidesProgress={false}
-                                    autoplay={{
-                                        delay: 0,
-                                        disableOnInteraction: false,
-                                        pauseOnMouseEnter: false,
-                                    }}
-                                    allowTouchMove={true}
-                                    touchEventsTarget="container"
-                                    breakpoints={{
-                                    230: { 
+                    <div className="swiperPartner-layout">
+                        <div className="swiperPartner-overlay">
+                            <div className="spacer"></div>
+                        </div>
+
+                        <div className="swiperPartner-container">
+                            <Swiper
+                                style={{ height: '200px', minHeight: '200px' }}
+                                modules={[Autoplay]}
+                                slidesPerView={6}
+                                spaceBetween={10}
+                                loop={true}
+                                speed={5000}
+                                autoHeight={false}
+                                observer={true}
+                                observeParents={true}
+                                watchSlidesProgress={false}
+                                autoplay={{
+                                    delay: 0,
+                                    disableOnInteraction: false,
+                                    pauseOnMouseEnter: false,
+                                }}
+                                allowTouchMove={true}
+                                touchEventsTarget="container"
+                                breakpoints={{
+                                    230: {
                                         slidesPerView: 3,
                                         spaceBetween: 10,
                                         allowTouchMove: true,
                                     },
-                                    767: { 
+                                    767: {
                                         slidesPerView: 4,
                                         spaceBetween: 10,
                                         allowTouchMove: true,
                                     },
-                                    1024: { 
+                                    1024: {
                                         slidesPerView: 6,
                                         spaceBetween: 10,
                                         allowTouchMove: false,
                                     },
-                                    }}
-                                    className="swiperPartner"
-                                >
-                                    {partnerships.concat(partnerships).concat(partnerships).concat(partnerships).map((partner, index) => (
+                                }}
+                                className="swiperPartner"
+                            >
+                                {partnerships.concat(partnerships).concat(partnerships).concat(partnerships).map((partner, index) => (
                                     <SwiperSlide key={`partner-${partner.id}-${index}`}>
                                         <div className="partner-slide">
-                                            <Image src={partner.logo} alt="Technology Partner" className="partner-logo img-fluid" width={120} height={60} />
+                                            <Image src={partner.logo} alt="Technology Partner" className="partner-logo img-fluid" width={240} height={120} />
                                         </div>
                                     </SwiperSlide>
-                                    ))}
-                                </Swiper>   
-                            </div>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     );

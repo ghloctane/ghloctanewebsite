@@ -835,8 +835,101 @@
 }
 
 /* ========== Grid Spacer (Custom) ========== */
+.grid-spacer-2 {
+    --bs-gutter-y: 0.5rem;
+}
+
+.grid-spacer-4 {
+    --bs-gutter-y: 1.5rem;
+}
+
 .grid-spacer-5 {
     --bs-gutter-y: 3rem;
+}
+
+/* ========== Bootstrap Gutters ========== */
+.g-0,
+.gx-0 {
+    --bs-gutter-x: 0;
+}
+
+.g-0,
+.gy-0 {
+    --bs-gutter-y: 0;
+}
+
+.g-1,
+.gx-1 {
+    --bs-gutter-x: 0.25rem;
+}
+
+.g-1,
+.gy-1 {
+    --bs-gutter-y: 0.25rem;
+}
+
+.g-2,
+.gx-2 {
+    --bs-gutter-x: 0.5rem;
+}
+
+.g-2,
+.gy-2 {
+    --bs-gutter-y: 0.5rem;
+}
+
+.g-3,
+.gx-3 {
+    --bs-gutter-x: 1rem;
+}
+
+.g-3,
+.gy-3 {
+    --bs-gutter-y: 1rem;
+}
+
+.g-4,
+.gx-4 {
+    --bs-gutter-x: 1.5rem;
+}
+
+.g-4,
+.gy-4 {
+    --bs-gutter-y: 1.5rem;
+}
+
+.g-5,
+.gx-5 {
+    --bs-gutter-x: 3rem;
+}
+
+.g-5,
+.gy-5 {
+    --bs-gutter-y: 3rem;
+}
+
+/* ========== Responsive Padding ========== */
+.px-5 {
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+}
+
+.pe-0 {
+    padding-right: 0 !important;
+}
+
+.ps-0 {
+    padding-left: 0 !important;
+}
+
+@media (min-width: 992px) {
+    .pe-lg-3 {
+        padding-right: 1rem !important;
+    }
+
+    .ps-lg-3 {
+        padding-left: 1rem !important;
+    }
 }
 
 /* ========== Navbar Base (Bootstrap) ========== */

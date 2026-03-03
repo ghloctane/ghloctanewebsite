@@ -1,15 +1,14 @@
 import React from 'react';
-import { 
+import {
     FaBars, FaAngleDown, FaTimes as FaXmark, FaPlay, FaCircle, FaArrowCircleRight,
-    FaCheckCircle, FaStar, FaQuoteRight, FaArrowUp, FaCheck, FaTimes as FaX,
+    FaCheckCircle, FaStar, FaQuoteRight, FaArrowUp, FaCheck,
     FaPhone, FaEnvelope, FaMapMarkerAlt as FaLocationDot, FaCalendar, FaFolder, FaUser,
-    FaArrowRight, FaArrowCircleRight, FaBrain, FaBug, FaProjectDiagram as FaDiagramProject,
+    FaArrowRight, FaBrain, FaBug, FaProjectDiagram as FaDiagramProject,
     FaFilter, FaCogs as FaGears, FaBuilding, FaPlug, FaRobot, FaMagnet, FaHeadset,
     FaShieldAlt as FaShieldHalved, FaCode, FaDollarSign, FaChartLine, FaTools, FaHome,
     FaHeartbeat as FaHeartPulse, FaDumbbell, FaShoppingCart, FaChalkboardTeacher as FaChalkboardUser, FaBalanceScale as FaScaleBalanced,
-    FaCar, FaGraduationCap, FaBriefcase, FaCloud, FaUtensils
+    FaCar, FaGraduationCap, FaBriefcase, FaCloud, FaUtensils, FaAccessibleIcon
 } from 'react-icons/fa';
-import { FaAccessibleIcon } from 'react-icons/fa';
 
 // Mapping FontAwesome classes to react-icons components
 const iconMap = {
@@ -24,15 +23,13 @@ const iconMap = {
     'fa-quote-right': FaQuoteRight,
     'fa-arrow-up': FaArrowUp,
     'fa-check': FaCheck,
-    'fa-xmark': FaX,
-    'fa-phone-volume': FaPhoneVolume,
+    'fa-phone-volume': FaPhone,
     'fa-envelope': FaEnvelope,
     'fa-location-dot': FaLocationDot,
     'fa-calendar': FaCalendar,
     'fa-folder': FaFolder,
     'fa-user': FaUser,
     'fa-arrow-right': FaArrowRight,
-    'fa-arrow-circle-right': FaArrowCircleRight,
     'fa-brain': FaBrain,
     'fa-bug': FaBug,
     'fa-diagram-project': FaDiagramProject,
@@ -66,14 +63,14 @@ const Icon = ({ className, style, ...props }) => {
     // Extract icon name from className (e.g., "fa-solid fa-bars" -> "fa-bars")
     const classNames = className?.split(' ') || [];
     const iconClass = classNames.find(cls => cls.startsWith('fa-') && cls !== 'fa-solid' && cls !== 'fa-regular' && cls !== 'fa-brands');
-    
+
     if (!iconClass) {
         console.warn(`Icon class not found in: ${className}`);
         return null;
     }
 
     const IconComponent = iconMap[iconClass];
-    
+
     if (!IconComponent) {
         console.warn(`Icon component not found for: ${iconClass}`);
         return <i className={className} {...props} />;
@@ -91,9 +88,9 @@ const Icon = ({ className, style, ...props }) => {
 
     // Extract color from className if present
     const colorClass = classNames.find(cls => cls.includes('accent-color') || cls.includes('color'));
-    
+
     return (
-        <IconComponent 
+        <IconComponent
             style={{ fontSize: size, ...style }}
             className={colorClass ? colorClass : ''}
             {...props}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SocialButton from "../Social/SocialButton";
@@ -10,21 +10,7 @@ const scrollToTop = () => {
 };
 
 const Footer = () => {
-    const [email, setEmail] = useState("");
-    const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-    const handleSubscribe = (e: React.FormEvent) => {
-        e.preventDefault();
-        const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!email.trim() || !pattern.test(email)) {
-            setStatus("error");
-            setTimeout(() => setStatus("idle"), 2500);
-            return;
-        }
-        setStatus("success");
-        setEmail("");
-        setTimeout(() => setStatus("idle"), 3000);
-    };
     return (
         <div className="section-footer">
             <div className="bg-footer-wrapper">
@@ -105,79 +91,7 @@ const Footer = () => {
                                 </div>
                             </div>
 
-                            {/* Compact Newsletter */}
-                            <div style={{
-                                marginTop: '30px',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'flex-start',
-                                gap: '16px',
-                            }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
-                                    <span style={{
-                                        width: '48px',
-                                        height: '48px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        backgroundImage: 'radial-gradient(at top left, rgba(39,66,140,0.5) 0%, rgba(39,66,140,0.15) 70%)',
-                                        borderRadius: '14px',
-                                        flexShrink: 0,
-                                        border: '1px solid rgba(39,66,140,0.4)',
-                                    }}>
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <rect x="2" y="4" width="20" height="16" rx="2" />
-                                            <path d="M22 4L12 13L2 4" />
-                                        </svg>
-                                    </span>
-                                    <div>
-                                        <h6 style={{ color: '#FFFFFF', fontSize: '1rem', fontWeight: 600, margin: 0, lineHeight: 1.4 }}>Stay in the loop</h6>
-                                        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', margin: '3px 0 0 0', lineHeight: 1.4 }}>Get tips, updates & GHL insights — no spam.</p>
-                                    </div>
-                                </div>
-                                <form onSubmit={handleSubscribe} style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0',
-                                    backgroundImage: 'radial-gradient(at top left, rgba(39,66,140,0.4) 0%, rgba(39,66,140,0.12) 70%)',
-                                    border: '1px solid rgba(39,66,140,0.3)',
-                                    borderRadius: '16px',
-                                    padding: '5px',
-                                }}>
-                                    <input
-                                        type="email"
-                                        placeholder="Your email address"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        style={{
-                                            flex: 1,
-                                            padding: '12px 18px',
-                                            borderRadius: '12px',
-                                            border: 'none',
-                                            background: 'transparent',
-                                            color: '#FFFFFF',
-                                            fontSize: '0.9rem',
-                                            outline: 'none',
-                                            fontFamily: 'inherit',
-                                        }}
-                                    />
-                                    <button type="submit" style={{
-                                        padding: '12px 24px',
-                                        borderRadius: '12px',
-                                        border: 'none',
-                                        background: 'rgba(39, 66, 140, 0.95)',
-                                        backgroundImage: 'radial-gradient(at top left, rgba(39,66,140,0.98) 0%, rgba(20,30,60,0.95) 50%)',
-                                        color: '#FFFFFF',
-                                        fontSize: '0.9rem',
-                                        fontWeight: 600,
-                                        cursor: 'pointer',
-                                        whiteSpace: 'nowrap',
-                                        fontFamily: 'inherit',
-                                    }}>
-                                        {status === "success" ? "✓ Subscribed!" : "Subscribe"}
-                                    </button>
-                                </form>
-                            </div>
+
 
                             <div className="footer-content-spacer"></div>
                         </div>

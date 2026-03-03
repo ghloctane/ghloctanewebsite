@@ -37,9 +37,6 @@ export default function Document() {
         <meta name="twitter:image" content="https://ghloctane.com/assets/images/GHL Octane Final.webp" />
         <meta name="twitter:image:alt" content="GHL Octane - GoHighLevel Solutions" />
 
-        {/* Google Search Console Verification - Add your verification code here */}
-        {/* <meta name="google-site-verification" content="YOUR_ACTUAL_VERIFICATION_CODE" /> */}
-
         {/* Additional SEO */}
         <meta name="geo.region" content="US" />
         <meta name="geo.placename" content="United States" />
@@ -75,42 +72,11 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
         <link rel="dns-prefetch" href="https://link.msgsndr.com" />
 
-        {/* Performance hints */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Critical CSS - Self-hosted for faster loading (no DNS lookups) */}
-        <link rel="stylesheet" href="/assets/css/vendor/font-family-plus-jakarta-sans.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/fontawesome.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/brands.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/regular.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/solid.css" />
-        <link rel="stylesheet" href="/assets/css/vendor/swiper-bundle.min.css" />
-
-        {/* Non-Critical CSS - Deferred loading via script (doesn't block rendering) */}
-
+        {/* Favicon */}
         <link rel="icon" href="/assets/images/favicon.ico" />
       </Head>
       <body>
         <Main />
-        {/* Bootstrap JS - Load after page content */}
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-          async
-        />
-        {/* Defer animate.css — load after page is interactive */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener('load', function() {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
-                document.head.appendChild(link);
-              });
-            `
-          }}
-        />
         <NextScript />
       </body>
     </Html>

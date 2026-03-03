@@ -1,7 +1,10 @@
-import React, { useRef, Suspense } from "react";
+import React, { useRef } from "react";
+import dynamic from "next/dynamic";
 import VideoButton from "../Video/VideoButton";
 import AnimatedButton from "../Button/AnimatedButton";
-const FloatingLines = React.lazy(() => import("../CTA/FloatingLines"));
+
+// Three.js component — must be client-side only
+const FloatingLines = dynamic(() => import("../CTA/FloatingLines"), { ssr: false });
 
 function BannerHomeSection() {
 
@@ -13,12 +16,10 @@ function BannerHomeSection() {
                 ref={videoContainerRef}
                 className="banner-video-container keep-dark"
             >
-                <Suspense fallback={null}>
-                    <FloatingLines 
-                        enableOnMobile={true}
-                        linesGradient={['#1e3a8a', '#1e40af', '#1d4ed8', '#2563eb']}
-                    />
-                </Suspense>
+                <FloatingLines
+                    enableOnMobile={true}
+                    linesGradient={['#1e3a8a', '#1e40af', '#1d4ed8', '#2563eb']}
+                />
                 <div className="hero-container position-relative">
                     <div className="d-flex flex-column gspace-2">
                         <h1 className="title-heading-banner">

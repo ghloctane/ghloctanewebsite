@@ -35,7 +35,7 @@ const Footer = () => {
                                 <div className="col col-lg-4">
                                     <div className="footer-logo-container">
                                         <div className="logo-container-footer">
-                                            <Image src="/assets/images/GHL Octane Favicon.webp" alt="GHL Octane Logo" className="site-logo img-fluid footer-logo-img" width={300} height={300} quality={100} />
+                                            <Image src="/assets/images/GHL Octane Favicon.webp" alt="GHL Octane Logo" className="site-logo img-fluid footer-logo-img" width={300} height={300} />
                                         </div>
                                         <h4><span className="brand-name">GHL Octane</span> — Driving Growth Through Smart GoHighLevel Systems.</h4>
                                         <p>
@@ -93,11 +93,11 @@ const Footer = () => {
                                                 <SocialButton href="https://www.linkedin.com/company/ghloctane" icon="linkedin" />
                                             </div>
                                             <div className="footer-certified-badges">
-                                                <Image src="/assets/images/certified.webp" alt="HighLevel Certified Admin" className="certified-badge-img certified-badge-main" width={200} height={200} quality={100} />
+                                                <Image src="/assets/images/certified.webp" alt="HighLevel Certified Admin" className="certified-badge-img certified-badge-main" width={200} height={200} />
                                                 <div className="footer-integration-badges">
-                                                    <Image src="https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/67abd58650fb000ed8851f30.png" alt="Zapier" className="certified-badge-img" width={70} height={70} quality={100} unoptimized />
-                                                    <Image src="/assets/images/ghl.webp" alt="GoHighLevel" className="certified-badge-img" width={70} height={70} quality={100} />
-                                                    <Image src="/assets/images/shopify.webp" alt="Shopify" className="certified-badge-img" width={70} height={70} quality={100} />
+                                                    <Image src="https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/67abd58650fb000ed8851f30.png" alt="Zapier" className="certified-badge-img" width={70} height={70} />
+                                                    <Image src="/assets/images/ghl.webp" alt="GoHighLevel" className="certified-badge-img" width={70} height={70} />
+                                                    <Image src="/assets/images/shopify.webp" alt="Shopify" className="certified-badge-img" width={70} height={70} />
                                                 </div>
                                             </div>
                                         </div>

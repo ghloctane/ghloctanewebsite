@@ -1,6 +1,8 @@
-import React, { Suspense } from "react";
+import React from "react";
+import dynamic from "next/dynamic";
 import AnimatedButton from "../Button/AnimatedButton";
-const FloatingLines = React.lazy(() => import("./FloatingLines"));
+
+const FloatingLines = dynamic(() => import("./FloatingLines"), { ssr: false });
 
 const CTASection = () => {
     return (
@@ -8,11 +10,9 @@ const CTASection = () => {
             <div className="hero-container">
                 <div className="cta-container">
                     <div className="cta-floating-lines-wrapper">
-                        <Suspense fallback={null}>
-                            <FloatingLines 
-                                linesGradient={['#1e7acc', '#1e7acc', '#1e7acc', '#1e7acc', '#15a83e']}
-                            />
-                        </Suspense>
+                        <FloatingLines
+                            linesGradient={['#1e7acc', '#1e7acc', '#1e7acc', '#1e7acc', '#15a83e']}
+                        />
                     </div>
                     <div className="cta-content">
                         <div className="d-flex flex-column gspace-3 text-center">
@@ -22,7 +22,7 @@ const CTASection = () => {
                             </div>
                             <h2 className="title-heading">LET'S BUILD SOMETHING AMAZING TOGETHER</h2>
                             <p style={{ maxWidth: '700px', margin: '0 auto' }}>
-                                Get started with GHL Octane today and unlock the power of automation. 
+                                Get started with GHL Octane today and unlock the power of automation.
                                 Book your free strategy call and see how we can help scale your business.
                             </p>
                             <div className="d-flex justify-content-center gap-3 flex-wrap">
@@ -42,4 +42,3 @@ const CTASection = () => {
 };
 
 export default CTASection;
-

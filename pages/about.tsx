@@ -1,15 +1,17 @@
-import React from "react";
+import dynamic from "next/dynamic";
 import HeadTitle from "../components/Components/Head/HeadTitle";
 import SEOHead from "../components/Components/Head/SEOHead";
 import BannerInnerSection from "../components/Components/Banner/Inner";
 import AboutSection from "../components/Components/About/about";
 import PartnershipSection from "../components/Components/Partnership/Partnership";
-import OurImpact from "../components/Components/Impact/OurImpact";
-import ChooseUsAboutSection from "../components/Components/ChooseUs/chooseusabout";
-import GuideBannerSection from "../components/Components/Banner/guide";
-import ModalVideoSection from "../components/Components/Video/video";
-import DigitalProcessSection from "../components/Components/DigitalProcess/digitalstep";
-import TestimonialSection from "../components/Components/Testimonial/testimonial";
+
+// Below-the-fold components — dynamically loaded with SSR
+const OurImpact = dynamic(() => import("../components/Components/Impact/OurImpact"));
+const ChooseUsAboutSection = dynamic(() => import("../components/Components/ChooseUs/chooseusabout"));
+const GuideBannerSection = dynamic(() => import("../components/Components/Banner/guide"));
+const ModalVideoSection = dynamic(() => import("../components/Components/Video/video"));
+const DigitalProcessSection = dynamic(() => import("../components/Components/DigitalProcess/digitalstep"));
+const TestimonialSection = dynamic(() => import("../components/Components/Testimonial/testimonial"));
 
 export default function AboutPage() {
   return (

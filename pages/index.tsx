@@ -1,34 +1,26 @@
-import React, { Suspense, lazy } from "react";
+import dynamic from "next/dynamic";
 import HeadTitle from "../components/Components/Head/HeadTitle";
 import SEOHead from "../components/Components/Head/SEOHead";
 import BannerHomeSection from "../components/Components/Banner";
 
-// Critical above-the-fold components (loaded immediately)
+// Critical above-the-fold components (loaded immediately, SSR'd)
 import ExpertiseSection from "../components/Components/Expertise/expertise";
 import PartnershipSection from "../components/Components/Partnership/Partnership";
 
-
-
-// Lazy load non-critical components (below the fold)
-const LeaderSection = lazy(() => import("../components/Components/Leader/Leader"));
-const ChooseUsSection = lazy(() => import("../components/Components/ChooseUs/choose"));
-const GuideBannerSection = lazy(() => import("../components/Components/Banner/guide"));
-const ModalVideoSection = lazy(() => import("../components/Components/Video/video"));
-const ServiceSection = lazy(() => import("../components/Components/Services/service"));
-const FunnelPortfolioSection = lazy(() => import("../components/Components/FunnelPortfolio/FunnelPortfolio"));
-const FeaturedProjectSection = lazy(() => import("../components/Components/FeaturedProject/FeaturedProject"));
-const CustomizedDashboardsSection = lazy(() => import("../components/Components/CustomizedDashboards/CustomizedDashboards"));
-const WebsiteShowcase = lazy(() => import("../components/Components/WebsiteShowcase/WebsiteShowcase"));
-const TestimonialSection = lazy(() => import("../components/Components/Testimonial/testimonial"));
-const DigitalProcessSection = lazy(() => import("../components/Components/DigitalProcess/digitalstep"));
-const PricingPlanSection = lazy(() => import("../components/Components/Pricing/Pricing"));
-
-
-const IntegrationsSection = lazy(() => import("../components/Components/Integrations/IntegrationsSection"));
-const CTASection = lazy(() => import("../components/Components/CTA/CTASection"));
-
-// Loading fallback component
-const SectionPlaceholder = () => <div className="section section-placeholder"></div>;
+// Below-the-fold components — next/dynamic for proper SSR + code splitting
+const ChooseUsSection = dynamic(() => import("../components/Components/ChooseUs/choose"));
+const GuideBannerSection = dynamic(() => import("../components/Components/Banner/guide"));
+const ModalVideoSection = dynamic(() => import("../components/Components/Video/video"));
+const ServiceSection = dynamic(() => import("../components/Components/Services/service"));
+const FunnelPortfolioSection = dynamic(() => import("../components/Components/FunnelPortfolio/FunnelPortfolio"));
+const FeaturedProjectSection = dynamic(() => import("../components/Components/FeaturedProject/FeaturedProject"));
+const CustomizedDashboardsSection = dynamic(() => import("../components/Components/CustomizedDashboards/CustomizedDashboards"));
+const WebsiteShowcase = dynamic(() => import("../components/Components/WebsiteShowcase/WebsiteShowcase"));
+const TestimonialSection = dynamic(() => import("../components/Components/Testimonial/testimonial"));
+const DigitalProcessSection = dynamic(() => import("../components/Components/DigitalProcess/digitalstep"));
+const PricingPlanSection = dynamic(() => import("../components/Components/Pricing/Pricing"));
+const IntegrationsSection = dynamic(() => import("../components/Components/Integrations/IntegrationsSection"));
+const CTASection = dynamic(() => import("../components/Components/CTA/CTASection"));
 
 export default function HomePage() {
   return (
@@ -42,54 +34,19 @@ export default function HomePage() {
       <BannerHomeSection />
       <ExpertiseSection />
       <PartnershipSection />
-
-
-
-      {/* Lazy loaded sections with Suspense */}
-      {/* <Suspense fallback={<SectionPlaceholder />}>
-        <LeaderSection />
-      </Suspense> */}
-      <Suspense fallback={<SectionPlaceholder />}>
-        <ChooseUsSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <GuideBannerSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <ModalVideoSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <ServiceSection />
-      </Suspense>
-
-      <Suspense fallback={<SectionPlaceholder />}>
-        <FunnelPortfolioSection limit={3} showViewMore={true} />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <FeaturedProjectSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <CustomizedDashboardsSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <TestimonialSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <WebsiteShowcase />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <DigitalProcessSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <PricingPlanSection />
-      </Suspense>
-
-      <Suspense fallback={<SectionPlaceholder />}>
-        <IntegrationsSection />
-      </Suspense>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <CTASection />
-      </Suspense>
+      <ChooseUsSection />
+      <GuideBannerSection />
+      <ModalVideoSection />
+      <ServiceSection />
+      <FunnelPortfolioSection limit={3} showViewMore={true} />
+      <FeaturedProjectSection />
+      <CustomizedDashboardsSection />
+      <TestimonialSection />
+      <WebsiteShowcase />
+      <DigitalProcessSection />
+      <PricingPlanSection />
+      <IntegrationsSection />
+      <CTASection />
     </>
   );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
+import { FaCircleArrowRight } from "react-icons/fa6";
+import { FaRegDotCircle } from "react-icons/fa";
 
 function ExpertiseSection() {
 
@@ -26,7 +28,7 @@ function ExpertiseSection() {
                                                 <p>Data-Driven Strategies. Measurable Results.</p>
                                                 <div className="d-flex align-items-center flex-row gspace-2 expertise-link">
                                                     <a href="./contact">Book Your Free Strategy Call</a>
-                                                    <i className="fa-solid fa-circle-arrow-right"></i>
+                                                    <FaCircleArrowRight />
                                                 </div>
                                             </div>
                                         </div>
@@ -38,7 +40,7 @@ function ExpertiseSection() {
                         </div>
                         <div className="expertise-title">
                             <div className="sub-heading">
-                                <i className="fa-regular fa-circle-dot"></i>
+                                <FaRegDotCircle />
                                 <span>Our Core Expertise</span>
                             </div>
 

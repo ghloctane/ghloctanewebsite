@@ -3,7 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 // Swiper CSS loaded via CDN in index.html (non-blocking)
 
-function FunnelServiceSlider({ serviceTitle }) {
+interface FunnelServiceSliderProps {
+    serviceTitle: string;
+}
+
+function FunnelServiceSlider({ serviceTitle }: FunnelServiceSliderProps) {
     const [hoveredSlide, setHoveredSlide] = useState(null);
     const [imageHeights, setImageHeights] = useState({});
     const [imagesLoaded, setImagesLoaded] = useState({});

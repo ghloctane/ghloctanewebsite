@@ -542,7 +542,7 @@ export default function FloatingLines({
       ref={containerRef}
       className="floating-lines-container"
       style={{
-        mixBlendMode: mixBlendMode
+        mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode']
       }}
     />
   );

@@ -22,7 +22,7 @@ function ModalVideoSection() {
       className="modal-overlay"
       style={{ display: "flex" }}
       onClick={(e) => {
-        if (e.target.id === "modal-overlay") closeModal();
+        if ((e.target as HTMLElement).id === "modal-overlay") closeModal();
       }}
     >
         <span className="my-close" onClick={closeModal}>
@@ -37,7 +37,6 @@ function ModalVideoSection() {
                     autoPlay
                     playsInline
                     preload="none"
-                    type="video/mp4"
                 >
                     Your browser does not support the video tag.
                 </video>

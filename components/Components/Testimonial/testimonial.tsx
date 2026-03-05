@@ -87,7 +87,7 @@ const TestimonialSection = () => {
                                         <div
                                             className="testimonial-video-list"
                                             onScroll={(e) => {
-                                                const element = e.target;
+                                                const element = e.target as HTMLElement;
                                                 const scrollBottom = element.scrollHeight - element.scrollTop - element.clientHeight;
                                                 // Load more videos when near bottom
                                                 if (scrollBottom < 50 && visibleVideos < videoTestimonials.length) {
@@ -204,7 +204,6 @@ const TestimonialSection = () => {
                                                     autoPlay
                                                     playsInline
                                                     preload="none"
-                                                    type="video/mp4"
                                                     className="testimonial-iframe"
                                                 >
                                                     Your browser does not support the video tag.

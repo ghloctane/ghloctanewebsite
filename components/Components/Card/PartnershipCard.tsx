@@ -1,6 +1,10 @@
 import React, { memo } from "react";
 
-const PartnershipCard = memo(({ logo }) => {
+export interface PartnershipCardProps {
+    logo: string;
+}
+
+const PartnershipCard = memo(({ logo }: PartnershipCardProps) => {
   return (
     <div className="col partnership-container">
         <div className="partnership-item">

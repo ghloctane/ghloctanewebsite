@@ -1,14 +1,29 @@
 import React, { createContext, useState, useContext } from "react";
 
-const ModalVideoContext = createContext();
+interface ModalVideoContextValue {
+    videoUrl: string;
+    isOpen: boolean;
+    openModal: (url: string) => void;
+    closeModal: () => void;
+}
 
-export const useModalVideo = () => useContext(ModalVideoContext);
+const ModalVideoContext = createContext<ModalVideoContextValue | undefined>(undefined);
 
-export const ModalVideoProvider = ({ children }) => {
+export const useModalVideo = () => {
+    const ctx = useContext(ModalVideoContext);
+    if (ctx === undefined) throw new Error("useModalVideo must be used within ModalVideoProvider");
+    return ctx;
+};
+
+interface ModalVideoProviderProps {
+    children: React.ReactNode;
+}
+
+export const ModalVideoProvider = ({ children }: ModalVideoProviderProps) => {
     const [videoUrl, setVideoUrl] = useState("");
     const [isOpen, setIsOpen] = useState(false);
 
-    const openModal = (url) => {
+    const openModal = (url: string) => {
         setVideoUrl(url);
         setIsOpen(true);
     };

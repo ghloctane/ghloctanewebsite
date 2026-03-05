@@ -1,7 +1,15 @@
 import React, { memo } from "react";
 import Image from "next/image";
 
-const ChooseUsCard = memo(({icon, title, content, link, speed}) => {
+export interface ChooseUsCardProps {
+    icon: string;
+    title: string;
+    content: string;
+    link: string;
+    speed?: number;
+}
+
+const ChooseUsCard = memo(({ icon, title, content, link }: ChooseUsCardProps) => {
     
     return (
         <div className="card card-chooseus">

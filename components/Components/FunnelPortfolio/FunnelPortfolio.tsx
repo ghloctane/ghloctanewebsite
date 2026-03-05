@@ -3,12 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { funnelPortfolio } from "../../Data/FunnelPortfolioData";
 
-/**
- * @param {{ limit?: number | null; showViewMore?: boolean }} props
- */
-function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
-    const [hoveredCard, setHoveredCard] = useState(null);
-    const [imageHeights, setImageHeights] = useState({});
+interface FunnelPortfolioSectionProps {
+    limit?: number | null;
+    showViewMore?: boolean;
+}
+
+function FunnelPortfolioSection({ limit = null, showViewMore = false }: FunnelPortfolioSectionProps) {
+    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+    const [imageHeights, setImageHeights] = useState<Record<number, number>>({});
     const imageRefs = useRef({});
 
     // ✅ Image load handler - stores actual image height
@@ -106,10 +108,11 @@ function FunnelPortfolioSection({ limit = null, showViewMore = false }) {
                                                         className="portfolio-image"
                                                         onLoad={(e) => handleImageLoad(item.id, e.target)}
                                                         onError={(e) => {
-                                                            e.target.style.display = 'none';
-                                                            e.target.onerror = null;
-                                                            if (e.target.parentElement) {
-                                                                e.target.parentElement.style.backgroundColor = 'var(--accent-color-4)';
+                                                            const img = e.target as HTMLImageElement;
+                                                            img.style.display = 'none';
+                                                            img.onerror = null;
+                                                            if (img.parentElement) {
+                                                                img.parentElement.style.backgroundColor = 'var(--accent-color-4)';
                                                             }
                                                         }}
                                                     />

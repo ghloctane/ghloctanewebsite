@@ -2,7 +2,16 @@ import React from "react";
 import { useModalVideo } from "../Video/ModalVideoContext";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 
-const TestimonialCard = ({ name, title, content, rating, image, video }) => {
+export interface TestimonialCardProps {
+    name: string;
+    title: string;
+    content: string;
+    rating: number;
+    image: string;
+    video?: string;
+}
+
+const TestimonialCard = ({ name, title, content, rating, image, video }: TestimonialCardProps) => {
   const { openModal } = useModalVideo();
   const hasVideo = video && video.trim() !== '';
 

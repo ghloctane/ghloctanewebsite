@@ -37,7 +37,7 @@ export default function HomePage() {
       <ChooseUsSection />
       <GuideBannerSection />
       <ModalVideoSection />
-      <ServiceSection />
+      <ServiceSection showAll={false} />
       <FunnelPortfolioSection limit={3} showViewMore={true} />
       <FeaturedProjectSection />
       <CustomizedDashboardsSection />

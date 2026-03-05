@@ -1,7 +1,18 @@
 import React, { memo, useCallback } from "react";
 import Image from "next/image";
 
-const BlogCard = memo(({ blog }) => {
+export interface BlogCardProps {
+    blog: {
+        image: string;
+        title: string;
+        link: string;
+        date: string;
+        category: string;
+        excerpt: string;
+    };
+}
+
+const BlogCard = memo(({ blog }: BlogCardProps) => {
     const handleClick = useCallback(() => {
         window.location.href = blog.link;
     }, [blog.link]);

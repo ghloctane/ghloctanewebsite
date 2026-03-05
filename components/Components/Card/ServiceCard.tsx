@@ -2,7 +2,15 @@ import React, { memo } from "react";
 import Image from "next/image";
 import AnimatedButton from "../Button/AnimatedButton";
 
-const ServiceCard = memo(({icon, title, content, link, speed = ""}) => {
+export interface ServiceCardProps {
+    icon: string;
+    title: string;
+    content: string;
+    link: string;
+    speed?: string;
+}
+
+const ServiceCard = memo(({ icon, title, content, link }: ServiceCardProps) => {
     // Check if icon is a FontAwesome class or image path
     const isFontAwesome = icon && icon.startsWith('fa-');
     

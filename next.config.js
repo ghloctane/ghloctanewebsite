@@ -8,9 +8,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   reactStrictMode: true,
 
-  // Temporarily disable type checking during build (fix types incrementally)
+  // TypeScript: build fails on type errors (fix types to keep build green)
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
 
   // Compression & Performance
@@ -88,18 +88,8 @@ const nextConfig = {
       };
     }
 
-    // Optimize Three.js loading
-    config.module.rules.push({
-      test: /\.js$/,
-      include: /node_modules\/three/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          plugins: ['@babel/plugin-transform-modules-commonjs'],
-        },
-      },
-    });
+    // Three.js: Next 16 + experimental.optimizePackageImports handles three;
+    // no babel-loader rule (avoids missing babel deps and build failures).
 
     return config;
   },

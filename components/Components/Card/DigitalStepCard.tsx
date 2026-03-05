@@ -1,8 +1,18 @@
 import React, { memo } from "react";
 
-const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd }) => {
+export interface DigitalStepCardProps {
+    icon: string;
+    step: number | string;
+    title: string;
+    content: string;
+    color: string;
+    index: number;
+    isOdd: boolean;
+}
+
+const DigitalStepCard = memo(({ icon, step, title, content, color, index, isOdd }: DigitalStepCardProps) => {
     return (
-        <div className={`phase-container ${isOdd ? 'phase-above' : 'phase-below'}`} style={{ '--phase-color': color }}>
+        <div className={`phase-container ${isOdd ? 'phase-above' : 'phase-below'}`} style={{ '--phase-color': color } as React.CSSProperties}>
             {/* Text Box - positioned above or below based on index */}
             {isOdd && (
                 <div className="phase-text-box">

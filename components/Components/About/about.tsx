@@ -2,7 +2,11 @@ import React from "react";
 import Image from "next/image";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 
-function AboutSection({ isHomePage = false }) {
+interface AboutSectionProps {
+    isHomePage?: boolean;
+}
+
+function AboutSection({ isHomePage = false }: AboutSectionProps) {
 
     return (
         <div className="section section-about">

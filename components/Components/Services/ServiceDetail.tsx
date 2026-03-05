@@ -1,11 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { services } from "../../Data/ServiceData";
 import BannerInnerSection from "../Banner/Inner";
 
 const ServiceDetailSection = () => {
-    const { id } = useParams();
-    const service = services.find(s => s.id === parseInt(id));
+    const router = useRouter();
+    const id = router.query.id as string | undefined;
+    const service = id ? services.find(s => s.id === parseInt(id, 10)) : undefined;
 
     if (!service) {
         return (

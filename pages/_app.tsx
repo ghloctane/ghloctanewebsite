@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import '../src/assets/css/main.css';
 import '../src/assets/css/responsive.css';
+import '../src/assets/css/services-bento.css';
 import '../components/Components/Button/AnimatedButton.css';
 import '../components/Components/CTA/FloatingLines.css';
 import '../components/Components/Card/StatsCard.css';

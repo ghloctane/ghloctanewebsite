@@ -1,18 +1,59 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 
-const WebsiteShowcase = () => {
-    // Website template images
-    const websites = [
-        { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.webp", demoUrl: "https://proservice.ghloctane.com/" },
-        { id: 3, title: "Portfolio", image: "/assets/images/websites/web3.webp", demoUrl: "https://remodeling.ghloctane.com/" },
-        { id: 4, title: "Business", image: "/assets/images/websites/web4.webp", demoUrl: "https://truvate.ghloctane.com/" },
-        { id: 5, title: "SaaS", image: "/assets/images/websites/web5.webp", demoUrl: "https://infiniumtechltd.com/" },
-        { id: 6, title: "Agency", image: "/assets/images/websites/web6.webp", demoUrl: "https://octendr.com" },
-        { id: 7, title: "Real Estate", image: "/assets/images/websites/web7.webp", demoUrl: "https://syncnova.io" },
-        { id: 8, title: "Healthcare", image: "/assets/images/websites/web8.webp", demoUrl: "https://fluxor.ghloctane.com/" },
-    ];
+type WebsiteItem = {
+    id: number;
+    title: string;
+    image: string;
+    demoUrl?: string;
+};
 
+const websites: WebsiteItem[] = [
+    { id: 1, title: "E-commerce", image: "/assets/images/websites/web1.webp", demoUrl: "https://proservice.ghloctane.com/" },
+    { id: 3, title: "Portfolio", image: "/assets/images/websites/web3.webp", demoUrl: "https://remodeling.ghloctane.com/" },
+    { id: 4, title: "Business", image: "/assets/images/websites/web4.webp", demoUrl: "https://truvate.ghloctane.com/" },
+    { id: 5, title: "SaaS", image: "/assets/images/websites/web5.webp", demoUrl: "https://infiniumtechltd.com/" },
+    { id: 6, title: "Agency", image: "/assets/images/websites/web6.webp", demoUrl: "https://octendr.com" },
+    { id: 7, title: "Real Estate", image: "/assets/images/websites/web7.webp", demoUrl: "https://syncnova.io" },
+    { id: 8, title: "Healthcare", image: "/assets/images/websites/web8.webp", demoUrl: "https://fluxor.ghloctane.com/" },
+];
+
+const scrollingWebsites = [...websites, ...websites];
+
+function WebsiteSlide({ site }: { site: WebsiteItem }) {
+    const handleClick = useCallback(() => {
+        if (!site.demoUrl) return;
+        window.open(site.demoUrl, "_blank", "noopener,noreferrer");
+    }, [site.demoUrl]);
+
+    return (
+        <div
+            className={`website-showcase-slide ${site.demoUrl ? "website-showcase-demo website-showcase-demo-cursor" : ""}`}
+            onClick={site.demoUrl ? handleClick : undefined}
+        >
+            <Image src={site.image} alt={`${site.title} Website Template`} width={800} height={600} />
+            {site.demoUrl && (
+                <div className="website-showcase-overlay">
+                    <span className="website-showcase-demo-text">Live Demo</span>
+                </div>
+            )}
+        </div>
+    );
+}
+
+function ShowcaseRow({ direction }: { direction: "right" | "left" }) {
+    return (
+        <div className="website-showcase-row">
+            <div className={`website-showcase-track ${direction === "right" ? "website-showcase-right" : "website-showcase-left"}`}>
+                {scrollingWebsites.map((site, index) => (
+                    <WebsiteSlide key={`${direction}-${site.id}-${index}`} site={site} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+const WebsiteShowcase = () => {
     return (
         <div className="section-website-showcase">
             <div className="hero-container">
@@ -36,45 +77,8 @@ const WebsiteShowcase = () => {
 
                     {/* Scrolling Rows Container */}
                     <div className="website-showcase-container">
-                        {/* Row 1 - Moving Right */}
-                        <div className="website-showcase-row">
-                            <div className="website-showcase-track website-showcase-right">
-                                {[...websites, ...websites].map((site, index) => (
-                                    <div
-                                        key={`right-${index}`}
-                                        className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
-                                        onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
-                                    >
-                                        <Image src={site.image} alt={`${site.title} Website Template`} width={800} height={600} />
-                                        {site.demoUrl && (
-                                            <div className="website-showcase-overlay">
-                                                <span className="website-showcase-demo-text">Live Demo</span>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Row 2 - Moving Left */}
-                        <div className="website-showcase-row">
-                            <div className="website-showcase-track website-showcase-left">
-                                {[...websites, ...websites].map((site, index) => (
-                                    <div
-                                        key={`left-${index}`}
-                                        className={`website-showcase-slide ${site.demoUrl ? 'website-showcase-demo website-showcase-demo-cursor' : ''}`}
-                                        onClick={site.demoUrl ? () => window.open(site.demoUrl, '_blank') : undefined}
-                                    >
-                                        <Image src={site.image} alt={`${site.title} Website Template`} width={800} height={600} />
-                                        {site.demoUrl && (
-                                            <div className="website-showcase-overlay">
-                                                <span className="website-showcase-demo-text">Live Demo</span>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        <ShowcaseRow direction="right" />
+                        <ShowcaseRow direction="left" />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import Image from "next/image";
 
 export interface PartnershipCardProps {
     logo: string;
@@ -9,7 +10,7 @@ const PartnershipCard = memo(({ logo }: PartnershipCardProps) => {
     <div className="col partnership-container">
         <div className="partnership-item">
             <a href="#">
-                <img src={logo} alt="Partner Logo" className="img-fluid" loading="lazy" />
+                <Image src={logo} alt="Partner Logo" width={160} height={80} quality={85} className="img-fluid" />
             </a>
         </div>
     </div>

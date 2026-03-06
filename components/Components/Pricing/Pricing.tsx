@@ -1,6 +1,6 @@
 import React from "react";
+import Link from "next/link";
 import AnimatedButton from "../Button/AnimatedButton";
-import { allServicesData } from "../../Data/AllServicesData";
 
 function PricingPlanSection(){
     return(
@@ -24,7 +24,7 @@ function PricingPlanSection(){
                                     <div className="content">
                                         <h3 className="title-heading">Choose Your Plan</h3>
                                         <div className="link-wrapper">
-                                        <a href="/book-a-call" onClick={(e) => { e.preventDefault(); window.location.href = '/book-a-call'; window.scrollTo({ top: 0, behavior: 'instant' }); }}>Book Your Free Strategy Call</a>
+                                        <Link href="/book-a-call">Book Your Free Strategy Call</Link>
                                         <i className="fa-solid fa-arrow-circle-right"></i>
                                         </div>
                                     </div>
@@ -42,14 +42,14 @@ function PricingPlanSection(){
                                         Get Started
                                     </AnimatedButton>
                                     <ul className="check-list">
-                                        <li><a href="./contact">CRM Setup</a></li>
-                                        <li><a href="./contact">Automation</a></li>
-                                        <li><a href="./contact">Conversion AI Setup</a></li>
-                                        <li><a href="./contact">Voice AI Setup</a></li>
-                                        <li><a href="./contact">Funnels</a></li>
-                                        <li><a href="./contact">Landing Pages Design Optimization</a></li>
-                                        <li><a href="./contact">Tech Support</a></li>
-                                        <li><a href="./contact">Weekly Reporting</a></li>
+                                        <li>CRM Setup</li>
+                                        <li>Automation</li>
+                                        <li>Conversion AI Setup</li>
+                                        <li>Voice AI Setup</li>
+                                        <li>Funnels</li>
+                                        <li>Landing Pages Design Optimization</li>
+                                        <li>Tech Support</li>
+                                        <li>Weekly Reporting</li>
                                     </ul>
                                 </div>
                             </div>
@@ -83,20 +83,20 @@ function PricingPlanSection(){
                                     </div>
 
                                     <ul className="check-list">
-                                        <li><a href="./contact">CRM Setup</a></li>
-                                        <li><a href="./contact">Automation</a></li>
-                                        <li><a href="./contact">Conversion AI Setup</a></li>
-                                        <li><a href="./contact">Voice AI Setup</a></li>
-                                        <li><a href="./contact">Funnels</a></li>
-                                        <li><a href="./contact">Landing Pages Design Optimization</a></li>
-                                        <li><a href="./contact">Full Campaigns Buildouts</a></li>
-                                        <li><a href="./contact">Complete Sales & Onboarding Automation Setup</a></li>
-                                        <li><a href="./contact">Ongoing Optimization</a></li>
-                                        <li><a href="./contact">Monthly Strategy Calls</a></li>
-                                        <li><a href="./contact">Weekly Reporting</a></li>
-                                        <li><a href="./contact">Tech Support</a></li>
-                                        <li><a href="./contact">Advanced Integrations</a></li>
-                                        <li><a href="./contact">White-Label Setup</a></li>
+                                        <li>CRM Setup</li>
+                                        <li>Automation</li>
+                                        <li>Conversion AI Setup</li>
+                                        <li>Voice AI Setup</li>
+                                        <li>Funnels</li>
+                                        <li>Landing Pages Design Optimization</li>
+                                        <li>Full Campaigns Buildouts</li>
+                                        <li>Complete Sales & Onboarding Automation Setup</li>
+                                        <li>Ongoing Optimization</li>
+                                        <li>Monthly Strategy Calls</li>
+                                        <li>Weekly Reporting</li>
+                                        <li>Tech Support</li>
+                                        <li>Advanced Integrations</li>
+                                        <li>White-Label Setup</li>
                                     </ul>
                             </div>
                         </div>
@@ -131,16 +131,16 @@ function PricingPlanSection(){
                                             Contact Sales
                                         </AnimatedButton>
                                         <ul className="check-list">
-                                            <li><a href="./contact">All Growth Services Included</a></li>
-                                            <li><a href="./contact">Custom Projects</a></li>
-                                            <li><a href="./contact">Tailored Hours & Services</a></li>
-                                            <li><a href="./contact">Multiple Experts</a></li>
-                                            <li><a href="./contact">API Integrations</a></li>
-                                            <li><a href="./contact">Custom Add-Ons</a></li>
-                                            <li><a href="./contact">Dedicated Project Manager</a></li>
-                                            <li><a href="./contact">White-Label Agency Builds</a></li>
-                                            <li><a href="./contact">Advanced AI & Automation</a></li>
-                                            <li><a href="./contact">Enterprise-Level Support</a></li>
+                                            <li>All Growth Services Included</li>
+                                            <li>Custom Projects</li>
+                                            <li>Tailored Hours & Services</li>
+                                            <li>Multiple Experts</li>
+                                            <li>API Integrations</li>
+                                            <li>Custom Add-Ons</li>
+                                            <li>Dedicated Project Manager</li>
+                                            <li>White-Label Agency Builds</li>
+                                            <li>Advanced AI & Automation</li>
+                                            <li>Enterprise-Level Support</li>
                                         </ul>
                                 </div>
                             </div>

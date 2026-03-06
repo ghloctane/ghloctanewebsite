@@ -11,7 +11,7 @@ interface FunnelPortfolioSectionProps {
 function FunnelPortfolioSection({ limit = null, showViewMore = false }: FunnelPortfolioSectionProps) {
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
     const [imageHeights, setImageHeights] = useState<Record<number, number>>({});
-    const imageRefs = useRef({});
+    const imageRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
     // ✅ Image load handler - stores actual image height
     const handleImageLoad = useCallback((itemId, img) => {
@@ -102,9 +102,8 @@ function FunnelPortfolioSection({ limit = null, showViewMore = false }: FunnelPo
                                                         src={item.image}
                                                         alt={item.title}
                                                         width={800}
-                                                        height={2000}
-                                                        quality={100}
-                                                        unoptimized
+                                                        height={4000}
+                                                        quality={85}
                                                         className="portfolio-image"
                                                         onLoad={(e) => handleImageLoad(item.id, e.target)}
                                                         onError={(e) => {

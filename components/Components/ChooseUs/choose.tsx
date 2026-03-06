@@ -33,7 +33,7 @@ function ChooseUsSection() {
                                     <p className="mb-0">We believe growth comes from systems, not shortcuts. Our mission is to help businesses fully leverage GoHighLevel to automate operations, improve lead quality, and increase revenue.</p>
                                 </div>
                                 <div className="image-container">
-                                    <Image src="/assets/images/team.webp" alt="GHL Octane Team" className="chooseus-img" width={1200} height={800} />
+                                    <Image src="/assets/images/team.webp" alt="GHL Octane Team" className="chooseus-img" width={1200} height={800} loading="lazy" />
                                     <div className="card-chooseus-cta-layout">
                                         <div className="chooseus-cta-spacer"></div>
                                         <div className="d-flex flex-column align-items-end">

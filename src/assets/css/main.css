@@ -832,6 +832,11 @@ body::-webkit-scrollbar-thumb:hover {
     width: auto !important;
 }
 
+.swiperDashboards {
+    height: 400px;
+    min-height: 400px;
+}
+
 .swiperDashboards .swiper-wrapper {
     transition-timing-function: linear !important;
     display: flex;
@@ -4179,6 +4184,8 @@ body::-webkit-scrollbar-thumb:hover {
     -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
+    height: 200px;
+    min-height: 200px;
 }
 
 .swiperPartner .swiper-slide {
@@ -4699,6 +4706,7 @@ body::-webkit-scrollbar-thumb:hover {
     border: 1px solid rgba(0, 0, 0, 0.5) !important;
     min-height: 600px !important;
     width: 100% !important;
+    background-image: url('/assets/images/octendr.webp');
 }
 
 .featured-project-card:hover {
@@ -6715,6 +6723,62 @@ body::-webkit-scrollbar-thumb:hover {
 
 .breadcrumb p {
     margin-bottom: 0px;
+}
+
+/* Services bento glow orbs (moved from repeated inline styles) */
+.section-services-bento .glow-orb-blue {
+    width: 140px;
+    height: 140px;
+    background: #4a6cf7;
+    top: -40px;
+    right: -30px;
+    opacity: 0.12;
+}
+
+.section-services-bento .glow-orb-warm {
+    width: 140px;
+    height: 140px;
+    background: #d97706;
+    top: -40px;
+    right: -30px;
+    opacity: 0.12;
+}
+
+.section-services-bento .glow-orb-purple {
+    width: 140px;
+    height: 140px;
+    background: #8b5cf6;
+    top: -40px;
+    right: -30px;
+    opacity: 0.12;
+}
+
+.section-services-bento .glow-orb-banner-left {
+    width: 200px;
+    height: 200px;
+    background: #d97706;
+    top: -60px;
+    left: -60px;
+    opacity: 0.12;
+}
+
+.section-services-bento .glow-orb-banner-right {
+    width: 180px;
+    height: 180px;
+    background: #4a6cf7;
+    bottom: -50px;
+    right: -50px;
+    opacity: 0.1;
+}
+
+.card-integrations-description {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-description {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* ================== 41. Icon Components ================== */

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { partnerships } from "../../Data/PartnershipData";
 
 const PartnershipListSection = () => {
@@ -24,11 +25,13 @@ const PartnershipListSection = () => {
                             <div className="col partnership-container" key={partner.id}>
                                 <div className="partnership-item">
                                     <a href="#">
-                                        <img
-                                        src={partner.logo}
-                                        alt="Partner Logo"
-                                        className="partner-logo img-fluid"
-                                        loading="lazy"
+                                        <Image
+                                            src={partner.logo}
+                                            alt={partner.name}
+                                            width={160}
+                                            height={80}
+                                            quality={85}
+                                            className="partner-logo img-fluid"
                                         />
                                     </a>
                                 </div>

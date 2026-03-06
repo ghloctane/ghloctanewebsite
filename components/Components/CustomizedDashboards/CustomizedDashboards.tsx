@@ -5,19 +5,16 @@ import { Autoplay } from "swiper/modules";
 // Swiper CSS loaded via CDN in index.html (non-blocking)
 import { FaCircle, FaArrowCircleRight } from "react-icons/fa";
 
+const dashboardImages = [
+    { id: 1, url: "/assets/images/dashboard1.webp", title: "Dashboard 1" },
+    { id: 2, url: "/assets/images/dashboard2.webp", title: "Dashboard 2" },
+    { id: 3, url: "/assets/images/dashboard3.webp", title: "Dashboard 3" },
+    { id: 4, url: "/assets/images/dashboard1.webp", title: "Dashboard 4" },
+    { id: 5, url: "/assets/images/dashboard2.webp", title: "Dashboard 5" },
+    { id: 6, url: "/assets/images/dashboard3.webp", title: "Dashboard 6" },
+];
+
 const CustomizedDashboardsSection = () => {
-    // Dashboard images
-    const dashboardImages = [
-        { id: 1, url: "/assets/images/dashboard1.webp", title: "Dashboard 1" },
-        { id: 2, url: "/assets/images/dashboard2.webp", title: "Dashboard 2" },
-        { id: 3, url: "/assets/images/dashboard3.webp", title: "Dashboard 3" },
-        { id: 4, url: "/assets/images/dashboard1.webp", title: "Dashboard 4" },
-        { id: 5, url: "/assets/images/dashboard2.webp", title: "Dashboard 5" },
-        { id: 6, url: "/assets/images/dashboard3.webp", title: "Dashboard 6" },
-    ];
-
-    const placeholderImages = dashboardImages;
-
     return (
         <div className="section section-dashboards">
             <div className="hero-container">
@@ -52,7 +49,6 @@ const CustomizedDashboardsSection = () => {
 
                             <div className="swiperDashboards-container">
                                 <Swiper
-                                    style={{ height: '400px', minHeight: '400px' }}
                                     modules={[Autoplay]}
                                     slidesPerView={'auto'}
                                     spaceBetween={20}
@@ -72,7 +68,7 @@ const CustomizedDashboardsSection = () => {
                                     updateOnWindowResize={false}
                                     className="swiperDashboards"
                                 >
-                                    {placeholderImages.concat(placeholderImages).map((image, index) => (
+                                    {dashboardImages.concat(dashboardImages).map((image, index) => (
                                         <SwiperSlide key={`dashboard-${index}`}>
                                             <div className="dashboard-slide">
                                                 <Image
@@ -81,7 +77,6 @@ const CustomizedDashboardsSection = () => {
                                                     className="dashboard-image"
                                                     width={1200}
                                                     height={800}
-                                                    style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </div>
                                         </SwiperSlide>

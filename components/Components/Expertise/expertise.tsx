@@ -19,6 +19,7 @@ function ExpertiseSection() {
                                     className="img-fluid"
                                     width={1200}
                                     height={960}
+                                    priority={true}
                                 />
                                 <div className="expertise-layout">
                                     <div className="d-flex flex-column">

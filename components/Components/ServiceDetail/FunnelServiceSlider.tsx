@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 // Swiper CSS loaded via CDN in index.html (non-blocking)
@@ -147,11 +148,13 @@ function FunnelServiceSlider({ serviceTitle }: FunnelServiceSliderProps) {
                                             zIndex: 1
                                         }}
                                     >
-                                        <img 
-                                            src={image} 
+                                        <Image
+                                            src={image}
                                             alt={`${serviceTitle || 'Funnel'} - ${index + 1}`}
+                                            width={1200}
+                                            height={600}
+                                            quality={85}
                                             className="service-detail-image service-funnel-image"
-                                            loading="lazy"
                                             style={{
                                                 width: '100%',
                                                 height: 'auto',
@@ -162,10 +165,9 @@ function FunnelServiceSlider({ serviceTitle }: FunnelServiceSliderProps) {
                                                 maxHeight: 'none'
                                             }}
                                             onLoad={(e) => {
-                                                handleImageLoad(e.target, index);
+                                                handleImageLoad(e.target as HTMLImageElement, index);
                                             }}
-                                            onError={(e) => {
-                                                console.error(`Failed to load funnel image ${index + 1}: ${image}`);
+                                            onError={() => {
                                                 setImagesLoaded(prev => ({
                                                     ...prev,
                                                     [index]: true

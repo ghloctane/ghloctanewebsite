@@ -21,7 +21,7 @@ const CTASection = () => {
                                 <span>Ready to Transform Your Business?</span>
                             </div>
                             <h2 className="title-heading">LET'S BUILD SOMETHING AMAZING TOGETHER</h2>
-                            <p style={{ maxWidth: '700px', margin: '0 auto' }}>
+                            <p className="cta-description">
                                 Get started with GHL Octane today and unlock the power of automation.
                                 Book your free strategy call and see how we can help scale your business.
                             </p>

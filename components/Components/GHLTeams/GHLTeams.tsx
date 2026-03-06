@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { ghlTeamsData } from "../../Data/GHLTeamsData";
 
 const GHLTeamsSection = () => {
@@ -37,11 +38,13 @@ const GHLTeamsSection = () => {
                                     {/* Right Side - Representation/Visual */}
                                     <div className={`col ${index % 2 === 1 ? 'order-lg-1' : ''}`}>
                                         <div className="ghl-team-representation">
-                                            <img 
-                                                src={team.representation || "/assets/images/services/automation.webp"} 
+                                            <Image
+                                                src={team.representation || "/assets/images/services/automation.webp"}
                                                 alt={team.title}
+                                                width={600}
+                                                height={400}
+                                                quality={85}
                                                 className="ghl-team-image"
-                                                loading="lazy"
                                             />
                                         </div>
                                     </div>

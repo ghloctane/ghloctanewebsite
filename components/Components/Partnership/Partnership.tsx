@@ -35,7 +35,6 @@ const PartnershipSection = () => {
 
                         <div className="swiperPartner-container">
                             <Swiper
-                                style={{ height: '200px', minHeight: '200px' }}
                                 modules={[Autoplay]}
                                 slidesPerView={6}
                                 spaceBetween={10}
@@ -71,10 +70,10 @@ const PartnershipSection = () => {
                                 }}
                                 className="swiperPartner"
                             >
-                                {partnerships.concat(partnerships).concat(partnerships).concat(partnerships).map((partner, index) => (
-                                    <SwiperSlide key={`partner-${partner.id}-${index}`}>
+                                {partnerships.map((partner) => (
+                                    <SwiperSlide key={`partner-${partner.id}`}>
                                         <div className="partner-slide">
-                                            <Image src={partner.logo} alt="Technology Partner" className="partner-logo img-fluid" width={240} height={120} />
+                                            <Image src={partner.logo} alt={partner.name} className="partner-logo img-fluid" width={240} height={120} />
                                         </div>
                                     </SwiperSlide>
                                 ))}

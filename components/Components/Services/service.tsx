@@ -45,6 +45,12 @@ const BENTO_SLOTS: Array<{
     { layoutClass: "r4-a", theme: "theme-deep", pattern: "pattern-lines", serviceIndex: 8 },
 ];
 
+const getGlowOrbClass = (theme: string) => {
+    if (theme === "theme-warm") return "glow-orb-warm";
+    if (theme === "theme-purple") return "glow-orb-purple";
+    return "glow-orb-blue";
+};
+
 /** Wide card: Compliance (index 9) + Social Media (index 10) — each block has its own See More */
 function BentoCardWide() {
     const s1 = allServicesData[9];
@@ -52,7 +58,7 @@ function BentoCardWide() {
     if (!s1 || !s2) return null;
     return (
         <div className="card theme-warm pattern-triangles r4-wide">
-            <div className="glow-orb" style={{ width: 140, height: 140, background: "#d97706", top: -40, right: -30, opacity: 0.12 }} />
+            <div className="glow-orb glow-orb-warm" />
             <div className="merged-wide-content">
                 <div className="merged-wide-row">
                     <div className="merged-wide-block">
@@ -81,7 +87,7 @@ function BentoCardSp368Merged() {
     if (!s1 || !s2 || !s3) return null;
     return (
         <div className="card theme-deep pattern-topo sp-3-6-8-merged">
-            <div className="glow-orb" style={{ width: 140, height: 140, background: "#4a6cf7", top: -40, right: -30, opacity: 0.12 }} />
+            <div className="glow-orb glow-orb-blue" />
             <div className="merged-tall-content">
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s1.icon} /></div>
@@ -113,7 +119,7 @@ function BentoCardSp4Merged() {
     if (!s1 || !s2) return null;
     return (
         <div className="card theme-deep pattern-circuit sp-4 sp-4-merged">
-            <div className="glow-orb" style={{ width: 140, height: 140, background: "#4a6cf7", top: -40, right: -30, opacity: 0.12 }} />
+            <div className="glow-orb glow-orb-blue" />
             <div className="merged-tall-content">
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s1.icon} /></div>
@@ -139,7 +145,7 @@ function BentoCardMergedWideServicesPage() {
     if (!s1 || !s2) return null;
     return (
         <div className="card theme-warm pattern-triangles sp-9-10-merged">
-            <div className="glow-orb" style={{ width: 140, height: 140, background: "#d97706", top: -40, right: -30, opacity: 0.12 }} />
+            <div className="glow-orb glow-orb-warm" />
             <div className="merged-wide-content">
                 <div className="merged-wide-row">
                     <div className="merged-wide-block">
@@ -167,7 +173,7 @@ function BentoCardMerged() {
     if (!s1 || !s2) return null;
     return (
         <div className="card theme-purple pattern-rings r-right-tall">
-            <div className="glow-orb" style={{ width: 140, height: 140, background: "#8b5cf6", top: -40, right: -30, opacity: 0.12 }} />
+            <div className="glow-orb glow-orb-purple" />
             <div className="merged-tall-content">
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s1.icon} /></div>
@@ -202,17 +208,7 @@ function BentoCard({
     const link = `/service/${service.slug}`;
     return (
         <div className={`card ${theme} ${pattern} ${layoutClass}`}>
-            <div
-                className="glow-orb"
-                style={{
-                    width: 140,
-                    height: 140,
-                    background: theme === "theme-warm" ? "#d97706" : theme === "theme-purple" ? "#8b5cf6" : "#4a6cf7",
-                    top: -40,
-                    right: -30,
-                    opacity: 0.12,
-                }}
-            />
+            <div className={`glow-orb ${getGlowOrbClass(theme)}`} />
             <div className="icon">
                 <i className={service.icon} />
             </div>
@@ -398,6 +394,23 @@ function ServiceSection({ showAll = false }: ServiceSectionProps) {
         );
     }
 
+    const renderBentoSlot = (index: number) => {
+        const slot = BENTO_SLOTS[index];
+        if (!slot) return null;
+        const service = allServicesData[slot.serviceIndex];
+        if (!service) return null;
+        return (
+            <BentoCard
+                key={slot.layoutClass}
+                service={service}
+                theme={slot.theme}
+                pattern={slot.pattern}
+                layoutClass={slot.layoutClass}
+                visual={slot.visual}
+            />
+        );
+    };
+
     // Home page: exact bento design (same structure as provided HTML)
     return (
         <div className="section section-services-bento">
@@ -417,55 +430,16 @@ function ServiceSection({ showAll = false }: ServiceSectionProps) {
 
                 <div className="bento">
                     {/* ROW 1 — left card */}
-                    {BENTO_SLOTS.slice(0, 1).map((slot) => {
-                        const service = allServicesData[slot.serviceIndex];
-                        if (!service) return null;
-                        return (
-                            <BentoCard
-                                key={slot.layoutClass}
-                                service={service}
-                                theme={slot.theme}
-                                pattern={slot.pattern}
-                                layoutClass={slot.layoutClass}
-                                visual={slot.visual}
-                            />
-                        );
-                    })}
+                    {renderBentoSlot(0)}
 
                     {/* Center top — CRM (row 1) */}
-                    {BENTO_SLOTS.slice(1, 2).map((slot) => {
-                        const service = allServicesData[slot.serviceIndex];
-                        if (!service) return null;
-                        return (
-                            <BentoCard
-                                key={slot.layoutClass}
-                                service={service}
-                                theme={slot.theme}
-                                pattern={slot.pattern}
-                                layoutClass={slot.layoutClass}
-                                visual={slot.visual}
-                            />
-                        );
-                    })}
+                    {renderBentoSlot(1)}
 
                     {/* Right — merged tall card (White-Label + Integrations) */}
                     <BentoCardMerged />
 
                     {/* ROW 2 — tall left */}
-                    {BENTO_SLOTS.slice(2, 3).map((slot) => {
-                        const service = allServicesData[slot.serviceIndex];
-                        if (!service) return null;
-                        return (
-                            <BentoCard
-                                key={slot.layoutClass}
-                                service={service}
-                                theme={slot.theme}
-                                pattern={slot.pattern}
-                                layoutClass={slot.layoutClass}
-                                visual={slot.visual}
-                            />
-                        );
-                    })}
+                    {renderBentoSlot(2)}
 
                     {/* Center bottom — Everything in One Place (row 2) */}
                     <div className="card card-center pattern-hex r2-center-bottom">
@@ -493,32 +467,13 @@ function ServiceSection({ showAll = false }: ServiceSectionProps) {
                     })}
 
                     {/* ROW 4 — r4-a exactly under r2-left (same 4 col width), then wide merged card */}
-                    {BENTO_SLOTS.slice(5, 6).map((slot) => {
-                        const service = allServicesData[slot.serviceIndex];
-                        if (!service) return null;
-                        return (
-                            <BentoCard
-                                key={slot.layoutClass}
-                                service={service}
-                                theme={slot.theme}
-                                pattern={slot.pattern}
-                                layoutClass={slot.layoutClass}
-                                visual={slot.visual}
-                            />
-                        );
-                    })}
+                    {renderBentoSlot(5)}
                     <BentoCardWide />
 
                     {/* ROW 5 — Banner */}
                     <div className="card theme-warm pattern-hex r5-banner card-banner">
-                        <div
-                            className="glow-orb"
-                            style={{ width: 200, height: 200, background: "#d97706", top: -60, left: -60, opacity: 0.12 }}
-                        />
-                        <div
-                            className="glow-orb"
-                            style={{ width: 180, height: 180, background: "#4a6cf7", bottom: -50, right: -50, opacity: 0.1 }}
-                        />
+                        <div className="glow-orb glow-orb-banner-left" />
+                        <div className="glow-orb glow-orb-banner-right" />
                         <div className="card-banner-content">
                             <h3>Need a custom solution?</h3>
                             <p>Let&apos;s create a strategy tailored for your business.</p>

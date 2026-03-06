@@ -13,14 +13,13 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
-  // Compression & Performance
+  // Compression & Performance (gzip via compress; cache via headers below)
   compress: true,
   poweredByHeader: false,
 
-  // Image optimization
+  // Image optimization: WebP/AVIF, long cache (quality set per Image via quality={85})
   images: {
     formats: ['image/webp', 'image/avif'],
-    qualities: [75, 100],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year cache

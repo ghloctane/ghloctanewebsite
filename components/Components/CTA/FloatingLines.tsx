@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Scene,
   OrthographicCamera,
@@ -283,17 +283,13 @@ export default function FloatingLines({
   const rafRef = useRef(null);
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
-  
-  // ✅ Mobile detection
-  const isMobile = useMemo(() => {
-    if (typeof window === 'undefined') return false;
-    return window.innerWidth <= 767;
-  }, []);
 
-  // ✅ Disable on mobile unless enableOnMobile is true
-  if (isMobile && !enableOnMobile) {
-    return null;
-  }
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 767;
+    setShouldRender(!isMobile || enableOnMobile);
+  }, [enableOnMobile]);
 
   const getLineCount = waveType => {
     if (typeof lineCount === 'number') return lineCount;
@@ -318,7 +314,7 @@ export default function FloatingLines({
   const bottomLineDistance = enabledWaves.includes('bottom') ? getLineDistance('bottom') * 0.01 : 0.01;
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!shouldRender || !containerRef.current) return;
 
     const scene = new Scene();
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -464,7 +460,7 @@ export default function FloatingLines({
       }
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false;
-      }, 100); // Reduced timeout for better responsiveness
+      }, 150);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -534,8 +530,11 @@ export default function FloatingLines({
     bendStrength,
     mouseDamping,
     parallax,
-    parallaxStrength
+    parallaxStrength,
+    shouldRender
   ]);
+
+  if (!shouldRender) return null;
 
   return (
     <div

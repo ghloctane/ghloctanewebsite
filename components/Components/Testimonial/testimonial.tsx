@@ -5,49 +5,48 @@ import TestimonialCard from "../Card/TestimonialCard";
 import CounterOnScroll from "../Hooks/CounterOnScroll";
 import { FaPlay, FaCircle } from "react-icons/fa";
 
-const TestimonialSection = () => {
-    // Original video testimonials only - Using Vimeo embeds
-    const videoTestimonials = [
-        {
-            id: 1,
-            videoId: "https://player.vimeo.com/video/1151987657?autoplay=1&title=0&byline=0&portrait=0",
-            thumbnail: "/assets/testimonials/rathna.png",
-            name: "Rathna Rama krishna",
-            designation: "RemodelerDigital CEO",
-            text: "Zeeshan Haider is an expert GoHighLevel specialist with exceptional skills in workflows, landing pages, graphic design, and integrations, making complex setups feel easy. His calm, friendly nature, availability across time zones, and genuine enthusiasm to help make him a reliable go-to tech partner and a true secret weapon.",
-            isVimeo: true
-        },
-        {
-            id: 2,
-            videoId: "https://player.vimeo.com/video/1151987917?autoplay=1&title=0&byline=0&portrait=0",
-            thumbnail: "/assets/testimonials/marwyn.png",
-            name: "Marwyn",
-            designation: "15xmybusiness CEO",
-            text: "Hello everyone, this is Marwyn, the CEO of 15x Business Solutions, the 15x Business Hacker King. Would like to give a shout out to Zeeshan. If I could give Zeeshan 100 star reviews, I'll give Zeeshan 100 star reviews",
-            isVimeo: true
-        },
-        {
-            id: 3,
-            videoId: "https://player.vimeo.com/video/1151988060?autoplay=1&title=0&byline=0&portrait=0",
-            thumbnail: "/assets/testimonials/Michael Sean.png",
-            name: "Michael Chen",
-            designation: "CEO",
-            text: "Michael Sean highly recommends Zeeshan Haider for anything GoHighLevel, praising his lightning-fast communication and exceptional turnaround time. From automations to graphic design and tools, Zeeshan delivers top-level results and is a go-to expert.",
-            isVimeo: true
-        },
-        {
-            id: 4,
-            videoId: "https://player.vimeo.com/video/1151988217?autoplay=1&title=0&byline=0&portrait=0",
-            thumbnail: "/assets/testimonials/Matt.png",
-            name: "Matt",
-            designation: "CEO",
-            text: "Matt highly recommends Zeeshan and his team for GoHighLevel, praising their expertise in setting up accounts, workflows, and custom solutions. Zeeshan is always available, responsive, and a reliable partner for anything related to HighLevel.",
-            isVimeo: true
-        }
-    ];
+// Original video testimonials only - Using Vimeo embeds
+const videoTestimonials = [
+    {
+        id: 1,
+        videoId: "https://player.vimeo.com/video/1151987657?autoplay=1&title=0&byline=0&portrait=0",
+        thumbnail: "/assets/testimonials/rathna.png",
+        name: "Rathna Rama krishna",
+        designation: "RemodelerDigital CEO",
+        text: "Zeeshan Haider is an expert GoHighLevel specialist with exceptional skills in workflows, landing pages, graphic design, and integrations, making complex setups feel easy. His calm, friendly nature, availability across time zones, and genuine enthusiasm to help make him a reliable go-to tech partner and a true secret weapon.",
+        isVimeo: true
+    },
+    {
+        id: 2,
+        videoId: "https://player.vimeo.com/video/1151987917?autoplay=1&title=0&byline=0&portrait=0",
+        thumbnail: "/assets/testimonials/marwyn.png",
+        name: "Marwyn",
+        designation: "15xmybusiness CEO",
+        text: "Hello everyone, this is Marwyn, the CEO of 15x Business Solutions, the 15x Business Hacker King. Would like to give a shout out to Zeeshan. If I could give Zeeshan 100 star reviews, I'll give Zeeshan 100 star reviews",
+        isVimeo: true
+    },
+    {
+        id: 3,
+        videoId: "https://player.vimeo.com/video/1151988060?autoplay=1&title=0&byline=0&portrait=0",
+        thumbnail: "/assets/testimonials/Michael Sean.png",
+        name: "Michael Chen",
+        designation: "CEO",
+        text: "Michael Sean highly recommends Zeeshan Haider for anything GoHighLevel, praising his lightning-fast communication and exceptional turnaround time. From automations to graphic design and tools, Zeeshan delivers top-level results and is a go-to expert.",
+        isVimeo: true
+    },
+    {
+        id: 4,
+        videoId: "https://player.vimeo.com/video/1151988217?autoplay=1&title=0&byline=0&portrait=0",
+        thumbnail: "/assets/testimonials/Matt.png",
+        name: "Matt",
+        designation: "CEO",
+        text: "Matt highly recommends Zeeshan and his team for GoHighLevel, praising their expertise in setting up accounts, workflows, and custom solutions. Zeeshan is always available, responsive, and a reliable partner for anything related to HighLevel.",
+        isVimeo: true
+    }
+];
 
+const TestimonialSection = () => {
     const [selectedVideo, setSelectedVideo] = useState(videoTestimonials[0]);
-    const [visibleVideos, setVisibleVideos] = useState(5); // Initially show 5 videos
     const [isVideoPlaying, setIsVideoPlaying] = useState(false); // Track if video is playing
     const videoPlayerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
@@ -55,12 +54,26 @@ const TestimonialSection = () => {
 
     // Check if mobile viewport
     useEffect(() => {
+        let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
         const checkMobile = () => {
             setIsMobile(window.innerWidth <= 767);
         };
+        const handleResize = () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            timeoutId = setTimeout(checkMobile, 150);
+        };
+
         checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        window.addEventListener('resize', handleResize);
+        return () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     // Scroll to video player on mobile ONLY when user clicks a video (not on initial load)
@@ -84,19 +97,9 @@ const TestimonialSection = () => {
                             <div className="testimonial-header-wrapper">
                                 <div className="card card-testimonial-reviewer">
                                     <div className="testimonial-video-list-container">
-                                        <div
-                                            className="testimonial-video-list"
-                                            onScroll={(e) => {
-                                                const element = e.target as HTMLElement;
-                                                const scrollBottom = element.scrollHeight - element.scrollTop - element.clientHeight;
-                                                // Load more videos when near bottom
-                                                if (scrollBottom < 50 && visibleVideos < videoTestimonials.length) {
-                                                    setVisibleVideos(prev => Math.min(prev + 2, videoTestimonials.length));
-                                                }
-                                            }}
-                                        >
+                                        <div className="testimonial-video-list">
                                             <div className="testimonial-video-scroll">
-                                                {videoTestimonials.slice(0, visibleVideos).map((video) => (
+                                                {videoTestimonials.map((video) => (
                                                     <div
                                                         key={video.id}
                                                         className={`testimonial-video-item ${selectedVideo.id === video.id ? 'active' : ''}`}
@@ -223,8 +226,8 @@ const TestimonialSection = () => {
 
                     {/* Text Testimonials - Fixed 3 Cards (No Carousel) */}
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        {testimonials.slice(0, 3).map((item, index) => (
-                            <div key={`testimonial-${index}`} className="col">
+                        {testimonials.slice(0, 3).map((item) => (
+                            <div key={item.id} className="col">
                                 <TestimonialCard {...item} />
                             </div>
                         ))}

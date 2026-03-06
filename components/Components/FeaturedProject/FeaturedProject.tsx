@@ -29,12 +29,8 @@ const FeaturedProjectSection = () => {
 
                         <div className="d-flex flex-column gspace-2">
                             <div className="d-flex flex-column flex-lg-row gspace-2">
-                                <div 
-                                    className="card case-studies-content featured-project-card" 
-                                    style={{
-                                        backgroundImage: 'url(/assets/images/octendr.webp)', 
-                                        width: '100%'
-                                    }}
+                                <div
+                                    className="card case-studies-content featured-project-card"
                                 >
                                 </div>
                             </div>

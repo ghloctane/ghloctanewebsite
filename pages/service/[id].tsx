@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { GetStaticPaths, GetStaticProps } from "next";
 import BannerInnerSection from "../../components/Components/Banner/Inner";
 import { allServicesData } from "../../components/Data/AllServicesData";
@@ -127,11 +128,14 @@ export default function ServiceDetailPage({ service, serviceImage }: ServiceDeta
               ) : (
                 // Other Services - Original Images
                 <div className="service-detail-image-container">
-                  <img
+                  <Image
                     src={serviceImage}
                     alt={service.title}
+                    width={800}
+                    height={500}
+                    quality={85}
                     className="service-detail-image"
-                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 800px"
                   />
                 </div>
               )}

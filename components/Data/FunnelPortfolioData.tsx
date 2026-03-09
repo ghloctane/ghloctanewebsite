@@ -31,16 +31,11 @@ export const funnelPortfolio = [
     },
     {
         id: 7,
-        title: "Course Funnel",
-        image: "/assets/images/funnel7.webp",
-    },
-    {
-        id: 8,
         title: "Coaching Funnel",
         image: "/assets/images/funnel8.webp",
     },
     {
-        id: 9,
+        id: 8,
         title: "Agency Funnel",
         image: "/assets/images/funnel9.webp",
     },

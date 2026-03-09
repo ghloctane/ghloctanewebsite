@@ -3,7 +3,6 @@ import HeadTitle from "../components/Components/Head/HeadTitle";
 import SEOHead from "../components/Components/Head/SEOHead";
 import BannerInnerSection from "../components/Components/Banner/Inner";
 import AboutSection from "../components/Components/About/about";
-import PartnershipSection from "../components/Components/Partnership/Partnership";
 
 // Below-the-fold components — dynamically loaded with SSR
 const OurImpact = dynamic(() => import("../components/Components/Impact/OurImpact"));
@@ -11,6 +10,7 @@ const ChooseUsAboutSection = dynamic(() => import("../components/Components/Choo
 const GuideBannerSection = dynamic(() => import("../components/Components/Banner/guide"));
 const ModalVideoSection = dynamic(() => import("../components/Components/Video/video"));
 const DigitalProcessSection = dynamic(() => import("../components/Components/DigitalProcess/digitalstep"));
+const PartnershipSection = dynamic(() => import("../components/Components/Partnership/PartnershipSection"));
 const TestimonialSection = dynamic(() => import("../components/Components/Testimonial/testimonial"));
 
 export default function AboutPage() {
@@ -24,12 +24,12 @@ export default function AboutPage() {
       <HeadTitle title="About - GHL Octane - GoHighLevel Solutions" />
       <BannerInnerSection title="About GHL Octane" currentPage="About Us" />
       <AboutSection />
-      <PartnershipSection />
       <OurImpact />
       <ChooseUsAboutSection />
       <GuideBannerSection />
       <ModalVideoSection />
       <DigitalProcessSection />
+      <PartnershipSection />
       <TestimonialSection />
     </>
   );

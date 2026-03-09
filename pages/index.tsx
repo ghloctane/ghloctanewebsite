@@ -5,7 +5,6 @@ import BannerHomeSection from "../components/Components/Banner";
 
 // Critical above-the-fold components (loaded immediately, SSR'd)
 import ExpertiseSection from "../components/Components/Expertise/expertise";
-import PartnershipSection from "../components/Components/Partnership/Partnership";
 
 // Below-the-fold components — next/dynamic for proper SSR + code splitting
 const ChooseUsSection = dynamic(() => import("../components/Components/ChooseUs/choose"));
@@ -14,12 +13,12 @@ const ModalVideoSection = dynamic(() => import("../components/Components/Video/v
 const ServiceSection = dynamic(() => import("../components/Components/Services/service"));
 const FunnelPortfolioSection = dynamic(() => import("../components/Components/FunnelPortfolio/FunnelPortfolio"));
 const FeaturedProjectSection = dynamic(() => import("../components/Components/FeaturedProject/FeaturedProject"));
-const CustomizedDashboardsSection = dynamic(() => import("../components/Components/CustomizedDashboards/CustomizedDashboards"));
 const WebsiteShowcase = dynamic(() => import("../components/Components/WebsiteShowcase/WebsiteShowcase"));
 const TestimonialSection = dynamic(() => import("../components/Components/Testimonial/testimonial"));
 const DigitalProcessSection = dynamic(() => import("../components/Components/DigitalProcess/digitalstep"));
 const PricingPlanSection = dynamic(() => import("../components/Components/Pricing/Pricing"));
 const IntegrationsSection = dynamic(() => import("../components/Components/Integrations/IntegrationsSection"));
+const PartnershipSection = dynamic(() => import("../components/Components/Partnership/PartnershipSection"));
 const CTASection = dynamic(() => import("../components/Components/CTA/CTASection"));
 
 export default function HomePage() {
@@ -38,9 +37,8 @@ export default function HomePage() {
       <GuideBannerSection />
       <ModalVideoSection />
       <ServiceSection showAll={false} />
-      <FunnelPortfolioSection limit={3} showViewMore={true} />
+      <FunnelPortfolioSection limit={null} showViewMore={true} />
       <FeaturedProjectSection />
-      <CustomizedDashboardsSection />
       <TestimonialSection />
       <WebsiteShowcase />
       <DigitalProcessSection />

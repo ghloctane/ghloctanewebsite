@@ -1,5 +1,31 @@
 import type { AppProps } from 'next/app';
+import React from 'react';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+
+// Error boundary so a crash shows a message instead of white screen
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: Error, info: React.ErrorInfo) {
+    console.error('App error:', error, info.componentStack);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 24, fontFamily: 'sans-serif', maxWidth: 600 }}>
+          <h2>Something went wrong</h2>
+          <p>Check the browser console for details. Refresh the page to try again.</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 // CSS imports — loaded via JS bundle (non-render-blocking)
 import '../public/assets/css/vendor/bootstrap-essential.css';
@@ -35,17 +61,19 @@ const jakarta = Plus_Jakarta_Sans({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NavProvider>
-      <ModalVideoProvider>
-        <div className={jakarta.variable}>
-          <Navbar />
-          <Sidebar />
-          <Component {...pageProps} />
-          <Footer />
-          <ScrollToTop />
-        </div>
-      </ModalVideoProvider>
-    </NavProvider>
+    <ErrorBoundary>
+      <NavProvider>
+        <ModalVideoProvider>
+<div className={jakarta.variable}>
+            <Navbar />
+            <Sidebar />
+            <Component {...pageProps} />
+            <Footer />
+            <ScrollToTop />
+          </div>
+        </ModalVideoProvider>
+      </NavProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "../Form/ContactForm";
+import AnimatedButton from "../Button/AnimatedButton";
 
 const ContactSection = () => {
   return (
@@ -27,7 +28,7 @@ const ContactSection = () => {
                                 </div>
                                 <div className="d-grid">
                                     <span>Phone Number</span>
-                                    <h5>+1 (62) 987 7543</h5>
+                                    <h5>+1 385 390 5354</h5>
                                 </div>
                             </div>
                             <div className="d-flex flex-column flex-md-row align-items-center text-md-start text-center gspace-2">
@@ -43,17 +44,8 @@ const ContactSection = () => {
                                     <h5>info@ghloctane.com</h5>
                                 </div>
                             </div>
-                            <div className="d-flex flex-column flex-md-row align-items-center text-md-start text-center gspace-2">
-                                <div>
-                                    <div className="icon-wrapper">
-                                        <div className="icon-box">
-                                            <i className="fa-solid fa-location-dot accent-color"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="d-grid">
-                                    <span>Office Address</span>
-                                </div>
+                            <div className="contact-title-cta">
+                                <AnimatedButton href="/book-a-call">Book a Call</AnimatedButton>
                             </div>
                         </div>
                     </div>

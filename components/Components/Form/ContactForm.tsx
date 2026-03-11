@@ -1,27 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Script from "next/script";
 
 const ContactForm = () => {
-  useEffect(() => {
-    // Load the form embed script
-    const script = document.createElement('script');
-    script.src = 'https://link.msgsndr.com/js/form_embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
-    <div className="form-layout-wrapper">
-        <div className="card form-layout">
+    <>
+      <style>{`
+        .form-layout-wrapper.form-layout-plain { background: none; padding: 0; align-items: stretch; }
+        .form-layout-wrapper.form-layout-plain::before { display: none; }
+        .form-layout-wrapper.form-layout-plain .title-heading { margin-bottom: 20px; }
+      `}</style>
+      <Script
+        src="https://link.msgsndr.com/js/form_embed.js"
+        strategy="beforeInteractive"
+      />
+      <div className="form-layout-wrapper form-layout-plain">
             <h3 className="title-heading">Let's Talk About Your Next Project</h3>
             
-            <div className="contact-form-iframe-wrapper">
+            <div className="contact-form-iframe-wrapper" style={{ minHeight: 588 }}>
                 <iframe
                     src="https://api.leadconnectorhq.com/widget/form/ccMDJ3sn0lGFo8DB5DqJ"
                     style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
@@ -40,8 +35,8 @@ const ContactForm = () => {
                     title="Contact form-Ghl Octane "
                 />
             </div>
-        </div>
-    </div>
+      </div>
+    </>
   );
 };
 

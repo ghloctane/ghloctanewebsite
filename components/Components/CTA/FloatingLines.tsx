@@ -283,6 +283,7 @@ export default function FloatingLines({
   const rafRef = useRef(null);
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
+  const isVisibleRef = useRef(false);
 
   const [shouldRender, setShouldRender] = useState(false);
 
@@ -460,14 +461,29 @@ export default function FloatingLines({
       }
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false;
-      }, 150);
+      }, 300);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
+    // ✅ Only animate when visible in viewport (IntersectionObserver)
+    const visibilityObserver = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver(
+          (entries) => {
+            isVisibleRef.current = entries[0]?.isIntersecting ?? false;
+          },
+          { threshold: 0.0 }
+        )
+      : null;
+
+    if (visibilityObserver && containerRef.current) {
+      visibilityObserver.observe(containerRef.current);
+      isVisibleRef.current = true; // assume visible initially
+    }
+
     const renderLoop = () => {
-      // ✅ Pause animation during scroll
-      if (!isScrollingRef.current) {
+      // ✅ Skip rendering when not visible or scrolling
+      if (isVisibleRef.current && !isScrollingRef.current) {
         uniforms.iTime.value = clock.getElapsedTime();
 
         if (interactive) {
@@ -501,6 +517,10 @@ export default function FloatingLines({
       // eslint-disable-next-line react-hooks/exhaustive-deps
       if (ro && containerRef.current) {
         ro.disconnect();
+      }
+
+      if (visibilityObserver) {
+        visibilityObserver.disconnect();
       }
 
       if (interactive) {

@@ -61,6 +61,7 @@
     flex-wrap: nowrap;
     animation: scroll var(--_animation-duration, 40s)
         var(--_animation-direction, forwards) linear infinite;
+    will-change: transform;
 }
 
 .scroller[data-direction="right"] {
@@ -93,7 +94,7 @@
     object-fit: contain;
     filter: none;
     opacity: 1;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .integration-logo:hover {

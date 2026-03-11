@@ -19,6 +19,7 @@ const DigitalProcessSection = dynamic(() => import("../components/Components/Dig
 const PricingPlanSection = dynamic(() => import("../components/Components/Pricing/Pricing"));
 const IntegrationsSection = dynamic(() => import("../components/Components/Integrations/IntegrationsSection"));
 const PartnershipSection = dynamic(() => import("../components/Components/Partnership/PartnershipSection"));
+const ContactHomeSection = dynamic(() => import("../components/Components/Contact/ContactHomeSection"));
 const CTASection = dynamic(() => import("../components/Components/CTA/CTASection"));
 
 export default function HomePage() {
@@ -44,6 +45,7 @@ export default function HomePage() {
       <DigitalProcessSection />
       <PricingPlanSection />
       <IntegrationsSection />
+      <ContactHomeSection />
       <CTASection />
     </>
   );

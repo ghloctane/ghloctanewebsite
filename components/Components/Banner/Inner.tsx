@@ -9,10 +9,10 @@ const BannerInnerSection = ({ title, currentPage }) => {
                         <h2 className="title-heading">
                             {title}
                         </h2>
-                        <nav className="breadcrumb">
-                            <a href="/" className="gspace-2">Home</a>
-                            <span className="separator-link">/</span>
-                            <p className="current-page">{currentPage}</p>
+                        <nav className="breadcrumb breadcrumb-modern" aria-label="Breadcrumb">
+                            <a href="/">Home</a>
+                            <span className="breadcrumb-sep">›</span>
+                            <span className="breadcrumb-current">{currentPage}</span>
                         </nav>
                     </div>
                     <div className="spacer"></div>

@@ -16,8 +16,20 @@ function useColumns(items: FunnelItem[]) {
     return useMemo(() => {
         const cols: FunnelItem[][] = [[], [], [], []];
         items.forEach((item, i) => cols[i % 4].push(item));
-        // Duplicate each column for seamless infinite scroll
-        return cols.map((col) => [...col, ...col]);
+        
+        // Ensure each base column is tall enough to prevent empty spaces.
+        // A single item is ~414px. We need the base column to be at least ~1500px, 
+        // so we need at least 4 items per base column.
+        const expandedCols = cols.map(col => {
+            let baseCol = [...col];
+            while (baseCol.length < 4) {
+                baseCol = [...baseCol, ...col];
+            }
+            return baseCol;
+        });
+
+        // Duplicate each base column exactly once for the -50% translation loop
+        return expandedCols.map((col) => [...col, ...col]);
     }, [items]);
 }
 
@@ -98,7 +110,7 @@ function FunnelPortfolioSection({
     flex-direction: column;
     min-height: 65vh;
   }
-  .fp-wrap.standalone { min-height: 100vh; }
+  .fp-wrap.standalone { min-height: 85vh; }
 
   /* ── HEADER ── */
   .fp-header {
@@ -134,7 +146,7 @@ function FunnelPortfolioSection({
     mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
   }
-  .fp-wrap.standalone .fp-stage { max-height: none; height: 88vh; }
+  .fp-wrap.standalone .fp-stage { max-height: 780px; height: 75vh; }
   .fp-stage-inner { max-width: 1280px; width: 100%; height: 100%; margin: 0 auto; }
 
   /* ── GRID ── */
@@ -185,6 +197,7 @@ function FunnelPortfolioSection({
     border: 1px solid rgba(0, 0, 0, .08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
     aspect-ratio: 9 / 14;
+    height: 400px;
     width: 100%;
     transition:
       transform  .4s cubic-bezier(.34, 1.3, .64, 1),

@@ -2,7 +2,7 @@
 import bundleAnalyzer from '@next/bundle-analyzer';
 
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === 'true'
 });
 
 const nextConfig = {
@@ -17,7 +17,7 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
 
-  // Image optimization: WebP/AVIF, long cache (quality set per Image via quality={85})
+  // Image optimization: WebP/AVIF, long cache (quality set per Image via quality={75})
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

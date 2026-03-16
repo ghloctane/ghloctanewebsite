@@ -5,6 +5,12 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Preconnect & DNS Prefetch for performance */}
+        <link rel="preconnect" href="https://stcdn.leadconnectorhq.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://stcdn.leadconnectorhq.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+
         {/* Primary SEO Meta Tags */}
         <meta name="title" content="GHL Octane - Professional GoHighLevel Solutions for Agencies & Businesses" />
         <meta name="description" content="GHL Octane provides professional GoHighLevel (GHL) solutions including CRM setup, automation workflows, funnel design, white-label agency builds, and marketing automation. Transform your business with expert GHL implementation." />
@@ -16,7 +22,7 @@ export default function Document() {
         <meta name="theme-color" content="#27428c" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://ghloctane.com/" />
+        <link rel="canonical" href="https://www.ghloctane.com/" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -69,10 +75,6 @@ export default function Document() {
           }}
         />
 
-        {/* DNS Prefetch for external resources */}
-        <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
-        <link rel="dns-prefetch" href="https://link.msgsndr.com" />
-
         {/* Favicon */}
         <link rel="icon" href="/assets/images/favicon.ico" />
       </Head>
@@ -82,7 +84,7 @@ export default function Document() {
         
         <Script 
            src="https://api.leadconnectorhq.com/widget/script.js" 
-           strategy="afterInteractive" 
+           strategy="lazyOnload" 
         />
         
         <Script id="facebook-pixel" strategy="afterInteractive">

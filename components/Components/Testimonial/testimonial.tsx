@@ -116,7 +116,7 @@ const TestimonialSection = () => {
                                                             </div>
                                                         </div>
                                                         <div className="testimonial-video-info">
-                                                            <h6 className="testimonial-video-name">{video.name}</h6>
+                                                            <div className="testimonial-video-name h6-font" style={{fontSize: '14px', fontWeight: 600, marginBottom: '2px', color: '#fff'}}>{video.name}</div>
                                                             <span className="testimonial-video-designation">{video.designation}</span>
                                                         </div>
                                                     </div>
@@ -128,8 +128,8 @@ const TestimonialSection = () => {
                                                 <div className="d-flex flex-column flex-md-row flex-lg-column justify-content-between gspace-3">
                                                     <div className="testimonial-reviewer">
                                                         <div className="detail">
-                                                            <h6>2.7k Positive</h6>
-                                                            <h6>Reviews</h6>
+                                                            <div className="h6 mb-0" style={{color: '#fff', fontSize: '1rem', fontWeight: 600}}>2.7k Positive</div>
+                                                            <div className="h6 mb-0" style={{color: '#fff', fontSize: '1rem', fontWeight: 600}}>Reviews</div>
                                                         </div>
                                                     </div>
                                                     <div className="testimonial-rating-container">
@@ -215,7 +215,7 @@ const TestimonialSection = () => {
                                         )}
                                     </div>
                                     <div className="testimonial-video-player-info">
-                                        <h5>{selectedVideo.name}</h5>
+                                        <h3 className="h5 mb-1" style={{color: '#fff', fontSize: '1.25rem'}}>{selectedVideo.name}</h3>
                                         <span>{selectedVideo.designation}</span>
                                         <p>{selectedVideo.text}</p>
                                     </div>

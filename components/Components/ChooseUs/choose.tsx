@@ -40,7 +40,7 @@ function ChooseUsSection() {
                                             <div className="chooseus-cta-spacer"></div>
                                             <div className="card-chooseus-cta-wrapper">
                                                 <div className="card card-chooseus-cta">
-                                                    <h5>Transform your business with smart GoHighLevel automation.</h5>
+                                                    <h3 className="h5">Transform your business with smart GoHighLevel automation.</h3>
                                                     <div className="link-wrapper">
                                                         <a href="./contact">Start Automating Today</a>
                                                         <i className="fa-solid fa-circle-arrow-right"></i>

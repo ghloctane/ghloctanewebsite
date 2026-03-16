@@ -10,7 +10,7 @@ function VideoButton({ videoUrl }: VideoButtonProps) {
   const { openModal } = useModalVideo();
 
   return (
-    <button className="request-loader" onClick={() => openModal(videoUrl)}>
+    <button className="request-loader" onClick={() => openModal(videoUrl)} aria-label="Play video">
         <FaPlay />
     </button>
   );

@@ -21,9 +21,6 @@ export default function Document() {
         <meta name="revisit-after" content="7 days" />
         <meta name="theme-color" content="#27428c" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://www.ghloctane.com/" />
-
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ghloctane.com/" />

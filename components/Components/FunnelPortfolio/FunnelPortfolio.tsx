@@ -368,6 +368,7 @@ function FunnelPortfolioSection({
                 onClick={(e) => e.target === e.currentTarget && closeFs()}
                 role="dialog"
                 aria-modal="true"
+                aria-label="Portfolio Item Preview"
             >
                 <div className="fp-fs-orb1" />
                 <div className="fp-fs-orb2" />

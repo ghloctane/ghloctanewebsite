@@ -76,7 +76,7 @@ function Sidebar() {
                 <li className="sidebar-dropdown">
                     <div className="dropdown-header">
                         <a href="#">Resources</a>
-                    <button className="sidebar-dropdown-btn">
+                    <button className="sidebar-dropdown-btn" aria-label="Toggle resources dropdown">
                         <i className="fa-solid fa-angle-down"></i>
                     </button>
                     </div>

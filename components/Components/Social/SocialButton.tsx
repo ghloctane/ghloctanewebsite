@@ -27,14 +27,17 @@ const SocialButton = ({ href, icon, platform = 'twitter' }) => {
   };
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="social-button-wrapper">
-      <button className="social-button">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="social-button-wrapper" aria-label={`Visit our ${platform} profile`}>
+      <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', borderWidth: 0 }}>
+        Visit our {platform} profile
+      </span>
+      <button className="social-button" aria-label={`${platform} social button`} tabIndex={-1}>
         <div className="bloom-container">
           <div className="button-container-main">
             <div className="button-inner">
               <div className="back" />
               <div className="front">
-                <svg xmlns="http://www.w3.org/2000/svg" className="svg" viewBox="0 0 512 512">
+                <svg xmlns="http://www.w3.org/2000/svg" className="svg" viewBox="0 0 512 512" aria-hidden="true">
                   {getIcon()}
                 </svg>
               </div>

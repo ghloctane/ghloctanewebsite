@@ -8,7 +8,7 @@ const SEOHead = ({
     image = "/assets/images/GHL Octane Final.webp"
 }) => {
     const router = useRouter();
-    const baseUrl = "https://ghloctane.com";
+    const baseUrl = "https://www.ghloctane.com";
     const fullUrl = `${baseUrl}${router.pathname}`;
     const imageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
 

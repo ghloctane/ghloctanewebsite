@@ -65,13 +65,13 @@ function BentoCardWide() {
                         <div className="icon"><i className={s1.icon} /></div>
                         <h3>{s1.title}</h3>
                         <p>{s1.cardDescription}</p>
-                        <Link href={`/service/${s1.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                        <Link href={`/service/${s1.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s1.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                     </div>
                     <div className="merged-wide-block">
                         <div className="icon"><i className={s2.icon} /></div>
                         <h3>{s2.title}</h3>
                         <p>{s2.cardDescription}</p>
-                        <Link href={`/service/${s2.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                        <Link href={`/service/${s2.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s2.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                     </div>
                 </div>
             </div>
@@ -93,19 +93,19 @@ function BentoCardSp368Merged() {
                     <div className="icon"><i className={s1.icon} /></div>
                     <h3>{s1.title}</h3>
                     <p>{s1.cardDescription}</p>
-                    <Link href={`/service/${s1.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s1.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s1.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s2.icon} /></div>
                     <h3>{s2.title}</h3>
                     <p>{s2.cardDescription}</p>
-                    <Link href={`/service/${s2.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s2.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s2.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s3.icon} /></div>
                     <h3>{s3.title}</h3>
                     <p>{s3.cardDescription}</p>
-                    <Link href={`/service/${s3.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s3.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s3.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
             </div>
         </div>
@@ -125,13 +125,13 @@ function BentoCardSp4Merged() {
                     <div className="icon"><i className={s1.icon} /></div>
                     <h3>{s1.title}</h3>
                     <p>{s1.cardDescription}</p>
-                    <Link href={`/service/${s1.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s1.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s1.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s2.icon} /></div>
                     <h3>{s2.title}</h3>
                     <p>{s2.cardDescription}</p>
-                    <Link href={`/service/${s2.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s2.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s2.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
             </div>
         </div>
@@ -152,13 +152,13 @@ function BentoCardMergedWideServicesPage() {
                         <div className="icon"><i className={s1.icon} /></div>
                         <h3>{s1.title}</h3>
                         <p>{s1.cardDescription}</p>
-                        <Link href={`/service/${s1.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                        <Link href={`/service/${s1.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s1.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                     </div>
                     <div className="merged-wide-block">
                         <div className="icon"><i className={s2.icon} /></div>
                         <h3>{s2.title}</h3>
                         <p>{s2.cardDescription}</p>
-                        <Link href={`/service/${s2.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                        <Link href={`/service/${s2.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s2.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                     </div>
                 </div>
             </div>
@@ -179,13 +179,13 @@ function BentoCardMerged() {
                     <div className="icon"><i className={s1.icon} /></div>
                     <h3>{s1.title}</h3>
                     <p>{s1.cardDescription}</p>
-                    <Link href={`/service/${s1.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s1.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s1.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
                 <div className="merged-tall-block">
                     <div className="icon"><i className={s2.icon} /></div>
                     <h3>{s2.title}</h3>
                     <p>{s2.cardDescription}</p>
-                    <Link href={`/service/${s2.slug}`} className="link card-link-bottom">See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
+                    <Link href={`/service/${s2.slug}`} className="link card-link-bottom" aria-label={`See more details about ${s2.title}`}>See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} /></Link>
                 </div>
             </div>
         </div>
@@ -217,7 +217,7 @@ function BentoCard({
                     <h3>{service.title}</h3>
                     <div className="card-wide-content">
                         <p className="card-wide-desc">{service.cardDescription}</p>
-                        <Link href={link} className="link card-link-bottom">
+                        <Link href={link} className="link card-link-bottom" aria-label={`See more details about ${service.title}`}>
                             See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} />
                         </Link>
                     </div>
@@ -235,7 +235,7 @@ function BentoCard({
                             <div key={i} className="pipe-stage" />
                         ))}
                     </div>
-                    <Link href={link} className="link card-link-bottom">
+                    <Link href={link} className="link card-link-bottom" aria-label={`See more details about ${service.title}`}>
                         See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} />
                     </Link>
                 </>
@@ -274,7 +274,7 @@ function BentoCard({
                             </ul>
                         </div>
                     )}
-                    <Link href={link} className="link card-link-bottom">
+                    <Link href={link} className="link card-link-bottom" aria-label={`See more details about ${service.title}`}>
                         See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} />
                     </Link>
                 </div>
@@ -316,13 +316,13 @@ function BentoCard({
                             </ul>
                         </div>
                     )}
-                    <Link href={link} className="link card-link-bottom">
+                    <Link href={link} className="link card-link-bottom" aria-label={`See more details about ${service.title}`}>
                         See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} />
                     </Link>
                 </div>
             )}
             {visual !== "stat-bars" && visual !== "pipeline" && visual !== "tall-included" && visual !== "wide" && (
-                <Link href={link} className="link card-link-bottom">
+                <Link href={link} className="link card-link-bottom" aria-label={`See more details about ${service.title}`}>
                     See More <i className="fa-solid fa-arrow-right" style={{ fontSize: 11 }} />
                 </Link>
             )}
